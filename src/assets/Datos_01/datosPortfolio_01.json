@@ -1,0 +1,113 @@
+{
+    "datosHeader": {
+        "nombreApp": "Portfolio Mauricio Vilches",
+        "nombreCompletoAutor": "Salvador Mauricio Vilches Jerez",
+        "tituloAutor": "Full Stack Developer Jr."
+
+    },
+    "quienSoy": {
+        "texto_quien_soy": "Texto quien soy. Texto quien soy. texto quien soy."
+        
+    },
+    "datosPersonales": {
+        "nombre": "Salvador Mauricio",
+        "apellido": "Vilches Jerez",
+        "anioNacimiento": 1972,
+        "Nacionalidad": "Chilena",
+        "ubicacionActual": {
+            "ciudad": "Rada Tilly",
+            "Provincia": "Chubut",
+            "pais": "Argentina"
+        },
+        "email": "salvadorvilches1972@gmail.com"
+    },
+    "informacionProfecional": {
+        "datoInfoProf_01": "Texto información profecional 01",
+        "datoInfoProf_02": "Texto información profecional 02"
+    },
+    "educacion": [
+        {
+            "nombre": "Colegio Técnico: E.P.T. 749",
+            "ciudad": "Comodoro Rivadavia",
+            "provincia": "Chubut",
+            "pais": "Argentina",
+            "estudiosCursados": "Tecnico Electricista con Orientación Electrónica",
+            "periodo": "1985 - 1995"     
+        },
+        {
+            "nombre": "Universidad Nacional de la Patagonia San Juan Bosco",
+            "ciudad": "Comodoro Rivadavia",
+            "provincia": "Chubut",
+            "pais": "Argentina",
+            "estudiosCursados": "Técnico Biologo Universitario - Sin concluir",
+            "periodo": "2001 - 2007"
+        },
+        {
+            "nombre": "Argentina Programa",
+            "ciudad": "-------------------",
+            "provincia": "-----------------",
+            "pais": "Argentina",
+            "estudiosCursados": "Fundamentos de Programación",
+            "periodo": "2022 - 2022"
+        },
+        {
+            "nombre": "Argentina Programa",
+            "ciudad": "-------------------",
+            "provincia": "-----------------",
+            "pais": "Argentina",
+            "estudiosCursados": "Desarrollador Full Stack Junior",
+            "periodo": "2022 - *****"
+        }              
+
+    ],
+    "trabajos": [
+        {
+            "lugarTrabajo": "Datos sobre lugar del trabajo",
+            "ciudad": "ciudad donde se trabajó",
+            "provincia": "provincia donde se trabajó",
+            "pais": "pais donde se trabajó",
+            "ocupacion": "Datos sobre ocupacion en el trabajo",
+            "periodoTrabajo": "0000 - 0000"
+        },
+        {
+            "lugarTrabajo": "Datos sobre lugar del trabajo",
+            "ciudad": "ciudad donde se trabajó",
+            "provincia": "provincia donde se trabajó",
+            "pais": "pais donde se trabajó",
+            "ocupacion": "Datos sobre ocupacion en el trabajo",
+            "periodoTrabajo": "0000 - 0000"
+        },
+        {
+            "lugarTrabajo": "Datos sobre lugar del trabajo",
+            "ciudad": "ciudad donde se trabajó",
+            "provincia": "provincia donde se trabajó",
+            "pais": "pais donde se trabajó",
+            "ocupacion": "Datos sobre ocupacion en el trabajo",
+            "periodoTrabajo": "0000 - 0000"
+        },
+        {
+            "lugarTrabajo": "Datos sobre lugar del trabajo",
+            "ciudad": "ciudad donde se trabajó",
+            "provincia": "provincia donde se trabajó",
+            "pais": "pais donde se trabajó",
+            "ocupacion": "Datos sobre ocupacion en el trabajo",
+            "periodoTrabajo": "0000 - 0000"
+        }
+    ],   
+    
+    "habilidades": [
+        "datos abilidades_01",
+        "datos abilidades_02",
+        "datos abilidades_03",
+        "datos abilidades_04"
+    ],
+    "proyectos": [
+        "datos proyecto_01",
+        "datos proyecto_02",
+        "datos proyecto_03",
+        "datos proyecto_04"
+    ],
+
+    "derechosAutor": "El presente trabajo, está libre de uso y modificación, para fines educativos",
+    "fechaPublicacion": "Diciembre del 2022"
+}

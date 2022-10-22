@@ -1,0 +1,25 @@
+
+ <div class="container-fluid border">
+                                               
+  <div class="row my-3">
+    <div class="col-md-12 text-center my-3 border">
+      <h4>Formación Académica	</h4>								
+    </div>
+    
+    <div class="col-sm-12 col-md-6 col-xl-6 border"
+      *ngFor="let datoEducacion of datosJsonEdu.educacion">
+
+      <h4>Institución: {{datoEducacion.nombre}}</h4>
+      <ul>
+        <li>Ciudad: {{datoEducacion.ciudad}}</li>
+        <li>Provincia: {{datoEducacion.provincia}}</li>
+        <li>Pais: {{datoEducacion.pais}}</li>
+        <li>Estudios Cursados: {{datoEducacion.estudiosCursados}}</li>
+        <li>Periodo: {{datoEducacion.periodo}}</li>
+      </ul>         
+    				
+    </div>          
+   
+  </div>
+ </div>  
+

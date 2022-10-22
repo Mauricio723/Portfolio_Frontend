@@ -1,0 +1,61 @@
+<div class="container-fluid border border-info text-light">
+
+  <div class="row">
+        
+    <div class="col-sm-12 col-md-12  py-3 px-4 border">
+
+      <button type="button" class="btn btn-success" id="boton_quien_soy" 
+        (click)="eventoBotonQuienSoy()">
+        Quien Soy
+      </button>
+
+      <button type="button" class="btn btn-success" id="boton_datos_personales" 
+        (click)="eventoBotonDatosPersonales()">
+        Datos Personales
+      </button>
+
+      <button type="button" class="btn btn-success" id="boton_contacto" 
+        (click)="eventoBotonContacto()">
+        Contacto
+      </button>
+
+      <button type="button" class="btn btn-success" id="boton_info_prof" 
+        (click)="eventoInfoProf()">
+        Información Profecional
+      </button>
+
+      <button type="button" class="btn btn-success" id="boton_info_prof" 
+        (click)="cerrarSeccion()">
+        Cerrar Sección
+      </button>
+    </div>
+
+    <div class="col-sm-12 col-md-12 py-2 border">
+
+      <div *ngIf="botonPresionado==='boton_01'">
+        <p>{{datosJson_01.quienSoy.texto_quien_soy}}</p>
+      </div>
+
+
+      <div *ngIf="botonPresionado==='boton_02'">
+        <p>{{datosJson_01.datosPersonales.nombre}}</p>
+        <p>{{datosJson_01.datosPersonales.apellido}}</p>
+        <p>{{datosJson_01.datosPersonales.fechaNacimiento}}</p>
+        <p>{{datosJson_01.datosPersonales.nacionalidad}}</p>
+        <p>{{datosJson_01.datosPersonales.nombre}}</p>
+      </div>
+
+      <div *ngIf="botonPresionado==='boton_03'">
+        <p>Email: {{datosJson_01.datosPersonales.email}}</p>
+      </div>
+
+      <div *ngIf="botonPresionado==='boton_04'" class="py-2 border">
+        <p> Sección para información profecional</p>
+        <p>{{datosJson_01.informacionProfecional.datoInfoProf_01}}</p>
+        <p>{{datosJson_01.informacionProfecional.datoInfoProf_02}}</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>

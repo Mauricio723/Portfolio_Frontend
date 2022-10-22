@@ -1,0 +1,14 @@
+{    
+   "datosPersonales": {
+      "nombre": "Salvador Mauricio",
+      "fechaNacimiento": "30 de Mayo de 1972",
+      "nacionalidad": "Chilena" 
+   },
+   "quienSoy": {
+      "datoQuienSoy_01": "Dato quien soy 01",
+      "datoQuienSoy_02": "Dato quien soy 02",
+      "datoQuienSoy_03": "Dato quien soy 03"
+   }
+      
+    
+}

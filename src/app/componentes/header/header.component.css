@@ -1,0 +1,13 @@
+.div_foto_01 {			
+    position: absolute;   
+    width: 15%;			
+    z-index: 20;
+}
+.div_cabecera_01 {
+    background-color: #00358e;
+}
+
+.div_titulo_01 {
+    position:absolute;
+    z-index: 20;
+}

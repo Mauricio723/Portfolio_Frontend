@@ -1,0 +1,17 @@
+<div class="container-fluid border">
+
+  <div class="row border bg-dark text-light">
+
+    <div class="col-sm-12 col-md-12 col-xl-12 text-center">
+      <h4>Proyectos</h4>
+    </div>
+
+    <div class="col-sm-12 col-md-6 border" 
+      *ngFor="let infoProyectos of datosJsonProyectos.proyectos">
+
+      <h5>Espacio para Proyectos </h5>
+      <h5>{{infoProyectos}}</h5>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container-fluid border">
+  <div class="row my-3 border">
+
+    <div class="col-sm-12 col-md-12 text-center border">
+      <h4>Experiencia Laboral</h4>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-xl-6 border" 
+      *ngFor="let infoTrabajo of datosJsonTrabajos.trabajos">
+
+      <h4>Lugar Trabajo: {{infoTrabajo.lugarTrabajo}}</h4>
+
+      <ul>
+        <li>{{infoTrabajo.ciudad}}</li>
+        <li>{{infoTrabajo.provincia}}</li>
+        <li>{{infoTrabajo.pais}}</li>
+        <li>{{infoTrabajo.ocupacion}}</li>
+        <li>{{infoTrabajo.periodoTrabajo}}</li>
+      </ul>
+    </div>
+
+
+  </div>
+</div>
