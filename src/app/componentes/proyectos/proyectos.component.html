@@ -5,13 +5,14 @@
     <div class="col-sm-12 col-md-12 col-xl-12 text-center">
       <h4>Proyectos</h4>
     </div>
-
+    
     <div class="col-sm-12 col-md-6 border" 
-      *ngFor="let infoProyectos of datosJsonProyectos.proyectos">
+      *ngFor="let proyecto of datosProyectos.listaProyectos">
+      
+      <h5>Nombre Proyecto: {{proyecto.nombre}}</h5>
+      <h5>Descripción Proyecto: {{proyecto.descripcion}}</h5>
 
-      <h5>Espacio para Proyectos </h5>
-      <h5>{{infoProyectos}}</h5>
+    </div>   
 
-    </div>
   </div>
 </div>

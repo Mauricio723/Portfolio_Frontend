@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -10,14 +10,20 @@ export class AptitudesComponent implements OnInit {
 
   datosJsonAptitudes: any;
 
-  constructor(private servicioPortfolio: PortfolioService) { }
+  @Input() datosAptitudes : any;
+  
+  constructor() { }
 
+  // Inyección servicio constructor: 
+  // private servicioPortfolio: PortfolioService
+  
   ngOnInit(): void {
+    /*
     this.servicioPortfolio.obtenerDatos_01().subscribe(
       datosAptitudes => {
         this.datosJsonAptitudes= datosAptitudes;
       }
-    );
+    );  */
   }
 
 }

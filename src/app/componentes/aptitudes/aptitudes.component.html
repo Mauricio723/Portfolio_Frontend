@@ -4,17 +4,16 @@
 
     <div class="col-sm-12 col-md-12 col-xl-12 text-center">
       <h4>Aptitudes: Hard & Soft Skills</h4>
-    </div>
+    </div>     
 
-    <div class="col-sm-12 col-md-6 col-xl-6  border"
-      *ngFor="let aptitudes of datosJsonAptitudes.habilidades">
+    <div class="col-sm-12 col-md-6 col-xl-6 border" 
+      *ngFor="let aptitud of datosAptitudes.listaAptitudes">     
 
-      <h5>Espacio para Hard & Soft Skills</h5>
-
-      <h5>{{aptitudes}}</h5>
-    
+      <h5> Nombre Aptitud: {{aptitud.nombre}} </h5>
       
-    </div>   
+      <h5>Descripción Aptitud: {{aptitud.descripcion}} </h5>      
+      
+    </div> 
     
   </div>
 

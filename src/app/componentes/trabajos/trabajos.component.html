@@ -3,22 +3,21 @@
 
     <div class="col-sm-12 col-md-12 text-center border">
       <h4>Experiencia Laboral</h4>
-    </div>
-
+    </div>   
+    
     <div class="col-sm-12 col-md-6 col-xl-6 border" 
-      *ngFor="let infoTrabajo of datosJsonTrabajos.trabajos">
-
-      <h4>Lugar Trabajo: {{infoTrabajo.lugarTrabajo}}</h4>
+      *ngFor="let infoTrabajo of datosTrabajos.listaTrabajos">     
 
       <ul>
-        <li>{{infoTrabajo.ciudad}}</li>
-        <li>{{infoTrabajo.provincia}}</li>
-        <li>{{infoTrabajo.pais}}</li>
-        <li>{{infoTrabajo.ocupacion}}</li>
-        <li>{{infoTrabajo.periodoTrabajo}}</li>
+        <li>Nombre Empresa: {{infoTrabajo.nombreEmpresa}}>
+        <li>Puesto Laboral: {{infoTrabajo.puestoLaboral}}</li>
+        <li>Año Inicio: {{infoTrabajo.anioInicio}}</li>
+        <li>Año Fin: {{infoTrabajo.anioFin}}</li>
+        <li>Descripción Trabajo: {{infoTrabajo.descripcion}}</li>
+        <li>Ciudad: {{infoTrabajo.ciudad.nombre}}</li>
       </ul>
-    </div>
 
+    </div>
 
   </div>
 </div>

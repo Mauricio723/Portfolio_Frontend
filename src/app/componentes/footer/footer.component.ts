@@ -12,14 +12,16 @@ export class FooterComponent implements OnInit {
 
   mostrarContenido: boolean= false;
 
-  constructor(private servicioPortfolio: PortfolioService) { }
+  constructor() { }
 
+  //private servicioPortfolio: PortfolioService
+  
   ngOnInit(): void {
-    this.servicioPortfolio.obtenerDatos_01().subscribe(
+    /*this.servicioPortfolio.obtenerDatos_01().subscribe(
       datosFooter => {
         this.datosJsonFooter= datosFooter;
       }
-    );
+    ); */
   }
   
   cambiarMostrarContenido() {

@@ -1,7 +1,7 @@
 
 <footer class="text-center text-warning my-2 py-2 border">
     <div>
-        <h5>Fecha Publicación: {{datosJsonFooter.fechaPublicacion}}</h5>
+        <h5>Fecha Publicación: <!-- {{datosJsonFooter.fechaPublicacion}} --> </h5>
        
         <input type="submit" value="Derechos de autor" 
             *ngIf="!mostrarContenido" (click)="cambiarMostrarContenido()">
@@ -10,7 +10,7 @@
             Condiciones de uso: {{datosJsonFooter.derechosAutor}}</p>
        
   <p>****************************************************************</p>
-        <h5>Contacto: {{datosJsonFooter.datosPersonales.email}}</h5>         
+        <h5>Contacto: <!-- {{datosJsonFooter.datosPersonales.email}} --> </h5>         
   <p>****************************************************************</p>  
     </div>
     

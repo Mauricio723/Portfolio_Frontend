@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -8,19 +8,43 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class AboutComponent implements OnInit {
 
+  //datosPersona : any;
+  //arregloPersonas : Object[] = [];
+
+  textoPrueba : String = "";
+
   datosJson_01: any;
   botonPresionado: string= "";
   datoQuienSoy: string= "";
   botonEdicion: string= "";
 
+  @Input() datosPersona : any;
+
+
   constructor(private servicioPortfolio: PortfolioService) { }
 
-  ngOnInit(): void {
+
+  ngOnInit(): void {    
+
+    //this.servicioPortfolio.obtenerDatos_01().subscribe(
+      //datosApi => {
+        //this.datosPersona = datosApi[0];
+        //this.datosPersona = datosApi[0];
+
+        //console.log("datosApi: " + datosApi[0].nombre); 
+        //console.log("Datos en forma deJson: " + JSON.stringify(datosApi));  
+                
+      //}
+    //);
+       
+    /*    
     this.servicioPortfolio.obtenerDatos_01().subscribe(
       datos => {      
         this.datosJson_01 = datos;
+        console.log("datos desde datosJson_01: " + datos);
       }
-    );
+    );    */
+    
   }
 
   eventoBotonQuienSoy() {

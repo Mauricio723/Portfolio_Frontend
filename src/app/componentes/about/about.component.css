@@ -1,0 +1,10 @@
+.titulo_nombre_01 {
+    position: absolute;
+    z-index: 20;   
+}
+
+.div_foto_01 {			
+    position: absolute;   
+    width: 15%;			
+    z-index: 20;
+}

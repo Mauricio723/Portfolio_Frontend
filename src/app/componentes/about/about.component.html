@@ -1,42 +1,106 @@
 <div class="container-fluid border border-info text-light">
 
   <div class="row">
-        
+
+    <div class="col-sm-12 col-md-12">
+
+      <div class="bg-success text-center">
+        <!--
+        <h3 class="titulo_nombre_01">
+          {{datosPersona.nombre}} {{datosPersona.apellido}}
+        </h3>   -->
+
+        <!--
+        <div>
+          <h1 class="fs-4 px-5">
+            {{datosPersona.nombre}}
+              <h3> {{datosJson_01.nombre}}  !!!??</h3> 
+            {{datosJsonHeader.datosHeader.nombreApp}} 
+          </h1>         
+        </div>         -->
+
+      </div>
+
+      <div class="mb-sm-3 mb-md-4">
+
+        <div class="div_foto_01 mt-sm-3 mt-md-4 mt-lg-5 pt-sm-3 pt-md-5 pt-lg-5">
+          <img src="assets/Imagenes_01/Mauricio_Julio_2022.jpg" class=" img-fluid rounded-circle border"
+            alt="Foto Mauricio">
+        </div>
+
+        <div class="text-center">
+          <img src="assets/Imagenes_01/BannerPruebaWeb_01.png" class="img-fluid" alt="Imagen del Banner">
+        </div>
+
+        <div class="mt-md-4 pt-md-4">
+
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-5 col-lg-6 col-xl-4 py-2 text-light border">
+          <h5>{{datosPersona.nombre}} {{datosPersona.apellido}}</h5>
+          <h6>{{datosPersona.tituloPrincipal}}</h6>
+          <!--<h5>{{datosJsonHeader.datosHeader.nombreCompletoAutor}}</h5>
+          <h6>{{datosJsonHeader.datosHeader.tituloAutor}}</h6> -->
+        </div>
+        <div class="col-sm-12 col-md-7 col-lg-6 col-xl-8 py-3 px-4 border">
+          <h5>Este div, por ahora es de relleno</h5>
+        </div>
+      </div>
+    </div>
+
+    <!--
     <div class="col-sm-12 col-md-12  py-3 px-4 border">
 
-      <button type="button" class="btn btn-success" id="boton_quien_soy" 
-        (click)="eventoBotonQuienSoy()">
+      <button type="button" class="btn btn-success" id="boton_quien_soy" (click)="eventoBotonQuienSoy()">
         Quien Soy
       </button>
 
-      <button type="button" class="btn btn-success" id="boton_datos_personales" 
-        (click)="eventoBotonDatosPersonales()">
+      <button type="button" class="btn btn-success" id="boton_datos_personales" (click)="eventoBotonDatosPersonales()">
         Datos Personales
       </button>
 
-      <button type="button" class="btn btn-success" id="boton_contacto" 
-        (click)="eventoBotonContacto()">
+      <button type="button" class="btn btn-success" id="boton_contacto" (click)="eventoBotonContacto()">
         Contacto
       </button>
 
-      <button type="button" class="btn btn-success" id="boton_info_prof" 
-        (click)="eventoInfoProf()">
+      <button type="button" class="btn btn-success" id="boton_info_prof" (click)="eventoInfoProf()">
         Información Profecional
       </button>
 
-      <button type="button" class="btn btn-success" id="boton_info_prof" 
-        (click)="cerrarSeccion()">
+      <button type="button" class="btn btn-success" id="boton_info_prof" (click)="cerrarSeccion()">
         Cerrar Sección
       </button>
     </div>
+    -->
 
     <div class="col-sm-12 col-md-12 py-2 border">
 
+      <h4>Datos Personales</h4>
+
+      <h5>Nombre: {{datosPersona.nombre}}</h5>
+      <h5>Apellido: {{datosPersona.apellido}}</h5>
+      <h5>Ocupación: {{datosPersona.ocupacion}}</h5>
+      <h5>Titulo Principal: {{datosPersona.tituloPrincipal}}</h5>
+      <h5>Fecha de Nacimiento: {{datosPersona.fecha_nacimiento}}</h5>
+      <h5>Email: {{datosPersona.email}}</h5>
+      <h5>Acerca de: {{datosPersona.acerca_de}}</h5>
+      <h5>URL foto: {{datosPersona.urlFoto}}</h5>
+      <h5>URL Banner: {{datosPersona.urlBanner}}</h5>
+
+      <h5>Ubicación - Ciudad: {{datosPersona.ciudad.nombre}}</h5>
+      <h5>Provincia: {{datosPersona.ciudad.provincia}}</h5>
+      <h5>Pais: {{datosPersona.ciudad.pais}}</h5>
+
       <div *ngIf="botonPresionado==='boton_01'">
+        <!--
         <p>{{datosJson_01.quienSoy.texto_quien_soy}}</p>
+        -->
       </div>
 
-
+      <!--
       <div *ngIf="botonPresionado==='boton_02'">
         <p>{{datosJson_01.datosPersonales.nombre}}</p>
         <p>{{datosJson_01.datosPersonales.apellido}}</p>
@@ -53,7 +117,7 @@
         <p> Sección para información profecional</p>
         <p>{{datosJson_01.informacionProfecional.datoInfoProf_01}}</p>
         <p>{{datosJson_01.informacionProfecional.datoInfoProf_02}}</p>
-      </div>
+      </div>  -->
     </div>
 
   </div>

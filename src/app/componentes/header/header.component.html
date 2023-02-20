@@ -1,69 +1,50 @@
 <header class="container-fluid bg-secondary ">
 
     <div class="row div_cabecera_01">
-        <div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <a href="https://argentinaprograma.inti.gob.ar/">
                 <img src="assets/Imagenes_01\ArgProg_yoProg_03.png" class="img-fluid" alt="yoProgramo">
             </a>
         </div>
-        <div class="col-sm-5 col-md-1 col-lg-3 col-xl-4 text-light">
-        </div>
-        <div class="col-sm-7 col-md-5 col-lg-4 col-xl-3">
+        <!--
+        <div class="col-sm-4 col-md-1 col-lg-1 col-xl-1 text-light">
+        </div>   -->
+
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <!-- Los iconos: 1, 2 y 3, son para reemplazarlos por los
          correspondientes a redes sociales y otros navbar-expand-lg-->
             <nav class="navbar">
+                <!--
                 <a class="nav-link" href="#">
-                    <img src="assets/Imagenes_01/icono_01.png" alt="icono_01" 
-                        width="35" id="redSoc_01">
+                    <img src="assets/Imagenes_01/icono_01.png" alt="icono_01" width="35" id="redSoc_01">
                 </a>
                 <a class="nav-link" href="#">
-                    <img src="assets/Imagenes_01/icono_02.png" alt="icono_02"
-                         width="35" id="redSoc_02">
+                    <img src="assets/Imagenes_01/icono_02.png" alt="icono_02" width="35" id="redSoc_02">
                 </a>
                 <a class="nav-link" href="#">
-                    <img src="assets/Imagenes_01/icono_03.png" alt="icono_03" 
-                        width="35" id="redSoc_03">
+                    <img src="assets/Imagenes_01/icono_03.png" alt="icono_03" width="35" id="redSoc_03">
                 </a>
-                <button class="btn btn-outline-light" 
-                    id="boton_login" 
-                    type="submit">Login</button>
-                    
+                -->
+                <button class="btn btn-outline-light" id="boton_login" type="submit" 
+                    (click)="loginPortfolio()">Iniciar Sesión</button>
+
+                <button class="btn btn-outline-light" id="btn_nuevo" type="submit">
+                    Nuevo Usuario</button>
+
+                <button class="btn btn-outline-light" id="btn_cerrar" type="submit" 
+                    (click)="cerrarSesion()">Cerrar Sesión</button>
+
             </nav>
-
-        </div>
-    </div>
-
-    <div class="bg-success text-light text-center">
-        <h1 class="fs-4 px-5">
-            {{datosJsonHeader.datosHeader.nombreApp}}
-        </h1>
-    </div>
-
-    <div class="mb-sm-3 mb-md-4">
-
-        <div class="div_foto_01 mt-sm-3 mt-md-4 mt-lg-5 pt-sm-3 pt-md-5 pt-lg-5">
-            <img src="assets/Imagenes_01/Mauricio_Julio_2022.jpg" class=" img-fluid rounded-circle border"
-                alt="Foto Mauricio">
         </div>
 
-        <div class="text-center">
-            <img src="assets/Imagenes_01/BannerPruebaWeb_01.png" class="img-fluid" alt="Imagen del Banner">
-        </div>
-       
-
-        <div class="mt-md-4 pt-md-4">           
-
+        <div class="col-sm-10 text-light">
+             <!--
+            <h3>Portfoio Mauricio Vilches</h3>           
+            {{datosApi_01.nombre}}
+            {{datosApi_01.apellido}}
+            -->
         </div>
 
     </div>
 
-    <div class="row">
-        <div class="col-sm-12 col-md-5 col-lg-6 col-xl-4 py-2 text-light border">
-            <h5>{{datosJsonHeader.datosHeader.nombreCompletoAutor}}</h5>
-            <h6>{{datosJsonHeader.datosHeader.tituloAutor}}</h6>
-        </div>
-        <div class="col-sm-12 col-md-7 col-lg-6 col-xl-8 py-3 px-4 border">
-           
-        </div>
-    </div>
 </header>

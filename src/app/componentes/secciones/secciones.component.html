@@ -1,0 +1,26 @@
+<div class="border">
+    <div *ngIf="contenidoSessionStorage; else sesionCerrada">     
+
+        <div *ngIf="datosPortfolio; else datosPersonaNull">
+
+            <app-about [datosPersona]="datosPortfolio"></app-about>
+            <app-education [datosEducacion]="datosPortfolio"></app-education>
+            <app-trabajos [datosTrabajos]="datosPortfolio"> </app-trabajos>
+            <app-aptitudes [datosAptitudes]="datosPortfolio"></app-aptitudes>
+            <app-proyectos [datosProyectos]="datosPortfolio"></app-proyectos>
+
+        </div>
+
+        <ng-template #datosPersonaNull>
+            <h4># # # Datos del Portfolio = NULL # # #</h4>
+            <h4># # # Espere un momento # # #</h4>
+        </ng-template>
+
+    </div>
+
+    <ng-template #sesionCerrada>
+        <h4> Sesión Cerrada</h4>
+        <h5>Para iniciar una nueva sesión, presionar botón "Iniciar Sesión"</h5>
+    </ng-template>
+
+</div>
