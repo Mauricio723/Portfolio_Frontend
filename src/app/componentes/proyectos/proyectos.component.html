@@ -5,14 +5,81 @@
     <div class="col-sm-12 col-md-12 col-xl-12 text-center">
       <h4>Proyectos</h4>
     </div>
-    
-    <div class="col-sm-12 col-md-6 border" 
-      *ngFor="let proyecto of datosProyectos.listaProyectos">
-      
-      <h5>Nombre Proyecto: {{proyecto.nombre}}</h5>
-      <h5>Descripción Proyecto: {{proyecto.descripcion}}</h5>
 
-    </div>   
+    <div class="col-sm-12 col-md-6 border" 
+          *ngFor="let proyecto of datosProyectos.listaProyectos">
+
+      <div *ngIf="proyecto.id !== idParaModificar">
+        <h5>id : {{proyecto.id}}</h5>
+        <h5>Nombre Proyecto: {{proyecto.nombre}}</h5>
+        <h5>Descripción Proyecto: {{proyecto.descripcion}}</h5>
+      </div>
+
+      <div *ngIf="esUsuarioAdmin() && mostrarBotones">
+        <button class="btn btn-outline-light" id="boton_editar" type="submit" 
+          (click)="accionBotonEditar(proyecto.id)"> Editar</button>
+
+        <button class="btn btn-outline-light" id="boton_eliminar" type="submit"
+          (click)="accionBotonEliminar(proyecto.id)">Eliminar</button>
+
+      </div>
+
+      <div *ngIf="mostrarFormularioEdicion && proyecto.id === idParaModificar">
+
+        <form (ngSubmit)="onModificarProyecto(proyecto.id)">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre Proyecto</label>
+
+            <input type="text" class="form-control" name="nombre"
+              placeholder="{{proyecto.nombre}}" [(ngModel)]="nombre" id="nombre">
+
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción Proyecto</label>
+
+            <textarea type="text" class="form-control" name="descripcion"
+              rows="4" cols="50" maxlength="200"
+              placeholder="{{proyecto.descripcion}}" [(ngModel)]="descripcion" 
+              id="descripcion"> </textarea>
+
+          </div>
+          <button type="submit" class="btn btn-primary">Confirmar Edición</button>
+          
+        </form>
+      </div>
+
+    </div>
+
+    <div *ngIf="esUsuarioAdmin() && !mostrarFormularioAgregar">
+      <button type="submit" class="" (click)="accionBotonCrearNuevo()">
+        Crear Nuevo Proyeto</button>
+    </div>
+
+  </div>
+
+  <div *ngIf="mostrarFormularioAgregar">
+   
+    <form (ngSubmit)="onNuevoProyecto()"  novalidate #f="ngForm">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre Proyecto</label>
+
+        <input type="text" class="form-control" name="nombre" 
+          placeholder="{{datosProyectos.listaProyectos[0].nombre}}"
+          [(ngModel)]="nombre" id="nombre">
+
+      </div>
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción Proyecto</label>
+
+        <textarea type="text" class="form-control" name="descripcion"
+          rows="4" cols="50" maxlength="200"
+          placeholder="{{datosProyectos.listaProyectos[0].descripcion}}" 
+          [(ngModel)]="descripcion" id="descripcion"> </textarea>
+
+      </div>  
+      <button type="submit" class="btn btn-primary"> Enviar Nuevo Proyecto</button>       
+    
+    </form>
 
   </div>
 </div>

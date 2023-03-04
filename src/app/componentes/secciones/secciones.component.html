@@ -1,12 +1,13 @@
-<div class="border">
+<div class="colorFondo_03 border">  
+
     <div *ngIf="contenidoSessionStorage; else sesionCerrada">     
 
         <div *ngIf="datosPortfolio; else datosPersonaNull">
 
             <app-about [datosPersona]="datosPortfolio"></app-about>
-            <app-education [datosEducacion]="datosPortfolio"></app-education>
-            <app-trabajos [datosTrabajos]="datosPortfolio"> </app-trabajos>
-            <app-aptitudes [datosAptitudes]="datosPortfolio"></app-aptitudes>
+            <app-education [datosMyApi]="datosPortfolio"></app-education>
+            <app-trabajos [datosMyApi]="datosPortfolio"> </app-trabajos>
+            <app-aptitudes [datosMyApi]="datosPortfolio"></app-aptitudes>
             <app-proyectos [datosProyectos]="datosPortfolio"></app-proyectos>
 
         </div>

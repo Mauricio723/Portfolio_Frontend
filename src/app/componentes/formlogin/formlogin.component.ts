@@ -12,7 +12,7 @@ import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 export class FormloginComponent implements OnInit {
 
-  form_group: FormGroup;
+  form_group: FormGroup;  
 
   constructor(private myFormBuilder: FormBuilder,
     private autenticService: AutenticacionService,
@@ -50,7 +50,7 @@ export class FormloginComponent implements OnInit {
     /* Nos suscribimos al método del servicio */    
     this.autenticService.iniciarSesion(this.form_group.value).subscribe(
       data => {
-      //console. log("Datos del JSON, en onIniciarSesion: " + JSON.stringify(data));      
+      //console. log("Datos del JSON, en onIniciarSesion: " + JSON.stringify(data));          
       this.ruta.navigate(["/secciones"])
     });
   }

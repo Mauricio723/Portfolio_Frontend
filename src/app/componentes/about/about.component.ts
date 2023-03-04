@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { About } from 'src/app/modelos/About';
+import { AdminService } from 'src/app/servicios/admin.service';
 
 @Component({
   selector: 'app-about',
@@ -8,62 +9,134 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class AboutComponent implements OnInit {
 
-  //datosPersona : any;
-  //arregloPersonas : Object[] = [];
+  @Input() datosPersona: any;
 
-  textoPrueba : String = "";
+  about: About = {
+    nombre: "",
+    apellido: "",
+    ocupacion: "",
+    tituloPrincipal: "",
+    fecha_nacimiento: "",
+    documento: "",
+    email: "",
+    acerca_de: "",
+    urlFoto: "",
+    urlBanner: ""
+  };
 
-  datosJson_01: any;
-  botonPresionado: string= "";
-  datoQuienSoy: string= "";
-  botonEdicion: string= "";
+  idPersona: number = 0;
 
-  @Input() datosPersona : any;
+  nombre: String = "";
+  apellido: String = "";
+  ocupacion: String = "";
+  tituloPrincipal: String = "";
+  fecha_nacimiento: String = "";
+  documento: String = "";
+  email: String = "";
+  acerca_de: String = "";
+  urlFoto: String = "";
+  urlBanner: String = "";
 
+  ciudad_id : number = 1;
 
-  constructor(private servicioPortfolio: PortfolioService) { }
+  // variables booleanas para mostrar formularios y botones
+  mostrarBotones: Boolean = true;
 
+  mostrarFormularioDatos: Boolean = false;
 
-  ngOnInit(): void {    
+  modificarDatos: Boolean = false;
+  crearNuevaPersona: Boolean = false;
 
-    //this.servicioPortfolio.obtenerDatos_01().subscribe(
-      //datosApi => {
-        //this.datosPersona = datosApi[0];
-        //this.datosPersona = datosApi[0];
+  //mostrarInputEdit: Boolean = false;
+ 
 
-        //console.log("datosApi: " + datosApi[0].nombre); 
-        //console.log("Datos en forma deJson: " + JSON.stringify(datosApi));  
-                
-      //}
-    //);
-       
-    /*    
-    this.servicioPortfolio.obtenerDatos_01().subscribe(
-      datos => {      
-        this.datosJson_01 = datos;
-        console.log("datos desde datosJson_01: " + datos);
-      }
-    );    */
+  //idParaModificar: number = 0;   
+
+  constructor(private servicioAdmin: AdminService) {   
+
+  }
+
+  ngOnInit(): void {
+
+    this.nombre = this.datosPersona.nombre;
+    this.apellido = this.datosPersona.apellido;
+    this.ocupacion = this.datosPersona.ocupacion;
+    this.tituloPrincipal = this.datosPersona.tituloPrincipal;
+    this.fecha_nacimiento = this.datosPersona.fecha_nacimiento;
+    this.documento = this.datosPersona.documento;
+    this.email = this.datosPersona.email;
+    this.acerca_de = this.datosPersona.acerca_de;
+    this.urlFoto = this.datosPersona.urlFoto;
+    this.urlBanner = this.datosPersona.urlBanner;   
     
   }
-
-  eventoBotonQuienSoy() {
-    this.botonPresionado= "boton_01";
-  }
-
-  eventoBotonDatosPersonales() {
-    this.botonPresionado="boton_02";
-  }
-
-  eventoBotonContacto() {
-    this.botonPresionado= "boton_03";
-  }
-
-  eventoInfoProf() {
-    this.botonPresionado= "boton_04";
-  }
  
-  cerrarSeccion() {
-    this.botonPresionado="";
+  esUsuarioAdmin(): Boolean {
+    return this.servicioAdmin.obtenerTipoUsuario() === "ROLE_ADMIN";
   }
+
+  accionBotonCrearPersona() {
+    this.crearNuevaPersona = true;
+    this.modificarDatos = false;
+    this.mostrarFormularioDatos = true;
+  }
+
+  accionBotonModificar(idSeleccionado: number) {    
+    this.modificarDatos = true;
+    this.crearNuevaPersona = false;
+    this.mostrarFormularioDatos = true;   
+  }
+
+  accionBotonEliminar(idEliminar: number): void {
+
+    if (confirm("Esta seguro de la eliminación la persona con id: " + idEliminar)) {
+      this.servicioAdmin.eliminarPersona(idEliminar).subscribe(() => {
+        window.location.reload();
+      });
+    }
+  }
+
+  accionFormularioDatos(idPersona: number, idCiudad: number): void {
+
+    if (this.modificarDatos && confirm("Está seguro de la modificación de los datos")) {
+
+      alert("Se están por modificar los datos de id: " + idPersona);
+
+      console.log("ID de la ciudad de la persona: " + this.datosPersona.ciudad.id);
+      console.log("Ciudad de la persona: " + this.datosPersona.ciudad.nombre);
+
+      this.about.nombre = this.nombre;
+      this.about.apellido = this.apellido;
+      this.about.ocupacion = this.ocupacion;
+      this.about.tituloPrincipal = this.tituloPrincipal;
+      this.about.fecha_nacimiento = this.fecha_nacimiento;
+      this.about.documento = this.documento;
+      this.about.email = this.email;
+      this.about.acerca_de = this.acerca_de;
+      this.about.urlFoto = this.urlFoto;
+      this.about.urlBanner = this.urlBanner;
+
+      this.servicioAdmin.modificarPersona(this.about,
+        idPersona,
+        idCiudad).subscribe(() => {
+          window.location.reload()
+        } );
+
+      console.log("Datos luego de  modificar la persona: " + JSON.stringify(this.about));
+
+    }    
+
+    if (this.crearNuevaPersona && confirm("Está seguro de la creación de la Persona")) {
+
+      alert("El formulario fué seleccionado para crear nueva Persona");
+
+      this.servicioAdmin.crearPersona(this.about, this.ciudad_id).subscribe(() => {
+        window.location.reload()
+      } );
+         
+    }
+
+    this.mostrarFormularioDatos = false;
+  }   
+
 }

@@ -1,4 +1,4 @@
-<div class="container-fluid border border-info text-light">
+<div class="container-fluid border border-info">
 
   <div class="row">
 
@@ -39,7 +39,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-12 col-md-5 col-lg-6 col-xl-4 py-2 text-light border">
+        <div class="col-sm-12 col-md-5 col-lg-6 col-xl-4 py-2 border">
           <h5>{{datosPersona.nombre}} {{datosPersona.apellido}}</h5>
           <h6>{{datosPersona.tituloPrincipal}}</h6>
           <!--<h5>{{datosJsonHeader.datosHeader.nombreCompletoAutor}}</h5>
@@ -51,73 +51,182 @@
       </div>
     </div>
 
-    <!--
-    <div class="col-sm-12 col-md-12  py-3 px-4 border">
+   
+    <!-- ############################################### -->
 
-      <button type="button" class="btn btn-success" id="boton_quien_soy" (click)="eventoBotonQuienSoy()">
-        Quien Soy
-      </button>
+    <div class="col-sm-12 col-md-12 py-2 border border-success">
 
-      <button type="button" class="btn btn-success" id="boton_datos_personales" (click)="eventoBotonDatosPersonales()">
-        Datos Personales
-      </button>
+      <div *ngIf="!mostrarFormularioDatos">
 
-      <button type="button" class="btn btn-success" id="boton_contacto" (click)="eventoBotonContacto()">
-        Contacto
-      </button>
+        <h4>Datos Personales</h4>
 
-      <button type="button" class="btn btn-success" id="boton_info_prof" (click)="eventoInfoProf()">
-        Información Profecional
-      </button>
+        <table class="table table-secondary">
+          <tbody>
+            <tr>
+              <td>Nombre</td>
+              <td>{{datosPersona.nombre}}</td>
+            </tr>
+            <tr>
+              <td> Apellido:</td>
+              <td>{{datosPersona.apellido}}</td>
+            </tr>
+            <tr>
+              <td> Ocupación:</td>
+              <td>{{datosPersona.ocupacion}}</td>
+            </tr>
+            <tr>
+              <td> Titulo Principal:</td>
+              <td>{{datosPersona.tituloPrincipal}}</td>
+            </tr>
+            <tr>
+              <td> Fecha de Nacimiento:</td>
+              <td>{{datosPersona.fecha_nacimiento}}</td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td>{{datosPersona.email}}</td>
+            </tr>
+            <tr>
+              <td>Documento</td>
+              <td>{{datosPersona.documento}}</td>
+            </tr>
+            <tr>
+              <td>Acerca de:</td>
+              <td>{{datosPersona.acerca_de}}</td>
+            </tr>
+            <tr>
+              <td>URL foto:</td>
+              <td> {{datosPersona.urlFoto}}</td>
+            </tr>
+            <tr>
+              <td>URL Banner:</td>
+              <td>{{datosPersona.urlBanner}}</td>
+            </tr>
+            <tr>
+              <td>Ubicación - Ciudad:</td>
+              <td>{{datosPersona.ciudad.nombre}}</td>
+            </tr>
+            <tr>
+              <td> Provincia:</td>
+              <td> {{datosPersona.ciudad.provincia}}</td>
+            </tr>
+            <tr>
+              <td> Pais:</td>
+              <td> {{datosPersona.ciudad.pais}}</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <button type="button" class="btn btn-success" id="boton_info_prof" (click)="cerrarSeccion()">
-        Cerrar Sección
-      </button>
+      </div>
+
+      <div *ngIf="esUsuarioAdmin() && !mostrarFormularioDatos" class="my-3 mx-3">
+
+        <button type="submit" class="mx-2" (click)="accionBotonModificar(datosPersona.id)">
+          Modificar Persona</button>
+
+        <button type="submit" class="mx-2" (click)="accionBotonEliminar(datosPersona.id)">
+          Eliminar Persona</button>
+
+        <button type="submit" class="mx-2" (click)="accionBotonCrearPersona()">
+          Agregar Nueva Persona</button>
+
+      </div>
+
     </div>
-    -->
 
-    <div class="col-sm-12 col-md-12 py-2 border">
+    <div *ngIf="mostrarFormularioDatos" class="py-2 border">
 
-      <h4>Datos Personales</h4>
+      <form (ngSubmit)="accionFormularioDatos(datosPersona.id, ciudad_id)" 
+        novalidate #f="ngForm">
 
-      <h5>Nombre: {{datosPersona.nombre}}</h5>
-      <h5>Apellido: {{datosPersona.apellido}}</h5>
-      <h5>Ocupación: {{datosPersona.ocupacion}}</h5>
-      <h5>Titulo Principal: {{datosPersona.tituloPrincipal}}</h5>
-      <h5>Fecha de Nacimiento: {{datosPersona.fecha_nacimiento}}</h5>
-      <h5>Email: {{datosPersona.email}}</h5>
-      <h5>Acerca de: {{datosPersona.acerca_de}}</h5>
-      <h5>URL foto: {{datosPersona.urlFoto}}</h5>
-      <h5>URL Banner: {{datosPersona.urlBanner}}</h5>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre Persona</label>
 
-      <h5>Ubicación - Ciudad: {{datosPersona.ciudad.nombre}}</h5>
-      <h5>Provincia: {{datosPersona.ciudad.provincia}}</h5>
-      <h5>Pais: {{datosPersona.ciudad.pais}}</h5>
+          <input type="text" class="form-control" name="nombre" placeholder="{{datosPersona.nombre}}"
+            [(ngModel)]="nombre" id="nombre">
 
-      <div *ngIf="botonPresionado==='boton_01'">
-        <!--
-        <p>{{datosJson_01.quienSoy.texto_quien_soy}}</p>
-        -->
-      </div>
+        </div>
+        <div class="mb-3">
+          <label for="apellido" class="form-label">Apellido</label>
 
-      <!--
-      <div *ngIf="botonPresionado==='boton_02'">
-        <p>{{datosJson_01.datosPersonales.nombre}}</p>
-        <p>{{datosJson_01.datosPersonales.apellido}}</p>
-        <p>{{datosJson_01.datosPersonales.fechaNacimiento}}</p>
-        <p>{{datosJson_01.datosPersonales.nacionalidad}}</p>
-        <p>{{datosJson_01.datosPersonales.nombre}}</p>
-      </div>
+          <input type="text" class="form-control" name="apellido" placeholder="{{datosPersona.apellido}}"
+            [(ngModel)]="apellido" id="apellido">
 
-      <div *ngIf="botonPresionado==='boton_03'">
-        <p>Email: {{datosJson_01.datosPersonales.email}}</p>
-      </div>
+        </div>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Ocupación</label>
 
-      <div *ngIf="botonPresionado==='boton_04'" class="py-2 border">
-        <p> Sección para información profecional</p>
-        <p>{{datosJson_01.informacionProfecional.datoInfoProf_01}}</p>
-        <p>{{datosJson_01.informacionProfecional.datoInfoProf_02}}</p>
-      </div>  -->
+          <input type="text" class="form-control" name="ocupacion" placeholder="{{datosPersona.ocupacion}}"
+            [(ngModel)]="ocupacion" id="ocupacion">
+
+        </div>
+        <div class="mb-3">
+          <label for="tituloPrincipal" class="form-label">Titulo Principal</label>
+
+          <input type="text" class="form-control" name="tituloPrincipal" placeholder="{{datosPersona.tituloPrinipal}}"
+            [(ngModel)]="tituloPrincipal" id="tituloPrincipal">
+
+        </div>
+        <div class="mb-3">
+          <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+
+          <input type="text" class="form-control" name="fecha_nacimiento"
+            placeholder="{{datosPersona.fecha_nacimiento}}" [(ngModel)]="fecha_nacimiento" id="fecha_nacimiento">
+
+        </div>
+        <div class="mb-3">
+          <label for="documento" class="form-label">Documento</label>
+
+          <input type="text" class="form-control" name="documento" placeholder="{{datosPersona.documento}}"
+            [(ngModel)]="documento" id="documento">
+
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+
+          <input type="text" class="form-control" name="email" placeholder="{{datosPersona.email}}" [(ngModel)]="email"
+            id="email">
+
+        </div>
+
+        <div class="mb-3">
+          <label for="acerca_de" class="form-label">Acerca de</label>
+
+          <textarea type="text" class="form-control" name="acerca_de" rows="4" cols="50" maxlength="200"
+            placeholder="{{datosPersona.acerca_de}}" [(ngModel)]="acerca_de" id="acerca_de"> </textarea>
+
+        </div>
+
+        <div class="mb-3">
+          <label for="urlFoto" class="form-label">URL Foto</label>
+
+          <input type="text" class="form-control" name="urlFoto" placeholder="{{datosPersona.urlFoto}}"
+            [(ngModel)]="urlFoto" id="urlFoto">
+
+        </div>
+
+        <div class="mb-3">
+          <label for="urlBanner" class="form-label">URL Banner</label>
+
+          <input type="text" class="form-control" name="urlBanner" 
+            placeholder="{{datosPersona.urlBanner}}"
+            [(ngModel)]="urlBanner" id="urlBanner">
+
+        </div>
+
+
+        <div class="mb-3">
+          <label for="ciudad_id" class="form-label">Id Ciudad</label>
+
+          <input type="number" class="form-control" name="ciudad_id" placeholder="{{datosPersona.ciudad.id}}"
+            [(ngModel)]="ciudad_id" id="ciudad_id">
+
+        </div>
+
+
+        <button type="submit" class="btn btn-primary"> Enviar Datos Persona</button>
+
+      </form>
     </div>
 
   </div>

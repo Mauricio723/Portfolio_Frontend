@@ -22,10 +22,11 @@ export class SeccionesComponent implements OnInit {
 
     this.servicioPortfolio.obtenerDatos_01().subscribe(
       datosApi => {       
-        this.datosPortfolio = datosApi[0];        
-                
+        this.datosPortfolio = datosApi[1];    
+        //console.log("DAtos Portfolio: " + JSON.stringify(this.datosPortfolio));           
       }
-    );
+    );   
+
   }
 
 }
