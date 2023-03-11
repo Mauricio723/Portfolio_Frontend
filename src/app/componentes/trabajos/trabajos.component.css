@@ -1,0 +1,49 @@
+
+.colorTrabajo_02 {
+    background-color: rgb(33, 73, 41);
+    
+}
+
+.colorTrabajo_03 {
+    background-color: rgb(185, 207, 223);
+
+}
+
+.colorTrabajo_04 {
+    background-color: rgb(60, 189, 71);
+
+    color: rgb(11, 20, 97);
+}
+
+.seccion_01 h6 {
+    color: rgb(45, 75, 131);
+}
+
+
+.seccionTrabajo h4 {
+    color: rgb(223, 233, 196);
+}
+
+.seccionTrabajo h5 {
+    color: rgb(106, 32, 224);
+}
+
+.seccionTrabajo h6 {
+    color: rgb(107, 76, 29);
+}
+
+.seccionTrabajo p {
+    color: rgb(11, 63, 34);
+    font-size: 20px;
+}
+
+.seccionTrabajo dt {
+    color: rgb(8, 100, 100);
+}
+
+.seccionTrabajo dd {
+    color: rgb(83, 26, 64);    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-left: 40px;
+}

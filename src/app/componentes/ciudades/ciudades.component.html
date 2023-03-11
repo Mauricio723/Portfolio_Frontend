@@ -1,0 +1,34 @@
+
+<div>
+    <div>
+        <h4>Datos Ciudad</h4>
+    </div>
+    <form (ngSubmit)="accionFormularioCrear()" novalidate #f="ngForm">
+
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre ciudad</label>
+          <input type="text" class="form-control" name="nombre" id="nombre" 
+          placeholder="{{ciudad.nombre}}" [(ngModel)]="ciudad.nombre">
+        
+        </div>
+
+        <div class="mb-3">
+            <label for="provincia" class="form-label">Provincia</label>
+            <input type="text" class="form-control" name="provincia" id="provincia"
+            placeholder="{{ciudad.provincia}}" [(ngModel)]="ciudad.provincia">
+                       
+          </div>
+
+        <div class="mb-3">
+          <label for="nombrePais" class="form-label">País</label>
+          <input type="text" class="form-control" name="pais" id="pais"
+          placeholder="{{ciudad.pais}}" [(ngModel)]="ciudad.pais">
+        </div>
+
+
+        <div class="mb-3 form-check">
+            <button type="submit" class="btn btn-primary">Enviar</button>          
+        </div>
+        
+      </form>
+</div>

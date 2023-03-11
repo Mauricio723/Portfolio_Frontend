@@ -1,49 +1,32 @@
 <header class="container-fluid bg-secondary ">
 
     <div class="row div_cabecera_01">
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
             <a href="https://argentinaprograma.inti.gob.ar/">
-                <img src="assets/Imagenes_01\ArgProg_yoProg_03.png" class="img-fluid" alt="yoProgramo">
+                <img src="assets/Imagenes_01\ArgProg_yoProg_03.png" 
+                  class="img-fluid" alt="yoProgramo">
             </a>
         </div>
         <!--
         <div class="col-sm-4 col-md-1 col-lg-1 col-xl-1 text-light">
         </div>   -->
 
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <!-- Los iconos: 1, 2 y 3, son para reemplazarlos por los
-         correspondientes a redes sociales y otros navbar-expand-lg-->
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            
             <nav class="navbar">
-                <!--
-                <a class="nav-link" href="#">
-                    <img src="assets/Imagenes_01/icono_01.png" alt="icono_01" width="35" id="redSoc_01">
-                </a>
-                <a class="nav-link" href="#">
-                    <img src="assets/Imagenes_01/icono_02.png" alt="icono_02" width="35" id="redSoc_02">
-                </a>
-                <a class="nav-link" href="#">
-                    <img src="assets/Imagenes_01/icono_03.png" alt="icono_03" width="35" id="redSoc_03">
-                </a>
-                -->
+                
                 <button class="btn btn-outline-light" id="boton_login" type="submit" 
                     (click)="loginPortfolio()">Iniciar Sesión</button>
 
-                <button class="btn btn-outline-light" id="btn_nuevo" type="submit">
-                    Nuevo Usuario</button>
+                <button class="btn btn-outline-light" id="btn_nuevo" type="submit"
+                    (click)="nuevoUsuario()"> Nuevo Usuario</button>
 
                 <button class="btn btn-outline-light" id="btn_cerrar" type="submit" 
                     (click)="cerrarSesion()">Cerrar Sesión</button>
 
             </nav>
-        </div>
-
-        <div class="col-sm-10 text-light">
-             <!--
-            <h3>Portfoio Mauricio Vilches</h3>           
-            {{datosApi_01.nombre}}
-            {{datosApi_01.apellido}}
-            -->
-        </div>
+        </div>       
 
     </div>
 

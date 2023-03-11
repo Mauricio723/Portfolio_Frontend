@@ -13,39 +13,51 @@ export class ProyectosComponent implements OnInit {
 
   //datosJsonProyectos: any;
 
-  @Input() datosProyectos: any;
+  @Input() datosMyApi: any;
 
   proyecto: Proyecto = {
     nombre: "",
     descripcion: ""
   };
 
-  idProyecto: number = 0;
-  nombre: String = "";
-  descripcion: String = "";
+  //idProyecto: number = 0;
+
+
+  nombreProyecto: String = "";
+  descripcionProyecto: String = "";
+
+   idPersona: number = 0;
+
+  idProyectoSeleccionado : number = 0;
+
+  mostrarFormularioDatos : Boolean = false;
+  esFormularioEdicion : Boolean = false;
+  esFormularioCrear : Boolean = false;
+
+
+  // ####################################
 
   // variables booleanas para mostrar formularios y botones
-  mostrarBotones: Boolean = true;
-  mostrarFormularioEdicion: Boolean = false;
-  mostrarFormularioAgregar: Boolean = false;
+ // mostrarBotones: Boolean = true;
+ // mostrarFormularioEdicion: Boolean = false;
+  //mostrarFormularioAgregar: Boolean = false;
 
-  idParaModificar: number = 0;
+  //idParaModificar: number = 0;
 
-  operacionCancelada: Boolean = false;
+  //operacionCancelada: Boolean = false;
 
-  idPersona: number = 0;
-
-  datoPrueba: any;
+ 
+  //datoPrueba: any;
 
   constructor(private servicioAdministrador: AdminService,
     private router: Router) {
-
-    //this.tipoUsuario = this.servicioAdministrador.obtenerTipoUsuario();
+    
   }
 
   ngOnInit(): void {
 
-    console.log("Tipo de usuario: " + this.servicioAdministrador.obtenerTipoUsuario());
+    this.nombreProyecto = "Nombre proyecto sin definir";
+    this.descripcionProyecto = "Descripción proyecto sin definir";
 
   }
 
@@ -54,108 +66,66 @@ export class ProyectosComponent implements OnInit {
   }
 
 
-  accionBotonEditar(idSeleccionado: number) {
-    //console.log("Se presionó el botón Editar");
-    this.mostrarFormularioEdicion = true;
-    this.idParaModificar = idSeleccionado;
-    this.mostrarBotones = false;
+  accionBotonEditar(idProyectoEditar : number, proyectoParaEditar : any) {
+
+    this.mostrarFormularioDatos = true;
+    this.idProyectoSeleccionado = idProyectoEditar;
+    this.esFormularioEdicion = true;
+    this.esFormularioCrear = false;
+
+    this.nombreProyecto = proyectoParaEditar.nombre;
+    this.descripcionProyecto = proyectoParaEditar.descripcion;
+   
   }
 
-  accionBotonEliminar(idEliminar: number) : void {
-    console.log("Está a punto de eliminar un proyecto");
-   //alert("Esta seguro de la eliminación del proyecto con id: " + idEliminar);
+  accionBotonEliminar(idEliminar: number) : void {     
 
     if (confirm("Esta seguro de la eliminación del proyecto con id: " + idEliminar)) {
       this.servicioAdministrador.eliminarProyecto(idEliminar).subscribe(() => {
         window.location.reload();
       } );
     }
-
-
-    /*
-     if (id !=undefined) {
-      this.sExperiencia.delete(id).subscribe(data=>{
-        //Volver a cargar la lista, pero sin la expe eliminada
-        this.cargarExperiencia();
-      }, err=>{
-        alert("No se pudo eliminar el registro")
-      }
-      );
-    */
+    
   }
 
   accionBotonCrearNuevo() {
-    this.mostrarFormularioAgregar = true;
+
+    this.esFormularioCrear = true;
+    this.esFormularioEdicion = false;
+    this.mostrarFormularioDatos = true;
+  
   }
 
-  cancelarOperacion() {
-    this.operacionCancelada = true;
-    alert("La operacion fué cancelada");
-  }
+  accionFormularioDatos() {
 
-  onModificarProyecto(idProyectoEdit: number) : void {
+    if (this.esFormularioCrear && confirm("Está seguro del envío de datos ?")) {
 
-    if (confirm("Está seguro de modificar el proyecto con id: " + idProyectoEdit)) {
+      this.proyecto.nombre = this.nombreProyecto;
+      this.proyecto.descripcion = this.descripcionProyecto;
 
-      //this.proyecto.id = idProyectoEdit;
-      this.proyecto.nombre = this.nombre;
-      this.proyecto.descripcion = this.descripcion;
-
-      this.servicioAdministrador.modificarProyecto(
-        idProyectoEdit, this.proyecto).subscribe(() => {
-          window.location.reload();
-        });
-
-    } else {
-      alert("La operación de edición fué cancelada");
-    }
-
-    //console.log("Datos para enviar del Proyecto: " + JSON.stringify(this.proyecto));
-
-    this.mostrarBotones = true;
-    this.mostrarFormularioEdicion = false;
-    this.idParaModificar = 0;
-  }
-
-  /*
-  enviarModificación() : void {
-
-    this.servicioAdministrador.modificarProyecto(
-                      // falta el id                       
-                       this.proyecto).subscribe(data => {
-      window.location.reload();                  
-      //this.router.navigate(["/secciones"]);
-      }, err => {
-        alert("Error al modificar el proyecto");
-        this.router.navigate(["/secciones"]);
-       */
-  onNuevoProyecto(): void {    
-
-    if (confirm("Está seguro de la creacion de un nuevo proyecto?")) {
-
-      this.proyecto.nombre = this.nombre;
-      this.proyecto.descripcion = this.descripcion;
-
-      this.idPersona = this.datosProyectos.id;
-
-      console.log("El id de la persona para modificar el proyecto es: "
-        + this.idPersona);
-      console.log("Datos para enviar en nuevo proyecto:"
-        + JSON.stringify(this.proyecto));
+      this.idPersona = this.datosMyApi.id;   
 
       this.servicioAdministrador.crearNuevoProyecto(this.idPersona,
         this.proyecto).subscribe(() => {
           window.location.reload();
         });
 
-    } else {
-      console.log("la operación de creación del proyecto fué cancelada");
-      alert("La operación de crear un nuevo proyecto fué cancelada");
-      this.operacionCancelada = false;
     }
 
-    this.mostrarFormularioAgregar = false;
-  }
+    if (this.esFormularioEdicion && confirm("Está seguro del envio de datos ?")) {
 
+      this.proyecto.nombre = this.nombreProyecto;
+      this.proyecto.descripcion = this.descripcionProyecto;
+
+      this.servicioAdministrador.modificarProyecto(
+        this.idProyectoSeleccionado, this.proyecto).subscribe(() => {
+          window.location.reload();
+        });
+
+    }
+
+    this.mostrarFormularioDatos = false;
+
+  }
 
 }

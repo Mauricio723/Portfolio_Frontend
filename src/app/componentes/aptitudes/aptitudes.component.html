@@ -1,88 +1,56 @@
-<div class="container-fluid border">
+<div class="container-fluid seccionAptitud">
 
-  <div class="row my-2">
-
-    <div class="col-sm-12 col-md-12 col-xl-12 text-center">
-      <h4>Aptitudes: Hard & Soft Skills</h4>
-    </div>
-
-    <div class="col-sm-12 col-md-6 col-xl-6 border border-info px-2 py-2" 
-      *ngFor="let aptitud of datosMyApi.listaAptitudes">
-
-      <div>
-        <h5> Nombre Aptitud: {{aptitud.nombre}} </h5>
-        <h5>Descripción Aptitud: {{aptitud.descripcion}} </h5>
-      </div>
-
-      <div *ngIf="esUsuarioAdmin()" class="">
-        <button class="btn btn-outline-success px-3" id="boton_editar" type="submit"
-          (click)="accionBotonEditar(aptitud.id, aptitud)"> Editar</button>
-
-        <button class="btn btn-outline-danger px-3" id="boton_eliminar" type="submit"
-          (click)="accionBotonEliminar(aptitud.id)">Eliminar</button>
-      </div>
-
-    </div>
-
-    <div *ngIf="esUsuarioAdmin()" class="py-2">
-      <button type="submit" class="" (click)="accionBotonCrearAptitud()">
-        Crear Nueva Aptitud</button>
-    </div>
-
-
-    <div *ngIf="mostrarFormularioDatos">
-
-      <form (ngSubmit)="accionFormularioDatos()">
-        <div class="mb-3">
-          <label for="nombreAptitud" class="form-label">Nombre Aptitud</label>
-
-          <input type="text" class="form-control" name="nombreAptitud" placeholder="{{nombreAptitud}}"
-            [(ngModel)]="nombreAptitud" id="nombreAptitud">
-
-        </div>
-        <div class="mb-3">
-          <label for="descripcionAptitud" class="form-label">Descripción Aptitud</label>
-
-          <textarea type="text" class="form-control" name="descripcionAptitud" rows="4" cols="50" maxlength="200"
-            placeholder="{{descripcionAptitud}}" [(ngModel)]="descripcionAptitud" id="descripcionAptitud"> </textarea>
-
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar Datos</button>
-
-      </form>
-    </div>
-
+  <div class="text-center colorAptitud_02 rounded-3 px-1 py-1">
+    <h4>Aptitudes: Hard & Soft Skills</h4>
   </div>
 
+  <div *ngIf="mostrarFormularioDatos === false">
+    <div class="row ">
+      <div *ngFor="let aptitud of datosMyApi.listaAptitudes" 
+        class="col-sm-12 col-md-12 col-lg-6 rounded-3">
 
+        <div class="colorAptitud_03 rounded-3 mx-1 my-2">
+          <dl>
+            <dt>{{aptitud.nombre}}</dt>
+            <dd>{{aptitud.descripcion}}</dd>
+          </dl>
 
+          <div *ngIf="esUsuarioAdmin()" class="">
+            <button class="btn btn-outline-primary btn-sm ms-3 mb-2" 
+              id="boton_editar" type="submit"
+              (click)="accionBotonEditar(aptitud.id, aptitud)"> Editar</button>
 
-  <!--
+            <button class="btn btn-outline-danger btn-sm ms-3 mb-2" 
+              id="boton_eliminar" type="submit"
+              (click)="accionBotonEliminar(aptitud.id)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="esUsuarioAdmin()" class="colorAptitud_03 rounded-3 mx-2 my-2 py-2 ps-3">
+      <button type="submit" class="btn btn-outline-success btn-sm" 
+        (click)="accionBotonCrearAptitud()">Crear Nueva Aptitud</button>
+    </div>
+  </div>
 
-  <div *ngIf="mostrarFormularioAgregar">
-   
-    <form (ngSubmit)="onNuevoProyecto()"  novalidate #f="ngForm">
+  <div *ngIf="mostrarFormularioDatos" 
+    class="colorAptitud_03 rounded-3 mx-2 my-2 px-5 py-2">
+    <form (ngSubmit)="accionFormularioDatos()">
       <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre Proyecto</label>
-
-        <input type="text" class="form-control" name="nombre" 
-          placeholder="{{datosProyectos.listaProyectos[0].nombre}}"
-          [(ngModel)]="nombre" id="nombre">
-
+        <label for="nombreAptitud" class="form-label">Nombre Aptitud</label>
+        <input type="text" class="form-control" name="nombreAptitud" 
+          placeholder="{{nombreAptitud}}"
+          [(ngModel)]="nombreAptitud" id="nombreAptitud">
       </div>
       <div class="mb-3">
-        <label for="descripcion" class="form-label">Descripción Proyecto</label>
-
-        <textarea type="text" class="form-control" name="descripcion"
+        <label for="descripcionAptitud" class="form-label">Descripción Aptitud</label>
+        <textarea type="text" class="form-control" name="descripcionAptitud" 
           rows="4" cols="50" maxlength="200"
-          placeholder="{{datosProyectos.listaProyectos[0].descripcion}}" 
-          [(ngModel)]="descripcion" id="descripcion"> </textarea>
-
-      </div>  
-      <button type="submit" class="btn btn-primary"> Enviar Nuevo Proyecto</button>       
-    
+          placeholder="{{descripcionAptitud}}" [(ngModel)]="descripcionAptitud" 
+          id="descripcionAptitud"> </textarea>
+      </div>
+      <button type="submit" class="btn btn-primary mb-3">Enviar Datos</button>
     </form>
-
-  </div> -->
+  </div>
 
 </div>

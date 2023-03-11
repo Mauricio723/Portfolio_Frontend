@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { Router } from '@angular/router';
 
@@ -9,13 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  //datosJsonHeader: any;
-
+  
   //datosApi_01 : any;
 
-  constructor(private servicioPortfolio: PortfolioService, 
-              private authService : AutenticacionService, 
+  constructor(private authService : AutenticacionService, 
               private router: Router) 
   { } 
 
@@ -33,11 +29,15 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
 
+  nuevoUsuario() {
+    this.router.navigate(["/nuevo"]);
+  }
+
   cerrarSesion() {
     console.log("Dentro del método cerrarSesion");
     this.authService.cerrarSesion();
-    //this.router.navigate(["/login"]);
-    window.location.reload();
+    this.router.navigate(["/login"]);
+    //window.location.reload();
   }
 
 }

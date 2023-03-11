@@ -1,90 +1,126 @@
-<div class="container-fluid border">
-  <div class="row my-3 border">
+<div class="container-fluid seccionTrabajo">
 
-    <div class="col-sm-12 col-md-12 text-center border">
-      <h4>Experiencia Laboral</h4>
-    </div>
+  <div class="colorTrabajo_02 mt-2 py-1 text-center rounded-3">
+    <h4>Experiencia Laboral</h4>
+  </div>
 
-    <div class="col-sm-12 col-md-6 col-xl-6 border" *ngFor="let trabajo of datosMyApi.listaTrabajos">
+  <div *ngIf="mostrarFormularioDatos === false">
+    <div class="row my-3">
 
-      <ul>
-        <li>Nombre Empresa: {{trabajo.nombreEmpresa}}</li>
-        <li>Puesto Laboral: {{trabajo.puestoLaboral}}</li>
-        <li>Año Inicio: {{trabajo.anioInicio}}</li>
-        <li>Año Fin: {{trabajo.anioFin}}</li>
-        <li>Descripción Trabajo: {{trabajo.descripcion}}</li>
-        <li>Ciudad: {{trabajo.ciudad.nombre}}</li>
-      </ul>
+      <div class="col-sm-12 col-md-6 col-xl-6" *ngFor="let trabajo of datosMyApi.listaTrabajos">
 
-      <div *ngIf="esUsuarioAdmin()" class="my-3">
+        <div class="colorTrabajo_03 rounded-3 mx-1 px-3 pt-1">
 
-        <button class="btn btn-outline-success mx-3" id="boton_editar" type="submit"
-          (click)="accionBotonEditar(trabajo.id, trabajo, trabajo.ciudad.nombre)">
-          Editar</button>
+          <dl>
+            <dt>Nombre Empresa:</dt>
+            <dd>{{trabajo.nombreEmpresa}}</dd>
 
-        <button class="btn btn-outline-danger mx-3" id="boton_eliminar" type="submit"
-          (click)="accionBotonEliminar(trabajo.id)">Eliminar</button>
+            <dt> Puesto Laboral:</dt>
+            <dd>{{trabajo.puestoLaboral}}</dd>
+
+            <div class="row">
+              <div class="col col-sm-12 col-md-6 ">
+                <dt>Año de Inicio:</dt>
+                <dd>{{trabajo.anioInicio}}</dd>
+              </div>
+              <div class="col col-sm-12 col-md-6">
+                <dt>Año Finalización:</dt>
+                <dd>{{trabajo.anioFin}}
+                </dd>
+              </div>
+            </div>
+
+            <dt>Descripción trabajo:</dt>
+            <dd>{{trabajo.descripcion}}
+            </dd>
+            <dt>Ciudad:</dt>
+            <dd>{{trabajo.ciudad.nombre}}</dd>
+            <div class="row">
+              <div class="col col-sm-12 col-md-6 ">
+                <dt>Provincia:</dt>
+                <dd>{{trabajo.ciudad.provincia}}</dd>
+              </div>
+              <div class="col col-sm-12 col-md-6">
+                <dt>País:</dt>
+                <dd>{{trabajo.ciudad.pais}}</dd>
+              </div>
+            </div>
+          </dl>
+
+          <div *ngIf="esUsuarioAdmin()" class="py-2">
+
+            <button class="btn btn-outline-primary mx-3" id="boton_editar" type="submit"
+              (click)="accionBotonEditar(trabajo.id, trabajo, trabajo.ciudad.nombre)">
+              Editar</button>
+
+            <button class="btn btn-outline-danger mx-3" id="boton_eliminar" type="submit"
+              (click)="accionBotonEliminar(trabajo.id)">Eliminar</button>
+          </div>
+        </div>
 
       </div>
 
     </div>
 
-
-    <div *ngIf="esUsuarioAdmin() && !mostrarFormularioDatos" class="my-3">
-      <button type="submit" class="" (click)="accionBotonCrearNuevo()">
+    <div *ngIf="esUsuarioAdmin() && !mostrarFormularioDatos" class="colorTrabajo_03 rounded-3 mx-2 my-3 py-2">
+      <button type="submit" class="btn btn-outline-success btn-sm ms-3" (click)="accionBotonCrearNuevo()">
         Crear Nuevo Trabajo</button>
     </div>
 
+  </div>
 
-    <div *ngIf="esUsuarioAdmin() && mostrarFormularioDatos">
+  <div *ngIf="esUsuarioAdmin() && mostrarFormularioDatos" 
+    class="colorTrabajo_03 rounded-3 mt-2 px-5 py-2">
 
-      <form (ngSubmit)="accionFormularioDatos()">
+    <form (ngSubmit)="accionFormularioDatos()">
 
-        <div class="mb-3">
-          <label for="nombreEmpresa" class="form-label">Nombre Empresa</label>
-          <input type="text" class="form-control" name="nombreEmpresa" placeholder="{{nombreEmpresa}}"
-            [(ngModel)]="nombreEmpresa" id="nombreEmpresa">
-        </div>
+      <div class="mb-2">
+        <label for="nombreEmpresa" class="form-label">Nombre Empresa</label>
+        <input type="text" class="form-control" name="nombreEmpresa" placeholder="{{nombreEmpresa}}"
+          [(ngModel)]="nombreEmpresa" id="nombreEmpresa">
+      </div>
 
-        <div class="mb-3">
-          <label for="puestoLaboral" class="form-label">Puesto Laboral</label>
-          <input type="text" class="form-control" name="puestoLaboral" placeholder="{{puestoLaboral}}"
-            [(ngModel)]="puestoLaboral" id="puestoLaboral">
-        </div>
+      <div class="mb-2">
+        <label for="puestoLaboral" class="form-label">Puesto Laboral</label>
+        <input type="text" class="form-control" name="puestoLaboral" placeholder="{{puestoLaboral}}"
+          [(ngModel)]="puestoLaboral" id="puestoLaboral">
+      </div>
 
-        <div class="mb-3">
+      <div class="row">           
+        <div class="col-sm-12 col-md-12 col-lg-6 mb-2">
           <label for="anioInicio" class="form-label">Año de inicio</label>
-          <input type="number" class="form-control" name="anioInicio" placeholder="{{anioInicio}}"
-            [(ngModel)]="anioInicio" id="anioInicio">
-        </div>
-
-        <div class="mb-3">
+          <input type="number" class="form-control" name="anioInicio" placeholder="{{anioInicio}}" [(ngModel)]="anioInicio"
+            id="anioInicio">
+        </div>      
+        <div class="col-sm-12 col-md-12 col-lg-6 mb-2">
           <label for="anioFin" class="form-label">Año de finalización</label>
           <input type="number" class="form-control" name="anioFin" placeholder="{{anioFin}}" [(ngModel)]="anioFin"
             id="anioFin">
-        </div>
+        </div>      
+      </div>
 
-        <div class="mb-3">
-          <label for="descripcion" class="form-label">Descripción Trabajo</label>
-          <textarea type="text" class="form-control" name="descripcion" rows="4" cols="50" maxlength="200"
-            placeholder="{{descripcion}}" [(ngModel)]="descripcion" id="descripcion">
+      <div class="mb-2">
+        <label for="descripcion" class="form-label">Descripción Trabajo</label>
+        <textarea type="text" class="form-control" name="descripcion" 
+          rows="3" cols="50" maxlength="200"
+          placeholder="{{descripcion}}" [(ngModel)]="descripcion" id="descripcion">
           </textarea>
-        </div>
+      </div>
 
-        <div class="mb-3">
-          <p> Ciudad - (Ciudad actual: {{nombreCiudad}}) </p>
+      <div class="mb-2">
+        <p> Ciudad - (Ciudad actual: {{nombreCiudad}}) </p>
 
-          <select name="idCiudad" id="idCiudad" size="4" [(ngModel)]="idCiudad">
-            <option *ngFor="let ciudad of listaCiudades" value={{ciudad.id}}>
-              ciudad: {{ciudad.nombre}}</option>
-          </select>
-        </div>
+        <select name="idCiudad" id="idCiudad" size="4" [(ngModel)]="idCiudad">
+          <option *ngFor="let ciudad of listaCiudades" value={{ciudad.id}}>
+            ciudad: {{ciudad.nombre}}</option>
+        </select>
 
-        <div class="mb-3">
+      </div>
+
+      <div class="mb-3">
         <button type="submit" class="btn btn-primary">Enviar Datos</button>
-      </div> 
-      </form>
-    </div>
-
+      </div>
+    </form>
   </div>
+
 </div>

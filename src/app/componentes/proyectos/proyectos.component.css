@@ -1,0 +1,47 @@
+
+.colorProyecto_02 {
+    background-color: rgb(33, 73, 41);
+    
+}
+
+.colorProyecto_03 {
+    background-color: rgb(185, 207, 223);
+
+}
+
+.colorProyecto_04 {
+    background-color: rgb(60, 189, 71);
+
+    color: rgb(11, 20, 97);
+}
+
+.seccionProyecto h4 {
+    color: rgb(223, 233, 196);
+}
+
+.seccionProyecto h5 {
+    color: rgb(106, 32, 224);
+}
+
+.seccionProyecto h6 {
+    color: rgb(107, 76, 29);
+}
+
+.seccionProyecto p {
+    color: rgb(11, 63, 34);
+    font-size: 20px;
+}
+
+/* Estilos para lista de definición */
+
+.seccionProyecto dt {
+    color: rgb(8, 100, 100);
+    margin-left: 20px;
+}
+
+.seccionProyecto dd {
+    color: rgb(83, 26, 64);    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-left: 40px;
+}

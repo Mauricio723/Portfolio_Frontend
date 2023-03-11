@@ -1,4 +1,38 @@
-
 .colorFondo_03 {
-    background-color :rgb(164, 241, 231);
+    background-color: rgb(183, 235, 232);
+}
+
+
+.colorGradiente_01 {
+
+    background: -moz-radial-gradient(100px 100px, 
+                ellipse farthest-side, 
+                rgb(204, 234, 240), #1162ac, rgb(78, 105, 224));
+   
+    background: -webkit-radial-gradient(100px 100px, 
+                ellipse farthest-side, 
+                rgb(204, 234, 240), #1162ac, rgb(78, 105, 224));
+
+    background: -o-radial-gradient(100px 100px, 
+                ellipse farthest-side, 
+                rgb(204, 234, 240), #1162ac, rgb(78, 105, 224));
+
+    background: -moz-radial-gradient(100px 100px, 
+                ellipse farthest-side, 
+                rgb(204, 234, 240), #1162ac, rgb(78, 105, 224));
+    /*
+    background: linear-gradient(top, red, gold);
+    background: -webkit-linear-gradient(top, red, gold);
+    background: -moz-linear-gradient(top, red, gold);
+    background: -o-linear-gradient(top, red, gold);
+    background: -ms-linear-gradient(top, red, gold);
+
+    */
+}
+
+.colorGradiente_02 {
+    background: -moz-repeating-radial-gradient(10% 10%, circle farthest-side, 
+    rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161), 
+    rgb(151, 243, 151), rgb(141, 141, 202), rgb(117, 115, 248), rgb(88, 163, 197), 
+    rgb(236, 141, 134)); 
 }

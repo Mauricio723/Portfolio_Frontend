@@ -8,6 +8,7 @@ import { About } from '../modelos/About';
 import { Educacion } from '../modelos/Educacion';
 import { Trabajo } from '../modelos/Trabajo';
 import { Aptitud } from '../modelos/Aptitud';
+import { Ciudad } from '../modelos/Ciudad';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,10 @@ export class AdminService {
 
   traerCiudades() : Observable<any> {
     return this.myHttpClient.get<any>(this.urlApi + "/ciudades/traer_todas");
+  }
+  
+  crearCiudad(nuevaciudad : Ciudad) : Observable<any> {
+    return this.myHttpClient.post<any>(this.urlApi + "/ciudades/crear", nuevaciudad);
   }
 
   // Datos Persona

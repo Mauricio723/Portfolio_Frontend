@@ -1,25 +1,26 @@
-<div class="container-fluid border border-info">
+<div class="container-fluid">
 
   <div class="row">
 
     <div class="col-sm-12 col-md-12">
 
+      <!--
       <div class="bg-success text-center">
-        <!--
+        
         <h3 class="titulo_nombre_01">
           {{datosPersona.nombre}} {{datosPersona.apellido}}
         </h3>   -->
 
-        <!--
+      <!--
         <div>
           <h1 class="fs-4 px-5">
             {{datosPersona.nombre}}
               <h3> {{datosJson_01.nombre}}  !!!??</h3> 
             {{datosJsonHeader.datosHeader.nombreApp}} 
           </h1>         
-        </div>         -->
+        </div>         
 
-      </div>
+      </div>-->
 
       <div class="mb-sm-3 mb-md-4">
 
@@ -39,196 +40,283 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-12 col-md-5 col-lg-6 col-xl-4 py-2 border">
+
+        <div class="col-sm-12 col-md-5 col-lg-6 col-xl-4 py-2">
           <h5>{{datosPersona.nombre}} {{datosPersona.apellido}}</h5>
           <h6>{{datosPersona.tituloPrincipal}}</h6>
           <!--<h5>{{datosJsonHeader.datosHeader.nombreCompletoAutor}}</h5>
           <h6>{{datosJsonHeader.datosHeader.tituloAutor}}</h6> -->
         </div>
-        <div class="col-sm-12 col-md-7 col-lg-6 col-xl-8 py-3 px-4 border">
-          <h5>Este div, por ahora es de relleno</h5>
+        <div class="col-sm-12 col-md-7 col-lg-6 col-xl-8 py-3 px-4">
+          <h5>--------------------------------------------</h5>
         </div>
       </div>
+
     </div>
 
-   
-    <!-- ############################################### -->
+  </div> 
 
-    <div class="col-sm-12 col-md-12 py-2 border border-success">
+  <div class="seccion_01 colorAbout_02 rounded-3 mb-2">
 
-      <div *ngIf="!mostrarFormularioDatos">
+    <div *ngIf="mostrarFormularioDatos === false" class="py-3">
 
-        <h4>Datos Personales</h4>
+      <div class="colorAbout_03 mx-3 py-3 rounded-3">
+        <h4 class="text-center">Datos Personales</h4>
+      </div>
 
-        <table class="table table-secondary">
-          <tbody>
-            <tr>
-              <td>Nombre</td>
-              <td>{{datosPersona.nombre}}</td>
-            </tr>
-            <tr>
-              <td> Apellido:</td>
-              <td>{{datosPersona.apellido}}</td>
-            </tr>
-            <tr>
-              <td> Ocupación:</td>
-              <td>{{datosPersona.ocupacion}}</td>
-            </tr>
-            <tr>
-              <td> Titulo Principal:</td>
-              <td>{{datosPersona.tituloPrincipal}}</td>
-            </tr>
-            <tr>
-              <td> Fecha de Nacimiento:</td>
-              <td>{{datosPersona.fecha_nacimiento}}</td>
-            </tr>
-            <tr>
-              <td>Email:</td>
-              <td>{{datosPersona.email}}</td>
-            </tr>
-            <tr>
-              <td>Documento</td>
-              <td>{{datosPersona.documento}}</td>
-            </tr>
-            <tr>
-              <td>Acerca de:</td>
-              <td>{{datosPersona.acerca_de}}</td>
-            </tr>
-            <tr>
-              <td>URL foto:</td>
-              <td> {{datosPersona.urlFoto}}</td>
-            </tr>
-            <tr>
-              <td>URL Banner:</td>
-              <td>{{datosPersona.urlBanner}}</td>
-            </tr>
-            <tr>
-              <td>Ubicación - Ciudad:</td>
-              <td>{{datosPersona.ciudad.nombre}}</td>
-            </tr>
-            <tr>
-              <td> Provincia:</td>
-              <td> {{datosPersona.ciudad.provincia}}</td>
-            </tr>
-            <tr>
-              <td> Pais:</td>
-              <td> {{datosPersona.ciudad.pais}}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+
+          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
+            <h6 class="">Nombre</h6>
+            <h5 class="px-4">{{datosPersona.nombre}}</h5>
+          </div>
+
+          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
+            <h6 class="">Apellido</h6>
+            <h5 class="px-4">{{datosPersona.apellido}}</h5>
+          </div>
+
+          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
+            <h6 class="">Fecha de Nacimiento</h6>
+            <h5 class="px-4">{{datosPersona.fecha_nacimiento}}</h5>
+          </div>
+
+          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
+            <h6 class="">Ciudad</h6>
+            <h5 class="px-4">{{datosPersona.ciudad.nombre}}</h5>
+          </div>
+
+          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
+            <h6 class="">Provincia</h6>
+            <h5 class="px-4">{{datosPersona.ciudad.provincia}}</h5>
+          </div>
+
+          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
+            <h6 class="">País</h6>
+            <h5 class="px-4">{{datosPersona.ciudad.pais}}</h5>
+          </div>         
+
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+
+          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
+            <h6 class="">Ocupación</h6>
+            <h5 class="px-4">{{datosPersona.ocupacion}}</h5>
+          </div>
+
+          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
+            <h6 class="">Título Principal</h6>
+            <h5 class="px-4">{{datosPersona.tituloPrincipal}}</h5>
+          </div>
+
+          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
+            <h6 class="">Email</h6>
+            <h5 class="px-4">{{datosPersona.email}}</h5>
+          </div>
+
+          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
+            <h6 class="">Documento</h6>
+            <h5 class="px-4">{{datosPersona.documento}}</h5>
+          </div>
+
+          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
+            <h6 class="">Acerca de:</h6>
+            <p class="px-4">{{datosPersona.acerca_de}}</p>
+          </div>
+
+        </div>
 
       </div>
 
-      <div *ngIf="esUsuarioAdmin() && !mostrarFormularioDatos" class="my-3 mx-3">
+      <div *ngIf="esUsuarioAdmin() && mostrarFormularioDatos === false" class="colorAbout_03 rounded-3 my-4 mx-3">
 
-        <button type="submit" class="mx-2" (click)="accionBotonModificar(datosPersona.id)">
+        <button type="submit" class="btn btn-info mx-2 my-3" (click)="accionBotonModificar(datosPersona.id)">
           Modificar Persona</button>
 
-        <button type="submit" class="mx-2" (click)="accionBotonEliminar(datosPersona.id)">
+        <button type="submit" class="btn btn-info mx-2 my-3" (click)="accionBotonEliminar(datosPersona.id)">
           Eliminar Persona</button>
 
-        <button type="submit" class="mx-2" (click)="accionBotonCrearPersona()">
+        <button type="submit" class="btn btn-info mx-2 my-3" (click)="accionBotonCrearPersona()">
           Agregar Nueva Persona</button>
+
+        <button *ngIf="mostrarMasDatos === false" type="submit" class="btn btn-info mx-2 my-3"
+          (click)="accionBotonMostrarMas()">
+          Mostrar más Datos</button>
+
+        <button *ngIf="mostrarMasDatos" type="submit" class="mx-2 my-3" (click)="accionBotonMostrarMenos()">
+          Mostrar menos Datos</button>
 
       </div>
 
     </div>
 
-    <div *ngIf="mostrarFormularioDatos" class="py-2 border">
 
-      <form (ngSubmit)="accionFormularioDatos(datosPersona.id, ciudad_id)" 
-        novalidate #f="ngForm">
+    <div *ngIf="esUsuarioAdmin() && mostrarMasDatos" class="mx-2 my-2 pb-3">
 
-        <div class="mb-3">
-          <label for="nombre" class="form-label">Nombre Persona</label>
+      <h5 class="text-center mx-3">Datos Personales Secundarios - (Administrador)</h5>
 
-          <input type="text" class="form-control" name="nombre" placeholder="{{datosPersona.nombre}}"
-            [(ngModel)]="nombre" id="nombre">
+      <div class=" row colorAbout_03 rounded-3 mx-3 mt-3">
 
-        </div>
-        <div class="mb-3">
-          <label for="apellido" class="form-label">Apellido</label>
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 rounded-3 mt-3 px-3 py-2">
 
-          <input type="text" class="form-control" name="apellido" placeholder="{{datosPersona.apellido}}"
-            [(ngModel)]="apellido" id="apellido">
+          <h6 class="">Nombre y Apellido:</h6>
+          <p class="px-4">{{datosPersona.nombre}} {{datosPersona.apellido}}</p>
 
-        </div>
-        <div class="mb-3">
-          <label for="nombre" class="form-label">Ocupación</label>
+          <h6 class="">Email:</h6>
+          <p class="px-4">{{datosPersona.email}}</p>
 
-          <input type="text" class="form-control" name="ocupacion" placeholder="{{datosPersona.ocupacion}}"
-            [(ngModel)]="ocupacion" id="ocupacion">
+          <h6 class="">Documento</h6>
+          <p class="px-4">{{datosPersona.documento}}</p>
 
         </div>
-        <div class="mb-3">
-          <label for="tituloPrincipal" class="form-label">Titulo Principal</label>
+        
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 rounded-3 mt-3 px-3 py-2">
 
-          <input type="text" class="form-control" name="tituloPrincipal" placeholder="{{datosPersona.tituloPrinipal}}"
-            [(ngModel)]="tituloPrincipal" id="tituloPrincipal">
+          <h6 class="">Foto: </h6>
+          <p class="px-4">{{datosPersona.urlFoto}}</p>
 
-        </div>
-        <div class="mb-3">
-          <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
-
-          <input type="text" class="form-control" name="fecha_nacimiento"
-            placeholder="{{datosPersona.fecha_nacimiento}}" [(ngModel)]="fecha_nacimiento" id="fecha_nacimiento">
-
-        </div>
-        <div class="mb-3">
-          <label for="documento" class="form-label">Documento</label>
-
-          <input type="text" class="form-control" name="documento" placeholder="{{datosPersona.documento}}"
-            [(ngModel)]="documento" id="documento">
-
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-
-          <input type="text" class="form-control" name="email" placeholder="{{datosPersona.email}}" [(ngModel)]="email"
-            id="email">
+          <h6 class="">Banner:</h6>
+          <p class="px-4">{{datosPersona.urlBanner}}</p>
 
         </div>
 
-        <div class="mb-3">
-          <label for="acerca_de" class="form-label">Acerca de</label>
+      </div>
 
-          <textarea type="text" class="form-control" name="acerca_de" rows="4" cols="50" maxlength="200"
-            placeholder="{{datosPersona.acerca_de}}" [(ngModel)]="acerca_de" id="acerca_de"> </textarea>
+    </div>
+    
 
-        </div>
+  </div>
 
-        <div class="mb-3">
-          <label for="urlFoto" class="form-label">URL Foto</label>
+  <div *ngIf="mostrarFormularioDatos" class="py-2 border">
+    <!--
+    <form (ngSubmit)="accionFormularioDatos(datosPersona.id, ciudad_id)"
+       novalidate #f="ngForm">  -->
+    <h5 class="text-center">{{tituloFormulario}}</h5>
 
-          <input type="text" class="form-control" name="urlFoto" placeholder="{{datosPersona.urlFoto}}"
-            [(ngModel)]="urlFoto" id="urlFoto">
+    <form novalidate #f="ngForm">
 
-        </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre Persona</label>
 
-        <div class="mb-3">
-          <label for="urlBanner" class="form-label">URL Banner</label>
+        <input type="text" class="form-control" name="nombre" placeholder="{{datosPersona.nombre}}"
+          [(ngModel)]="about.nombre" id="nombre">
 
-          <input type="text" class="form-control" name="urlBanner" 
-            placeholder="{{datosPersona.urlBanner}}"
-            [(ngModel)]="urlBanner" id="urlBanner">
+      </div>
+      <div class="mb-3">
+        <label for="apellido" class="form-label">Apellido</label>
 
-        </div>
+        <input type="text" class="form-control" name="apellido" placeholder="{{datosPersona.apellido}}"
+          [(ngModel)]="about.apellido" id="apellido">
 
+      </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Ocupación</label>
 
-        <div class="mb-3">
+        <input type="text" class="form-control" name="ocupacion" placeholder="{{datosPersona.ocupacion}}"
+          [(ngModel)]="about.ocupacion" id="ocupacion">
+
+      </div>
+      <div class="mb-3">
+        <label for="tituloPrincipal" class="form-label">Titulo Principal</label>
+
+        <input type="text" class="form-control" name="tituloPrincipal" placeholder="{{datosPersona.tituloPrinipal}}"
+          [(ngModel)]="about.tituloPrincipal" id="tituloPrincipal">
+
+      </div>
+      <div class="mb-3">
+        <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+
+        <input type="text" class="form-control" name="fecha_nacimiento" placeholder="{{datosPersona.fecha_nacimiento}}"
+          [(ngModel)]="about.fecha_nacimiento" id="fecha_nacimiento">
+
+      </div>
+      <div class="mb-3">
+        <label for="documento" class="form-label">Documento</label>
+
+        <input type="text" class="form-control" name="documento" placeholder="{{datosPersona.documento}}"
+          [(ngModel)]="about.documento" id="documento">
+
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+
+        <input type="text" class="form-control" name="email" placeholder="{{datosPersona.email}}"
+          [(ngModel)]="about.email" id="email">
+
+      </div>
+
+      <div class="mb-3">
+        <label for="acerca_de" class="form-label">Acerca de</label>
+
+        <textarea type="text" class="form-control" name="acerca_de" rows="4" cols="50" maxlength="200"
+          placeholder="{{datosPersona.acerca_de}}" [(ngModel)]="about.acerca_de" id="acerca_de"> </textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="urlFoto" class="form-label">URL Foto</label>
+
+        <input type="text" class="form-control" name="urlFoto" placeholder="{{datosPersona.urlFoto}}"
+          [(ngModel)]="about.urlFoto" id="urlFoto">
+
+      </div>
+
+      <div class="mb-3">
+        <label for="urlBanner" class="form-label">URL Banner</label>
+
+        <input type="text" class="form-control" name="urlBanner" placeholder="{{datosPersona.urlBanner}}"
+          [(ngModel)]="about.urlBanner" id="urlBanner">
+
+      </div>
+
+      <div *ngIf="mostrarFormularioCiudad === false">
+
+        <div *ngIf="laCiudadEsNueva" class="mb-3">
           <label for="ciudad_id" class="form-label">Id Ciudad</label>
 
-          <input type="number" class="form-control" name="ciudad_id" placeholder="{{datosPersona.ciudad.id}}"
-            [(ngModel)]="ciudad_id" id="ciudad_id">
+          <p>Ciudad Nueva: {{listaCiudades[listaCiudades.length - 1].nombre}}</p>
+
+          <p>id Ciudad Nueva: {{listaCiudades[listaCiudades.length - 1].id}}</p>
+         
+        </div>
+
+        <div *ngIf="laCiudadEsNueva === false" class="mb-3">
+         
+          <h5>Ciudad</h5>
+          <div>
+            <p>Seleccionar la ciudad de la lista</p>
+
+            <select name="ciudad_id" id="ciudad_id" size="4" [(ngModel)]="idCiudad">
+              <option *ngFor="let ciudad of listaCiudades" value={{ciudad.id}}>
+                ciudad: {{ciudad.nombre}}</option>
+            </select>
+
+          </div>
+       
+          <div>
+            <p>Si la ciudad no se encuentra en la lista, presionar el siguiente botón</p>
+
+            <button class="btn btn-primary" (click)="eventoBotonNuevaCiudad()">
+              Ingresar Nueva Ciudad</button>
+          </div>
 
         </div>
 
+      </div>
 
-        <button type="submit" class="btn btn-primary"> Enviar Datos Persona</button>
+      <br>
 
-      </form>
-    </div>
+      <div *ngIf="mostrarFormularioCiudad" class="py-3">
 
+        <app-ciudades (eventoDesdeCiudad)="cerrarFormularioCiudad($event)"></app-ciudades>
+
+      </div>
+    
+      <button type="submit" class="btn btn-primary" (click)="eventoBotonEnviarDatos()">
+        Enviar Datos Persona</button>
+
+    </form>
   </div>
 
 </div>

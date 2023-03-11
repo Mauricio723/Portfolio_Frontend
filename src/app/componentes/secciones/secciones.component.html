@@ -1,27 +1,36 @@
-<div class="colorFondo_03 border">  
+<div class="colorGradiente_02">
 
-    <div *ngIf="contenidoSessionStorage; else sesionCerrada">     
+    <div *ngIf="contenidoSessionStorage; else sesionCerrada">
 
-        <div *ngIf="datosPortfolio; else datosPersonaNull">
+        <div *ngIf="datosPortfolio; else datosPortfolioNull">
 
+            <!--
             <app-about [datosPersona]="datosPortfolio"></app-about>
+-->
             <app-education [datosMyApi]="datosPortfolio"></app-education>
+
             <app-trabajos [datosMyApi]="datosPortfolio"> </app-trabajos>
+
             <app-aptitudes [datosMyApi]="datosPortfolio"></app-aptitudes>
-            <app-proyectos [datosProyectos]="datosPortfolio"></app-proyectos>
+
+            <app-proyectos [datosMyApi]="datosPortfolio"></app-proyectos>
 
         </div>
 
-        <ng-template #datosPersonaNull>
-            <h4># # # Datos del Portfolio = NULL # # #</h4>
-            <h4># # # Espere un momento # # #</h4>
+        <ng-template #datosPortfolioNull>
+            <div class="m-3 p-3 border border-success">
+                <h4 class="text-center"># # # Datos del Portfolio = NULL # # #</h4>
+                <h4 class="text-center"># # # Espere un momento # # #</h4>
+            </div>
         </ng-template>
 
     </div>
 
     <ng-template #sesionCerrada>
-        <h4> Sesión Cerrada</h4>
-        <h5>Para iniciar una nueva sesión, presionar botón "Iniciar Sesión"</h5>
+        <div class="p-3">
+            <h4 class="border border-success px-3 py-3"> Sesión Cerrada</h4>
+            <h5>Para iniciar una nueva sesión, presionar botón "Iniciar Sesión"</h5>
+        </div>
     </ng-template>
 
 </div>

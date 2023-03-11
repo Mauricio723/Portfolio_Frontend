@@ -17,6 +17,8 @@ import { BodyPfComponent } from './componentes/body-pf/body-pf.component';
 import { SeccionesComponent } from './componentes/secciones/secciones.component';
 
 import { InterceptorService } from './servicios/interceptor.service';
+import { FnewuserComponent } from './componentes/fnewuser/fnewuser.component';
+import { CiudadesComponent } from './componentes/ciudades/ciudades.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { InterceptorService } from './servicios/interceptor.service';
     FooterComponent,
     FormloginComponent,
     BodyPfComponent,
-    SeccionesComponent
+    SeccionesComponent,
+    FnewuserComponent,
+    CiudadesComponent
   ],
   imports: [
     BrowserModule,
