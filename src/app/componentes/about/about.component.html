@@ -1,165 +1,129 @@
-<div class="container-fluid">
 
+<div class="container-fluid">  
+  
   <div class="row">
+       
+    <div class="col-12 fondoBanner">
+      <img src={{datosPersona.urlBanner}} class="img-fluid" alt="Imagen del Banner">  
+      
+    </div>  
 
-    <div class="col-sm-12 col-md-12">
-
-      <!--
-      <div class="bg-success text-center">
-        
-        <h3 class="titulo_nombre_01">
-          {{datosPersona.nombre}} {{datosPersona.apellido}}
-        </h3>   -->
-
-      <!--
-        <div>
-          <h1 class="fs-4 px-5">
-            {{datosPersona.nombre}}
-              <h3> {{datosJson_01.nombre}}  !!!??</h3> 
-            {{datosJsonHeader.datosHeader.nombreApp}} 
-          </h1>         
-        </div>         
-
-      </div>-->
-
-      <div class="mb-sm-3 mb-md-4">
-
-        <div class="div_foto_01 mt-sm-3 mt-md-4 mt-lg-5 pt-sm-3 pt-md-5 pt-lg-5">
-          <img src="assets/Imagenes_01/Mauricio_Julio_2022.jpg" class=" img-fluid rounded-circle border"
-            alt="Foto Mauricio">
-        </div>
-
-        <div class="text-center">
-          <img src="assets/Imagenes_01/BannerPruebaWeb_01.png" class="img-fluid" alt="Imagen del Banner">
-        </div>
-
-        <div class="mt-md-4 pt-md-4">
-
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-sm-12 col-md-5 col-lg-6 col-xl-4 py-2">
-          <h5>{{datosPersona.nombre}} {{datosPersona.apellido}}</h5>
-          <h6>{{datosPersona.tituloPrincipal}}</h6>
-          <!--<h5>{{datosJsonHeader.datosHeader.nombreCompletoAutor}}</h5>
-          <h6>{{datosJsonHeader.datosHeader.tituloAutor}}</h6> -->
-        </div>
-        <div class="col-sm-12 col-md-7 col-lg-6 col-xl-8 py-3 px-4">
-          <h5>--------------------------------------------</h5>
-        </div>
-      </div>
-
+    <div class="div_foto_01">
+      <img src={{datosPersona.urlFoto}} class=" img-fluid rounded-circle border"
+       alt="Foto Mauricio">       
     </div>
 
-  </div> 
+    <div class="textoFoto_01">
+      <dl>
+        <dt>{{datosPersona.nombre}} {{datosPersona.apellido}}</dt>
+        <dd>{{datosPersona.tituloPrincipal}}</dd>
+      </dl>       
+    </div>
+    <!--
+       ms-1 mt-sm-3 mt-md-4 mt-lg-5 pt-sm-3 pt-md-5 pt-lg-5
+    -->
 
-  <div class="seccion_01 colorAbout_02 rounded-3 mb-2">
+  </div>
+ 
+</div>
 
-    <div *ngIf="mostrarFormularioDatos === false" class="py-3">
 
-      <div class="colorAbout_03 mx-3 py-3 rounded-3">
-        <h4 class="text-center">Datos Personales</h4>
-      </div>
+<div class="container-fluid seccionAbout">
 
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+  <div *ngIf="mostrarFormularioDatos === false" class="my-2">
 
-          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
-            <h6 class="">Nombre</h6>
-            <h5 class="px-4">{{datosPersona.nombre}}</h5>
-          </div>
-
-          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
-            <h6 class="">Apellido</h6>
-            <h5 class="px-4">{{datosPersona.apellido}}</h5>
-          </div>
-
-          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
-            <h6 class="">Fecha de Nacimiento</h6>
-            <h5 class="px-4">{{datosPersona.fecha_nacimiento}}</h5>
-          </div>
-
-          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
-            <h6 class="">Ciudad</h6>
-            <h5 class="px-4">{{datosPersona.ciudad.nombre}}</h5>
-          </div>
-
-          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
-            <h6 class="">Provincia</h6>
-            <h5 class="px-4">{{datosPersona.ciudad.provincia}}</h5>
-          </div>
-
-          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
-            <h6 class="">País</h6>
-            <h5 class="px-4">{{datosPersona.ciudad.pais}}</h5>
-          </div>         
-
-        </div>
-
-        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-
-          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
-            <h6 class="">Ocupación</h6>
-            <h5 class="px-4">{{datosPersona.ocupacion}}</h5>
-          </div>
-
-          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
-            <h6 class="">Título Principal</h6>
-            <h5 class="px-4">{{datosPersona.tituloPrincipal}}</h5>
-          </div>
-
-          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
-            <h6 class="">Email</h6>
-            <h5 class="px-4">{{datosPersona.email}}</h5>
-          </div>
-
-          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
-            <h6 class="">Documento</h6>
-            <h5 class="px-4">{{datosPersona.documento}}</h5>
-          </div>
-
-          <div class="colorAbout_03 rounded-3 mx-3 mt-3 px-3 py-2">
-            <h6 class="">Acerca de:</h6>
-            <p class="px-4">{{datosPersona.acerca_de}}</p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div *ngIf="esUsuarioAdmin() && mostrarFormularioDatos === false" class="colorAbout_03 rounded-3 my-4 mx-3">
-
-        <button type="submit" class="btn btn-info mx-2 my-3" (click)="accionBotonModificar(datosPersona.id)">
-          Modificar Persona</button>
-
-        <button type="submit" class="btn btn-info mx-2 my-3" (click)="accionBotonEliminar(datosPersona.id)">
-          Eliminar Persona</button>
-
-        <button type="submit" class="btn btn-info mx-2 my-3" (click)="accionBotonCrearPersona()">
-          Agregar Nueva Persona</button>
-
-        <button *ngIf="mostrarMasDatos === false" type="submit" class="btn btn-info mx-2 my-3"
-          (click)="accionBotonMostrarMas()">
-          Mostrar más Datos</button>
-
-        <button *ngIf="mostrarMasDatos" type="submit" class="mx-2 my-3" (click)="accionBotonMostrarMenos()">
-          Mostrar menos Datos</button>
-
-      </div>
-
+    <div class="colorAbout_02 mx-1 py-1 rounded-3">
+      <h4 class="text-center">Datos Personales</h4>
     </div>
 
+    <div class="row">
 
-    <div *ngIf="esUsuarioAdmin() && mostrarMasDatos" class="mx-2 my-2 pb-3">
+      <div class="col-sm-12 col-md-6 col-lg-6 mt-2 px-3">
 
-      <h5 class="text-center mx-3">Datos Personales Secundarios - (Administrador)</h5>
+        <dl class="colorAbout_03 rounded-3 py-2 ">
 
-      <div class=" row colorAbout_03 rounded-3 mx-3 mt-3">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">              
+              <dt>Nombre</dt>          
+              <dd>{{datosPersona.nombre}}</dd>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <dt>Apellido</dt>          
+              <dd>{{datosPersona.apellido}}</dd>
+            </div>
+          </div>                             
 
-        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 rounded-3 mt-3 px-3 py-2">
+          <dt>Título Principal</dt>
+          <dd>{{datosPersona.tituloPrincipal}}</dd>                
+
+          <dt>Ciudad actual</dt>
+          <dd>{{datosPersona.ciudad.nombre}}</dd>
+
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <dt>Provincia</dt>          
+              <dd>{{datosPersona.ciudad.provincia}}</dd>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <dt>País</dt>          
+              <dd>{{datosPersona.ciudad.pais}}</dd>
+            </div>
+          </div>            
+        </dl>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-2 px-3">
+        <dl class="colorAbout_03 rounded-3 py-2">          
+          <dt>Ocupación actual</dt>
+          <dd>{{datosPersona.ocupacion}}</dd>         
+          <dt>Email</dt>
+          <dd>{{datosPersona.email}}</dd>
+          <dt>Fecha de Nacimiento</dt>
+          <dd>{{datosPersona.fecha_nacimiento}}</dd>        
+          <dt>Acerca de:</dt>
+          <dd>{{datosPersona.acerca_de}}</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div *ngIf="esUsuarioAdmin() && mostrarFormularioDatos === false" 
+      class="colorAbout_03 rounded-3 mx-2 py-1">
+
+      <button type="submit" class="btn btn-outline-light btn-sm mx-3 my-2" 
+        (click)="accionBotonModificar(datosPersona.id)">
+        Modificar Persona</button>
+
+      <button type="submit" class="btn btn-outline-light btn-sm mx-3 my-2" 
+        (click)="accionBotonEliminar(datosPersona.id)">
+        Eliminar Persona</button>
+
+      <button type="submit" class="btn btn-outline-light btn-sm mx-3 my-2" 
+        (click)="accionBotonCrearPersona()">
+        Agregar Nueva Persona</button>
+
+      <button *ngIf="mostrarMasDatos === false" type="submit" 
+        class="btn btn-outline-light btn-sm mx-3 my-2"
+        (click)="accionBotonMostrarMas()">
+        Mostrar más Datos</button>
+
+      <button *ngIf="mostrarMasDatos" type="submit" 
+        class="btn btn-outline-light btn-sm mx-3 my-2" 
+       (click)="accionBotonMostrarMenos()">
+        Mostrar menos Datos</button>
+    </div>
+
+  </div>
+
+  <div>
+
+    <div *ngIf="esUsuarioAdmin() && mostrarMasDatos" 
+      class="colorAbout_01 rounded-3 mx-1 my-2 py-2">
+
+      <h6 class="text-center mx-3">Datos Personales Secundarios - (Administrador)</h6>
+
+      <div class=" row mx-2 mt-3">
+
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 rounded-3 mt-2 px-3 py-2">
 
           <h6 class="">Nombre y Apellido:</h6>
           <p class="px-4">{{datosPersona.nombre}} {{datosPersona.apellido}}</p>
@@ -171,8 +135,8 @@
           <p class="px-4">{{datosPersona.documento}}</p>
 
         </div>
-        
-        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 rounded-3 mt-3 px-3 py-2">
+
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 rounded-3 mt-2 px-3 py-2">
 
           <h6 class="">Foto: </h6>
           <p class="px-4">{{datosPersona.urlFoto}}</p>
@@ -181,38 +145,36 @@
           <p class="px-4">{{datosPersona.urlBanner}}</p>
 
         </div>
-
       </div>
-
     </div>
-    
 
   </div>
 
-  <div *ngIf="mostrarFormularioDatos" class="py-2 border">
+  <div *ngIf="mostrarFormularioDatos" class="colorAbout_01 py-2 border">
     <!--
     <form (ngSubmit)="accionFormularioDatos(datosPersona.id, ciudad_id)"
        novalidate #f="ngForm">  -->
     <h5 class="text-center">{{tituloFormulario}}</h5>
 
-    <form novalidate #f="ngForm">
+    <form novalidate #f="ngForm" class="px-5 rounded-3">
 
-      <div class="mb-3">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6 mb-3">
         <label for="nombre" class="form-label">Nombre Persona</label>
-
-        <input type="text" class="form-control" name="nombre" placeholder="{{datosPersona.nombre}}"
-          [(ngModel)]="about.nombre" id="nombre">
-
+        <input type="text" class="form-control" name="nombre" 
+          placeholder="{{datosPersona.nombre}}"
+          [(ngModel)]="about.nombre" id="nombre">      
+        </div>      
+        <div class="col-sm-12 col-md-12 col-lg-6 mb-3">        
+          <label for="apellido" class="form-label">Apellido</label>        
+          <input type="text" class="form-control" name="apellido" 
+            placeholder="{{datosPersona.apellido}}"
+            [(ngModel)]="about.apellido" id="apellido">      
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="apellido" class="form-label">Apellido</label>
 
-        <input type="text" class="form-control" name="apellido" placeholder="{{datosPersona.apellido}}"
-          [(ngModel)]="about.apellido" id="apellido">
-
-      </div>
       <div class="mb-3">
-        <label for="nombre" class="form-label">Ocupación</label>
+        <label for="ocupacion" class="form-label">Ocupación</label>
 
         <input type="text" class="form-control" name="ocupacion" placeholder="{{datosPersona.ocupacion}}"
           [(ngModel)]="about.ocupacion" id="ocupacion">
@@ -225,49 +187,48 @@
           [(ngModel)]="about.tituloPrincipal" id="tituloPrincipal">
 
       </div>
-      <div class="mb-3">
-        <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
-
-        <input type="text" class="form-control" name="fecha_nacimiento" placeholder="{{datosPersona.fecha_nacimiento}}"
-          [(ngModel)]="about.fecha_nacimiento" id="fecha_nacimiento">
-
-      </div>
-      <div class="mb-3">
-        <label for="documento" class="form-label">Documento</label>
-
-        <input type="text" class="form-control" name="documento" placeholder="{{datosPersona.documento}}"
-          [(ngModel)]="about.documento" id="documento">
-
+      
+      <div class="row"> 
+        <div class="col-sm-12 col-md-12 col-lg-6 mb-3">        
+          <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>        
+          <input type="text" class="form-control" name="fecha_nacimiento" 
+            placeholder="{{datosPersona.fecha_nacimiento}}"
+            [(ngModel)]="about.fecha_nacimiento" id="fechanacimiento">             
+        </div>      
+        <div class="col-sm-12 col-md-12 col-lg-6 mb-3">        
+            <label for="documento" class="form-label">Documento</label>        
+            <input type="text" class="form-control" name="documento" 
+              placeholder="{{datosPersona.documento}}"
+              [(ngModel)]="about.documento" id="documento">      
+        </div>        
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-
-        <input type="text" class="form-control" name="email" placeholder="{{datosPersona.email}}"
+        <input type="text" class="form-control" name="email" 
+          placeholder="{{datosPersona.email}}"
           [(ngModel)]="about.email" id="email">
-
       </div>
 
       <div class="mb-3">
         <label for="acerca_de" class="form-label">Acerca de</label>
-
-        <textarea type="text" class="form-control" name="acerca_de" rows="4" cols="50" maxlength="200"
-          placeholder="{{datosPersona.acerca_de}}" [(ngModel)]="about.acerca_de" id="acerca_de"> </textarea>
+        <textarea type="text" class="form-control" name="acerca_de" 
+          rows="4" cols="50" maxlength="200"
+          placeholder="{{datosPersona.acerca_de}}" [(ngModel)]="about.acerca_de" 
+          id="acerca_de"> </textarea>
       </div>
 
       <div class="mb-3">
         <label for="urlFoto" class="form-label">URL Foto</label>
-
-        <input type="text" class="form-control" name="urlFoto" placeholder="{{datosPersona.urlFoto}}"
+        <input type="text" class="form-control" name="urlFoto" 
+          placeholder="{{datosPersona.urlFoto}}"
           [(ngModel)]="about.urlFoto" id="urlFoto">
-
       </div>
 
       <div class="mb-3">
         <label for="urlBanner" class="form-label">URL Banner</label>
-
-        <input type="text" class="form-control" name="urlBanner" placeholder="{{datosPersona.urlBanner}}"
+        <input type="text" class="form-control" name="urlBanner" 
+          placeholder="{{datosPersona.urlBanner}}"
           [(ngModel)]="about.urlBanner" id="urlBanner">
-
       </div>
 
       <div *ngIf="mostrarFormularioCiudad === false">
@@ -278,11 +239,11 @@
           <p>Ciudad Nueva: {{listaCiudades[listaCiudades.length - 1].nombre}}</p>
 
           <p>id Ciudad Nueva: {{listaCiudades[listaCiudades.length - 1].id}}</p>
-         
+
         </div>
 
         <div *ngIf="laCiudadEsNueva === false" class="mb-3">
-         
+
           <h5>Ciudad</h5>
           <div>
             <p>Seleccionar la ciudad de la lista</p>
@@ -293,7 +254,7 @@
             </select>
 
           </div>
-       
+
           <div>
             <p>Si la ciudad no se encuentra en la lista, presionar el siguiente botón</p>
 
@@ -312,7 +273,7 @@
         <app-ciudades (eventoDesdeCiudad)="cerrarFormularioCiudad($event)"></app-ciudades>
 
       </div>
-    
+
       <button type="submit" class="btn btn-primary" (click)="eventoBotonEnviarDatos()">
         Enviar Datos Persona</button>
 

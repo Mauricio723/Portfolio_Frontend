@@ -17,11 +17,11 @@
           </dl>
 
           <div *ngIf="esUsuarioAdmin()" class="">
-            <button class="btn btn-outline-primary btn-sm ms-2 mb-2" 
+            <button class="btn btn-outline-light btn-sm ms-2 mb-2" 
               id="boton_editar" type="submit"
               (click)="accionBotonEditar(proyecto.id, proyecto)"> Editar</button>
 
-            <button class="btn btn-outline-danger btn-sm ms-2 mb-2" 
+            <button class="btn btn-outline-light btn-sm ms-2 mb-2" 
               id="boton_eliminar" type="submit"
               (click)="accionBotonEliminar(proyecto.id)">Eliminar</button>
           </div>
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div *ngIf="esUsuarioAdmin()" class="colorProyecto_03 rounded-3 my-1 py-2 ps-3">
-      <button type="submit" class="btn btn-outline-success btn-sm" 
+      <button type="submit" class="btn btn-outline-light btn-sm" 
         (click)="accionBotonCrearNuevo()">Crear Nuevo Proyeto</button>
     </div>
   </div>

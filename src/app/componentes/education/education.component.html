@@ -49,10 +49,10 @@
           </dl>
 
           <div *ngIf="esUsuarioAdmin()" class="my-2 pb-2">
-            <button class="btn btn-outline-success btn-sm mx-3" id="boton_editar" type="submit"
+            <button class="btn btn-outline-light btn-sm mx-3" id="boton_editar" type="submit"
               (click)="accionBotonEditar(educacion.id, educacion)"> Editar</button>
 
-            <button class="btn btn-outline-danger btn-sm mx-3" id="boton_eliminar" type="submit"
+            <button class="btn btn-outline-light btn-sm mx-3" id="boton_eliminar" type="submit"
               (click)="accionBotonEliminar(educacion.id)">Eliminar</button>
           </div>
 
@@ -61,8 +61,8 @@
     </div>
 
     <div *ngIf="esUsuarioAdmin() && !mostrarFormularioDatos" 
-      class="colorEducacion_03 rounded-3 mx-2 mt-1 mb-2 px-4 py-2">
-      <button type="submit" class="btn btn-outline-primary btn-sm" (click)="accionBotonCrearNuevo()">
+      class="colorEducacion_03 rounded-3 mx-1 mt-1 mb-2 px-4 py-2">
+      <button type="submit" class="btn btn-outline-light btn-sm" (click)="accionBotonCrearNuevo()">
         Crear Nueva Educación</button>
     </div>
 

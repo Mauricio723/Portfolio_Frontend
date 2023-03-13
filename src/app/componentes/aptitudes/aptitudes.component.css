@@ -1,47 +1,40 @@
 
+.colorAptitud_01 {    
+    background-color: rgb(55, 122, 131);
+    color: rgb(238, 226, 205);
+}
+
 .colorAptitud_02 {
-    background-color: rgb(33, 73, 41);
-    
+    background-color: rgb(33, 73, 41);    
 }
 
 .colorAptitud_03 {
-    background-color: rgb(185, 207, 223);
-
-}
-
-.colorAptitud_04 {
-    background-color: rgb(60, 189, 71);
-
-    color: rgb(11, 20, 97);
+    background-color: rgb(55, 122, 131);
 }
 
 .seccionAptitud h4 {
-    color: rgb(223, 233, 196);
+    color: rgb(223, 233, 196);    
 }
 
 .seccionAptitud h5 {
-    color: rgb(106, 32, 224);
+    color: rgb(171, 231, 213);
 }
 
-.seccionAptitud h6 {
-    color: rgb(107, 76, 29);
-}
-
-.seccionAptitud p {
-    color: rgb(11, 63, 34);
-    font-size: 20px;
+.seccionAptitud p {    
+    font-size: 16px;
 }
 
 /* Estilos para lista de definición */
 
 .seccionAptitud dt {
-    color: rgb(8, 100, 100);
+    color: rgb(121, 192, 180);
     margin-left: 20px;
 }
 
 .seccionAptitud dd {
-    color: rgb(83, 26, 64);    
+    color: rgb(217, 238, 199);    
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     margin-left: 40px;
 }
+

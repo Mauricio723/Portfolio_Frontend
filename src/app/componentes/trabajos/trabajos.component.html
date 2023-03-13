@@ -49,22 +49,21 @@
 
           <div *ngIf="esUsuarioAdmin()" class="py-2">
 
-            <button class="btn btn-outline-primary mx-3" id="boton_editar" type="submit"
+            <button class="btn btn-outline-light mx-3" id="boton_editar" type="submit"
               (click)="accionBotonEditar(trabajo.id, trabajo, trabajo.ciudad.nombre)">
               Editar</button>
 
-            <button class="btn btn-outline-danger mx-3" id="boton_eliminar" type="submit"
+            <button class="btn btn-outline-light mx-3" id="boton_eliminar" type="submit"
               (click)="accionBotonEliminar(trabajo.id)">Eliminar</button>
           </div>
         </div>
-
       </div>
-
     </div>
 
-    <div *ngIf="esUsuarioAdmin() && !mostrarFormularioDatos" class="colorTrabajo_03 rounded-3 mx-2 my-3 py-2">
-      <button type="submit" class="btn btn-outline-success btn-sm ms-3" (click)="accionBotonCrearNuevo()">
-        Crear Nuevo Trabajo</button>
+    <div *ngIf="esUsuarioAdmin() && !mostrarFormularioDatos" 
+      class="colorTrabajo_03 rounded-3 mx-1 my-3 py-2">
+      <button type="submit" class="btn btn-outline-light btn-sm ms-3" 
+        (click)="accionBotonCrearNuevo()">Crear Nuevo Trabajo</button>
     </div>
 
   </div>
@@ -114,7 +113,6 @@
           <option *ngFor="let ciudad of listaCiudades" value={{ciudad.id}}>
             ciudad: {{ciudad.nombre}}</option>
         </select>
-
       </div>
 
       <div class="mb-3">

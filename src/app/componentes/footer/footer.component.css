@@ -1,0 +1,23 @@
+.seccionFooter {
+    background-color: #00358e;
+}
+
+.colorFooter_02 {
+    background-color: rgb(66, 96, 129);
+    color: rgb(199, 212, 212);
+}
+
+/* Estilos para lista de definición */
+
+.seccionFooter dt {
+    color: rgb(121, 192, 180);
+    margin-left: 20px;
+}
+
+.seccionFooter dd {
+    color: rgb(217, 238, 199);    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-left: 10%;
+    margin-right: 20%;
+}

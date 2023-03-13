@@ -3,16 +3,11 @@
     <div *ngIf="contenidoSessionStorage; else sesionCerrada">
 
         <div *ngIf="datosPortfolio; else datosPortfolioNull">
-
-            <!--
+            
             <app-about [datosPersona]="datosPortfolio"></app-about>
--->
             <app-education [datosMyApi]="datosPortfolio"></app-education>
-
             <app-trabajos [datosMyApi]="datosPortfolio"> </app-trabajos>
-
             <app-aptitudes [datosMyApi]="datosPortfolio"></app-aptitudes>
-
             <app-proyectos [datosMyApi]="datosPortfolio"></app-proyectos>
 
         </div>

@@ -1,18 +1,39 @@
+<footer class="seccionFooter my-1 border border-success">
 
-<footer class="text-center text-warning my-2 py-2 border colorSecciones_02">
-    <div>
-        <h5>Fecha Publicación: <!-- {{datosJsonFooter.fechaPublicacion}} --> </h5>
-       
-        <input type="submit" value="Derechos de autor" 
-            *ngIf="!mostrarContenido" (click)="cambiarMostrarContenido()">
+    <div class="colorFooter_02 mx-2 my-2 px-2 py-2">
 
-        <p *ngIf="mostrarContenido">
-            Condiciones de uso: {{datosJsonFooter.derechosAutor}}</p>
+        <dl>
+            <dt>Fecha de publicación:</dt>
+            <dd>Marzo de 2023</dd>
+            <dt>Autor:</dt>
+            <dd>Salvador Mauricio Vilches Jerez</dd>
+            <dt>Contacto email:</dt>
+            <dd>salvadorvilches1972@gmail.com</dd>
+        </dl>
+        
+        <div>
+            <button class="btn btn-outline-light btn-sm mx-2" 
+            (click)="eventoBtnAbout()">Acerca de este trabajo</button>
+
+            <button class="btn btn-outline-light btn-sm mx-2" 
+            (click)="eventoBtnDerechos()" >Derechos de autor</button>
+        </div>
+
+        <div class="mt-3">
+
+            <dl *ngIf="mostrarAbout">            
+                <dt>Acerca de este trabajo:</dt>            
+                <dd>Este trabajo es parte del proyecto integrador del curso de                
+                    Argentina Programa: Full Stack Developer Junior.                           
+                </dd>        
+            </dl>        
+         
+            <dl *ngIf="mostrarDerechosAutor">            
+                <dt>Condiciones de uso:</dt>            
+                <dd>El presente trabajo, está libre de uso y modificación,                
+                    para fines educativos</dd>        
+                </dl>
+        </div>         
        
-  <p>****************************************************************</p>
-        <h5>Contacto: <!-- {{datosJsonFooter.datosPersonales.email}} --> </h5>         
-  <p>****************************************************************</p>  
     </div>
-    
 </footer>
-

@@ -16,11 +16,11 @@
           </dl>
 
           <div *ngIf="esUsuarioAdmin()" class="">
-            <button class="btn btn-outline-primary btn-sm ms-3 mb-2" 
+            <button class="btn btn-outline-light btn-sm ms-3 mb-2" 
               id="boton_editar" type="submit"
               (click)="accionBotonEditar(aptitud.id, aptitud)"> Editar</button>
 
-            <button class="btn btn-outline-danger btn-sm ms-3 mb-2" 
+            <button class="btn btn-outline-light btn-sm ms-3 mb-2" 
               id="boton_eliminar" type="submit"
               (click)="accionBotonEliminar(aptitud.id)">Eliminar</button>
           </div>
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div *ngIf="esUsuarioAdmin()" class="colorAptitud_03 rounded-3 mx-2 my-2 py-2 ps-3">
-      <button type="submit" class="btn btn-outline-success btn-sm" 
+      <button type="submit" class="btn btn-outline-light btn-sm" 
         (click)="accionBotonCrearAptitud()">Crear Nueva Aptitud</button>
     </div>
   </div>

@@ -1,17 +1,14 @@
 
 .colorTrabajo_02 {
-    background-color: rgb(33, 73, 41);
-    
+    background-color: rgb(33, 73, 41);    
 }
 
-.colorTrabajo_03 {
-    background-color: rgb(185, 207, 223);
-
+.colorTrabajo_03 {    
+    background-color: rgb(55, 122, 131);
 }
 
 .colorTrabajo_04 {
     background-color: rgb(60, 189, 71);
-
     color: rgb(11, 20, 97);
 }
 
@@ -19,8 +16,7 @@
     color: rgb(45, 75, 131);
 }
 
-
-.seccionTrabajo h4 {
+.seccionTrabajo h4 {    
     color: rgb(223, 233, 196);
 }
 
@@ -37,13 +33,17 @@
     font-size: 20px;
 }
 
+/* Estilos para lista de definición */
+
 .seccionTrabajo dt {
-    color: rgb(8, 100, 100);
+    color: rgb(121, 192, 180);
+    margin-left: 20px;
 }
 
 .seccionTrabajo dd {
-    color: rgb(83, 26, 64);    
+    color: rgb(217, 238, 199);    
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     margin-left: 40px;
 }
+
