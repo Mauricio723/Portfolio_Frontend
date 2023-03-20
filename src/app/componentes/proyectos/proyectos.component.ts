@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/modelos/Proyecto';
 import { AdminService } from 'src/app/servicios/admin.service';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+//import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -34,20 +34,7 @@ export class ProyectosComponent implements OnInit {
   esFormularioEdicion : Boolean = false;
   esFormularioCrear : Boolean = false;
 
-
-  // ####################################
-
-  // variables booleanas para mostrar formularios y botones
- // mostrarBotones: Boolean = true;
- // mostrarFormularioEdicion: Boolean = false;
-  //mostrarFormularioAgregar: Boolean = false;
-
-  //idParaModificar: number = 0;
-
-  //operacionCancelada: Boolean = false;
-
- 
-  //datoPrueba: any;
+  tituloFormulario : String = "";
 
   constructor(private servicioAdministrador: AdminService,
     private router: Router) {
@@ -66,7 +53,9 @@ export class ProyectosComponent implements OnInit {
   }
 
 
-  accionBotonEditar(idProyectoEditar : number, proyectoParaEditar : any) {
+  eventoBtnEditar(idProyectoEditar : number, proyectoParaEditar : any) {
+
+    this.tituloFormulario = "Formulario para editar";
 
     this.mostrarFormularioDatos = true;
     this.idProyectoSeleccionado = idProyectoEditar;
@@ -74,29 +63,27 @@ export class ProyectosComponent implements OnInit {
     this.esFormularioCrear = false;
 
     this.nombreProyecto = proyectoParaEditar.nombre;
-    this.descripcionProyecto = proyectoParaEditar.descripcion;
-   
+    this.descripcionProyecto = proyectoParaEditar.descripcion;   
   }
 
-  accionBotonEliminar(idEliminar: number) : void {     
+  eventoBtnEliminar(idEliminar: number) : void {     
 
     if (confirm("Esta seguro de la eliminación del proyecto con id: " + idEliminar)) {
       this.servicioAdministrador.eliminarProyecto(idEliminar).subscribe(() => {
         window.location.reload();
       } );
-    }
-    
+    }    
   }
 
-  accionBotonCrearNuevo() {
+  eventoBtnCrearNuevo() {
 
+    this.tituloFormulario = "Formulario para Crear nuevo proyecto";
     this.esFormularioCrear = true;
     this.esFormularioEdicion = false;
-    this.mostrarFormularioDatos = true;
-  
+    this.mostrarFormularioDatos = true;  
   }
 
-  accionFormularioDatos() {
+  eventoFormularioDatos() {
 
     if (this.esFormularioCrear && confirm("Está seguro del envío de datos ?")) {
 
@@ -109,7 +96,6 @@ export class ProyectosComponent implements OnInit {
         this.proyecto).subscribe(() => {
           window.location.reload();
         });
-
     }
 
     if (this.esFormularioEdicion && confirm("Está seguro del envio de datos ?")) {
@@ -121,7 +107,6 @@ export class ProyectosComponent implements OnInit {
         this.idProyectoSeleccionado, this.proyecto).subscribe(() => {
           window.location.reload();
         });
-
     }
 
     this.mostrarFormularioDatos = false;

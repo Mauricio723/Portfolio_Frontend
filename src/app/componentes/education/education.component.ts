@@ -8,10 +8,10 @@ import { AdminService } from 'src/app/servicios/admin.service';
   styleUrls: ['./education.component.css']
 })
 export class EducationComponent implements OnInit {
-  
-  @Input() datosMyApi : any;
 
-  educacion : Educacion = {
+  @Input() datosMyApi: any;
+
+  educacion: Educacion = {
     nombreInstitucion: "",
     estudioCursado: "",
     anioInicio: 0,
@@ -20,45 +20,37 @@ export class EducationComponent implements OnInit {
     seTerminoCurso: 0
   };
 
-  nombreInstitucion : String;
-  estudioCursado : String;
-  anioInicio : number;
-  anioFin : number;
-  descripcionCurso : String;
-  seTerminoCurso : number;
-  
-  idPersona : number = 0;
+  nombreInstitucion: String;
+  estudioCursado: String;
+  anioInicio: number;
+  anioFin: number;
+  descripcionCurso: String;
+  seTerminoCurso: number;
 
-  listaCiudades : any;
+  mostrarFormularioDatos: Boolean = false;
+  esFormularioEditar: Boolean = false;
+  esFormularioCrear: Boolean = false;
+  tituloFormulario: String = "";
+  mostrarFormularioCiudad: Boolean = false;
+  laCiudadEsNueva: Boolean = false;
+  idPersona: number = 0;
+  listaCiudades: any;
+  idEducacionSeleccionado: number = 0;
 
-  idEducacionSeleccionado : number = 0;
-  idCiudad : number = 0;
- 
-  mostrarBotones : Boolean = false;
+  idCiudad: number = 0; 
 
-  mostrarFormularioDatos : Boolean = false;
+  constructor(private servicioAdmin: AdminService) {
 
-  esFormularioEditar : Boolean = false;
-  esFormularioCrear : Boolean = false;
-
-  constructor(private servicioAdmin : AdminService) { 
-    
     this.nombreInstitucion = "Nombre Institución sin definir";
     this.estudioCursado = "Estudio cursado sin definir";
     this.anioInicio = 0;
     this.anioFin = 0;
     this.descripcionCurso = "Descripción del curso sin definir";
     this.seTerminoCurso = 0;
-   
-  } 
-  
-  ngOnInit(): void {   
 
-    this.servicioAdmin.traerCiudades().subscribe(
-      datosCiudades => {
-        this.listaCiudades = datosCiudades;        
-      }
-    );      
+  }
+
+  ngOnInit(): void {
 
   }
 
@@ -66,83 +58,123 @@ export class EducationComponent implements OnInit {
     return this.servicioAdmin.obtenerTipoUsuario() === "ROLE_ADMIN";
   }
 
+  obtenerCiudades() {
+    this.servicioAdmin.traerCiudades().subscribe(
+      datosCiudades => {
+        this.listaCiudades = datosCiudades;
+      }
+    );
+  }
 
-  accionBotonEditar(idParaEditar : number, educacionParaEditar : Educacion) {
-    //this.educacion = educacionParaEditar;
+  eventoBtnNuevaCiudad() {
+    this.mostrarFormularioCiudad = true;
+  }
 
-    this.idEducacionSeleccionado = idParaEditar;
+  eventoDeCiudad(respuestaCiudad: Boolean) {
+    this.obtenerCiudades();
+    this.laCiudadEsNueva = respuestaCiudad;  
+    this.mostrarFormularioCiudad = false; 
+  }
 
-    this.nombreInstitucion = educacionParaEditar.nombreInstitucion;
-    this.estudioCursado = educacionParaEditar.estudioCursado;
-    this.anioInicio = educacionParaEditar.anioInicio;
-    this.anioFin = educacionParaEditar.anioFin;
-    this.descripcionCurso = educacionParaEditar.descripcionCurso;
-    this.seTerminoCurso = educacionParaEditar.seTerminoCurso;
+  eventoBtnCrear() {
 
-    //this.idEducacionSeleccionado = idParaEditar;
-    
-    this.esFormularioEditar = true;
-    this.esFormularioCrear = false;
+    this.laCiudadEsNueva = false;
+    this.obtenerCiudades();
+    this.esFormularioCrear = true;
+    this.esFormularioEditar = false;
+
+    this.tituloFormulario = "Formulario para crear nueva Educación";
     this.mostrarFormularioDatos = true;
 
   }
-  accionBotonEliminar(idParaEliminar : number) {
-    //alert("Se presionó el boton Eliminar para el  id: " + idParaEliminar);
-    if (confirm("Está seguro de la eliminación del Estudio id: " + idParaEliminar)) {
-      this.servicioAdmin.eliminarEducacion(idParaEliminar).subscribe(() => {
+
+  eventoBtnEditar(idEducacionEdit: number, 
+                  idCiudadEdit: number, 
+                  educacionEdit: Educacion) {
+
+    this.nombreInstitucion = educacionEdit.nombreInstitucion;
+    this.estudioCursado = educacionEdit.estudioCursado;
+    this.anioInicio = educacionEdit.anioInicio;
+    this.anioFin = educacionEdit.anioFin;
+    this.descripcionCurso = educacionEdit.descripcionCurso;
+    this.seTerminoCurso = educacionEdit.seTerminoCurso;
+
+    this.idEducacionSeleccionado = idEducacionEdit;
+
+    this.idCiudad = idCiudadEdit;
+
+    this.laCiudadEsNueva = false;
+    this.obtenerCiudades();
+    this.esFormularioEditar = true;
+    this.esFormularioCrear = false;
+
+    this.tituloFormulario = "Formulario para Editar Educación";
+    this.mostrarFormularioDatos = true;
+    
+  }
+
+  eventoBtnEliminar(idEducacionDelete: number) {
+
+    if (confirm("Confirmación para eliminar Estudio id: " + idEducacionDelete)) {
+      this.servicioAdmin.eliminarEducacion(idEducacionDelete).subscribe(() => {
         window.location.reload();
       });
-
     } else {
-      alert("Se canceló la eliminación de Educacion id: " + idParaEliminar);
+      alert("Se canceló la eliminación de Educacion id: " + idEducacionDelete);
     }
   }
 
-  accionBotonCrearNuevo() {   
-    this.esFormularioCrear = true;
-    this.esFormularioEditar = false;
-    this.mostrarFormularioDatos = true;   
+  eventoBtnEnviarDatos() {
+
+    if (this.laCiudadEsNueva) {
+      this.idCiudad = this.listaCiudades[this.listaCiudades.length - 1].id
+    }
+
+    if (this.idCiudad === 0) {
+      alert("Debe seleccionar una ciudad !!");
+    } else {
+
+      if (this.esFormularioEditar && confirm("Está seguro del envío de los datos?")) {
+
+        this.educacion.nombreInstitucion = this.nombreInstitucion;
+        this.educacion.estudioCursado = this.estudioCursado;
+        this.educacion.anioInicio = this.anioInicio;
+        this.educacion.anioFin = this.anioFin;
+        this.educacion.descripcionCurso = this.descripcionCurso;
+        this.educacion.seTerminoCurso = this.seTerminoCurso;
+
+        this.servicioAdmin.modificarEducacion(this.idEducacionSeleccionado,
+          this.idCiudad,
+          this.educacion).subscribe(() => {
+            window.location.reload();
+          });
+      }
+
+      if (this.esFormularioCrear && confirm("Está seguro del envio de los datos?")) {
+
+        this.idPersona = this.datosMyApi.id;
+
+        this.educacion.nombreInstitucion = this.nombreInstitucion;
+        this.educacion.estudioCursado = this.estudioCursado;
+        this.educacion.anioInicio = this.anioInicio;
+        this.educacion.anioFin = this.anioFin;
+        this.educacion.descripcionCurso = this.descripcionCurso;
+        this.educacion.seTerminoCurso = this.seTerminoCurso;
+
+        this.servicioAdmin.crearEducacion(this.educacion,
+          this.idPersona, this.idCiudad).subscribe(() => {
+            window.location.reload();
+          }
+          );
+      }
+      this.mostrarFormularioDatos = false;
+    }
+
   }
 
-  accionFormularioDatos () {
-    
-    if (this.esFormularioEditar && confirm("Está seguro del envío de los datos?")) {
-      
-      this.educacion.nombreInstitucion = this.nombreInstitucion;
-      this.educacion.estudioCursado = this.estudioCursado;
-      this.educacion.anioInicio = this.anioInicio;
-      this.educacion.anioFin = this.anioFin;
-      this.educacion.descripcionCurso = this.descripcionCurso;
-      this.educacion.seTerminoCurso = this.seTerminoCurso;
-
-      this.servicioAdmin.modificarEducacion(this.idEducacionSeleccionado,
-                                 this.idCiudad, 
-                                 this.educacion).subscribe(() => {
-        window.location.reload();
-      });      
-    }
-
-    if (this.esFormularioCrear && confirm("Está seguro del envio de los datos?")) {
-
-      this.idPersona = this.datosMyApi.id;
-      
-      this.educacion.nombreInstitucion = this.nombreInstitucion;
-      this.educacion.estudioCursado = this.estudioCursado;
-      this.educacion.anioInicio = this.anioInicio;
-      this.educacion.anioFin = this.anioFin;
-      this.educacion.descripcionCurso = this.descripcionCurso;
-      this.educacion.seTerminoCurso = this.seTerminoCurso;
-
-      this.servicioAdmin.crearEducacion(this.educacion, 
-        this.idPersona, this.idCiudad).subscribe(() => {
-          window.location.reload();
-        }      
-      );
-
-    }
-
+  eventoBtnCancelarEnvio() {
     this.mostrarFormularioDatos = false;
-
   } 
 
 }
+

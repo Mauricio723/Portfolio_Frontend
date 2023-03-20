@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
@@ -11,7 +11,6 @@ import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 export class FnewuserComponent implements OnInit {
 
-
   formGroupNew : FormGroup;  
 
   constructor(private formBuilderNew : FormBuilder, 
@@ -19,10 +18,10 @@ export class FnewuserComponent implements OnInit {
               private rutaNuevo : Router) {
 
     this.formGroupNew = this.formBuilderNew.group({
-      nombre: [""],
-      nombreUsuario: [""],
-      email: [""],
-      password: [""]
+      nombre: ["", [Validators.required, Validators.minLength(4)]],
+      nombreUsuario: ["", [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(20)]]
     });
    
    }

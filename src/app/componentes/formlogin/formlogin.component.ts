@@ -19,8 +19,8 @@ export class FormloginComponent implements OnInit {
     private ruta: Router) {
  
     this.form_group = this.myFormBuilder.group({
-      nombreUsuario: [""],
-      password: [""]
+      nombreUsuario: ["", [Validators.required]],
+      password: ["", [Validators.required, Validators.minLength(8)]]
     });
   }
 
@@ -28,16 +28,9 @@ export class FormloginComponent implements OnInit {
   }
 
   /* Creamos una propiedad para obtener  nombreUsuario en el formControl */
-
   get NombreUsuario() {
     return this.form_group.get("nombreUsuario");
-  }
-
-  /* propiedades para obtner el email  y el password  en los formControl 
-  
-  get Email() {
-    return this.form_group.get("email");
-  }                                            */
+  }                                     
 
   get Password() {
     return this.form_group.get("password");
@@ -49,8 +42,7 @@ export class FormloginComponent implements OnInit {
     evento.preventDefault;
     /* Nos suscribimos al método del servicio */    
     this.autenticService.iniciarSesion(this.form_group.value).subscribe(
-      data => {
-      //console. log("Datos del JSON, en onIniciarSesion: " + JSON.stringify(data));          
+      data => {                
       this.ruta.navigate(["/secciones"])
     });
   }

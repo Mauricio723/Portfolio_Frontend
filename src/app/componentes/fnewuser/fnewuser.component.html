@@ -12,28 +12,60 @@
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control" formControlName="nombre" 
-                  id="nombre" aria-describedby="emailHelp" autofocus>                
+                  id="nombre" aria-describedby="emailHelp" autofocus 
+                  [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid': !Nombre?.errors && Nombre?.touched}">      
+                  <div *ngIf="Nombre?.touched && Nombre?.errors">
+                    <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+                      El nombre es requerido</p>
+                      <p *ngIf="Nombre?.errors?.['minlength']" class="text-danger">
+                        El nombre debe ser mayor a 4 caracteres</p>  
+                  </div>          
             </div>
 
             <div class="mb-3">
                 <label for="nombreUsuario" class="form-label">Nombre Usuario</label>
                 <input type="text" class="form-control" formControlName="nombreUsuario" 
-                  id="nombreUsuario" aria-describedby="emailHelp">                       
+                  id="nombreUsuario" aria-describedby="emailHelp"
+                  [ngClass]="{'is-invalid': NombreUsuario?.errors && NombreUsuario?.touched, 'is-valid': !NombreUsuario?.errors && NombreUsuario?.touched}">   
+                  <div *ngIf="NombreUsuario?.touched && NombreUsuario?.errors">
+                    <p *ngIf="NombreUsuario?.hasError('required')" class="text-danger">
+                      El nombre de usuario es requerido</p>
+                    <p *ngIf="NombreUsuario?.errors?.['minlength']" class="text-danger">
+                      El nombre de usuario debe ser mayor a 4 caracteres</p>
+                      <p *ngIf="NombreUsuario?.errors?.['maxlength']" class="text-danger">
+                        El nombre de usuario debe ser menor a 20 caracteres</p>  
+                  </div>                    
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="text" class="form-control" formControlName="email" 
-                  id="email" aria-describedby="emailHelp">                             
+                  id="email" aria-describedby="emailHelp"
+                  [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched}">   
+                  <div *ngIf="Email?.touched && Email?.errors">
+                    <p *ngIf="Email?.hasError('required')" class="text-danger">
+                        El email es requerido</p>
+                    <p *ngIf="Email?.hasError('email')" class="text-danger">
+                        El email debe ser válido</p>                    
+                  </div>                          
             </div>
 
             <div class="mb-3">
                 <label for="password" class="form-label">Contraseña</label>
                 <input type="password" class="form-control" formControlName="password" 
-                  id="password">
+                  id="password"
+                  [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is-valid': !Password?.errors && Password?.touched}">
+                  <div *ngIf="Password?.touched && Password?.errors">
+                    <p *ngIf="Password?.hasError('required')" class="text-danger">
+                       La contraseña es requerida</p> 
+                    <p *ngIf="Password?.errors?.['minlength']" class="text-danger">
+                      La contraseña debe tener más de 8 caracteres</p>  
+                      <p *ngIf="Password?.errors?.['maxlength']" class="text-danger">
+                        La contraseña debe ser menor a 20 caracteres</p>    
+                  </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Enviar Nuevo Usuario</button>
+            <button type="submit" class="btn btn-primary" [disabled]="formGroupNew.invalid">Enviar Nuevo Usuario</button>
         </form>
     </div>
 </div>

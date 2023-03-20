@@ -8,23 +8,19 @@
                   class="img-fluid" alt="yoProgramo">
             </a>
         </div>
-        <!--
-        <div class="col-sm-4 col-md-1 col-lg-1 col-xl-1 text-light">
-        </div>   -->
-
+       
         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
             
-            <nav class="navbar">
-                
-                <button class="btn btn-outline-light" id="boton_login" type="submit" 
-                    (click)="loginPortfolio()">Iniciar Sesión</button>
-
-                <button class="btn btn-outline-light" id="btn_nuevo" type="submit"
-                    (click)="nuevoUsuario()"> Nuevo Usuario</button>
-
-                <button class="btn btn-outline-light" id="btn_cerrar" type="submit" 
-                    (click)="cerrarSesion()">Cerrar Sesión</button>
-
+            <nav class="navbar mt-1">                
+                <button class="btn btn-outline-light btn-sm" id="boton_login" type="submit" 
+                    (click)="loginPortfolio()" [disabled]="btnLoginDesactivado">
+                    Iniciar Sesión</button>
+                <button class="btn btn-outline-light btn-sm" id="btn_nuevo" type="submit"
+                    (click)="nuevoUsuario()"> 
+                    Nuevo Usuario</button>
+                <button class="btn btn-outline-light btn-sm" id="btn_cerrar" type="submit" 
+                    (click)="cerrarSesion()" [disabled]="btnCerrarDesactivado">
+                    Cerrar Sesión</button>
             </nav>
         </div>       
 

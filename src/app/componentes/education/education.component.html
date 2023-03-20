@@ -1,16 +1,17 @@
-<div class="container-fluid seccionEducacion">
+<div class="container-fluid seccionEducacion mt-1">
 
-  <div class="colorEducacion_02 text-center my-1 py-1 rounded-3">
+  <div class="colorEducacion_02 text-center mt-2 py-1 rounded-3">
     <h4>Formación Académica </h4>
   </div>
 
   <div *ngIf="mostrarFormularioDatos === false">
 
-    <div class="row">
+    <div class="row gx-2">
 
-      <div class=" col col-sm-12 col-md-12 col-lg-6" *ngFor="let educacion of datosMyApi.listaEducacion">
+      <div class=" col col-sm-12 col-md-12 col-lg-6" 
+        *ngFor="let educacion of datosMyApi.listaEducacion">
 
-        <div class="colorEducacion_03 rounded-3 mb-1 mt-1 px-3 pt-1">
+        <div class="colorEducacion_03 rounded-3 mt-2 py-1">
 
           <dl>
             <dt>Nombre Institución:</dt>
@@ -48,12 +49,15 @@
             </div>
           </dl>
 
-          <div *ngIf="esUsuarioAdmin()" class="my-2 pb-2">
-            <button class="btn btn-outline-light btn-sm mx-3" id="boton_editar" type="submit"
-              (click)="accionBotonEditar(educacion.id, educacion)"> Editar</button>
+          <div *ngIf="esUsuarioAdmin()" class="mt-1 mp-2 pb-2">
 
-            <button class="btn btn-outline-light btn-sm mx-3" id="boton_eliminar" type="submit"
-              (click)="accionBotonEliminar(educacion.id)">Eliminar</button>
+            <button class="btn btn-outline-light btn-sm ms-3" 
+              id="boton_editar" type="submit"
+              (click)="eventoBtnEditar(educacion.id, educacion.ciudad.id, educacion)"> 
+              Editar</button>
+
+            <button class="btn btn-outline-light btn-sm ms-3" id="boton_eliminar" type="submit"
+              (click)="eventoBtnEliminar(educacion.id)">Eliminar</button>
           </div>
 
         </div>
@@ -61,21 +65,27 @@
     </div>
 
     <div *ngIf="esUsuarioAdmin() && !mostrarFormularioDatos" 
-      class="colorEducacion_03 rounded-3 mx-1 mt-1 mb-2 px-4 py-2">
-      <button type="submit" class="btn btn-outline-light btn-sm" (click)="accionBotonCrearNuevo()">
+      class="colorEducacion_03 rounded-3 mt-2 px-4 py-2">
+      <button type="submit" class="btn btn-outline-light btn-sm" 
+        (click)="eventoBtnCrear()">
         Crear Nueva Educación</button>
     </div>
 
   </div>
 
-  <div *ngIf="esUsuarioAdmin() && mostrarFormularioDatos" 
-    class="colorEducacion_03 rounded-3 mx-1 my-2 px-5 py-2">
+  <div *ngIf="esUsuarioAdmin() && mostrarFormularioDatos"
+    class="colorEducacion_03 text-light rounded-3 mx-1 my-2 px-5 py-2">
 
-    <form (ngSubmit)="accionFormularioDatos()">
+    <h4>{{tituloFormulario}}</h4>
 
+    <form novalidate #f="ngForm" class="px-5 rounded-3">
+      <!--
+    <form (ngSubmit)="accionFormularioDatos()" class="text-light">
+      -->
       <div class="mb-2">
         <label for="nombreInstitucion" class="form-label">Nombre Institución</label>
-        <input type="text" class="form-control" name="nombreInstitucion" placeholder="{{nombreInstitucion}}"
+        <input type="text" class="form-control" name="nombreInstitucion" 
+        placeholder="{{nombreInstitucion}}"
           [(ngModel)]="nombreInstitucion" id="nombreInstitucion">
       </div>
 
@@ -88,44 +98,86 @@
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-6 mb-2">
           <label for="anioInicio" class="form-label">Año de inicio</label>
-          <input type="number" class="form-control" name="anioInicio" placeholder="{{anioInicio}}" [(ngModel)]="anioInicio"
-            id="anioInicio">
-        </div>      
+          <input type="number" class="form-control" name="anioInicio" placeholder="{{anioInicio}}"
+            [(ngModel)]="anioInicio" id="anioInicio">
+        </div>
         <div class="col-sm-12 col-md-12 col-lg-6 mb-2">
           <label for="anioFin" class="form-label">Año de finalización</label>
           <input type="number" class="form-control" name="anioFin" placeholder="{{anioFin}}" [(ngModel)]="anioFin"
             id="anioFin">
-        </div>      
+        </div>
       </div>
 
       <div class="mb-2">
         <label for="descripcionCurso" class="form-label">Descripción Curso</label>
         <textarea type="text" class="form-control" name="descripcionCurso" 
-          rows="3" cols="50" maxlength="200"
-          placeholder="{{descripcionCurso}}" [(ngModel)]="descripcionCurso" 
-          id="descripcion">        
+        rows="3" cols="50" maxlength="198" placeholder="{{descripcionCurso}}" 
+        [(ngModel)]="descripcionCurso" id="descripcion">
         </textarea>
 
-        <div class="mb-2">
-          <label for="seTerminocurso" class="form-label">Se terminó el curso?</label>
-          <input type="text" class="form-control" name="seTerminoCurso" placeholder="{{seTerminoCurso}}"
+        <div class="my-2">
+          <label for="seTerminocurso" class="form-label">
+            Se terminó el curso ? - ( 0: Curso sin finalizar - 1: Curso finalizdo)</label>
+          <input type="number" class="form-control" name="seTerminoCurso" placeholder="{{seTerminoCurso}}"
             [(ngModel)]="seTerminoCurso" id="seTerminocurso">
         </div>
 
-        <div>
-          <select name="idCiudad" id="idCiudad" size="4" [(ngModel)]="idCiudad">
-            <option *ngFor="let ciudad of listaCiudades" value={{ciudad.id}}>
-              Nombre ciudad: {{ciudad.nombre}}</option>
-            nombre ciudad fuera de option: {{idCiudad}}
-          </select>
-        </div>
+        <div *ngIf="mostrarFormularioCiudad === false">
 
+          <div *ngIf="laCiudadEsNueva" class="mb-3">
+            <label for="ciudad_id" class="form-label">Id Ciudad</label>
+
+            <p>Ciudad Nueva: {{listaCiudades[listaCiudades.length - 1].nombre}}</p>          
+            <p>id Ciudad Nueva: {{listaCiudades[listaCiudades.length - 1].id}}</p>
+         
+          </div>
+
+          <div *ngIf="laCiudadEsNueva === false" class="mb-3">
+
+            <div class="my-3">
+              <label for="idCiudad" class="form-label">
+                Ciudad id: {{idCiudad}} - Seleccionar ciudad en el control</label>
+              <select class="form-select" aria-label="Default select example" 
+                size="3" name="idCiudad" id="idCiudad" [(ngModel)]="idCiudad">
+                <option *ngFor="let ciudad of listaCiudades" value={{ciudad.id}}>
+                  ciudad: {{ciudad.nombre}} -
+                  Provincia: {{ciudad.provincia}} -
+                  Pais: {{ciudad.pais}}</option>
+              </select>              
+            </div>
+
+            <div *ngIf="idCiudad === 0" 
+              class="text-center bg-secondary border border-danger mx-4 my-2">
+              <p class="text-warning ">Debe seleccionar una ciudad</p>
+            </div>            
+
+            <div class=" row bg-success border border-primary px-4 py-2">
+              <div class="col-8">
+                <p>Si la ciudad no está en la lista, presionar el siguiente botón</p>
+              </div>
+              <div class="col-4">
+                <button class="btn btn-outline-light btn-sm sm-3" 
+                (click)="eventoBtnNuevaCiudad()">
+                Ingresar Nueva Ciudad</button>
+              </div>                                
+            </div>
+
+          </div>
+        </div>
+        <br>
+        <div *ngIf="mostrarFormularioCiudad" class="py-3">
+          <app-ciudades (eventoDesdeCiudad)="eventoDeCiudad($event)"
+          [ciudadesExistentes]="listaCiudades"></app-ciudades>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Enviar Datos</button>
+      
+      <button type="submit" class="btn btn-outline-light btn-sm ms-3" 
+        (click)="eventoBtnEnviarDatos()"
+        [disabled]="mostrarFormularioCiudad">Enviar Datos</button>
+    
+      <button type="submit" class="btn btn-outline-light btn-sm ms-3" 
+        (click)="eventoBtnCancelarEnvio()">Cancelar envío de datos</button>
 
     </form>
   </div>
-
-
-
 </div>

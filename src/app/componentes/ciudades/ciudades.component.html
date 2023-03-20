@@ -1,8 +1,9 @@
 
 <div>
-    <div>
+    <div class="text-center">
         <h4>Datos Ciudad</h4>
     </div>
+    
     <form (ngSubmit)="accionFormularioCrear()" novalidate #f="ngForm">
 
         <div class="mb-3">
@@ -25,10 +26,11 @@
           placeholder="{{ciudad.pais}}" [(ngModel)]="ciudad.pais">
         </div>
 
-
         <div class="mb-3 form-check">
-            <button type="submit" class="btn btn-primary">Enviar</button>          
+            <button type="submit" class="btn btn-outline-light btn-sm">
+              Envío de datos Nueva Ciudad</button>          
         </div>
         
-      </form>
+      </form>      
+
 </div>

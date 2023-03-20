@@ -18,7 +18,7 @@ export class InterceptorService implements HttpInterceptor {
     if (currentUser && currentUser.token) {
        /* clonamos el request para situar en el encabezado el token */
       currentUser.token;
-      //console.log("if currentUser, valor enviado: " + currentUser.token);
+     
       request = request.clone({
         setHeaders: {
           //Authorization: "Bearer $(currentUser.token)"
@@ -26,8 +26,7 @@ export class InterceptorService implements HttpInterceptor {
          //Authorization : currentUser.token
         }
       });
-    }  
-    //console.log("Interceptor está corriendo" + JSON.stringify(currentUser));
+    }     
     /* dejamos que siga su curso el request */
     return next.handle(request);
   }

@@ -1,15 +1,15 @@
-<div class="container-fluid seccionTrabajo">
+<div class="container-fluid seccionTrabajo mt-2 px-1">
 
-  <div class="colorTrabajo_02 mt-2 py-1 text-center rounded-3">
+  <div class="colorTrabajo_02 mx-1 mt-1 py-1 text-center rounded-3">
     <h4>Experiencia Laboral</h4>
   </div>
 
   <div *ngIf="mostrarFormularioDatos === false">
-    <div class="row my-3">
+    <div class="row gx-1 mx-1">
 
-      <div class="col-sm-12 col-md-6 col-xl-6" *ngFor="let trabajo of datosMyApi.listaTrabajos">
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 px-1" *ngFor="let trabajo of datosMyApi.listaTrabajos">
 
-        <div class="colorTrabajo_03 rounded-3 mx-1 px-3 pt-1">
+        <div class="colorTrabajo_03 rounded-3 mt-2 pt-1">
 
           <dl>
             <dt>Nombre Empresa:</dt>
@@ -18,7 +18,7 @@
             <dt> Puesto Laboral:</dt>
             <dd>{{trabajo.puestoLaboral}}</dd>
 
-            <div class="row">
+            <div class="row g-0">
               <div class="col col-sm-12 col-md-6 ">
                 <dt>Año de Inicio:</dt>
                 <dd>{{trabajo.anioInicio}}</dd>
@@ -35,7 +35,7 @@
             </dd>
             <dt>Ciudad:</dt>
             <dd>{{trabajo.ciudad.nombre}}</dd>
-            <div class="row">
+            <div class="row g-0">
               <div class="col col-sm-12 col-md-6 ">
                 <dt>Provincia:</dt>
                 <dd>{{trabajo.ciudad.provincia}}</dd>
@@ -49,30 +49,31 @@
 
           <div *ngIf="esUsuarioAdmin()" class="py-2">
 
-            <button class="btn btn-outline-light mx-3" id="boton_editar" type="submit"
-              (click)="accionBotonEditar(trabajo.id, trabajo, trabajo.ciudad.nombre)">
+            <button class="btn btn-outline-light btn-sm mx-3" id="boton_editar" type="submit"
+              (click)="eventoBtnEditar(trabajo.id, trabajo.ciudad.id, trabajo)">
               Editar</button>
 
-            <button class="btn btn-outline-light mx-3" id="boton_eliminar" type="submit"
-              (click)="accionBotonEliminar(trabajo.id)">Eliminar</button>
+            <button class="btn btn-outline-light btn-sm mx-3" id="boton_eliminar" type="submit"
+              (click)="eventoBtnEliminar(trabajo.id)">Eliminar</button>
           </div>
         </div>
       </div>
     </div>
 
     <div *ngIf="esUsuarioAdmin() && !mostrarFormularioDatos" 
-      class="colorTrabajo_03 rounded-3 mx-1 my-3 py-2">
+      class="colorTrabajo_03 rounded-3 mx-2 my-2 py-2">
       <button type="submit" class="btn btn-outline-light btn-sm ms-3" 
-        (click)="accionBotonCrearNuevo()">Crear Nuevo Trabajo</button>
+        (click)="eventoBtnCrear()">Crear Nuevo Trabajo</button>
     </div>
-
   </div>
 
   <div *ngIf="esUsuarioAdmin() && mostrarFormularioDatos" 
-    class="colorTrabajo_03 rounded-3 mt-2 px-5 py-2">
+    class="colorTrabajo_03 text-light rounded-3 mx-2 my-2 px-5 py-2">
 
-    <form (ngSubmit)="accionFormularioDatos()">
-
+    <h4 class="text-center">{{tituloFormulario}}</h4>
+    <!--
+    <form (ngSubmit)="accionFormularioDatos()" class="text-light">  -->
+    <form novalidate #f="ngForm" class="px-5 rounded-3">
       <div class="mb-2">
         <label for="nombreEmpresa" class="form-label">Nombre Empresa</label>
         <input type="text" class="form-control" name="nombreEmpresa" placeholder="{{nombreEmpresa}}"
@@ -85,38 +86,78 @@
           [(ngModel)]="puestoLaboral" id="puestoLaboral">
       </div>
 
-      <div class="row">           
+      <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-6 mb-2">
           <label for="anioInicio" class="form-label">Año de inicio</label>
-          <input type="number" class="form-control" name="anioInicio" placeholder="{{anioInicio}}" [(ngModel)]="anioInicio"
-            id="anioInicio">
-        </div>      
+          <input type="number" class="form-control" name="anioInicio" placeholder="{{anioInicio}}"
+            [(ngModel)]="anioInicio" id="anioInicio">
+        </div>
         <div class="col-sm-12 col-md-12 col-lg-6 mb-2">
           <label for="anioFin" class="form-label">Año de finalización</label>
           <input type="number" class="form-control" name="anioFin" placeholder="{{anioFin}}" [(ngModel)]="anioFin"
             id="anioFin">
-        </div>      
+        </div>
       </div>
 
       <div class="mb-2">
         <label for="descripcion" class="form-label">Descripción Trabajo</label>
-        <textarea type="text" class="form-control" name="descripcion" 
-          rows="3" cols="50" maxlength="200"
+        <textarea type="text" class="form-control" name="descripcion" rows="3" cols="50" maxlength="200"
           placeholder="{{descripcion}}" [(ngModel)]="descripcion" id="descripcion">
           </textarea>
       </div>
 
-      <div class="mb-2">
-        <p> Ciudad - (Ciudad actual: {{nombreCiudad}}) </p>
+      <div *ngIf="mostrarFormularioCiudad === false">
 
-        <select name="idCiudad" id="idCiudad" size="4" [(ngModel)]="idCiudad">
-          <option *ngFor="let ciudad of listaCiudades" value={{ciudad.id}}>
-            ciudad: {{ciudad.nombre}}</option>
-        </select>
+        <div *ngIf="laCiudadEsNueva" class="mb-3">
+          <label for="ciudad_id" class="form-label">Id Ciudad</label>
+          <p>Ciudad Nueva: {{listaCiudades[listaCiudades.length - 1].nombre}}</p>
+          <p>id Ciudad Nueva: {{listaCiudades[listaCiudades.length - 1].id}}</p>
+        </div>
+
+        <div *ngIf="laCiudadEsNueva === false" class="mb-3">
+
+          <div class="my-3">
+            <label for="idCiudad" class="form-label">
+              Ciudad id: {{idCiudad}} - Seleccionar ciudad en el control</label>
+            <select class="form-select" aria-label="Default select example" size="3" name="idCiudad" id="idCiudad"
+              [(ngModel)]="idCiudad">
+              <option *ngFor="let ciudad of listaCiudades" value={{ciudad.id}}>
+                ciudad: {{ciudad.nombre}} -
+                Provincia: {{ciudad.provincia}} -
+                Pais: {{ciudad.pais}}</option>
+            </select>
+          </div>
+
+          <div *ngIf="idCiudad === 0" class="text-center bg-secondary border border-danger mx-4 my-2">
+            <p class="text-warning ">Debe seleccionar una ciudad</p>
+          </div>
+
+          <div class=" row bg-success border border-primary px-4 py-2">
+            <div class="col-8">
+              <p>Si la ciudad no está en la lista, presionar el siguiente botón</p>
+            </div>
+            <div class="col-4">
+              <button class="btn btn-outline-light btn-sm sm-3" 
+                (click)="eventoBtnNuevaCiudad()">Ingresar Nueva Ciudad</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <br>
+
+      <div *ngIf="mostrarFormularioCiudad" class="py-3">
+        <app-ciudades (eventoDesdeCiudad)="eventoDeCiudad($event)" 
+        [ciudadesExistentes]="listaCiudades"></app-ciudades>
       </div>
 
-      <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Enviar Datos</button>
+      <div class="my-2">
+        <button type="submit" class="btn btn-outline-light btn-sm ms-3" 
+          (click)="eventoBtnEnviarDatos()" [disabled]="mostrarFormularioCiudad">
+          Enviar Datos</button>
+
+        <button type="submit" class="btn btn-outline-light btn-sm ms-3" 
+          (click)="eventoBtnCancelarEnvio()">Cancelar envío de datos</button>
       </div>
     </form>
   </div>

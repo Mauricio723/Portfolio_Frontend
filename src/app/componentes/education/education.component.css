@@ -26,9 +26,8 @@
     color: rgb(107, 76, 29);
 }
 
-.seccionEducacion p {
-    color: rgb(11, 63, 34);
-    font-size: 20px;
+.seccionEducacion p {   
+    font-size: 16px;
 }
 
 /* Estilos para lista de definición */

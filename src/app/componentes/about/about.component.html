@@ -18,47 +18,39 @@
         <dt>{{datosPersona.nombre}} {{datosPersona.apellido}}</dt>
         <dd>{{datosPersona.tituloPrincipal}}</dd>
       </dl>       
-    </div>
-    <!--
-       ms-1 mt-sm-3 mt-md-4 mt-lg-5 pt-sm-3 pt-md-5 pt-lg-5
-    -->
-
-  </div>
- 
+    </div>   
+  </div> 
 </div>
 
+<div class="container-fluid seccionAbout mt-1">
 
-<div class="container-fluid seccionAbout">
+  <div *ngIf="mostrarFormularioDatos === false" class="mt-1">
 
-  <div *ngIf="mostrarFormularioDatos === false" class="my-2">
-
-    <div class="colorAbout_02 mx-1 py-1 rounded-3">
-      <h4 class="text-center">Datos Personales</h4>
+    <div class="colorAbout_02 text-center mt-2 py-1 rounded-3">
+      <h4>Datos Personales</h4>
     </div>
 
-    <div class="row">
+    <div class="row gx-2">
 
-      <div class="col-sm-12 col-md-6 col-lg-6 mt-2 px-3">
-
-        <dl class="colorAbout_03 rounded-3 py-2 ">
-
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-2 px-1">
+      
+        <dl class="colorAbout_03 rounded-3 mb-1 pb-1 pt-2">
           <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-6">              
+            <div class="col-sm-12 col-md-12 col-lg-6">              
               <dt>Nombre</dt>          
               <dd>{{datosPersona.nombre}}</dd>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="col-sm-12 col-md-12 col-lg-6">
               <dt>Apellido</dt>          
               <dd>{{datosPersona.apellido}}</dd>
             </div>
           </div>                             
-
           <dt>Título Principal</dt>
-          <dd>{{datosPersona.tituloPrincipal}}</dd>                
-
+          <dd>{{datosPersona.tituloPrincipal}}</dd>   
+          <dt>Ocupación actual</dt>
+          <dd>{{datosPersona.ocupacion}}</dd>                          
           <dt>Ciudad actual</dt>
           <dd>{{datosPersona.ciudad.nombre}}</dd>
-
           <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-6">
               <dt>Provincia</dt>          
@@ -69,53 +61,50 @@
               <dd>{{datosPersona.ciudad.pais}}</dd>
             </div>
           </div>            
-        </dl>
+        </dl>           
       </div>
 
-      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-2 px-3">
-        <dl class="colorAbout_03 rounded-3 py-2">          
-          <dt>Ocupación actual</dt>
-          <dd>{{datosPersona.ocupacion}}</dd>         
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-2 px-1">      
+
+        <dl class="colorAbout_03 rounded-3 mb-1 pb-1 pt-2">          
           <dt>Email</dt>
           <dd>{{datosPersona.email}}</dd>
           <dt>Fecha de Nacimiento</dt>
           <dd>{{datosPersona.fecha_nacimiento}}</dd>        
           <dt>Acerca de:</dt>
           <dd>{{datosPersona.acerca_de}}</dd>
-        </dl>
+        </dl>       
       </div>
     </div>
 
     <div *ngIf="esUsuarioAdmin() && mostrarFormularioDatos === false" 
-      class="colorAbout_03 rounded-3 mx-2 py-1">
+      class="colorAbout_03 rounded-3 mt-1 py-1">
 
       <button type="submit" class="btn btn-outline-light btn-sm mx-3 my-2" 
-        (click)="accionBotonModificar(datosPersona.id)">
+        (click)="eventoBtnModificar(datosPersona.id)">
         Modificar Persona</button>
 
       <button type="submit" class="btn btn-outline-light btn-sm mx-3 my-2" 
-        (click)="accionBotonEliminar(datosPersona.id)">
+        (click)="eventoBtnEliminar(datosPersona.id)">
         Eliminar Persona</button>
 
       <button type="submit" class="btn btn-outline-light btn-sm mx-3 my-2" 
-        (click)="accionBotonCrearPersona()">
+        (click)="eventoBtnCrearPersona()">
         Agregar Nueva Persona</button>
 
       <button *ngIf="mostrarMasDatos === false" type="submit" 
         class="btn btn-outline-light btn-sm mx-3 my-2"
-        (click)="accionBotonMostrarMas()">
+        (click)="eventoBtnMostrarMas()">
         Mostrar más Datos</button>
 
       <button *ngIf="mostrarMasDatos" type="submit" 
         class="btn btn-outline-light btn-sm mx-3 my-2" 
-       (click)="accionBotonMostrarMenos()">
+       (click)="eventoBtnMostrarMenos()">
         Mostrar menos Datos</button>
     </div>
-
   </div>
 
   <div>
-
     <div *ngIf="esUsuarioAdmin() && mostrarMasDatos" 
       class="colorAbout_01 rounded-3 mx-1 my-2 py-2">
 
@@ -150,7 +139,7 @@
 
   </div>
 
-  <div *ngIf="mostrarFormularioDatos" class="colorAbout_01 py-2 border">
+  <div *ngIf="mostrarFormularioDatos" class="colorAbout_01 py-2">
     <!--
     <form (ngSubmit)="accionFormularioDatos(datosPersona.id, ciudad_id)"
        novalidate #f="ngForm">  -->
@@ -212,7 +201,7 @@
       <div class="mb-3">
         <label for="acerca_de" class="form-label">Acerca de</label>
         <textarea type="text" class="form-control" name="acerca_de" 
-          rows="4" cols="50" maxlength="200"
+          rows="3" cols="70" maxlength="270"
           placeholder="{{datosPersona.acerca_de}}" [(ngModel)]="about.acerca_de" 
           id="acerca_de"> </textarea>
       </div>
@@ -235,49 +224,52 @@
 
         <div *ngIf="laCiudadEsNueva" class="mb-3">
           <label for="ciudad_id" class="form-label">Id Ciudad</label>
-
           <p>Ciudad Nueva: {{listaCiudades[listaCiudades.length - 1].nombre}}</p>
-
           <p>id Ciudad Nueva: {{listaCiudades[listaCiudades.length - 1].id}}</p>
-
         </div>
 
         <div *ngIf="laCiudadEsNueva === false" class="mb-3">
-
-          <h5>Ciudad</h5>
-          <div>
-            <p>Seleccionar la ciudad de la lista</p>
-
-            <select name="ciudad_id" id="ciudad_id" size="4" [(ngModel)]="idCiudad">
+            
+          <div class="my-3">
+            <label for="idCiudad" class="form-label">
+              Ciudad id: {{idCiudad}} - Seleccionar ciudad en el control</label>
+            <select class="form-select" aria-label="Default select example" size="3"
+              name="idCiudad" id="idCiudad" [(ngModel)]="idCiudad">            
               <option *ngFor="let ciudad of listaCiudades" value={{ciudad.id}}>
-                ciudad: {{ciudad.nombre}}</option>
+                ciudad: {{ciudad.nombre}} - 
+                Provincia: {{ciudad.provincia}} - 
+                Pais: {{ciudad.pais}}</option>                
             </select>
-
           </div>
 
-          <div>
-            <p>Si la ciudad no se encuentra en la lista, presionar el siguiente botón</p>
-
-            <button class="btn btn-primary" (click)="eventoBotonNuevaCiudad()">
+          <div class=" row bg-success border border-primary px-4 py-2">
+            <div class="col-8">
+              <p>Si la ciudad no está en la lista, presionar el siguiente botón</p>
+            </div>
+            <div class="col-4">
+              <button class="btn btn-outline-light btn-sm sm-3" 
+              (click)="eventoBotonNuevaCiudad()">
               Ingresar Nueva Ciudad</button>
+            </div>                                
           </div>
-
+          
         </div>
-
       </div>
-
       <br>
 
       <div *ngIf="mostrarFormularioCiudad" class="py-3">
-
-        <app-ciudades (eventoDesdeCiudad)="cerrarFormularioCiudad($event)"></app-ciudades>
-
+        <app-ciudades (eventoDesdeCiudad)="eventoDeCiudad($event)"
+        [ciudadesExistentes]="listaCiudades"></app-ciudades>
       </div>
 
-      <button type="submit" class="btn btn-primary" (click)="eventoBotonEnviarDatos()">
+      <button type="submit" class="btn btn-outline-light btn-sm ms-3" 
+      (click)="eventoBtnEnviarDatos()" [disabled]="mostrarFormularioCiudad">
         Enviar Datos Persona</button>
+      
+      <button type="submit" class="btn btn-outline-light btn-sm ms-3" 
+        (click)="eventoBtnCancelarEnvio()">
+        Cancelar Envio de datos</button>
 
     </form>
   </div>
-
 </div>

@@ -35,16 +35,34 @@ export class TrabajosComponent implements OnInit {
 
   idTrabajoSeleccionado: number = 0;
   idCiudad: number = 0;
- 
-  nombreCiudad : String = "";
-  
-  mostrarBotones: Boolean = false;
+
+  nombreCiudad: String = "";
+
+  laCiudadEsNueva: Boolean = false;
+
+  mostrarFormularioCiudad: Boolean = false;
+
+  //mostrarBotones: Boolean = false;
 
   mostrarFormularioDatos: Boolean = false;
 
   esFormularioEditar: Boolean = false;
   esFormularioCrear: Boolean = false;
+  tituloFormulario: String = "";
 
+  /*
+  
+  mostrarFormularioDatos : Boolean = false;
+  esFormularioEditar : Boolean = false;
+  esFormularioCrear : Boolean = false;
+  tituloFormulario : String = "";
+  mostrarFormularioCiudad : Boolean = false;
+  laCiudadEsNueva : Boolean = false;
+  idPersona : number = 0;
+  listaCiudades : any;
+  idEducacionSeleccionado : number = 0;
+  idCiudad : number = 0;
+  */
 
   constructor(private servicioAdmin: AdminService) {
 
@@ -54,24 +72,9 @@ export class TrabajosComponent implements OnInit {
     this.anioFin = 0;
     this.descripcion = "Descripcion del trabajo sin definir";
 
-  }
+  } 
 
-  //  private servicioPortfolio: PortfolioService
-
-  ngOnInit(): void {
-   
-     this.servicioAdmin.traerCiudades().subscribe(
-      datosCiudades => {
-        this.listaCiudades = datosCiudades;        
-      }
-    );      
- 
-    /*
-    this.servicioPortfolio.obtenerDatos_01().subscribe(
-      datosTrabajo => {
-        this.datosJsonTrabajos= datosTrabajo;
-      }
-    );   */
+  ngOnInit(): void {    
 
   }
 
@@ -79,84 +82,117 @@ export class TrabajosComponent implements OnInit {
     return this.servicioAdmin.obtenerTipoUsuario() === "ROLE_ADMIN";
   }
 
- 
- accionBotonEditar(idParaEditar : number, 
-                  trabajoParaEditar : Trabajo, 
-                  ciudadSeleccionada : String) {
-   
-    this.nombreCiudad = ciudadSeleccionada;
+  obtenerCiudades() {
+    this.servicioAdmin.traerCiudades().subscribe(
+      datosCiudades => {
+        this.listaCiudades = datosCiudades;
+      }
+    );
+  }
 
-    this.idTrabajoSeleccionado = idParaEditar;
+  eventoBtnNuevaCiudad() {
+    this.mostrarFormularioCiudad = true;
+  }
 
-    this.nombreEmpresa = trabajoParaEditar.nombreEmpresa;
-    this.puestoLaboral = trabajoParaEditar.puestoLaboral;
-    this.anioInicio = trabajoParaEditar.anioInicio;
-    this.anioFin = trabajoParaEditar.anioFin;
-    this.descripcion = trabajoParaEditar.descripcion;
-    
-    //this.idEducacionSeleccionado = idParaEditar;
-    this.esFormularioEditar = true;
-    this.esFormularioCrear = false;
+  eventoDeCiudad(respuestaCiudad: Boolean) {
+    this.obtenerCiudades();
+    this.laCiudadEsNueva = respuestaCiudad;
+    this.mostrarFormularioCiudad = false;    
+  }
+
+  eventoBtnCrear() {
+
+    this.laCiudadEsNueva = false;
+    this.obtenerCiudades();
+    this.esFormularioCrear = true;
+    this.esFormularioEditar = false;
+
+    this.tituloFormulario = "Formulario para crear nuevo trabajo";
     this.mostrarFormularioDatos = true;
 
   }
 
-  accionBotonEliminar(idParaEliminar : number) {
-    //alert("Se presionó el boton Eliminar para el  id: " + idParaEliminar);
-    if (confirm("Está seguro de la eliminación del Trabajo id: " + idParaEliminar)) {
-      this.servicioAdmin.eliminarTrabajo(idParaEliminar).subscribe(() => {
+  eventoBtnEditar(idTrabajoEdit: number, 
+                  idCiudadEdit : number,
+                  trabajoEdit: Trabajo) {
+
+    this.nombreEmpresa = trabajoEdit.nombreEmpresa;
+    this.puestoLaboral = trabajoEdit.puestoLaboral;
+    this.anioInicio = trabajoEdit.anioInicio;
+    this.anioFin = trabajoEdit.anioFin;
+    this.descripcion = trabajoEdit.descripcion;
+
+    this.idTrabajoSeleccionado = idTrabajoEdit;
+
+    this.idCiudad = idCiudadEdit;
+
+    this.laCiudadEsNueva = false;
+    this.obtenerCiudades();
+    this.esFormularioEditar = true;
+    this.esFormularioCrear = false;
+
+    this.tituloFormulario = "Formulario para Editar Trabajo";
+    this.mostrarFormularioDatos = true;
+
+  }
+
+  eventoBtnEliminar(idTrabajoDelete: number) {
+    if (confirm("Está seguro de la eliminación del Estudio id: " + idTrabajoDelete)) {
+      this.servicioAdmin.eliminarEducacion(idTrabajoDelete).subscribe(() => {
         window.location.reload();
       });
-
     } else {
-      alert("Se canceló la eliminación del Trabajo id: " + idParaEliminar);
+      alert("Se canceló la eliminación de Educacion id: " + idTrabajoDelete);
     }
   }
 
-   accionBotonCrearNuevo() {   
-    this.esFormularioCrear = true;
-    this.esFormularioEditar = false;
-    this.mostrarFormularioDatos = true;   
+  eventoBtnEnviarDatos() {
+
+    if (this.laCiudadEsNueva) {
+      this.idCiudad = this.listaCiudades[this.listaCiudades.length - 1].id
+    }
+
+    if (this.idCiudad === 0) {
+      alert("Debe seleccionar una ciudad !!");
+    } else {
+
+      if (this.esFormularioEditar && confirm("Está seguro del envío de los datos?")) {
+
+        this.trabajo.nombreEmpresa = this.nombreEmpresa;
+        this.trabajo.puestoLaboral = this.puestoLaboral;
+        this.trabajo.anioInicio = this.anioInicio;
+        this.trabajo.anioFin = this.anioFin;
+        this.trabajo.descripcion = this.descripcion;
+
+        this.servicioAdmin.modificarTrabajo(this.idTrabajoSeleccionado,
+          this.idCiudad,
+          this.trabajo).subscribe(() => {
+            window.location.reload();
+          });
+      }
+
+      if (this.esFormularioCrear && confirm("Está seguro del envio de los datos?")) {
+
+        this.idPersona = this.datosMyApi.id;
+
+        this.trabajo.nombreEmpresa = this.nombreEmpresa;
+        this.trabajo.puestoLaboral = this.puestoLaboral;
+        this.trabajo.anioInicio = this.anioInicio;
+        this.trabajo.anioFin = this.anioFin;
+        this.trabajo.descripcion = this.descripcion;
+
+        this.servicioAdmin.crearTrabajo(this.trabajo,
+          this.idPersona, this.idCiudad).subscribe(() => {
+            window.location.reload();
+          }
+          );
+      }
+      this.mostrarFormularioDatos = false;
+    }
   }
 
-  accionFormularioDatos () {
-    
-    if (this.esFormularioEditar && confirm("Está seguro del envío de los datos?")) {
-      
-      this.trabajo.nombreEmpresa = this.nombreEmpresa;
-      this.trabajo.puestoLaboral = this.puestoLaboral;
-      this.trabajo.anioInicio = this.anioInicio;
-      this.trabajo.anioFin = this.anioFin;
-      this.trabajo.descripcion = this.descripcion;
-     
-      this.servicioAdmin.modificarTrabajo(this.idTrabajoSeleccionado,
-                                 this.idCiudad, 
-                                 this.trabajo).subscribe(() => {
-        window.location.reload();
-      });      
-    }
-
-    if (this.esFormularioCrear && confirm("Está seguro del envio de los datos?")) {
-
-      this.idPersona = this.datosMyApi.id;
-      
-      this.trabajo.nombreEmpresa = this.nombreEmpresa;
-      this.trabajo.puestoLaboral = this.puestoLaboral;
-      this.trabajo.anioInicio = this.anioInicio;
-      this.trabajo.anioFin = this.anioFin;
-      this.trabajo.descripcion = this.descripcion;      
-
-      this.servicioAdmin.crearTrabajo(this.trabajo, 
-        this.idPersona, this.idCiudad).subscribe(() => {
-          window.location.reload();
-        }      
-      );
-
-    }
-
+  eventoBtnCancelarEnvio() {
     this.mostrarFormularioDatos = false;
-
   } 
- 
 
 }
