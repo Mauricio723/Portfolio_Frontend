@@ -15,7 +15,9 @@ import { Ciudad } from '../modelos/Ciudad';
 })
 export class AdminService {
   
-  private urlApi : String = "http://localhost:8080/myapi";
+  //private urlApi : String = "http://localhost:8080/myapi";
+
+  private urlApiRender : String = "https://backporfolio.onrender.com/myapi";
 
   private largoArregloAutorities : number;  
 
@@ -25,7 +27,7 @@ export class AdminService {
     this.largoArregloAutorities = 
       this.servicioAutenticacion.UsuarioAutenticado.authorities.length;    
           
-      console.log("largo del arreglo de autorización: " + this.largoArregloAutorities);
+      //console.log("largo del arreglo de autorización: " + this.largoArregloAutorities);
 
   }
 
@@ -46,11 +48,11 @@ export class AdminService {
   // Datos Ciudad
 
   traerCiudades() : Observable<any> {
-    return this.myHttpClient.get<any>(this.urlApi + "/ciudades/traer_todas");
+    return this.myHttpClient.get<any>(this.urlApiRender + "/ciudades/traer_todas");
   }
   
   crearCiudad(nuevaciudad : Ciudad) : Observable<any> {
-    return this.myHttpClient.post<any>(this.urlApi + "/ciudades/crear", nuevaciudad);
+    return this.myHttpClient.post<any>(this.urlApiRender + "/ciudades/crear", nuevaciudad);
   }
 
   // Datos Persona
@@ -59,95 +61,93 @@ export class AdminService {
                    idPersona: number, 
                    idCiucad : number) : Observable<any> {
                     
-    return this.myHttpClient.put<any>(this.urlApi + "/personas/modificar/" 
+    return this.myHttpClient.put<any>(this.urlApiRender + "/personas/modificar/" 
                                       + idPersona + "/" + idCiucad, personaEdit);
   }
 
   crearPersona(nuevaPersona : About, idCiudad : number) : Observable<any> {
-    return this.myHttpClient.post<any>(this.urlApi + "/personas/crear/" + 
+    return this.myHttpClient.post<any>(this.urlApiRender + "/personas/crear/" + 
     idCiudad, nuevaPersona);
   }
 
   eliminarPersona(idPersona : number) : Observable<any> {
-    return this.myHttpClient.delete<any>(this.urlApi + 
+    return this.myHttpClient.delete<any>(this.urlApiRender + 
       "/personas/eliminar/" + idPersona);
   }
 
   // Datos Educacion
 
   crearEducacion(nuevaEducacion : Educacion, 
-                 idPersona : number, 
                  idCiudad : number) : Observable<any> {
 
-    return this.myHttpClient.post<any>(this.urlApi + "/educacion/crear/" 
-                                  + idPersona + "/" + idCiudad, nuevaEducacion);
+    return this.myHttpClient.post<any>(this.urlApiRender + "/educacion/crear/" 
+                                  + idCiudad, nuevaEducacion);
   }
 
   modificarEducacion(idEducacionEdit : number,
                      idCiudad : number, 
                      educacionEdit : Educacion,) : Observable<any> {
-    return this.myHttpClient.put<any>(this.urlApi + "/educacion/modificar/" + 
+    return this.myHttpClient.put<any>(this.urlApiRender + "/educacion/modificar/" + 
                       idEducacionEdit + "/" + idCiudad, educacionEdit);
   }
 
   eliminarEducacion(idEducacionDelete : number) : Observable<any> {
-    return this.myHttpClient.delete<any>(this.urlApi + "/educacion/eliminar/" + 
+    return this.myHttpClient.delete<any>(this.urlApiRender + "/educacion/eliminar/" + 
                                                 idEducacionDelete);
   }
 
   // Datos Trabajos
 
   crearTrabajo(nuevoTrabajo : Trabajo, 
-               idPersona : number, 
                idCiudad : number) : Observable<any> {
-    return this.myHttpClient.post<any>(this.urlApi + "/trabajos/crear/" 
-                                  + idPersona + "/" + idCiudad, nuevoTrabajo);
+    return this.myHttpClient.post<any>(this.urlApiRender + "/trabajos/crear/" 
+                                  + idCiudad, nuevoTrabajo);
   }
 
   modificarTrabajo(idTrabajoEdit : number, 
                   idCiudad : number, 
                   trabajoEdit : Trabajo) : Observable<any> {
-    return this.myHttpClient.put<any>(this.urlApi + "/trabajos/modificar/" 
+    return this.myHttpClient.put<any>(this.urlApiRender + "/trabajos/modificar/" 
                                  + idTrabajoEdit + "/" + idCiudad, trabajoEdit);
   }
 
   eliminarTrabajo(idTrabajoDelete : number) : Observable<any> {
-    return this.myHttpClient.delete<any>(this.urlApi + "/trabajos/eliminar/"
+    return this.myHttpClient.delete<any>(this.urlApiRender + "/trabajos/eliminar/"
                                           + idTrabajoDelete);
   }
 
   // Datos Aptitudes
 
-  crearAptitud(idPersona : number, aptitudNueva : Aptitud) : Observable<any> {
-    return this.myHttpClient.post<any>(this.urlApi + "/aptitudes/crear/" 
-                                      + idPersona, aptitudNueva);    
+  crearAptitud(aptitudNueva : Aptitud) : Observable<any> {
+    return this.myHttpClient.post<any>(this.urlApiRender + "/aptitudes/crear" 
+                                      , aptitudNueva);    
   }
 
   modificarAtitud(idAptitudEdit : number, aptitudEdit : Aptitud) : Observable<any> {
-    return this.myHttpClient.put<any>(this.urlApi + "/aptitudes/modificar/" 
+    return this.myHttpClient.put<any>(this.urlApiRender + "/aptitudes/modificar/" 
                                     + idAptitudEdit, aptitudEdit);
   }
 
   eliminarAptitud(idParaEliminar : number) : Observable<any> {
-    return this.myHttpClient.delete<any>(this.urlApi + "/aptitudes/eliminar/" 
+    return this.myHttpClient.delete<any>(this.urlApiRender + "/aptitudes/eliminar/" 
                                                  + idParaEliminar);
   }
 
   // Datos Proyectos
 
   modificarProyecto(id : number, proyectoEdit : Proyecto) : Observable<any> {
-    return this.myHttpClient.put<any>(this.urlApi 
+    return this.myHttpClient.put<any>(this.urlApiRender 
                     + "/proyectos/modificar/" + id, proyectoEdit);
   }
 
 
-  crearNuevoProyecto( idPersona : number, proyectoNuevo : Proyecto) : Observable<any> {
-    return this.myHttpClient.post<any>(this.urlApi + "/proyectos/crear/" + 
-                                                       idPersona, proyectoNuevo);
+  crearNuevoProyecto( proyectoNuevo : Proyecto) : Observable<any> {
+    return this.myHttpClient.post<any>(this.urlApiRender + "/proyectos/crear" 
+                                          , proyectoNuevo);
   }
 
   eliminarProyecto(idParaEliminar : number) : Observable<any> {
-    return this.myHttpClient.delete<any>(this.urlApi + "/proyectos/eliminar/" + 
+    return this.myHttpClient.delete<any>(this.urlApiRender + "/proyectos/eliminar/" + 
                                          idParaEliminar);
   }
   

@@ -12,16 +12,19 @@ export class AptitudesComponent implements OnInit {
   //datosJsonAptitudes: any;
 
   @Input() datosMyApi : any;  
+  @Input() idPersona : any;
 
   aptitud : Aptitud = {
     nombre : "",
-    descripcion : ""
+    descripcion : "",
+    porcentaje : 0,
+    persona_id : 0
   };
 
   nombreAptitud : String = "";
   descripcionAptitud : String = "";
+  porcentajeAptitud : number = 0;
 
-  idPersona : number = 0;
   idAptitudSeleccionada : number = 0;
 
   mostrarFormularioDatos : Boolean = false;
@@ -35,7 +38,8 @@ export class AptitudesComponent implements OnInit {
   ngOnInit(): void {
     this.nombreAptitud = "Nombre aptitud sin definir";
     this.descripcionAptitud = "Descripción aptitud sin definir";
-    this.idPersona = this.datosMyApi.id;   
+    this.porcentajeAptitud = 0;
+    
   }
 
   esUsuarioAdmin(): Boolean {
@@ -79,9 +83,10 @@ export class AptitudesComponent implements OnInit {
 
       this.aptitud.nombre = this.nombreAptitud;
       this.aptitud.descripcion = this.descripcionAptitud;
+      this.aptitud.porcentaje = this.porcentajeAptitud;
+      this.aptitud.persona_id = this.idPersona;
 
-      this.servicioAdmin.crearAptitud(this.idPersona, 
-                                         this.aptitud).subscribe(() => {
+      this.servicioAdmin.crearAptitud(this.aptitud).subscribe(() => {
         window.location.reload();
       });
     } 
@@ -90,6 +95,8 @@ export class AptitudesComponent implements OnInit {
 
       this.aptitud.nombre = this.nombreAptitud;
       this.aptitud.descripcion = this.descripcionAptitud;
+      this.aptitud.porcentaje = this.porcentajeAptitud;
+      this.aptitud.persona_id = this.idPersona;
 
       this.servicioAdmin.modificarAtitud(this.idAptitudSeleccionada, 
                                          this.aptitud).subscribe(() => {

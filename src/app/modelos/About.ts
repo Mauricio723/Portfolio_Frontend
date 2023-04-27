@@ -5,26 +5,26 @@ export class About {
     apellido : String;
     ocupacion : String;
     tituloPrincipal : String;
-    fecha_nacimiento : String;
+    fechaNacimiento : String;
     documento : String;
     email : String;
-    acerca_de : String;
+    acercaDe : String;
     urlFoto : String;
     urlBanner : String;
 
     constructor(nombre : String, apellido : String, ocupacion : String, 
-                tituloPrincipal : String, fecha_nacimiento : String, 
-                documento : String, email : String, acerca_de : String, 
+                tituloPrincipal : String, fechaNacimiento : String, 
+                documento : String, email : String, acercaDe : String, 
                 urlFoto : String, urlBanner : String) {
         
         this.nombre = nombre;
         this.apellido = apellido;
         this.ocupacion = ocupacion;
         this.tituloPrincipal = tituloPrincipal;
-        this.fecha_nacimiento = fecha_nacimiento;
+        this.fechaNacimiento = fechaNacimiento;
         this.documento = documento;
         this.email = email;
-        this.acerca_de = acerca_de;
+        this.acercaDe = acercaDe;
         this.urlFoto = urlFoto;
         this.urlBanner = urlBanner;       
 

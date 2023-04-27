@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/modelos/Proyecto';
 import { AdminService } from 'src/app/servicios/admin.service';
-//import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -11,13 +10,14 @@ import { AdminService } from 'src/app/servicios/admin.service';
 })
 export class ProyectosComponent implements OnInit {
 
-  //datosJsonProyectos: any;
-
-  @Input() datosMyApi: any;
+  @Input() datosMyApi : any;
+  @Input() idPersona : any;
 
   proyecto: Proyecto = {
     nombre: "",
-    descripcion: ""
+    descripcion: "",
+    fechaPublicacion: "",
+    persona_id: 0   
   };
 
   //idProyecto: number = 0;
@@ -25,8 +25,7 @@ export class ProyectosComponent implements OnInit {
 
   nombreProyecto: String = "";
   descripcionProyecto: String = "";
-
-   idPersona: number = 0;
+  fechaPublicacion: String = "";
 
   idProyectoSeleccionado : number = 0;
 
@@ -45,6 +44,7 @@ export class ProyectosComponent implements OnInit {
 
     this.nombreProyecto = "Nombre proyecto sin definir";
     this.descripcionProyecto = "Descripción proyecto sin definir";
+    this.fechaPublicacion = "Fecha Publicación sin definir";
 
   }
 
@@ -89,11 +89,10 @@ export class ProyectosComponent implements OnInit {
 
       this.proyecto.nombre = this.nombreProyecto;
       this.proyecto.descripcion = this.descripcionProyecto;
+      this.proyecto.fechaPublicacion = this.fechaPublicacion;
+      this.proyecto.persona_id = this.idPersona;
 
-      this.idPersona = this.datosMyApi.id;   
-
-      this.servicioAdministrador.crearNuevoProyecto(this.idPersona,
-        this.proyecto).subscribe(() => {
+      this.servicioAdministrador.crearNuevoProyecto(this.proyecto).subscribe(() => {
           window.location.reload();
         });
     }
@@ -102,6 +101,8 @@ export class ProyectosComponent implements OnInit {
 
       this.proyecto.nombre = this.nombreProyecto;
       this.proyecto.descripcion = this.descripcionProyecto;
+      this.proyecto.fechaPublicacion = this.fechaPublicacion;
+      this.proyecto.persona_id = this.idPersona;
 
       this.servicioAdministrador.modificarProyecto(
         this.idProyectoSeleccionado, this.proyecto).subscribe(() => {

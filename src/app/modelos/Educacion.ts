@@ -6,13 +6,15 @@ export class Educacion {
     anioFin: number;
     descripcionCurso: String;
     seTerminoCurso: number;
+    persona_id: number;
     
     constructor(nombreInstitucion: String,
         estudioCursado: String,
         anioInicio: number,
         anioFin: number,
         descripcionCurso: String,
-        seTerminoCurso: number) {
+        seTerminoCurso: number,
+        persona_id: number) {
 
         this.nombreInstitucion = nombreInstitucion;
         this.estudioCursado = estudioCursado;
@@ -20,6 +22,7 @@ export class Educacion {
         this.anioFin = anioFin;
         this.descripcionCurso = descripcionCurso;
         this.seTerminoCurso = seTerminoCurso;
+        this.persona_id = persona_id;
 
     }
 

@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Trabajo } from 'src/app/modelos/Trabajo';
 import { AdminService } from 'src/app/servicios/admin.service';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-trabajos',
@@ -10,16 +9,16 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class TrabajosComponent implements OnInit {
 
-  datosJsonTrabajos: any;
-
   @Input() datosMyApi: any;
+  @Input() idPersona: any;
 
   trabajo: Trabajo = {
     nombreEmpresa: "",
     puestoLaboral: "",
     anioInicio: 0,
     anioFin: 0,
-    descripcion: ""
+    descripcion: "",
+    persona_id: 0
   };
 
   nombreEmpresa: String;
@@ -27,10 +26,7 @@ export class TrabajosComponent implements OnInit {
   anioInicio: number;
   anioFin: number;
   descripcion: String;
-
-
-  idPersona: number = 0;
-
+  
   listaCiudades: any;
 
   idTrabajoSeleccionado: number = 0;
@@ -42,27 +38,11 @@ export class TrabajosComponent implements OnInit {
 
   mostrarFormularioCiudad: Boolean = false;
 
-  //mostrarBotones: Boolean = false;
-
   mostrarFormularioDatos: Boolean = false;
 
   esFormularioEditar: Boolean = false;
   esFormularioCrear: Boolean = false;
   tituloFormulario: String = "";
-
-  /*
-  
-  mostrarFormularioDatos : Boolean = false;
-  esFormularioEditar : Boolean = false;
-  esFormularioCrear : Boolean = false;
-  tituloFormulario : String = "";
-  mostrarFormularioCiudad : Boolean = false;
-  laCiudadEsNueva : Boolean = false;
-  idPersona : number = 0;
-  listaCiudades : any;
-  idEducacionSeleccionado : number = 0;
-  idCiudad : number = 0;
-  */
 
   constructor(private servicioAdmin: AdminService) {
 
@@ -163,29 +143,30 @@ export class TrabajosComponent implements OnInit {
         this.trabajo.anioInicio = this.anioInicio;
         this.trabajo.anioFin = this.anioFin;
         this.trabajo.descripcion = this.descripcion;
+        this.trabajo.persona_id = this.idPersona;
 
         this.servicioAdmin.modificarTrabajo(this.idTrabajoSeleccionado,
-          this.idCiudad,
-          this.trabajo).subscribe(() => {
+          this.idCiudad, this.trabajo).subscribe(() => {
             window.location.reload();
           });
       }
 
       if (this.esFormularioCrear && confirm("Está seguro del envio de los datos?")) {
 
-        this.idPersona = this.datosMyApi.id;
-
         this.trabajo.nombreEmpresa = this.nombreEmpresa;
         this.trabajo.puestoLaboral = this.puestoLaboral;
         this.trabajo.anioInicio = this.anioInicio;
         this.trabajo.anioFin = this.anioFin;
         this.trabajo.descripcion = this.descripcion;
-
+        this.trabajo.persona_id = this.idPersona;
+        
         this.servicioAdmin.crearTrabajo(this.trabajo,
-          this.idPersona, this.idCiudad).subscribe(() => {
+          this.idCiudad).subscribe(() => {
+            
             window.location.reload();
           }
-          );
+          );              
+
       }
       this.mostrarFormularioDatos = false;
     }

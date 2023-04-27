@@ -6,13 +6,18 @@
 
   <div *ngIf="mostrarFormularioDatos === false">
     <div class="row gx-2 mx-1">
-      <div *ngFor="let aptitud of datosMyApi.listaAptitudes" 
+      <div *ngFor="let aptitud of datosMyApi" 
         class="col-sm-12 col-md-12 col-lg-6 rounded-3">
 
         <div class="colorAptitud_03 rounded-3 mt-2">
           <dl>
             <dt>{{aptitud.nombre}}</dt>
-            <dd>{{aptitud.descripcion}}</dd>
+            <dd>
+              <p class="bg-primary text-center rounded-3" 
+              [style.width.%]="aptitud.porcentaje">
+                {{aptitud.porcentaje}}%            
+              </p>
+              {{aptitud.descripcion}}</dd>
           </dl>
 
           <div *ngIf="esUsuarioAdmin()" class="">
@@ -48,6 +53,12 @@
           rows="4" cols="50" maxlength="200"
           placeholder="{{descripcionAptitud}}" [(ngModel)]="descripcionAptitud" 
           id="descripcionAptitud"> </textarea>
+      </div>
+      <div class="mb-3">
+        <label for="porcentajeAptitud" class="form-label">Porcentaje Aptitud</label>
+        <input type="number" class="form-control" name="PoercentajeAptitud" 
+          placeholder="{{porcentajeAptitud}}"
+          [(ngModel)]="porcentajeAptitud" id="porcentajeAptitud">
       </div>
       <button type="submit" class="btn btn-primary mb-3">Enviar Datos</button>
     </form>

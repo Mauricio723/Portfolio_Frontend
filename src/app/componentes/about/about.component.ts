@@ -17,10 +17,10 @@ export class AboutComponent implements OnInit {
     apellido: "",
     ocupacion: "",
     tituloPrincipal: "",
-    fecha_nacimiento: "",
+    fechaNacimiento: "",
     documento: "",
     email: "",
-    acerca_de: "",
+    acercaDe: "",
     urlFoto: "",
     urlBanner: ""
   };
@@ -49,10 +49,10 @@ export class AboutComponent implements OnInit {
     this.about.apellido = "Apellido sin definir";
     this.about.ocupacion = "Ocupación sin definir";
     this.about.tituloPrincipal = "Título principal sin definir";
-    this.about.fecha_nacimiento = "Fecha de nacimiento sin definir";
+    this.about.fechaNacimiento = "Fecha de nacimiento sin definir";
     this.about.documento = "Documento sin definir";
     this.about.email = "email sin definir";
-    this.about.acerca_de = "Acerca de sin definir";
+    this.about.acercaDe = "Acerca de sin definir";
     this.about.urlFoto = "url foto sin definir";
     this.about.urlBanner = "url banner sin definir";   
 
@@ -89,10 +89,10 @@ export class AboutComponent implements OnInit {
     this.about.apellido = this.datosPersona.apellido;
     this.about.ocupacion = this.datosPersona.ocupacion;
     this.about.tituloPrincipal = this.datosPersona.tituloPrincipal;
-    this.about.fecha_nacimiento = this.datosPersona.fecha_nacimiento;
+    this.about.fechaNacimiento = this.datosPersona.fecha_nacimiento;
     this.about.documento = this.datosPersona.documento;
     this.about.email = this.datosPersona.email;
-    this.about.acerca_de = this.datosPersona.acerca_de;
+    this.about.acercaDe = this.datosPersona.acerca_de;
     this.about.urlFoto = this.datosPersona.urlFoto;
     this.about.urlBanner = this.datosPersona.urlBanner;   
     

@@ -2,6 +2,117 @@
 
     <div *ngIf="contenidoSessionStorage; else sesionCerrada">
 
+
+        <div *ngIf="datosThisPersona; else datosPersonaNull">
+
+            <div *ngIf="idThisPersona != 0; else idPersonaNull">
+
+                <app-about [datosPersona]="datosThisPersona"></app-about>
+
+            </div>
+
+            <ng-template #idPersonaNull>
+                <h5>Error al obtener el Id de la persona</h5>
+            </ng-template>
+
+        </div>
+
+        <ng-template #datosPersonaNull>
+            <div class="row border border-success my-2 mx-2 py-3">
+                <div class="col text-center">
+                    <div class="spinner-border text-success" role="status">
+                    </div>
+                </div>
+                <div class="col ">
+                    <h5 class="text-center"># # Obteniendo datos # #</h5>
+                </div>
+                <div class="col text-center">
+                    <div class="spinner-border text-secondary" role="status">
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+        <div *ngIf="datosEducacion; else datosEducacionNull">
+            <app-education [datosMyApi]="datosEducacion" [idPersona]="idThisPersona"></app-education>
+        </div>
+        <ng-template #datosEducacionNull>
+            <div class="row border border-success my-2 mx-2 py-3">
+                <div class="col text-center">
+                    <div class="spinner-border text-danger" role="status">
+                    </div>
+                </div>
+                <div class="col ">
+                    <h5 class="text-center"># # Obteniendo datos # #</h5>
+                </div>
+                <div class="col text-center">
+                    <div class="spinner-border text-primary" role="status">
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+        <div *ngIf="datosTrabajos; else datosTrabajosNull">
+            <app-trabajos [datosMyApi]="datosTrabajos" [idPersona]="idThisPersona"> </app-trabajos>
+        </div>
+        <ng-template #datosTrabajosNull>
+            <div class="row border border-success my-2 mx-2 py-3">
+                <div class="col text-center">
+                    <div class="spinner-border text-primary" role="status">
+                    </div>
+                </div>
+                <div class="col ">
+                    <h5 class="text-center"># # Obteniendo datos # #</h5>
+
+                </div>
+                <div class="col text-center">
+                    <div class="spinner-border text-info" role="status">
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+        <div *ngIf="datosAptitudes; else datosAptitudesNull">
+            <app-aptitudes [datosMyApi]="datosAptitudes" [idPersona]="idThisPersona"></app-aptitudes>
+        </div>
+        <ng-template #datosAptitudesNull>
+            <div class="row border border-success my-2 mx-2 py-3">
+                <div class="col text-center">
+                    <div class="spinner-border text-light" role="status">
+                    </div>
+                </div>
+                <div class="col ">
+                    <h5 class="text-center"># # Obteniendo datos # #</h5>
+                </div>
+                <div class="col text-center">
+                    <div class="spinner-border text-warning" role="status">
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+        <div *ngIf="datosProyectos; else datosProyectosNull">
+            <app-proyectos [datosMyApi]="datosProyectos" [idPersona]="idThisPersona"></app-proyectos>
+        </div>
+        <ng-template #datosProyectosNull>
+            <div class="row border border-success my-2 mx-2 py-3">
+                <div class="col text-center">
+                    <div class="spinner-border text-secondary" role="status">
+                    </div>
+                </div>
+                <div class="col ">
+                    <h5 class="text-center"># # Obteniendo datos # #</h5>
+                </div>
+                <div class="col text-center">
+                    <div class="spinner-border text-danger" role="status">
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+
+        <!--
+
         <div *ngIf="datosPortfolio; else datosPortfolioNull">
             
             <app-about [datosPersona]="datosPortfolio"></app-about>
@@ -18,6 +129,7 @@
                 <h4 class="text-center"># # # Espere un momento # # #</h4>
             </div>
         </ng-template>
+        -->
 
     </div>
 

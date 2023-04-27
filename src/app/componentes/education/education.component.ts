@@ -10,6 +10,7 @@ import { AdminService } from 'src/app/servicios/admin.service';
 export class EducationComponent implements OnInit {
 
   @Input() datosMyApi: any;
+  @Input() idPersona: any;
 
   educacion: Educacion = {
     nombreInstitucion: "",
@@ -17,7 +18,8 @@ export class EducationComponent implements OnInit {
     anioInicio: 0,
     anioFin: 0,
     descripcionCurso: "",
-    seTerminoCurso: 0
+    seTerminoCurso: 0,
+    persona_id: 0
   };
 
   nombreInstitucion: String;
@@ -26,6 +28,7 @@ export class EducationComponent implements OnInit {
   anioFin: number;
   descripcionCurso: String;
   seTerminoCurso: number;
+  //persona_id: number;
 
   mostrarFormularioDatos: Boolean = false;
   esFormularioEditar: Boolean = false;
@@ -33,7 +36,7 @@ export class EducationComponent implements OnInit {
   tituloFormulario: String = "";
   mostrarFormularioCiudad: Boolean = false;
   laCiudadEsNueva: Boolean = false;
-  idPersona: number = 0;
+  //idPersona: number = 0;
   listaCiudades: any;
   idEducacionSeleccionado: number = 0;
 
@@ -47,10 +50,13 @@ export class EducationComponent implements OnInit {
     this.anioFin = 0;
     this.descripcionCurso = "Descripción del curso sin definir";
     this.seTerminoCurso = 0;
-
+    //this.persona_id = this.idPersona;
   }
 
   ngOnInit(): void {
+
+    //console.log("Datos Educacione: " + JSON.stringify(this.datosMyApi));
+    //console.log("id persona: " + this.idPersona);
 
   }
 
@@ -98,7 +104,7 @@ export class EducationComponent implements OnInit {
     this.anioFin = educacionEdit.anioFin;
     this.descripcionCurso = educacionEdit.descripcionCurso;
     this.seTerminoCurso = educacionEdit.seTerminoCurso;
-
+    
     this.idEducacionSeleccionado = idEducacionEdit;
 
     this.idCiudad = idCiudadEdit;
@@ -142,6 +148,7 @@ export class EducationComponent implements OnInit {
         this.educacion.anioFin = this.anioFin;
         this.educacion.descripcionCurso = this.descripcionCurso;
         this.educacion.seTerminoCurso = this.seTerminoCurso;
+        this.educacion.persona_id = this.idPersona;
 
         this.servicioAdmin.modificarEducacion(this.idEducacionSeleccionado,
           this.idCiudad,
@@ -152,7 +159,7 @@ export class EducationComponent implements OnInit {
 
       if (this.esFormularioCrear && confirm("Está seguro del envio de los datos?")) {
 
-        this.idPersona = this.datosMyApi.id;
+        //this.idPersona = this.datosMyApi.id;
 
         this.educacion.nombreInstitucion = this.nombreInstitucion;
         this.educacion.estudioCursado = this.estudioCursado;
@@ -160,9 +167,10 @@ export class EducationComponent implements OnInit {
         this.educacion.anioFin = this.anioFin;
         this.educacion.descripcionCurso = this.descripcionCurso;
         this.educacion.seTerminoCurso = this.seTerminoCurso;
-
+        this.educacion.persona_id = this.idPersona;
+        
         this.servicioAdmin.crearEducacion(this.educacion,
-          this.idPersona, this.idCiudad).subscribe(() => {
+          this.idCiudad).subscribe(() => {
             window.location.reload();
           }
           );

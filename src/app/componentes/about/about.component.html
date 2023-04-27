@@ -70,9 +70,9 @@
           <dt>Email</dt>
           <dd>{{datosPersona.email}}</dd>
           <dt>Fecha de Nacimiento</dt>
-          <dd>{{datosPersona.fecha_nacimiento}}</dd>        
+          <dd>{{datosPersona.fechaNacimiento}}</dd>        
           <dt>Acerca de:</dt>
-          <dd>{{datosPersona.acerca_de}}</dd>
+          <dd>{{datosPersona.acercaDe}}</dd>
         </dl>       
       </div>
     </div>
@@ -179,10 +179,10 @@
       
       <div class="row"> 
         <div class="col-sm-12 col-md-12 col-lg-6 mb-3">        
-          <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>        
-          <input type="text" class="form-control" name="fecha_nacimiento" 
-            placeholder="{{datosPersona.fecha_nacimiento}}"
-            [(ngModel)]="about.fecha_nacimiento" id="fechanacimiento">             
+          <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>        
+          <input type="text" class="form-control" name="fechaNacimiento" 
+            placeholder="{{datosPersona.fechaNacimiento}}"
+            [(ngModel)]="about.fechaNacimiento" id="fechaNacimiento">             
         </div>      
         <div class="col-sm-12 col-md-12 col-lg-6 mb-3">        
             <label for="documento" class="form-label">Documento</label>        
@@ -199,11 +199,11 @@
       </div>
 
       <div class="mb-3">
-        <label for="acerca_de" class="form-label">Acerca de</label>
-        <textarea type="text" class="form-control" name="acerca_de" 
+        <label for="acercaDe" class="form-label">Acerca de</label>
+        <textarea type="text" class="form-control" name="acercaDe" 
           rows="3" cols="70" maxlength="270"
-          placeholder="{{datosPersona.acerca_de}}" [(ngModel)]="about.acerca_de" 
-          id="acerca_de"> </textarea>
+          placeholder="{{datosPersona.acercaDe}}" [(ngModel)]="about.acercaDe" 
+          id="acercaDe"> </textarea>
       </div>
 
       <div class="mb-3">
