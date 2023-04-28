@@ -118,7 +118,7 @@ export class TrabajosComponent implements OnInit {
 
   eventoBtnEliminar(idTrabajoDelete: number) {
     if (confirm("Está seguro de la eliminación del Estudio id: " + idTrabajoDelete)) {
-      this.servicioAdmin.eliminarEducacion(idTrabajoDelete).subscribe(() => {
+      this.servicioAdmin.eliminarTrabajo(idTrabajoDelete).subscribe(() => {
         window.location.reload();
       });
     } else {
