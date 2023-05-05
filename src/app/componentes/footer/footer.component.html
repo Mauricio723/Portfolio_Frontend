@@ -1,39 +1,89 @@
 <footer class="seccionFooter my-1 border border-success">
 
-    <div class="colorFooter_02 mx-2 my-2 px-2 py-2">
+    <div class="container-fluid colorFooter_02 my-2 py-2">
 
-        <dl>
-            <dt>Fecha de publicación:</dt>
-            <dd>Marzo de 2023</dd>
-            <dt>Autor:</dt>
-            <dd>Salvador Mauricio Vilches Jerez</dd>
-            <dt>Contacto email:</dt>
-            <dd>salvadorvilches1972@gmail.com</dd>
-        </dl>
-        
-        <div>
-            <button class="btn btn-outline-light btn-sm mx-2" 
-            (click)="eventoBtnAbout()">Acerca de este trabajo</button>
+        <div class="row mt-2">
 
-            <button class="btn btn-outline-light btn-sm mx-2" 
-            (click)="eventoBtnDerechos()" >Derechos de autor</button>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+
+                <dl>
+                    <dt>Fecha de publicación:</dt>
+                    <dd>27 de Abril de 2023</dd>                    
+                </dl>
+
+            </div>
+
+            <div class="col-sm-12 col-md-4 col-lg-4">
+
+                <dl>                    
+                    <dt>Autor:</dt>
+                    <dd>Salvador Mauricio Vilches Jerez</dd>                    
+                </dl>
+
+            </div>
+
+            <div class="col-sm-12 col-md-4 col-lg-4">
+
+                <dl>                              
+                    <dt>Contacto email:</dt>
+                    <dd>salvadorvilches1972@gmail.com</dd>
+                </dl>
+
+            </div>
+
+
+            <div class="col-sm-12 col-md-6 col-lg-6">
+
+                <div class="mt-3">
+                    <button class="btn btn-outline-light btn-sm ms-4" (click)="eventoBtnAbout()">Acerca de este
+                        trabajo</button>
+                    
+                </div>
+
+                <div class="mt-3">
+
+                    <dl *ngIf="mostrarAbout; else aboutFalse">
+                        <dt>Acerca de este trabajo:</dt>
+                        <dd>Este trabajo es parte del proyecto integrador del curso de
+                            Argentina Programa: Full Stack Developer Junior.
+                        </dd>
+                    </dl>                    
+                </div>
+                <ng-template #aboutFalse>
+                    <p># # # # # # # # # # # # # # # # #</p>
+                    <p># # # # # # # # # # # # # # # # #</p>
+                    <p># # # # # # # # # # # # # # # # #</p>                    
+                </ng-template>
+
+            </div>
+           
+            <div class="col-sm-12 col-md-6 col-lg-6">
+
+                <div class="mt-3">                    
+
+                    <button class="btn btn-outline-light btn-sm ms-4" (click)="eventoBtnDerechos()">Derechos de
+                        autor</button>
+                </div>
+
+                <div class="mt-3">
+                    <dl *ngIf="mostrarDerechosAutor; else derechosFalse">
+                        <dt>Condiciones de uso:</dt>
+                        <dd>El presente trabajo, está libre de uso y modificación,
+                            para fines educativos</dd>
+                    </dl>
+                </div>
+                <ng-template #derechosFalse>
+                    <p># # # # # # # # # # # # # # # # #</p>
+                    <p># # # # # # # # # # # # # # # # #</p>
+                    <p># # # # # # # # # # # # # # # # #</p>
+                </ng-template>
+
+            </div>
+
         </div>
 
-        <div class="mt-3">
 
-            <dl *ngIf="mostrarAbout">            
-                <dt>Acerca de este trabajo:</dt>            
-                <dd>Este trabajo es parte del proyecto integrador del curso de                
-                    Argentina Programa: Full Stack Developer Junior.                           
-                </dd>        
-            </dl>        
-         
-            <dl *ngIf="mostrarDerechosAutor">            
-                <dt>Condiciones de uso:</dt>            
-                <dd>El presente trabajo, está libre de uso y modificación,                
-                    para fines educativos</dd>        
-                </dl>
-        </div>         
-       
+
+
     </div>
 </footer>

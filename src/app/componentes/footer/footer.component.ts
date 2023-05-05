@@ -21,7 +21,7 @@ export class FooterComponent implements OnInit {
       this.mostrarDerechosAutor= false;
     } else {
       this.mostrarDerechosAutor= true;
-      this.mostrarAbout = false;
+      //this.mostrarAbout = false;
     }
   }
   eventoBtnAbout() {
@@ -29,7 +29,7 @@ export class FooterComponent implements OnInit {
       this.mostrarAbout = false;
     } else {
       this.mostrarAbout = true;
-      this.mostrarDerechosAutor = false;
+      //this.mostrarDerechosAutor = false;
     }
   }  
 

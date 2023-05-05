@@ -1,18 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { About } from 'src/app/modelos/About';
+import { Persona } from 'src/app/modelos/Persona';
 import { AdminService } from 'src/app/servicios/admin.service';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  selector: 'app-persona',
+  templateUrl: './persona.component.html',
+  styleUrls: ['./persona.component.css']
 })
-export class AboutComponent implements OnInit {
+export class PersonaComponent implements OnInit {
 
   @Input() datosPersona: any;
 
-  about: About = {
+  persona: Persona = {
     nombre: "",
     apellido: "",
     ocupacion: "",
@@ -45,16 +45,16 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.about.nombre = "Nombre sin definir";
-    this.about.apellido = "Apellido sin definir";
-    this.about.ocupacion = "Ocupación sin definir";
-    this.about.tituloPrincipal = "Título principal sin definir";
-    this.about.fechaNacimiento = "Fecha de nacimiento sin definir";
-    this.about.documento = "Documento sin definir";
-    this.about.email = "email sin definir";
-    this.about.acercaDe = "Acerca de sin definir";
-    this.about.urlFoto = "url foto sin definir";
-    this.about.urlBanner = "url banner sin definir";   
+    this.persona.nombre = "Nombre sin definir";
+    this.persona.apellido = "Apellido sin definir";
+    this.persona.ocupacion = "Ocupación sin definir";
+    this.persona.tituloPrincipal = "Título principal sin definir";
+    this.persona.fechaNacimiento = "Fecha de nacimiento sin definir";
+    this.persona.documento = "Documento sin definir";
+    this.persona.email = "email sin definir";
+    this.persona.acercaDe = "Acerca de sin definir";
+    this.persona.urlFoto = "url foto sin definir";
+    this.persona.urlBanner = "url banner sin definir";   
 
     this.idPersona = this.datosPersona.id;
 
@@ -85,16 +85,16 @@ export class AboutComponent implements OnInit {
 
   eventoBtnModificar(idSeleccionado: number) {
     
-    this.about.nombre = this.datosPersona.nombre;
-    this.about.apellido = this.datosPersona.apellido;
-    this.about.ocupacion = this.datosPersona.ocupacion;
-    this.about.tituloPrincipal = this.datosPersona.tituloPrincipal;
-    this.about.fechaNacimiento = this.datosPersona.fecha_nacimiento;
-    this.about.documento = this.datosPersona.documento;
-    this.about.email = this.datosPersona.email;
-    this.about.acercaDe = this.datosPersona.acerca_de;
-    this.about.urlFoto = this.datosPersona.urlFoto;
-    this.about.urlBanner = this.datosPersona.urlBanner;   
+    this.persona.nombre = this.datosPersona.nombre;
+    this.persona.apellido = this.datosPersona.apellido;
+    this.persona.ocupacion = this.datosPersona.ocupacion;
+    this.persona.tituloPrincipal = this.datosPersona.tituloPrincipal;
+    this.persona.fechaNacimiento = this.datosPersona.fechaNacimiento;
+    this.persona.documento = this.datosPersona.documento;
+    this.persona.email = this.datosPersona.email;
+    this.persona.acercaDe = this.datosPersona.acercaDe;
+    this.persona.urlFoto = this.datosPersona.urlFoto;
+    this.persona.urlBanner = this.datosPersona.urlBanner;   
     
     this.laCiudadEsNueva = false;   
     this.obtenerCiudades(); 
@@ -140,7 +140,7 @@ export class AboutComponent implements OnInit {
 
     if (this.modificarDatos && confirm("Está seguro de la modificación de los datos")) {
       
-      this.servicioAdmin.modificarPersona(this.about,
+      this.servicioAdmin.modificarPersona(this.persona,
         this.idPersona,
         this.idCiudad).subscribe(() => {
           //this.myRuta.navigate(["/secciones"]);
@@ -151,7 +151,7 @@ export class AboutComponent implements OnInit {
 
     if (this.crearNuevaPersona && confirm("Confirmación envío de datos nueva Persona")) {    
 
-      this.servicioAdmin.crearPersona(this.about, this.idCiudad).subscribe(() => {
+      this.servicioAdmin.crearPersona(this.persona, this.idCiudad).subscribe(() => {
         this.myRuta.navigate(["/secciones"]);
         //window.location.reload()
       } );         

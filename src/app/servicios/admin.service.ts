@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AutenticacionService } from './autenticacion.service';
 import { Proyecto } from '../modelos/Proyecto';
 import { Observable } from 'rxjs';
-import { About } from '../modelos/About';
+import { About } from '../modelos/Persona';
 import { Educacion } from '../modelos/Educacion';
 import { Trabajo } from '../modelos/Trabajo';
 import { Aptitud } from '../modelos/Aptitud';
@@ -15,9 +15,9 @@ import { Ciudad } from '../modelos/Ciudad';
 })
 export class AdminService {
   
-  //private urlApi : String = "http://localhost:8080/myapi";
+  private urlApi : String = "http://localhost:8080/myapi";
 
-  private urlApiRender : String = "https://backporfolio.onrender.com/myapi";
+  //private urlApiRender : String = "https://backporfolio.onrender.com/myapi";
 
   private largoArregloAutorities : number;  
 
@@ -48,11 +48,11 @@ export class AdminService {
   // Datos Ciudad
 
   traerCiudades() : Observable<any> {
-    return this.myHttpClient.get<any>(this.urlApiRender + "/ciudades/traer_todas");
+    return this.myHttpClient.get<any>(this.urlApi + "/ciudades/traer_todas");
   }
   
   crearCiudad(nuevaciudad : Ciudad) : Observable<any> {
-    return this.myHttpClient.post<any>(this.urlApiRender + "/ciudades/crear", nuevaciudad);
+    return this.myHttpClient.post<any>(this.urlApi + "/ciudades/crear", nuevaciudad);
   }
 
   // Datos Persona
@@ -61,17 +61,17 @@ export class AdminService {
                    idPersona: number, 
                    idCiucad : number) : Observable<any> {
                     
-    return this.myHttpClient.put<any>(this.urlApiRender + "/personas/modificar/" 
+    return this.myHttpClient.put<any>(this.urlApi + "/personas/modificar/" 
                                       + idPersona + "/" + idCiucad, personaEdit);
   }
 
   crearPersona(nuevaPersona : About, idCiudad : number) : Observable<any> {
-    return this.myHttpClient.post<any>(this.urlApiRender + "/personas/crear/" + 
+    return this.myHttpClient.post<any>(this.urlApi + "/personas/crear/" + 
     idCiudad, nuevaPersona);
   }
 
   eliminarPersona(idPersona : number) : Observable<any> {
-    return this.myHttpClient.delete<any>(this.urlApiRender + 
+    return this.myHttpClient.delete<any>(this.urlApi + 
       "/personas/eliminar/" + idPersona);
   }
 
@@ -80,19 +80,19 @@ export class AdminService {
   crearEducacion(nuevaEducacion : Educacion, 
                  idCiudad : number) : Observable<any> {
 
-    return this.myHttpClient.post<any>(this.urlApiRender + "/educacion/crear/" 
+    return this.myHttpClient.post<any>(this.urlApi + "/educacion/crear/" 
                                   + idCiudad, nuevaEducacion);
   }
 
   modificarEducacion(idEducacionEdit : number,
                      idCiudad : number, 
                      educacionEdit : Educacion,) : Observable<any> {
-    return this.myHttpClient.put<any>(this.urlApiRender + "/educacion/modificar/" + 
+    return this.myHttpClient.put<any>(this.urlApi + "/educacion/modificar/" + 
                       idEducacionEdit + "/" + idCiudad, educacionEdit);
   }
 
   eliminarEducacion(idEducacionDelete : number) : Observable<any> {
-    return this.myHttpClient.delete<any>(this.urlApiRender + "/educacion/eliminar/" + 
+    return this.myHttpClient.delete<any>(this.urlApi + "/educacion/eliminar/" + 
                                                 idEducacionDelete);
   }
 
@@ -100,54 +100,54 @@ export class AdminService {
 
   crearTrabajo(nuevoTrabajo : Trabajo, 
                idCiudad : number) : Observable<any> {
-    return this.myHttpClient.post<any>(this.urlApiRender + "/trabajos/crear/" 
+    return this.myHttpClient.post<any>(this.urlApi + "/trabajos/crear/" 
                                   + idCiudad, nuevoTrabajo);
   }
 
   modificarTrabajo(idTrabajoEdit : number, 
                   idCiudad : number, 
                   trabajoEdit : Trabajo) : Observable<any> {
-    return this.myHttpClient.put<any>(this.urlApiRender + "/trabajos/modificar/" 
+    return this.myHttpClient.put<any>(this.urlApi + "/trabajos/modificar/" 
                                  + idTrabajoEdit + "/" + idCiudad, trabajoEdit);
   }
 
   eliminarTrabajo(idTrabajoDelete : number) : Observable<any> {
-    return this.myHttpClient.delete<any>(this.urlApiRender + "/trabajos/eliminar/"
+    return this.myHttpClient.delete<any>(this.urlApi + "/trabajos/eliminar/"
                                           + idTrabajoDelete);
   }
 
   // Datos Aptitudes
 
   crearAptitud(aptitudNueva : Aptitud) : Observable<any> {
-    return this.myHttpClient.post<any>(this.urlApiRender + "/aptitudes/crear" 
+    return this.myHttpClient.post<any>(this.urlApi + "/aptitudes/crear" 
                                       , aptitudNueva);    
   }
 
   modificarAtitud(idAptitudEdit : number, aptitudEdit : Aptitud) : Observable<any> {
-    return this.myHttpClient.put<any>(this.urlApiRender + "/aptitudes/modificar/" 
+    return this.myHttpClient.put<any>(this.urlApi + "/aptitudes/modificar/" 
                                     + idAptitudEdit, aptitudEdit);
   }
 
   eliminarAptitud(idParaEliminar : number) : Observable<any> {
-    return this.myHttpClient.delete<any>(this.urlApiRender + "/aptitudes/eliminar/" 
+    return this.myHttpClient.delete<any>(this.urlApi + "/aptitudes/eliminar/" 
                                                  + idParaEliminar);
   }
 
   // Datos Proyectos
 
   modificarProyecto(id : number, proyectoEdit : Proyecto) : Observable<any> {
-    return this.myHttpClient.put<any>(this.urlApiRender 
+    return this.myHttpClient.put<any>(this.urlApi 
                     + "/proyectos/modificar/" + id, proyectoEdit);
   }
 
 
   crearNuevoProyecto( proyectoNuevo : Proyecto) : Observable<any> {
-    return this.myHttpClient.post<any>(this.urlApiRender + "/proyectos/crear" 
+    return this.myHttpClient.post<any>(this.urlApi + "/proyectos/crear" 
                                           , proyectoNuevo);
   }
 
   eliminarProyecto(idParaEliminar : number) : Observable<any> {
-    return this.myHttpClient.delete<any>(this.urlApiRender + "/proyectos/eliminar/" + 
+    return this.myHttpClient.delete<any>(this.urlApi + "/proyectos/eliminar/" + 
                                          idParaEliminar);
   }
   
