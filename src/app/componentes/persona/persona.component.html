@@ -152,13 +152,13 @@
         <label for="nombre" class="form-label">Nombre Persona</label>
         <input type="text" class="form-control" name="nombre" 
           placeholder="{{datosPersona.nombre}}"
-          [(ngModel)]="about.nombre" id="nombre">      
+          [(ngModel)]="persona.nombre" id="nombre">      
         </div>      
         <div class="col-sm-12 col-md-12 col-lg-6 mb-3">        
           <label for="apellido" class="form-label">Apellido</label>        
           <input type="text" class="form-control" name="apellido" 
             placeholder="{{datosPersona.apellido}}"
-            [(ngModel)]="about.apellido" id="apellido">      
+            [(ngModel)]="persona.apellido" id="apellido">      
         </div>
       </div>
 
@@ -166,14 +166,14 @@
         <label for="ocupacion" class="form-label">Ocupación</label>
 
         <input type="text" class="form-control" name="ocupacion" placeholder="{{datosPersona.ocupacion}}"
-          [(ngModel)]="about.ocupacion" id="ocupacion">
+          [(ngModel)]="persona.ocupacion" id="ocupacion">
 
       </div>
       <div class="mb-3">
         <label for="tituloPrincipal" class="form-label">Titulo Principal</label>
 
         <input type="text" class="form-control" name="tituloPrincipal" placeholder="{{datosPersona.tituloPrinipal}}"
-          [(ngModel)]="about.tituloPrincipal" id="tituloPrincipal">
+          [(ngModel)]="persona.tituloPrincipal" id="tituloPrincipal">
 
       </div>
       
@@ -182,27 +182,27 @@
           <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>        
           <input type="text" class="form-control" name="fechaNacimiento" 
             placeholder="{{datosPersona.fechaNacimiento}}"
-            [(ngModel)]="about.fechaNacimiento" id="fechaNacimiento">             
+            [(ngModel)]="persona.fechaNacimiento" id="fechaNacimiento">             
         </div>      
         <div class="col-sm-12 col-md-12 col-lg-6 mb-3">        
             <label for="documento" class="form-label">Documento</label>        
             <input type="text" class="form-control" name="documento" 
               placeholder="{{datosPersona.documento}}"
-              [(ngModel)]="about.documento" id="documento">      
+              [(ngModel)]="persona.documento" id="documento">      
         </div>        
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input type="text" class="form-control" name="email" 
           placeholder="{{datosPersona.email}}"
-          [(ngModel)]="about.email" id="email">
+          [(ngModel)]="persona.email" id="email">
       </div>
 
       <div class="mb-3">
         <label for="acercaDe" class="form-label">Acerca de</label>
         <textarea type="text" class="form-control" name="acercaDe" 
           rows="3" cols="70" maxlength="270"
-          placeholder="{{datosPersona.acercaDe}}" [(ngModel)]="about.acercaDe" 
+          placeholder="{{datosPersona.acercaDe}}" [(ngModel)]="persona.acercaDe" 
           id="acercaDe"> </textarea>
       </div>
 
@@ -210,14 +210,14 @@
         <label for="urlFoto" class="form-label">URL Foto</label>
         <input type="text" class="form-control" name="urlFoto" 
           placeholder="{{datosPersona.urlFoto}}"
-          [(ngModel)]="about.urlFoto" id="urlFoto">
+          [(ngModel)]="persona.urlFoto" id="urlFoto">
       </div>
 
       <div class="mb-3">
         <label for="urlBanner" class="form-label">URL Banner</label>
         <input type="text" class="form-control" name="urlBanner" 
           placeholder="{{datosPersona.urlBanner}}"
-          [(ngModel)]="about.urlBanner" id="urlBanner">
+          [(ngModel)]="persona.urlBanner" id="urlBanner">
       </div>
 
       <div *ngIf="mostrarFormularioCiudad === false">

@@ -1,5 +1,5 @@
 
-export class About {
+export class Persona {
         
     nombre : String;
     apellido : String;

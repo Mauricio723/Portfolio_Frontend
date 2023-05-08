@@ -12,11 +12,13 @@ export class AutenticacionService {
   /* creamos el String con la url de la api, lo siguiente es un ejemplo.
   Para nuestro caso cambiarlo por la url de nuestra api en SpringBoot */
   
-  //url_login = "http://localhost:8080/auth/login";
-  //url_nuevo = "http://localhost:8080/auth/nuevo";
+  // urls en desarrollo
+  url_login = "http://localhost:8080/auth/login";
+  url_nuevo = "http://localhost:8080/auth/nuevo";
 
-  urlRenderLogin = "https://backporfolio.onrender.com/auth/login";
-  urlRenderNuevo = "https://backporfolio.onrender.com/auth/nuevo";
+  // urls en produccion Render
+  //url_login = "https://backporfolio.onrender.com/auth/login";
+  //url_nuevo = "https://backporfolio.onrender.com/auth/nuevo";
 
   private currentUserSubject : BehaviorSubject<any>;
     
@@ -28,7 +30,7 @@ export class AutenticacionService {
     }
  
   iniciarSesion(credenciales: any) : Observable<any> {  
-    return this.http_cliente.post(this.urlRenderLogin, credenciales).pipe(map(datos => {
+    return this.http_cliente.post(this.url_login, credenciales).pipe(map(datos => {
        sessionStorage.setItem("currentUser", JSON.stringify(datos));
        this.currentUserSubject.next(datos);
        return datos;  
@@ -37,7 +39,7 @@ export class AutenticacionService {
 
   nuevoUsuario(datosNuevoUsuario : any) : Observable<any> {    
 
-    return this.http_cliente.post<any>(this.urlRenderNuevo, datosNuevoUsuario);
+    return this.http_cliente.post<any>(this.url_nuevo, datosNuevoUsuario);
   }
 
   get UsuarioAutenticado() {
