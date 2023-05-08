@@ -89,10 +89,17 @@ export class PersonaComponent implements OnInit {
     this.persona.apellido = this.datosPersona.apellido;
     this.persona.ocupacion = this.datosPersona.ocupacion;
     this.persona.tituloPrincipal = this.datosPersona.tituloPrincipal;
+<<<<<<< HEAD
     this.persona.fechaNacimiento = this.datosPersona.fechaNacimiento;
     this.persona.documento = this.datosPersona.documento;
     this.persona.email = this.datosPersona.email;
     this.persona.acercaDe = this.datosPersona.acercaDe;
+=======
+    this.persona.fechaNacimiento = this.datosPersona.fecha_nacimiento;
+    this.persona.documento = this.datosPersona.documento;
+    this.persona.email = this.datosPersona.email;
+    this.persona.acercaDe = this.datosPersona.acerca_de;
+>>>>>>> ramapcdos
     this.persona.urlFoto = this.datosPersona.urlFoto;
     this.persona.urlBanner = this.datosPersona.urlBanner;   
     

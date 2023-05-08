@@ -4,7 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { AutenticacionService } from './autenticacion.service';
 import { Proyecto } from '../modelos/Proyecto';
 import { Observable } from 'rxjs';
+<<<<<<< HEAD
 import { About } from '../modelos/Persona';
+=======
+import { Persona } from '../modelos/Persona';
+>>>>>>> ramapcdos
 import { Educacion } from '../modelos/Educacion';
 import { Trabajo } from '../modelos/Trabajo';
 import { Aptitud } from '../modelos/Aptitud';
@@ -15,9 +19,17 @@ import { Ciudad } from '../modelos/Ciudad';
 })
 export class AdminService {
   
+<<<<<<< HEAD
   private urlApi : String = "http://localhost:8080/myapi";
 
   //private urlApiRender : String = "https://backporfolio.onrender.com/myapi";
+=======
+  // url api en desarrollo
+  private urlApi : String = "http://localhost:8080/myapi";
+
+  // url api en produccion render
+  //private urlApi : String = "https://backporfolio.onrender.com/myapi";
+>>>>>>> ramapcdos
 
   private largoArregloAutorities : number;  
 
@@ -57,7 +69,7 @@ export class AdminService {
 
   // Datos Persona
 
-  modificarPersona(personaEdit: About, 
+  modificarPersona(personaEdit: Persona, 
                    idPersona: number, 
                    idCiucad : number) : Observable<any> {
                     
@@ -65,7 +77,11 @@ export class AdminService {
                                       + idPersona + "/" + idCiucad, personaEdit);
   }
 
+<<<<<<< HEAD
   crearPersona(nuevaPersona : About, idCiudad : number) : Observable<any> {
+=======
+  crearPersona(nuevaPersona : Persona, idCiudad : number) : Observable<any> {
+>>>>>>> ramapcdos
     return this.myHttpClient.post<any>(this.urlApi + "/personas/crear/" + 
     idCiudad, nuevaPersona);
   }
