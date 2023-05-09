@@ -32,6 +32,9 @@ export class PersonaComponent implements OnInit {
 
   laCiudadEsNueva : Boolean = false;
   mostrarFormularioDatos: Boolean = false;
+
+  mostrarDatos01 : Boolean = false;
+
   mostrarMasDatos : Boolean = false;
   modificarDatos: Boolean = false;
   crearNuevaPersona: Boolean = false;
@@ -92,7 +95,7 @@ export class PersonaComponent implements OnInit {
     this.persona.fechaNacimiento = this.datosPersona.fechaNacimiento;
     this.persona.documento = this.datosPersona.documento;
     this.persona.email = this.datosPersona.email;
-    this.persona.acercaDe = this.datosPersona.acercaDe;
+    this.persona.acercaDe = this.datosPersona.acercaDe;    
     this.persona.urlFoto = this.datosPersona.urlFoto;
     this.persona.urlBanner = this.datosPersona.urlBanner;   
     
@@ -111,6 +114,13 @@ export class PersonaComponent implements OnInit {
         window.location.reload();
       });
     }
+  }
+
+  eventoBtnMostrarDatos01() {
+    this.mostrarDatos01 = true;
+  }
+  eventoBtnOcultarDatos01() {
+    this.mostrarDatos01 = false;
   }
 
   eventoBtnMostrarMas() {

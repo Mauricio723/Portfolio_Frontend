@@ -20,6 +20,8 @@ import { InterceptorService } from './servicios/interceptor.service';
 import { FnewuserComponent } from './componentes/fnewuser/fnewuser.component';
 import { CiudadesComponent } from './componentes/ciudades/ciudades.component';
 import { IniciopfComponent } from './componentes/iniciopf/iniciopf.component';
+import { NuevaperComponent } from './componentes/persona/nuevaper/nuevaper.component';
+import { EditperComponent } from './componentes/persona/editper/editper.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { IniciopfComponent } from './componentes/iniciopf/iniciopf.component';
     SeccionesComponent,
     FnewuserComponent,
     CiudadesComponent,
-    IniciopfComponent
+    IniciopfComponent,
+    NuevaperComponent,
+    EditperComponent
   ],
   imports: [
     BrowserModule,

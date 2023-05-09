@@ -1,0 +1,144 @@
+
+<div class="colorPersonaEdit_03 text-light py-2">
+
+    <h5 class="text-center">Formulario para editar Persona</h5>
+    <!--
+    <form (ngSubmit)="eventoFormularioEdit()" novalidate #f="ngForm">      
+   -->
+
+    <form *ngIf="personaActual" novalidate #f="ngForm" class="px-5 rounded-3">
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6 mb-3">
+                <label for="nombre" class="form-label">Nombre Persona</label>
+                <input type="text" class="form-control" name="nombre" placeholder="{{personaActual.nombre}}"
+                    [(ngModel)]="personaEdit.nombre" id="nombre">
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" name="apellido" placeholder="{{personaActual.apellido}}"
+                    [(ngModel)]="personaEdit.apellido" id="apellido">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="ocupacion" class="form-label">Ocupación</label>
+
+            <input type="text" class="form-control" name="ocupacion" placeholder="{{personaActual.ocupacion}}"
+                [(ngModel)]="personaEdit.ocupacion" id="ocupacion">
+
+        </div>
+        <div class="mb-3">
+            <label for="tituloPrincipal" class="form-label">Titulo Principal</label>
+
+            <input type="text" class="form-control" name="tituloPrincipal"
+                placeholder="{{personaActual.tituloPrinipal}}" [(ngModel)]="personaEdit.tituloPrincipal"
+                id="tituloPrincipal">
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6 mb-3">
+                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                <input type="text" class="form-control" name="fechaNacimiento"
+                    placeholder="{{personaActual.fechaNacimiento}}" [(ngModel)]="personaEdit.fechaNacimiento"
+                    id="fechaNacimiento">
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 mb-3">
+                <label for="documento" class="form-label">Documento</label>
+                <input type="text" class="form-control" name="documento" placeholder="{{personaActual.documento}}"
+                    [(ngModel)]="personaEdit.documento" id="documento">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" name="email" placeholder="{{personaActual.email}}"
+                [(ngModel)]="personaEdit.email" id="email">
+        </div>
+
+        <div class="mb-3">
+            <label for="acercaDe" class="form-label">Acerca de</label>
+            <textarea type="text" class="form-control" name="acercaDe" rows="3" cols="70" maxlength="270"
+                placeholder="{{personaActual.acercaDe}}" [(ngModel)]="personaEdit.acercaDe" id="acercaDe"> </textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="urlFoto" class="form-label">URL Foto</label>
+            <input type="text" class="form-control" name="urlFoto" placeholder="{{personaActual.urlFoto}}"
+                [(ngModel)]="personaEdit.urlFoto" id="urlFoto">
+        </div>
+
+        <div class="mb-3">
+            <label for="urlBanner" class="form-label">URL Banner</label>
+            <input type="text" class="form-control" name="urlBanner" placeholder="{{personaActual.urlBanner}}"
+                [(ngModel)]="personaEdit.urlBanner" id="urlBanner">
+        </div>
+     
+        <div *ngIf="cambiarCiudad === false" class=" row border mx-1 mt-2 py-2">
+            <div class="col">
+                 <label class="ms-4">
+                    Ciudad actual:  {{personaActual.ciudad.nombre}}
+                 </label>
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-light btn-sm ms-3" 
+                  (click)="eventoBtnCambiarCiudad()">
+                  Cambiar la Ciudad actual
+                </button>
+            </div>        
+        </div>
+
+        <div *ngIf="mostrarFormularioCiudad === false">
+
+            <div *ngIf="laCiudadEsNueva" class="mb-3">
+                <label for="ciudad_id" class="form-label">Id Ciudad</label>
+                <p>Ciudad Nueva: {{listaCiudades[listaCiudades.length - 1].nombre}}</p>
+                <p>id Ciudad Nueva: {{listaCiudades[listaCiudades.length - 1].id}}</p>
+            </div>
+
+            <div *ngIf="laCiudadEsNueva === false && cambiarCiudad" class="mb-3">
+
+                <div class="my-3">
+                    <label for="idCiudad" class="form-label">
+                        Ciudad id: {{idCiudadPersonaEdit}} - Seleccionar ciudad en el control</label>
+                    <select class="form-select" aria-label="Default select example" size="3" name="idCiudad"
+                        id="idCiudad" [(ngModel)]="idCiudadPersonaEdit">
+                        <option *ngFor="let ciudad of listaCiudades" value={{ciudad.id}}>
+                            ciudad: {{ciudad.nombre}} -
+                            Provincia: {{ciudad.provincia}} -
+                            Pais: {{ciudad.pais}}</option>
+                    </select>
+                </div>
+
+
+                <div class=" row bg-success border border-primary px-4 py-2">
+                    <div class="col-8">
+                        <p>Si la ciudad no está en la lista,
+                            presionar el siguiente botón</p>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-outline-light btn-sm sm-3" (click)="eventoBotonNuevaCiudad()">
+                            Ingresar Nueva Ciudad</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <br>
+
+        <div *ngIf="mostrarFormularioCiudad" class="py-3">
+            <app-ciudades (eventoDesdeCiudad)="eventoDeCiudad($event)"
+                [ciudadesExistentes]="listaCiudades"></app-ciudades>
+        </div>
+
+        <button type="submit" class="btn btn-outline-light btn-sm ms-3" (click)="eventoBtnEnviarDatos()"
+            [disabled]="mostrarFormularioCiudad">
+            Enviar Datos Persona</button>
+
+        <!--
+        <button type="submit" class="btn btn-outline-light btn-sm ms-3" (click)="eventoBtnCancelarEnvio()">
+            Cancelar Envio de datos</button>  -->
+
+    </form>
+</div>

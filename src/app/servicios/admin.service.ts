@@ -14,10 +14,12 @@ import { Ciudad } from '../modelos/Ciudad';
   providedIn: 'root'
 })
 export class AdminService {
-  
+
+  // url api en desarrollo
   private urlApi : String = "http://localhost:8080/myapi";
 
-  //private urlApiRender : String = "https://backporfolio.onrender.com/myapi";
+  // url api en produccion render
+  //private urlApi : String = "https://backporfolio.onrender.com/myapi";
 
   private largoArregloAutorities : number;  
 
@@ -26,9 +28,7 @@ export class AdminService {
 
     this.largoArregloAutorities = 
       this.servicioAutenticacion.UsuarioAutenticado.authorities.length;    
-          
-      //console.log("largo del arreglo de autorización: " + this.largoArregloAutorities);
-
+      
   }
 
   obtenerTipoUsuario() : String {   
@@ -38,11 +38,8 @@ export class AdminService {
       return "ROLE_ADMIN";
     } else {
       return "ROLE_USER";
-    }
-      
-    //return this.servicioAutenticacion.UsuarioAutenticado.authorities[
-      //this.largoArregloAutorities -1].authority;
-      
+    }   
+         
   }
 
   // Datos Ciudad
@@ -57,6 +54,11 @@ export class AdminService {
 
   // Datos Persona
 
+  traerPersona(idPersona : number) : Observable<any> {
+    return this.myHttpClient.get<any>(this.urlApi + "/personas/traer/" + idPersona);
+  }
+
+
   modificarPersona(personaEdit: Persona, 
                    idPersona: number, 
                    idCiucad : number) : Observable<any> {
@@ -66,6 +68,7 @@ export class AdminService {
   }
 
   crearPersona(nuevaPersona : Persona, idCiudad : number) : Observable<any> {
+
     return this.myHttpClient.post<any>(this.urlApi + "/personas/crear/" + 
     idCiudad, nuevaPersona);
   }
@@ -151,5 +154,4 @@ export class AdminService {
                                          idParaEliminar);
   }
   
-
 }
