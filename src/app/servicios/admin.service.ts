@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AutenticacionService } from './autenticacion.service';
 import { Proyecto } from '../modelos/Proyecto';
 import { Observable } from 'rxjs';
-import { About } from '../modelos/Persona';
+import { Persona } from '../modelos/Persona';
 import { Educacion } from '../modelos/Educacion';
 import { Trabajo } from '../modelos/Trabajo';
 import { Aptitud } from '../modelos/Aptitud';
@@ -57,7 +57,7 @@ export class AdminService {
 
   // Datos Persona
 
-  modificarPersona(personaEdit: About, 
+  modificarPersona(personaEdit: Persona, 
                    idPersona: number, 
                    idCiucad : number) : Observable<any> {
                     
@@ -65,7 +65,7 @@ export class AdminService {
                                       + idPersona + "/" + idCiucad, personaEdit);
   }
 
-  crearPersona(nuevaPersona : About, idCiudad : number) : Observable<any> {
+  crearPersona(nuevaPersona : Persona, idCiudad : number) : Observable<any> {
     return this.myHttpClient.post<any>(this.urlApi + "/personas/crear/" + 
     idCiudad, nuevaPersona);
   }

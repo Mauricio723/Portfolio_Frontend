@@ -122,7 +122,7 @@ export class TrabajosComponent implements OnInit {
         window.location.reload();
       });
     } else {
-      alert("Se canceló la eliminación de Educacion id: " + idTrabajoDelete);
+      alert("Se canceló la eliminación de trabajo id: " + idTrabajoDelete);
     }
   }
 
