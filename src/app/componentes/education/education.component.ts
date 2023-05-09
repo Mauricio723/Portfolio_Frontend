@@ -42,6 +42,8 @@ export class EducationComponent implements OnInit {
 
   idCiudad: number = 0; 
 
+  mostrarEducacion01 : boolean = false;
+
   constructor(private servicioAdmin: AdminService) {
 
     this.nombreInstitucion = "Nombre Institución sin definir";
@@ -62,6 +64,14 @@ export class EducationComponent implements OnInit {
 
   esUsuarioAdmin(): Boolean {
     return this.servicioAdmin.obtenerTipoUsuario() === "ROLE_ADMIN";
+  }
+
+  eventoBtnMostrarEducacion() {
+    this.mostrarEducacion01 = true;
+  }
+
+  eventoBtnOcultarEducacion() {
+    this.mostrarEducacion01 = false;
   }
 
   obtenerCiudades() {

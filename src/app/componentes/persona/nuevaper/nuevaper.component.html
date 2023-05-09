@@ -1,4 +1,4 @@
-<div class="colorPersonaNueva_03 text-light py-2">
+<div class="colorNuevaPer_03 text-light py-2">
 
     <h5 class="text-center">Formulario para ingresar nueva Persona</h5>
     <!--
@@ -71,22 +71,6 @@
                 [(ngModel)]="personaNueva.urlBanner" id="urlBanner">
         </div>
 
-
-        <!--
-        <div *ngIf="cambiarCiudad === false" class=" row border mx-1 mt-2 py-2">
-            <div class="col">
-                <label class="ms-4">
-                    Ciudad actual: {{personaActual.ciudad.nombre}}
-                </label>
-            </div>
-            <div class="col">
-                <button class="btn btn-outline-light btn-sm ms-3" (click)="eventoBtnCambiarCiudad()">
-                    Cambiar la Ciudad actual
-                </button>
-            </div>
-        </div>   -->
-
-
         <div *ngIf="mostrarFormularioCiudad === false">
 
             <div *ngIf="laCiudadEsNueva" class="mb-3">
@@ -137,10 +121,7 @@
         <button type="submit" class="btn btn-outline-light btn-sm ms-3" (click)="eventoBtnEnviarDatos()"
             [disabled]="mostrarFormularioCiudad">
             Enviar Datos Persona</button>
-
-        <!--
-        <button type="submit" class="btn btn-outline-light btn-sm ms-3" (click)="eventoBtnCancelarEnvio()">
-            Cancelar Envio de datos</button>  -->
-
+       
     </form>
+
 </div>

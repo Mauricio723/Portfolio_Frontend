@@ -7,18 +7,8 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 
-export class AutenticacionService {
-
-  /* creamos el String con la url de la api, lo siguiente es un ejemplo.
-  Para nuestro caso cambiarlo por la url de nuestra api en SpringBoot */
+export class AutenticacionService {  
   
-<<<<<<< HEAD
-  url_login = "http://localhost:8080/auth/login";
-  url_nuevo = "http://localhost:8080/auth/nuevo";
-
-  //urlRenderLogin = "https://backporfolio.onrender.com/auth/login";
-  //urlRenderNuevo = "https://backporfolio.onrender.com/auth/nuevo";
-=======
   // urls en desarrollo
   url_login = "http://localhost:8080/auth/login";
   url_nuevo = "http://localhost:8080/auth/nuevo";
@@ -26,7 +16,6 @@ export class AutenticacionService {
   // urls en produccion Render
   //url_login = "https://backporfolio.onrender.com/auth/login";
   //url_nuevo = "https://backporfolio.onrender.com/auth/nuevo";
->>>>>>> ramapcdos
 
   private currentUserSubject : BehaviorSubject<any>;
     

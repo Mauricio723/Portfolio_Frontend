@@ -1,0 +1,40 @@
+
+.colorEditPer_01 {    
+    background-color: rgb(55, 122, 131);
+    color: rgb(238, 226, 205);
+}
+
+.colorEditPer_02 {
+    background-color: rgb(33, 73, 41);    
+}
+
+.colorEditPer_03 {
+    background-color: rgb(55, 122, 131);
+}
+
+.seccionEditPer h4 {
+    color: rgb(223, 233, 196);    
+}
+
+.seccioneditPer h5 {
+    color: rgb(171, 231, 213);
+}
+
+.seccionEditPer p {    
+    font-size: 16px;
+}
+
+/* Estilos para lista de definición */
+
+.seccionEditPer dt {
+    color: rgb(121, 192, 180);
+    margin-left: 20px;    
+}
+
+.seccioneditPer dd {
+    color: rgb(217, 238, 199);    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-left: 40px;
+    margin-right: 10px;
+}

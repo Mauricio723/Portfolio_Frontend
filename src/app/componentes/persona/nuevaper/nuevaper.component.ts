@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Persona } from 'src/app/modelos/Persona';
 import { AdminService } from 'src/app/servicios/admin.service';
 
@@ -29,9 +30,7 @@ export class NuevaperComponent implements OnInit {
   mostrarFormularioCiudad: Boolean = false;
   laCiudadEsNueva: Boolean = false;
 
-
-
-  constructor(private servicioAdmin: AdminService) {
+  constructor(private servicioAdmin: AdminService,  private myRuta : Router) {
 
     this.personaNueva.nombre = "Nombre sin definir";
     this.personaNueva.apellido = "Apellido sin definir";
@@ -59,19 +58,29 @@ export class NuevaperComponent implements OnInit {
   eventoBtnNuevaCiudad() {
     this.mostrarFormularioCiudad = true;
   }
+  
   eventoDeCiudad(respuestaCiudad: Boolean) {
     this.obtenerCiudades();
     this.mostrarFormularioCiudad = false;
     this.laCiudadEsNueva = respuestaCiudad;
   }
 
-
   eventoBtnEnviarDatos() {
 
-    console.log("Datos de la persona creada: " +
-      JSON.stringify(this.personaNueva));
+    if (this.laCiudadEsNueva) {
+      this.idCiudad = this.listaCiudades[this.listaCiudades.length - 1].id
+    }
 
-    console.log("idCiudad: " + this.idCiudad);
+    if (confirm("Confirmación envío de datos nueva Persona")) {    
+
+      this.servicioAdmin.crearPersona(this.personaNueva, this.idCiudad).subscribe(() => {
+        this.myRuta.navigate(["/secciones"]);
+        //window.location.reload()
+      } );         
+    }   else {
+      alert("El envío de datos para Nueva Persona fué cancelado");
+      this.myRuta.navigate(["/secciones"]);
+    }
 
   }
 

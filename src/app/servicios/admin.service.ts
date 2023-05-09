@@ -32,8 +32,7 @@ export class AdminService {
   }
 
   obtenerTipoUsuario() : String {   
-    //return this.servicioAutenticacion.UsuarioAutenticado.authorities[
-      //this.largoArregloAutorities - 2].authority;
+    
     if (this.servicioAutenticacion.UsuarioAutenticado.authorities.length >= 2) {
       return "ROLE_ADMIN";
     } else {

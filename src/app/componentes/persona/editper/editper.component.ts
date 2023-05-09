@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from 'src/app/modelos/Persona';
 import { AdminService } from 'src/app/servicios/admin.service';
 
@@ -38,10 +38,9 @@ export class EditperComponent implements OnInit {
   cambiarCiudad : Boolean = false;
   mostrarFormularioCiudad : Boolean = false;
   laCiudadEsNueva : Boolean = false;
-
   
   constructor(private routeActivated : ActivatedRoute, 
-    private servicioAdmin : AdminService) { }
+    private servicioAdmin : AdminService, private myRuta : Router) { }
 
   ngOnInit(): void {
 
@@ -97,11 +96,21 @@ export class EditperComponent implements OnInit {
 
   eventoBtnEnviarDatos() {
 
-    console.log("Datos Persona par enviar: " + JSON.stringify(this.personaEdit));
+    if (this.laCiudadEsNueva) {
+      this.idCiudadPersonaEdit = this.listaCiudades[this.listaCiudades.length - 1].id
+    }
 
-    console.log("id Ciudad seleccionada: " + this.idCiudadPersonaEdit);
+    if (confirm("Está seguro de la modificación de los datos")) {
+      
+      this.servicioAdmin.modificarPersona(this.personaEdit,
+        this.idPersonaEdit,
+        this.idCiudadPersonaEdit).subscribe(() => {
+          this.myRuta.navigate(["/secciones"]);
+         // window.location.reload()
+        } );
+
+    }      
 
   }
-
 
 }

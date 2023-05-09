@@ -15,17 +15,11 @@ const httpOptions = {
 
 export class PortfolioService {
 
-<<<<<<< HEAD
-  urlApi: String = "http://localhost:8080";
-
-  //urlApiRender: String = "https://backporfolio.onrender.com";
-=======
   // url en desarrollo
   urlApi: String = "http://localhost:8080";
 
   // url en produccion Render
   //urlApi: String = "https://backporfolio.onrender.com";
->>>>>>> ramapcdos
 
   constructor(private myhttp: HttpClient) { }
 

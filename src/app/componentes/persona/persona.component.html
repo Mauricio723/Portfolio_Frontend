@@ -22,106 +22,109 @@
 
 <div class="container-fluid seccionAbout mt-1">
 
-  <div *ngIf="mostrarFormularioDatos === false" class="mt-1">
+  <div class="row gx-2 colorAbout_02 text-center mt-2 py-1 rounded-3">
 
-    <div *ngIf="mostrarDatos01 === false">
-      <button (click)="eventoBtnMostrarDatos01()">Mostrar datos personales</button>
-    </div>
-    <div *ngIf="mostrarDatos01">
-      <button (click)="eventoBtnOcultarDatos01()">Ocultar datos personales</button>
+    <div class="col-sm-12 col-lg-6">
+      <h4>Datos Personales</h4>
     </div>
 
-    <div *ngIf="mostrarDatos01">
-
-      <div class="colorAbout_02 text-center mt-2 py-1 rounded-3">
-        <h4>Datos Personales</h4>
+    <div class="col-sm-12 col-lg-6">
+      <div *ngIf="mostrarDatos01 === false">
+        <button (click)="eventoBtnMostrarDatos01()" class="btn btn-outline-light btn-sm">
+          Mostrar datos           
+        </button>
       </div>
+      <div *ngIf="mostrarDatos01">
+        <button (click)="eventoBtnOcultarDatos01()" class="btn btn-outline-light btn-sm">
+          Ocultar datos 
+        </button>
+      </div>
+    </div>
 
-      <div class="row gx-2">
+  </div>
 
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-2 px-1">
+  <div *ngIf="mostrarDatos01" class="mt-1">
 
-          <dl class="colorAbout_03 rounded-3 mb-1 pb-1 pt-2">
-            <div class="row">
-              <div class="col-sm-12 col-md-12 col-lg-6">
-                <dt>Nombre</dt>
-                <dd>{{datosPersona.nombre}}</dd>
-              </div>
-              <div class="col-sm-12 col-md-12 col-lg-6">
-                <dt>Apellido</dt>
-                <dd>{{datosPersona.apellido}}</dd>
-              </div>
+    <div class="row gx-2">
+
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-2 px-1">
+
+        <dl class="colorAbout_03 rounded-3 mb-1 pb-1 pt-2">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6">
+              <dt>Nombre</dt>
+              <dd>{{datosPersona.nombre}}</dd>
             </div>
-            <dt>Título Principal</dt>
-            <dd>{{datosPersona.tituloPrincipal}}</dd>
-            <dt>Ocupación actual</dt>
-            <dd>{{datosPersona.ocupacion}}</dd>
-            <dt>Ciudad actual</dt>
-            <dd>{{datosPersona.ciudad.nombre}}</dd>
-            <div class="row">
-              <div class="col-sm-12 col-md-6 col-lg-6">
-                <dt>Provincia</dt>
-                <dd>{{datosPersona.ciudad.provincia}}</dd>
-              </div>
-              <div class="col-sm-12 col-md-6 col-lg-6">
-                <dt>País</dt>
-                <dd>{{datosPersona.ciudad.pais}}</dd>
-              </div>
+            <div class="col-sm-12 col-md-12 col-lg-6">
+              <dt>Apellido</dt>
+              <dd>{{datosPersona.apellido}}</dd>
             </div>
-          </dl>
-        </div>
-
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-2 px-1">
-
-          <dl class="colorAbout_03 rounded-3 mb-1 pb-1 pt-2">
-            <dt>Email</dt>
-            <dd>{{datosPersona.email}}</dd>
-            <dt>Fecha de Nacimiento</dt>
-            <dd>{{datosPersona.fechaNacimiento}}</dd>
-            <dt>Acerca de:</dt>
-            <dd>{{datosPersona.acercaDe}}</dd>
-          </dl>
-        </div>
+          </div>
+          <dt>Título Principal</dt>
+          <dd>{{datosPersona.tituloPrincipal}}</dd>
+          <dt>Ocupación actual</dt>
+          <dd>{{datosPersona.ocupacion}}</dd>
+          <dt>Ciudad actual</dt>
+          <dd>{{datosPersona.ciudad.nombre}}</dd>
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <dt>Provincia</dt>
+              <dd>{{datosPersona.ciudad.provincia}}</dd>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <dt>País</dt>
+              <dd>{{datosPersona.ciudad.pais}}</dd>
+            </div>
+          </div>
+        </dl>
       </div>
 
-      <div *ngIf="esUsuarioAdmin() && mostrarFormularioDatos === false" class="colorAbout_03 rounded-3 mt-1 py-1">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-2 px-1">
 
-        <button type="submit" class="btn btn-outline-light btn-sm mx-3 my-2"
-          (click)="eventoBtnModificar(datosPersona.id)">
-          Modificar Persona</button>
-
-        <button type="submit" class="btn btn-outline-light btn-sm mx-3 my-2"
-          (click)="eventoBtnEliminar(datosPersona.id)">
-          Eliminar Persona</button>
-
-        <button type="submit" class="btn btn-outline-light btn-sm mx-3 my-2" (click)="eventoBtnCrearPersona()">
-          Agregar Nueva Persona</button>
-
-        <button *ngIf="mostrarMasDatos === false" type="submit" class="btn btn-outline-light btn-sm mx-3 my-2"
-          (click)="eventoBtnMostrarMas()">
-          Mostrar más Datos</button>
-
-        <button *ngIf="mostrarMasDatos" type="submit" class="btn btn-outline-light btn-sm mx-3 my-2"
-          (click)="eventoBtnMostrarMenos()">
-          Mostrar menos Datos</button>
-
-        <div>
-
-          <button class="btn btn-outline-warning btn-sm mx-2" routerLink="/personaedit/{{datosPersona.id}}">
-            Editar Persona
-          </button>
-
-          <button class="btn btn-outline-warning btn-sm mx-2" routerLink="/personanueva">
-            Nueva Persona
-          </button>
-
-        </div>
-        
+        <dl class="colorAbout_03 rounded-3 mb-1 pb-1 pt-2">
+          <dt>Email</dt>
+          <dd>{{datosPersona.email}}</dd>
+          <dt>Fecha de Nacimiento</dt>
+          <dd>{{datosPersona.fechaNacimiento}}</dd>
+          <dt>Acerca de:</dt>
+          <dd>{{datosPersona.acercaDe}}</dd>
+        </dl>
       </div>
-
     </div>
 
+    <div *ngIf="esUsuarioAdmin()" class="colorAbout_03 rounded-3 mt-1 py-1">
 
+      <button class="btn btn-outline-light btn-sm mx-2" routerLink="/personaedit/{{datosPersona.id}}">
+        Modificar Persona
+      </button>
+
+      <button class="btn btn-outline-light btn-sm mx-2" routerLink="/personanueva">
+        Agregar Nueva Persona
+      </button>
+
+      <!--
+      <button type="submit" class="btn btn-outline-light btn-sm mx-3 my-2"
+        (click)="eventoBtnModificar(datosPersona.id)">
+        Modificar Persona</button>
+        -->
+
+      <button type="submit" class="btn btn-outline-light btn-sm mx-3 my-2" (click)="eventoBtnEliminar(datosPersona.id)">
+        Eliminar Persona</button>
+
+        <!--
+      <button type="submit" class="btn btn-outline-light btn-sm mx-3 my-2" (click)="eventoBtnCrearPersona()">
+        Agregar Nueva Persona</button>
+        -->
+
+      <button *ngIf="mostrarMasDatos === false" type="submit" class="btn btn-outline-light btn-sm mx-3 my-2"
+        (click)="eventoBtnMostrarMas()">
+        Mostrar más Datos</button>
+
+      <button *ngIf="mostrarMasDatos" type="submit" class="btn btn-outline-light btn-sm mx-3 my-2"
+        (click)="eventoBtnMostrarMenos()">
+        Mostrar menos Datos</button>     
+
+    </div>
 
   </div>
 
@@ -159,10 +162,9 @@
 
   </div>
 
+  <!--
   <div *ngIf="mostrarFormularioDatos" class="colorAbout_01 py-2">
-    <!--
-    <form (ngSubmit)="accionFormularioDatos(datosPersona.id, ciudad_id)"
-       novalidate #f="ngForm">  -->
+    
     <h5 class="text-center">{{tituloFormulario}}</h5>
 
     <form novalidate #f="ngForm" class="px-5 rounded-3">
@@ -279,5 +281,7 @@
         Cancelar Envio de datos</button>
 
     </form>
-  </div>
+  </div>    -->
+
+
 </div>

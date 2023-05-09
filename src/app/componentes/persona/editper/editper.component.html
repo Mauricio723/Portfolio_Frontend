@@ -1,5 +1,5 @@
 
-<div class="colorPersonaEdit_03 text-light py-2">
+<div class="colorEditPer_03 text-light py-2">
 
     <h5 class="text-center">Formulario para editar Persona</h5>
     <!--
@@ -8,13 +8,13 @@
 
     <form *ngIf="personaActual" novalidate #f="ngForm" class="px-5 rounded-3">
 
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-6 mb-3">
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <label for="nombre" class="form-label">Nombre Persona</label>
                 <input type="text" class="form-control" name="nombre" placeholder="{{personaActual.nombre}}"
                     [(ngModel)]="personaEdit.nombre" id="nombre">
             </div>
-            <div class="col-sm-12 col-md-12 col-lg-6 mb-3">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <label for="apellido" class="form-label">Apellido</label>
                 <input type="text" class="form-control" name="apellido" placeholder="{{personaActual.apellido}}"
                     [(ngModel)]="personaEdit.apellido" id="apellido">
@@ -74,7 +74,7 @@
                 [(ngModel)]="personaEdit.urlBanner" id="urlBanner">
         </div>
      
-        <div *ngIf="cambiarCiudad === false" class=" row border mx-1 mt-2 py-2">
+        <div *ngIf="cambiarCiudad === false" class=" row bg-success border mx-1 mt-2 py-2">
             <div class="col">
                  <label class="ms-4">
                     Ciudad actual:  {{personaActual.ciudad.nombre}}
