@@ -1,67 +1,79 @@
 <div class="container-fluid seccionAptitud mt-1 px-1">
 
-  <div class="text-center colorAptitud_02 rounded-3 mx-2 mt-1 py-1">
-    <h4>Aptitudes: Hard & Soft Skills</h4>
+  <div class="row text-center colorAptitud_02 rounded-3 mx-1 mt-1 py-1">
+    <div class="col-sm-12 col-lg-6">
+      <h4>Aptitudes: Hard & Soft Skills</h4>
+    </div>
+    <div class="col-sm-12 col-lg-6">
+      <div *ngIf="mostrarAptitudes01 === false">
+        <button (click)="eventoBtnMostrarAptitudes()" 
+        class="btn btn-outline-light btn-sm">
+          Mostrar Aptitudes
+        </button>
+      </div>
+      <div *ngIf="mostrarAptitudes01">
+        <button (click)="eventoBtnOcultarAptitudes()" 
+        class="btn btn-outline-light btn-sm">
+          Ocultar Aptitudes
+        </button>
+      </div>
+    </div>
   </div>
 
-  <div *ngIf="mostrarFormularioDatos === false">
-    <div class="row gx-2 mx-1">
-      <div *ngFor="let aptitud of datosMyApi" 
-        class="col-sm-12 col-md-12 col-lg-6 rounded-3">
+  <div *ngIf="mostrarAptitudes01">
 
-        <div class="colorAptitud_03 rounded-3 mt-2">
-          <dl>
-            <dt>{{aptitud.nombre}}</dt>
-            <dd>
-              <p class="bg-primary text-center rounded-3" 
-              [style.width.%]="aptitud.porcentaje">
-                {{aptitud.porcentaje}}%            
-              </p>
-              {{aptitud.descripcion}}</dd>
-          </dl>
+    <div *ngIf="mostrarFormularioDatos === false">
+      <div class="row gx-2 mx-1">
+        <div *ngFor="let aptitud of datosMyApi" class="col-sm-12 col-md-12 col-lg-6 rounded-3">
 
-          <div *ngIf="esUsuarioAdmin()" class="">
-            <button class="btn btn-outline-light btn-sm ms-3 mb-2" 
-              id="boton_editar" type="submit"
-              (click)="eventoBotonEditar(aptitud.id, aptitud)"> Editar</button>
+          <div class="colorAptitud_03 rounded-3 mt-2">
+            <dl>
+              <dt>{{aptitud.nombre}}</dt>
+              <dd>
+                <p class="bg-primary text-center rounded-3" [style.width.%]="aptitud.porcentaje">
+                  {{aptitud.porcentaje}}%
+                </p>
+                {{aptitud.descripcion}}
+              </dd>
+            </dl>
 
-            <button class="btn btn-outline-light btn-sm ms-3 mb-2" 
-              id="boton_eliminar" type="submit"
-              (click)="eventoBotonEliminar(aptitud.id)">Eliminar</button>
+            <div *ngIf="esUsuarioAdmin()" class="">
+              <button class="btn btn-outline-light btn-sm ms-3 mb-2" id="boton_editar" type="submit"
+                (click)="eventoBotonEditar(aptitud.id, aptitud)"> Editar</button>
+
+              <button class="btn btn-outline-light btn-sm ms-3 mb-2" id="boton_eliminar" type="submit"
+                (click)="eventoBotonEliminar(aptitud.id)">Eliminar</button>
+            </div>
           </div>
         </div>
       </div>
+      <div *ngIf="esUsuarioAdmin()" class="colorAptitud_03 rounded-3 mx-2 mt-2 py-2 ps-3">
+        <button type="submit" class="btn btn-outline-light btn-sm" (click)="eventoBotonCrearAptitud()">Crear Nueva
+          Aptitud</button>
+      </div>
     </div>
-    <div *ngIf="esUsuarioAdmin()" class="colorAptitud_03 rounded-3 mx-2 mt-2 py-2 ps-3">
-      <button type="submit" class="btn btn-outline-light btn-sm" 
-        (click)="eventoBotonCrearAptitud()">Crear Nueva Aptitud</button>
-    </div>
-  </div>
 
-  <div *ngIf="mostrarFormularioDatos" 
-    class="colorAptitud_03 text-light rounded-3 mx-2 my-2 px-5 py-2">
-    <form (ngSubmit)="eventoFormularioDatos()">
-      <div class="mb-3">
-        <label for="nombreAptitud" class="form-label">Nombre Aptitud</label>
-        <input type="text" class="form-control" name="nombreAptitud" 
-          placeholder="{{nombreAptitud}}"
-          [(ngModel)]="nombreAptitud" id="nombreAptitud">
-      </div>
-      <div class="mb-3">
-        <label for="descripcionAptitud" class="form-label">Descripción Aptitud</label>
-        <textarea type="text" class="form-control" name="descripcionAptitud" 
-          rows="4" cols="50" maxlength="200"
-          placeholder="{{descripcionAptitud}}" [(ngModel)]="descripcionAptitud" 
-          id="descripcionAptitud"> </textarea>
-      </div>
-      <div class="mb-3">
-        <label for="porcentajeAptitud" class="form-label">Porcentaje Aptitud</label>
-        <input type="number" class="form-control" name="PoercentajeAptitud" 
-          placeholder="{{porcentajeAptitud}}"
-          [(ngModel)]="porcentajeAptitud" id="porcentajeAptitud">
-      </div>
-      <button type="submit" class="btn btn-primary mb-3">Enviar Datos</button>
-    </form>
+    <div *ngIf="mostrarFormularioDatos" class="colorAptitud_03 text-light rounded-3 mx-2 my-2 px-5 py-2">
+      <form (ngSubmit)="eventoFormularioDatos()">
+        <div class="mb-3">
+          <label for="nombreAptitud" class="form-label">Nombre Aptitud</label>
+          <input type="text" class="form-control" name="nombreAptitud" placeholder="{{nombreAptitud}}"
+            [(ngModel)]="nombreAptitud" id="nombreAptitud">
+        </div>
+        <div class="mb-3">
+          <label for="descripcionAptitud" class="form-label">Descripción Aptitud</label>
+          <textarea type="text" class="form-control" name="descripcionAptitud" rows="4" cols="50" maxlength="200"
+            placeholder="{{descripcionAptitud}}" [(ngModel)]="descripcionAptitud" id="descripcionAptitud"> </textarea>
+        </div>
+        <div class="mb-3">
+          <label for="porcentajeAptitud" class="form-label">Porcentaje Aptitud</label>
+          <input type="number" class="form-control" name="PoercentajeAptitud" placeholder="{{porcentajeAptitud}}"
+            [(ngModel)]="porcentajeAptitud" id="porcentajeAptitud">
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">Enviar Datos</button>
+      </form>
+    </div>
+
   </div>
 
 </div>

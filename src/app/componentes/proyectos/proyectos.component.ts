@@ -35,6 +35,8 @@ export class ProyectosComponent implements OnInit {
 
   tituloFormulario : String = "";
 
+  mostrarProyectos01 : Boolean = false;
+
   constructor(private servicioAdministrador: AdminService,
     private router: Router) {
     
@@ -52,6 +54,12 @@ export class ProyectosComponent implements OnInit {
     return this.servicioAdministrador.obtenerTipoUsuario() === "ROLE_ADMIN";
   }
 
+  eventoBtnMostrarProyectos() {
+    this.mostrarProyectos01 = true;
+  }
+  eventoBtnOcultarProyectos() {
+    this.mostrarProyectos01 = false;
+  }
 
   eventoBtnEditar(idProyectoEditar : number, proyectoParaEditar : any) {
 

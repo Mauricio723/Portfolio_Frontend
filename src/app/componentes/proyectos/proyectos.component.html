@@ -1,76 +1,89 @@
 <div class="container-fluid seccionProyecto mt-1 px-1">
 
-  <div class="colorProyecto_02 text-center mx-2 mt-2 py-1 rounded-3">
-    <h4>Proyectos</h4>
+  <div class="row colorProyecto_02 text-center mx-1 mt-2 py-1 rounded-3">
+    <div class="col-sm-12 col-lg-6">
+      <h4>Proyectos</h4>
+    </div>
+    <div class="col-sm-12 col-lg-6">
+      <div *ngIf="mostrarProyectos01 === false">
+        <button (click)="eventoBtnMostrarProyectos()" 
+        class="btn btn-outline-light btn-sm">
+          Mostrar Proyectos
+        </button>
+      </div>
+      <div *ngIf="mostrarProyectos01">
+        <button (click)="eventoBtnOcultarProyectos()" 
+        class="btn btn-outline-light btn-sm">
+          Ocultar Proyectos
+        </button>
+      </div>
+    </div>
   </div>
 
-  <div *ngIf="mostrarFormularioDatos === false">
-    <div class="row gx-2 mx-1">
+  <div *ngIf="mostrarProyectos01">
 
-      <div *ngFor="let proyecto of datosMyApi" 
-        class="col-sm-12 col-md-12 col-lg-6 px-1">
+    <div *ngIf="mostrarFormularioDatos === false">
+      <div class="row gx-2 mx-1">
 
-        <div class="colorProyecto_03 rounded-3 mt-2">
-          <dl>
-            <dt>{{proyecto.nombre}}</dt>
-            <dd>{{proyecto.descripcion}}</dd>
-            <dd>Fecha publicación: {{proyecto.fechaPublicacion}}</dd>
-          </dl>
+        <div *ngFor="let proyecto of datosMyApi" class="col-sm-12 col-md-12 col-lg-6 px-1">
 
-          <div *ngIf="esUsuarioAdmin()" class="">
-            <button class="btn btn-outline-light btn-sm ms-3 mb-2" 
-              id="boton_editar" type="submit"
-              (click)="eventoBtnEditar(proyecto.id, proyecto)"> Editar</button>
+          <div class="colorProyecto_03 rounded-3 mt-2">
+            <dl>
+              <dt>{{proyecto.nombre}}</dt>
+              <dd>{{proyecto.descripcion}}</dd>
+              <dd>Fecha publicación: {{proyecto.fechaPublicacion}}</dd>
+            </dl>
 
-            <button class="btn btn-outline-light btn-sm ms-3 mb-2" 
-              id="boton_eliminar" type="submit"
-              (click)="eventoBtnEliminar(proyecto.id)">Eliminar</button>
+            <div *ngIf="esUsuarioAdmin()" class="">
+              <button class="btn btn-outline-light btn-sm ms-3 mb-2" id="boton_editar" type="submit"
+                (click)="eventoBtnEditar(proyecto.id, proyecto)"> Editar</button>
+
+              <button class="btn btn-outline-light btn-sm ms-3 mb-2" id="boton_eliminar" type="submit"
+                (click)="eventoBtnEliminar(proyecto.id)">Eliminar</button>
+            </div>
           </div>
         </div>
       </div>
+      <div *ngIf="esUsuarioAdmin()" class="colorProyecto_03 rounded-3 mx-2 my-2 py-2 ps-3">
+        <button type="submit" class="btn btn-outline-light btn-sm ps-2" (click)="eventoBtnCrearNuevo()">Crear Nuevo
+          Proyeto</button>
+      </div>
     </div>
-    <div *ngIf="esUsuarioAdmin()" class="colorProyecto_03 rounded-3 mx-2 my-2 py-2 ps-3">
-      <button type="submit" class="btn btn-outline-light btn-sm ps-2" 
-        (click)="eventoBtnCrearNuevo()">Crear Nuevo Proyeto</button>
+
+    <div *ngIf="mostrarFormularioDatos" class="colorProyecto_03 text-light rounded-3 my-2 mx-2 py-2">
+
+      <h4 class="text-center">{{tituloFormulario}}</h4>
+
+      <form (ngSubmit)="eventoFormularioDatos()">
+
+        <div class="mx-5 ">
+          <label for="nombreProyecto" class="form-label">Nombre Proyecto</label>
+
+          <input type="text" class="form-control" name="nombreProyecto" placeholder="{{nombreProyecto}}"
+            [(ngModel)]="nombreProyecto" id="nombreProyecto">
+
+        </div>
+        <div class="mx-5">
+          <label for="descripcionProyecto" class="form-label">Descripción Proyecto</label>
+
+          <textarea type="text" class="form-control" name="descripcionProyecto" rows="3" cols="50" maxlength="200"
+            placeholder="{{descripcionProyecto}}" [(ngModel)]="descripcionProyecto"
+            id="descripcionProyecto"> </textarea>
+
+        </div>
+        <div class="mx-5 ">
+          <label for="fechaPublicacion" class="form-label">Fecha Publicación</label>
+
+          <input type="text" class="form-control" name="fechaPublicacion" placeholder="{{fechaPublicacion}}"
+            [(ngModel)]="fechaPublicacion" id="fechaPublicacion">
+        </div>
+
+        <div class="my-3">
+          <button type="submit" class="btn btn-primary mx-5">Enviar Datos</button>
+        </div>
+      </form>
     </div>
-  </div>
 
-  <div *ngIf="mostrarFormularioDatos" 
-    class="colorProyecto_03 text-light rounded-3 my-2 mx-2 py-2">
-
-    <h4 class="text-center">{{tituloFormulario}}</h4>
-
-    <form (ngSubmit)="eventoFormularioDatos()">
-
-      <div class="mx-5 ">
-        <label for="nombreProyecto" class="form-label">Nombre Proyecto</label>
-
-        <input type="text" class="form-control" name="nombreProyecto" 
-          placeholder="{{nombreProyecto}}"
-          [(ngModel)]="nombreProyecto" id="nombreProyecto">
-
-      </div>
-      <div class="mx-5">
-        <label for="descripcionProyecto" class="form-label">Descripción Proyecto</label>
-
-        <textarea type="text" class="form-control" name="descripcionProyecto" 
-          rows="3" cols="50" maxlength="200"
-          placeholder="{{descripcionProyecto}}" [(ngModel)]="descripcionProyecto" 
-          id="descripcionProyecto"> </textarea>
-
-      </div>
-      <div class="mx-5 ">
-        <label for="fechaPublicacion" class="form-label">Fecha Publicación</label>
-
-        <input type="text" class="form-control" name="fechaPublicacion" 
-          placeholder="{{fechaPublicacion}}"
-          [(ngModel)]="fechaPublicacion" id="fechaPublicacion">
-      </div>
-      
-      <div class="my-3">
-        <button type="submit" class="btn btn-primary mx-5">Enviar Datos</button>
-      </div>
-    </form>
   </div>
 
 </div>

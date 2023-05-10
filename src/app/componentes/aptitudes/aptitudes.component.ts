@@ -33,6 +33,8 @@ export class AptitudesComponent implements OnInit {
   formularioParaEditar : Boolean = false;
   tituloFormulario : String = "";
 
+  mostrarAptitudes01 : Boolean = false;
+
   constructor(private servicioAdmin : AdminService) { }
   
   ngOnInit(): void {
@@ -46,6 +48,13 @@ export class AptitudesComponent implements OnInit {
     return this.servicioAdmin.obtenerTipoUsuario() === "ROLE_ADMIN";
   }
 
+  eventoBtnMostrarAptitudes() {
+    this.mostrarAptitudes01 = true;
+  }
+  eventoBtnOcultarAptitudes() {
+    this.mostrarAptitudes01 = false;
+  }
+  
   eventoBotonEditar(idAptitudModificar : number, aptitudEdit : any) {
 
     this.tituloFormulario = "Formulario para Editar Aptitud";

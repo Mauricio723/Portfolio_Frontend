@@ -44,6 +44,8 @@ export class TrabajosComponent implements OnInit {
   esFormularioCrear: Boolean = false;
   tituloFormulario: String = "";
 
+  mostrarTrabajos01 : Boolean = false;
+
   constructor(private servicioAdmin: AdminService) {
 
     this.nombreEmpresa = "Nombre empresa sin definir";
@@ -68,6 +70,14 @@ export class TrabajosComponent implements OnInit {
         this.listaCiudades = datosCiudades;
       }
     );
+  }
+
+  eventoBtnMostrarTrabajos() {
+    this.mostrarTrabajos01 = true;
+
+  }
+  eventoBtnOcultarTrabajos() {
+    this.mostrarTrabajos01 = false;
   }
 
   eventoBtnNuevaCiudad() {
