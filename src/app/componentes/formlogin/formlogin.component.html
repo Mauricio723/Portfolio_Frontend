@@ -4,7 +4,7 @@
         <h3 class="text-center">Iniciar Sesión</h3>
     </div>
 
-    <div class="mx-4 my-3 p-4 border colorLogin_02">
+    <div *ngIf="mostrarFormulario; else vistaEsperar" class="mx-4 my-3 p-4 border colorLogin_02">
 
         <form [formGroup]="form_group" (ngSubmit)="onEnviar($event)">
             <div class="mb-3">
@@ -34,4 +34,23 @@
         </form>
 
     </div>   
+    <ng-template #vistaEsperar  class="mx-4 my-3 p-4 border colorLogin_02">
+        <div>            
+            <div class="row border border-success my-2 mx-2 py-3">
+                <div class="col text-center">
+                    <div class="spinner-border text-success" role="status">
+                    </div>
+                </div>
+                <div class="col bg-primary text-light">
+                    <h5 class="text-center"># # Espere un momento # #</h5>
+                    <h5 class="text-center"># # Estamos procesando su solicitud # #</h5>
+                </div>
+                <div class="col text-center">
+                    <div class="spinner-border text-secondary" role="status">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
 </div>

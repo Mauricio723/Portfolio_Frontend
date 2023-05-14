@@ -2,19 +2,13 @@
 
     <div *ngIf="contenidoSessionStorage; else sesionCerrada">
 
-
         <div *ngIf="datosThisPersona; else datosPersonaNull">
-
             <div *ngIf="idThisPersona != 0; else idPersonaNull">
-
                 <app-persona [datosPersona]="datosThisPersona"></app-persona>
-
             </div>
-
             <ng-template #idPersonaNull>
                 <h5>Error al obtener el Id de la persona</h5>
             </ng-template>
-
         </div>
 
         <ng-template #datosPersonaNull>

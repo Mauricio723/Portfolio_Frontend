@@ -41,11 +41,6 @@ export class AutenticacionService {
 
   get UsuarioAutenticado() {
     return this.currentUserSubject.value;
-  }   
-
-  cerrarSesion() {
-    /*Borramos el contenido de currentUser*/
-    sessionStorage.removeItem("currentUser");    
-  }
+  } 
 
 }

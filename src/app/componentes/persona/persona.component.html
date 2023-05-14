@@ -4,7 +4,6 @@
 
     <div class="col-12 fondoBanner">
       <img src={{datosPersona.urlBanner}} class="img-fluid" alt="Imagen del Banner">
-
     </div>
 
     <div class="div_foto_01">
@@ -16,19 +15,21 @@
         <dt>{{datosPersona.nombre}} {{datosPersona.apellido}}</dt>
         <dd>{{datosPersona.tituloPrincipal}}</dd>
       </dl>
-    </div>
+    </div>  
+
   </div>
+  
 </div>
 
 <div class="container-fluid seccionAbout mt-1">
 
   <div class="row gx-2 colorAbout_02 text-center mt-2 py-1 rounded-3">
 
-    <div class="col-sm-12 col-lg-6">
-      <h4>Datos Personales</h4>
+    <div class="col-sm-8 col-md-8 col-lg-6">
+      <h4 class="">Datos Personales</h4>      
     </div>
-
-    <div class="col-sm-12 col-lg-6">
+    
+    <div class="col-sm-4 col-md-4 col-lg-6">
       <div *ngIf="mostrarDatos01 === false">
         <button (click)="eventoBtnMostrarDatos01()" class="btn btn-outline-light btn-sm">
           Mostrar datos           

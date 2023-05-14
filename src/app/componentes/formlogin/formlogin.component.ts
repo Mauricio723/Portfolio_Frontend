@@ -14,6 +14,8 @@ export class FormloginComponent implements OnInit {
 
   form_group: FormGroup;  
 
+  mostrarFormulario : Boolean = true;
+
   constructor(private myFormBuilder: FormBuilder,
     private autenticService: AutenticacionService,
     private ruta: Router) {
@@ -39,6 +41,9 @@ export class FormloginComponent implements OnInit {
   /* Creamos el método que será llamado al presionar el botón del formulario */
 
   onEnviar(evento: Event) {
+
+    this.mostrarFormulario = false;
+    
     evento.preventDefault;
     /* Nos suscribimos al método del servicio */    
     this.autenticService.iniciarSesion(this.form_group.value).subscribe(

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,8 +12,7 @@ export class HeaderComponent implements OnInit {
   btnLoginDesactivado : Boolean = false; 
   btnCerrarDesactivado :boolean = false;
 
-  constructor(private authService : AutenticacionService, 
-              private router: Router) 
+  constructor (private myRouter: Router) 
   { } 
 
   ngOnInit(): void {       
@@ -24,19 +22,23 @@ export class HeaderComponent implements OnInit {
   loginPortfolio() {
     this.btnLoginDesactivado = true;
     this.btnCerrarDesactivado = false;
-    this.router.navigate(["/login"]);
+    this.myRouter.navigate(["/login"]);
   }
 
   nuevoUsuario() {
     this.btnLoginDesactivado = false;
-    this.router.navigate(["/nuevo"]);
+    this.myRouter.navigate(["/nuevo"]);
   }
 
   cerrarSesion() { 
     this.btnCerrarDesactivado = true;
     this.btnLoginDesactivado = false;   
-    this.authService.cerrarSesion();
-    this.router.navigate(["/login"]);
+    //this.authService.cerrarSesion();
+
+    // Borramos el contenico de currentuser
+    sessionStorage.removeItem("currentUser");
+    sessionStorage.setItem("mensajeSession", "Sesión Cerrada - Gracias por su visita");
+    this.myRouter.navigate(["/inicio"]);
     //window.location.reload();
   }
 

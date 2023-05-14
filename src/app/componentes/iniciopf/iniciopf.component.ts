@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IniciopfComponent implements OnInit {
 
+  tituloInicio : any;
+
   constructor() { }
 
   ngOnInit(): void {
+
+    if (sessionStorage.getItem("mensajeSession")) {
+
+      this.tituloInicio = sessionStorage.getItem("mensajeSession");
+
+    } else {
+      this.tituloInicio = "Inicio Portfolio";
+    }    
+
   }
 
 }

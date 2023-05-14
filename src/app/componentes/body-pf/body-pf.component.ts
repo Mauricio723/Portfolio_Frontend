@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-body-pf',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./body-pf.component.css']
 })
 export class BodyPfComponent implements OnInit {
+ 
+  constructor(private myruta : Router) { }
 
-  constructor() { }
+  ngOnInit(): void {   
 
-  ngOnInit(): void {
+    if (this.myruta.url.length <= 1 && !sessionStorage.getItem("mySession01")) {
+
+      //alert("valor de inicioPagina: " + sessionStorage.getItem("mySession"));
+      this.myruta.navigate(["/inicio"]);
+      sessionStorage.setItem("mySession01", "sessionIniciada");
+      sessionStorage.setItem("mensajeSession", "Bienvenidos al Portfolio Web de Mauricio");
+                
+    } 
+
   }
 
 }

@@ -7,7 +7,7 @@
     position: absolute;   
     width: 18%;			
     z-index: 20;
-    margin-top: 20%;
+    margin-top: 18%;
     margin-left: 5px;
 }
 
@@ -15,6 +15,7 @@
     background-color: cadetblue;
     color: azure;     
     padding-left: 20%;
+    font-size: clamp(0.7rem, 1.7vw, 1.4rem);    
 }
 
 .fondoBanner {
