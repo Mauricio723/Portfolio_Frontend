@@ -8,38 +8,33 @@ import { Router } from '@angular/router';
 })
 
 export class HeaderComponent implements OnInit {
-
-  btnLoginDesactivado : Boolean = false; 
-  btnCerrarDesactivado :boolean = false;
+   
+  rutaActual : String = "";
 
   constructor (private myRouter: Router) 
-  { } 
+  {      } 
 
-  ngOnInit(): void {       
+  ngOnInit(): void {     
+
+    this.rutaActual = window.location.pathname;
 
   } 
-
-  loginPortfolio() {
-    this.btnLoginDesactivado = true;
-    this.btnCerrarDesactivado = false;
-    this.myRouter.navigate(["/login"]);
+ 
+  clkEnlaceInicio() {
+    this.rutaActual = "/inicio";     
   }
 
-  nuevoUsuario() {
-    this.btnLoginDesactivado = false;
-    this.myRouter.navigate(["/nuevo"]);
+  clkEnlaceNuevo() {
+    this.rutaActual = "/nuevo";   
   }
 
-  cerrarSesion() { 
-    this.btnCerrarDesactivado = true;
-    this.btnLoginDesactivado = false;   
-    //this.authService.cerrarSesion();
-
-    // Borramos el contenico de currentuser
+  clkEnlaceLogin() {
+    this.rutaActual = "/login"; 
+  }
+  clkEnlaceCerrar() {
+    this.rutaActual = "/inicio"
     sessionStorage.removeItem("currentUser");
     sessionStorage.setItem("mensajeSession", "Sesión Cerrada - Gracias por su visita");
-    this.myRouter.navigate(["/inicio"]);
-    //window.location.reload();
   }
-
+ 
 }

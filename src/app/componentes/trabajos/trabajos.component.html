@@ -24,7 +24,7 @@
 
       <div class="row gx-1 mx-1">
 
-        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 px-1" *ngFor="let trabajo of datosMyApi">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-1" *ngFor="let trabajo of datosMyApi">
 
           <div class="colorTrabajo_03 rounded-3 mt-2 pt-1">
 
@@ -36,11 +36,11 @@
               <dd>{{trabajo.puestoLaboral}}</dd>
 
               <div class="row g-0">
-                <div class="col col-sm-12 col-md-6 ">
+                <div class="col-6 ">
                   <dt>Año de Inicio:</dt>
                   <dd>{{trabajo.anioInicio}}</dd>
                 </div>
-                <div class="col col-sm-12 col-md-6">
+                <div class="col-6">
                   <dt>Año Finalización:</dt>
                   <dd>{{trabajo.anioFin}}
                   </dd>
@@ -53,11 +53,11 @@
               <dt>Ciudad:</dt>
               <dd>{{trabajo.ciudad.nombre}}</dd>
               <div class="row g-0">
-                <div class="col col-sm-12 col-md-6 ">
+                <div class="col-6 ">
                   <dt>Provincia:</dt>
                   <dd>{{trabajo.ciudad.provincia}}</dd>
                 </div>
-                <div class="col col-sm-12 col-md-6">
+                <div class="col-6">
                   <dt>País:</dt>
                   <dd>{{trabajo.ciudad.pais}}</dd>
                 </div>

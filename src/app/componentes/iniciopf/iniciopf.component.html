@@ -1,37 +1,38 @@
-<div class="bg-info border m-1 p-2">
+<div class="bg-info border textoClamp01 m-1 p-2">
 
     <div class="bg-primary text-light border mx-2 p-2">
         <h3 class="text-center">{{tituloInicio}}</h3>      
     </div>
 
-    <div class="bg-success text-light border m-2 p-2">
-         <h5 class="text-center">Para conocer los datos de Mauricio debe 
-            tener una cuenta e iniciar sesión</h5>
-    </div>
-
-    <!--
-    <div class="border bg-dark text-light m-2 p-2">
-        <ul>
-            <li>
-                Para crear una cuenta presionar botón: nuevo usuario. &nbsp; 
-                <a routerLink="/nuevo" class=""><h5>Crear Cuenta</h5></a>
-            </li>
-            <li>Para ingresar presionar botón: Iniciar sesión. &nbsp; 
-                <a routerLink="/login" class="">o,  Click Aquí</a>
-            </li>
-        </ul>
-    </div>    -->
+    <div class="bg-secondary text-light border m-2 p-3">
+        <p>Esta página forma parte de un proyecto integrador de un
+            curso de programador web. Aqui se muestran algunos de 
+            mis datos personales, incluidos conocimientos y proyectos.
+            Para acceder a estos datos debe tener una cuenta en este 
+            sitio e iniciar sesión.
+        </p>
+        <p>Para navegar por esta página se disponen de botones y enlaces,
+            identificados por la acción que ejerce cada uno de ellos.
+            Si algo no funciona correctamente, tiene alguna duda con 
+            alguna funcionalidad, o tiene alguna sugerencia, puede 
+            hacermelo saber por medio del correo que figura 
+            al final de esta página.
+        </p>
+         
+    </div> 
 
     <div class="row m-2">  
-        <div class="col-sm-12 col-md-6 col-lg-6 text-center bg-secondary">
-            <a href="#" routerLink="/nuevo"><img src="\assets\Imagenes_01\BtnCrearCuenta.svg" 
-            alt="botón crear cuenta"></a> 
+        <div class="col text-center">
+            <a href="#" class="link-light" routerLink="/nuevo">
+                <h3 class="bg-success rounded-3 py-1">Crear Cuenta</h3>
+            </a> 
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-6 text-center bg-secondary">
-            <a href="#" routerLink="/login"><img src="\assets\Imagenes_01\BtnInicioSesion.svg" 
-            alt="botón iniciar sesión"></a>
+        <div class="col text-center">
+            <a href="#" class="link-light" routerLink="/login">
+                <h3 class="bg-success rounded-3 py-1">Iniciar Sesión</h3>
+            </a>
         </div>                   
-    </div>
+    </div> 
 
 </div>
 

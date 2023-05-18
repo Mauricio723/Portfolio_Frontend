@@ -1,0 +1,8 @@
+
+.estiloImagen01 {
+    width: clamp(10rem, 30vw, 25rem);
+}
+
+.estiloImagen02 {
+    width: 80%;
+}

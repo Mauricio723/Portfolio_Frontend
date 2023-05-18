@@ -6,6 +6,11 @@
 .div_cabecera_01 {
     background-color: #00358e;
 }
+.estiloNav01 {
+    background-color: #00358e;
+    
+    font-size: clamp(0.8rem, 1.8vw, 1.2rem);
+}
 
 .div_titulo_01 {
     position:absolute;

@@ -16,10 +16,10 @@ import { Ciudad } from '../modelos/Ciudad';
 export class AdminService {
 
   // url api en desarrollo
-  //private urlApi : String = "http://localhost:8080/myapi";
+  private urlApi : String = "http://localhost:8080/myapi";
 
   // url api en produccion render
-  private urlApi : String = "https://backporfolio.onrender.com/myapi";
+  //private urlApi : String = "https://backporfolio.onrender.com/myapi";
 
   private largoArregloAutorities : number;  
 

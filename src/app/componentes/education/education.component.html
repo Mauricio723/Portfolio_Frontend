@@ -24,7 +24,7 @@
 
     <div class="row gx-2">
 
-      <div class=" col col-sm-12 col-md-12 col-lg-6" 
+      <div class="col-sm-12 col-md-6 col-lg-6" 
         *ngFor="let educacion of datosMyApi">
 
         <div class="colorEducacion_03 rounded-3 mt-2 py-1">
@@ -37,11 +37,11 @@
             <dd>{{educacion.estudioCursado}}</dd>
 
             <div class="row">
-              <div class="col col-sm-12 col-md-6 ">
+              <div class="col-6 ">
                 <dt>Año de Inicio:</dt>
                 <dd>{{educacion.anioInicio}}</dd>
               </div>
-              <div class="col col-sm-12 col-md-6">
+              <div class="col-6">
                 <dt>Año Finalización:</dt>
                 <dd>{{educacion.anioFin}}</dd>
               </div>
@@ -54,11 +54,11 @@
             <dt>Ciudad:</dt>
             <dd>{{educacion.ciudad.nombre}}</dd>
             <div class="row">
-              <div class="col col-sm-12 col-md-6 ">
+              <div class="col-6 ">
                 <dt>Provincia:</dt>
                 <dd>{{educacion.ciudad.provincia}}</dd>
               </div>
-              <div class="col col-sm-12 col-md-6">
+              <div class="col-6">
                 <dt>País:</dt>
                 <dd>{{educacion.ciudad.pais}}</dd>
               </div>

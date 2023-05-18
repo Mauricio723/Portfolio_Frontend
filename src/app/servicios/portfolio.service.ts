@@ -16,10 +16,10 @@ const httpOptions = {
 export class PortfolioService {
 
   // url en desarrollo
-  //urlApi: String = "http://localhost:8080";
+  urlApi: String = "http://localhost:8080";
 
   // url en produccion Render
-  urlApi: String = "https://backporfolio.onrender.com";
+  //urlApi: String = "https://backporfolio.onrender.com";
 
   constructor(private myhttp: HttpClient) { }
 
