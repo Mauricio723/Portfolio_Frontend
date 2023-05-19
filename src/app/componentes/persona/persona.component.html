@@ -25,22 +25,22 @@
 
   <div class="row gx-2 colorAbout_02 text-center mt-2 py-1 rounded-3">
 
-    <div class="col-sm-8 col-md-8 col-lg-6">
+    <div class="col-6">
       <h4 class="">Datos Personales</h4>      
     </div>
-    
-    <div class="col-sm-4 col-md-4 col-lg-6">
+   
+    <div class="col-6">
       <div *ngIf="mostrarDatos01 === false">
         <button (click)="eventoBtnMostrarDatos01()" class="btn btn-outline-light btn-sm">
-          Mostrar datos           
+          Mostrar Datos          
         </button>
       </div>
       <div *ngIf="mostrarDatos01">
         <button (click)="eventoBtnOcultarDatos01()" class="btn btn-outline-light btn-sm">
-          Ocultar datos 
+          Ocultar Datos 
         </button>
       </div>
-    </div>
+    </div>      
 
   </div>
 
