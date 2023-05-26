@@ -44,6 +44,8 @@ export class EducationComponent implements OnInit {
 
   mostrarEducacion01 : boolean = false;
 
+  textoTooltip02 : String = "";
+
   constructor(private servicioAdmin: AdminService) {
 
     this.nombreInstitucion = "Nombre Institución sin definir";
@@ -53,6 +55,9 @@ export class EducationComponent implements OnInit {
     this.descripcionCurso = "Descripción del curso sin definir";
     this.seTerminoCurso = 0;
     //this.persona_id = this.idPersona;
+
+    this.textoTooltip02 = "Presionar para mostrar datos de formación Académica";
+
   }
 
   ngOnInit(): void {
@@ -66,13 +71,16 @@ export class EducationComponent implements OnInit {
     return this.servicioAdmin.obtenerTipoUsuario() === "ROLE_ADMIN";
   }
 
-  eventoBtnMostrarEducacion() {
-    this.mostrarEducacion01 = true;
+  clkBtnMostrarEducacion() {
+    if (this.mostrarEducacion01) {
+      this.mostrarEducacion01 = false;
+      this.textoTooltip02 = "Presionar para mostrar datos de formación académica";
+    } else {
+      this.mostrarEducacion01 = true;
+      this.textoTooltip02 = "Presionar para ocultar datos de formación académica";
+    }
   }
-
-  eventoBtnOcultarEducacion() {
-    this.mostrarEducacion01 = false;
-  }
+ 
 
   obtenerCiudades() {
     this.servicioAdmin.traerCiudades().subscribe(

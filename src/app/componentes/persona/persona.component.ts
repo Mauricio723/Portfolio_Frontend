@@ -42,42 +42,24 @@ export class PersonaComponent implements OnInit {
 
   //tituloFormulario : String = "";  
   //mostrarFormularioCiudad : Boolean = false; 
+
+  textoTooltip01 : String = "";
   
   constructor (private servicioAdmin: AdminService, private myRuta : Router) {   
 
+    this.textoTooltip01 = "presionar para mostrar datos personales";
+
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     
-    //this.persona.nombre = "Nombre sin definir";
-    //this.persona.apellido = "Apellido sin definir";
-    //this.persona.ocupacion = "Ocupación sin definir";
-    //this.persona.tituloPrincipal = "Título principal sin definir";
-    //this.persona.fechaNacimiento = "Fecha de nacimiento sin definir";
-    //this.persona.documento = "Documento sin definir";
-    //this.persona.email = "email sin definir";
-    //this.persona.acercaDe = "Acerca de sin definir";
-    //this.persona.urlFoto = "url foto sin definir";
-    //this.persona.urlBanner = "url banner sin definir";   
-
-    this.idPersona = this.datosPersona.id;
-
-    //this.idCiudad = this.datosPersona.ciudad.id;
+    this.idPersona = this.datosPersona.id;   
 
   }
  
   esUsuarioAdmin(): Boolean {
     return this.servicioAdmin.obtenerTipoUsuario() === "ROLE_ADMIN";
   }
-
-  /*
-  obtenerCiudades() {
-    this.servicioAdmin.traerCiudades().subscribe(
-      datosCiudades => {
-        this.listaCiudades = datosCiudades;        
-      }
-    );      
-  }    */
  
   eventoBtnCrearPersona() {
     //this.laCiudadEsNueva = false;
@@ -88,25 +70,11 @@ export class PersonaComponent implements OnInit {
     //this.tituloFormulario = "Formulario para ingresar datos Nueva Persona";
   }
 
-  eventoBtnModificar(idSeleccionado: number) {
+  eventoBtnModificar(idSeleccionado: number) {   
     
-    //this.persona.nombre = this.datosPersona.nombre;
-    //this.persona.apellido = this.datosPersona.apellido;
-    //this.persona.ocupacion = this.datosPersona.ocupacion;
-    //this.persona.tituloPrincipal = this.datosPersona.tituloPrincipal;
-    //this.persona.fechaNacimiento = this.datosPersona.fechaNacimiento;
-    //this.persona.documento = this.datosPersona.documento;
-    //this.persona.email = this.datosPersona.email;
-    //this.persona.acercaDe = this.datosPersona.acercaDe;    
-    //this.persona.urlFoto = this.datosPersona.urlFoto;
-    //this.persona.urlBanner = this.datosPersona.urlBanner;   
-    
-    //this.laCiudadEsNueva = false;   
-    //this.obtenerCiudades(); 
     this.modificarDatos = true;
     this.crearNuevaPersona = false;
-    //this.mostrarFormularioDatos = true;   
-    //this.tituloFormulario = "Formulario para Modificar datos Persona";
+    
   }
 
   eventoBtnEliminar(idEliminar: number): void {
@@ -117,12 +85,15 @@ export class PersonaComponent implements OnInit {
       });
     }
   }
-
-  eventoBtnMostrarDatos01() {
-    this.mostrarDatos01 = true;
-  }
-  eventoBtnOcultarDatos01() {
-    this.mostrarDatos01 = false;
+ 
+  clkBtnMostrarDatos01() {
+    if (this.mostrarDatos01) {
+      this.mostrarDatos01 = false;
+      this.textoTooltip01 = "Presionar para mostrar datos personales";
+    } else {
+      this.mostrarDatos01 = true;
+      this.textoTooltip01 = "Presionar para ocultar datos personales";
+    }
   }
 
   eventoBtnMostrarMas() {
@@ -135,47 +106,15 @@ export class PersonaComponent implements OnInit {
   eventoBotonNuevaCiudad() {    
     //this.mostrarFormularioCiudad = true;
   }
-
-  /*
-  eventoDeCiudad(respuestaCiudad : Boolean) {      
-    this.obtenerCiudades();
-    this.mostrarFormularioCiudad = false;    
-    this.laCiudadEsNueva = respuestaCiudad;
-  }    */
  
   eventoBtnEnviarDatos() {
 
-    //this.mostrarFormularioDatos = false;
-   
-    /*
-    if (this.laCiudadEsNueva) {
-      this.idCiudad = this.listaCiudades[this.listaCiudades.length - 1].id
-    }   */
-
-    /*
-    if (this.modificarDatos && confirm("Está seguro de la modificación de los datos")) {
-      
-      this.servicioAdmin.modificarPersona(this.persona,
-        this.idPersona,
-        this.idCiudad).subscribe(() => {
-          //this.myRuta.navigate(["/secciones"]);
-          window.location.reload()
-        } );
-    }      */   
-
-    /*
-    if (this.crearNuevaPersona && confirm("Confirmación envío de datos nueva Persona")) {    
-
-      this.servicioAdmin.crearPersona(this.persona, this.idCiudad).subscribe(() => {
-        this.myRuta.navigate(["/secciones"]);
-        //window.location.reload()
-      } );         
-    }      */  
+    //this.mostrarFormularioDatos = false;   
 
   }   
   
   eventoBtnCancelarEnvio() {
     //this.mostrarFormularioDatos = false;
-  }
-
+  } 
+  
 }

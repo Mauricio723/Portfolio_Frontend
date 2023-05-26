@@ -1,32 +1,18 @@
 <div class="container-fluid seccionAptitud mt-1 px-1">
 
-  <div class="row text-center colorAptitud_02 rounded-3 mx-1 mt-1 py-1">
-    <div class="col-6">
-      <h4>Aptitudes</h4>
-    </div>
-    <div class="col-6">
-      <div *ngIf="mostrarAptitudes01 === false">
-        <button (click)="eventoBtnMostrarAptitudes()" 
-        class="btn btn-outline-light btn-sm">
-          Mostrar Aptitudes
-        </button>
-      </div>
-      <div *ngIf="mostrarAptitudes01">
-        <button (click)="eventoBtnOcultarAptitudes()" 
-        class="btn btn-outline-light btn-sm">
-          Ocultar Aptitudes
-        </button>
-      </div>
-    </div>
+  <div title={{textoTooltip04}} class="colorAptitud_02 rounded-3 text-center mx-1">
+    <a role="button" (click)="clk_Btn_MostrarAptitudes()" class="">
+     <h4 class="pb-1 texto_h4">Aptitudes</h4>
+    </a>
   </div>
-
+  
   <div *ngIf="mostrarAptitudes01">
 
     <div *ngIf="mostrarFormularioDatos === false">
       <div class="row gx-2 mx-1">
         <div *ngFor="let aptitud of datosMyApi" class="col-sm-12 col-md-6 col-lg-6 rounded-3">
 
-          <div class="colorAptitud_03 rounded-3 mt-2 py-1">
+          <div class="colorAptitud_03 rounded-3 mt-1 py-1">
             <dl>
               <dt>{{aptitud.nombre}}</dt>
               <dd>

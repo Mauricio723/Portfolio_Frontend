@@ -33,6 +33,32 @@
     font-size: 16px;
 }
 
+@media (max-width: 599px)
+{	
+    .texto_h4 {
+        font-size: 0.9rem;
+    }    
+}
+
+@media (min-width: 600px)
+{	 
+   .texto_h4 {
+    font-size: 1rem;
+   }
+}
+@media (min-width: 900px)
+{	 
+   .texto_h4 {
+    font-size: 1.1rem;
+   }
+}
+@media (min-width: 1280px)
+{	
+    .texto_h4 {
+        font-size: 1.2rem;
+    }
+}
+
 /* Estilos para lista de definición */
 
 .seccionTrabajo dt {

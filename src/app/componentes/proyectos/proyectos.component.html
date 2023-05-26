@@ -1,24 +1,10 @@
-<div class="container-fluid seccionProyecto mt-1 px-1">
+<div class="container-fluid seccionProyecto mt-2 px-1">
 
-  <div class="row colorProyecto_02 text-center mx-1 mt-2 py-1 rounded-3">
-    <div class="col-6">
-      <h4>Proyectos</h4>
-    </div>
-    <div class="col-6">
-      <div *ngIf="mostrarProyectos01 === false">
-        <button (click)="eventoBtnMostrarProyectos()" 
-        class="btn btn-outline-light btn-sm">
-          Mostrar Proyectos
-        </button>
-      </div>
-      <div *ngIf="mostrarProyectos01">
-        <button (click)="eventoBtnOcultarProyectos()" 
-        class="btn btn-outline-light btn-sm">
-          Ocultar Proyectos
-        </button>
-      </div>
-    </div>
-  </div>
+  <div title={{textoTooltip05}} class="colorProyecto_02 rounded-3 text-center mx-1">
+    <a role="button" (click)="clk_Btn_MostrarProyectos()" class="">
+     <h4 class="pb-1 texto_h4">Proyectos</h4>
+    </a>
+  </div> 
 
   <div *ngIf="mostrarProyectos01">
 
@@ -27,7 +13,7 @@
 
         <div *ngFor="let proyecto of datosMyApi" class="col-sm-12 col-md-6 col-lg-6 px-1">
 
-          <div class="colorProyecto_03 rounded-3 mt-2 py-1">
+          <div class="colorProyecto_03 rounded-3 mt-1 py-1">
             <dl>
               <dt>{{proyecto.nombre}}</dt>
               <dd>{{proyecto.descripcion}}</dd>

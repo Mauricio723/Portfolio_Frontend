@@ -3,33 +3,34 @@
 }
 
 .colorGradiente_01 {
+ 
+    background: -moz-repeating-radial-gradient(10% 10%, circle farthest-side,
+            rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161),
+            rgb(151, 243, 151), rgb(141, 141, 202), rgb(117, 115, 248),
+            rgb(197, 159, 88), rgb(97, 211, 201));
 
-    background-color: rgb(231, 236, 156);
-   
-    /*
-    background: linear-gradient(top, red, gold);
-    background: -webkit-linear-gradient(top, red, gold);
-    background: -moz-linear-gradient(top, red, gold);
-    background: -o-linear-gradient(top, red, gold);
-    background: -ms-linear-gradient(top, red, gold);
-    */
+    background: -webkit-repeating-radial-gradient(10% 10%, circle farthest-side,
+            rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161),
+            rgb(151, 243, 151), rgb(141, 141, 202), rgb(117, 115, 248),
+            rgb(197, 159, 88), rgb(97, 211, 201));
+
 }
 
 .colorGradiente_02 {
 
-    background: -webkit-repeating-radial-gradient(10% 10%, circle farthest-side, 
-    rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161), 
-    rgb(151, 243, 151), rgb(141, 141, 202), rgb(117, 115, 248), rgb(88, 163, 197), 
-    rgb(236, 141, 134));
+    background: -webkit-repeating-radial-gradient(10% 10%, circle farthest-side,
+            rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161),
+            rgb(151, 243, 151), rgb(141, 141, 202), rgb(117, 115, 248), rgb(88, 163, 197),
+            rgb(236, 141, 134));
 
-    background: -o-repeating-radial-gradient(10% 10%, circle farthest-side, 
-    rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161), 
-    rgb(151, 243, 151), rgb(141, 141, 202), rgb(117, 115, 248), rgb(88, 163, 197), 
-    rgb(236, 141, 134));
+    background: -o-repeating-radial-gradient(10% 10%, circle farthest-side,
+            rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161),
+            rgb(151, 243, 151), rgb(141, 141, 202), rgb(117, 115, 248), rgb(88, 163, 197),
+            rgb(236, 141, 134));
 
-    background: -moz-repeating-radial-gradient(10% 10%, circle farthest-side, 
-    rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161), 
-    rgb(151, 243, 151), rgb(141, 141, 202), rgb(117, 115, 248), rgb(88, 163, 197), 
-    rgb(236, 141, 134));
-            
+    background: -moz-repeating-radial-gradient(10% 10%, circle farthest-side,
+            rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161),
+            rgb(151, 243, 151), rgb(141, 141, 202), rgb(117, 115, 248), rgb(88, 163, 197),
+            rgb(236, 141, 134));
+
 }

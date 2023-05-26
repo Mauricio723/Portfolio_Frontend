@@ -6,7 +6,7 @@
 .div_foto_01 {			
     position: absolute;      	
     z-index: 20;    
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 @media (max-width: 599px)
@@ -20,6 +20,9 @@
 	.estiloBanner01 {
 	   width: 100%;	
 	   height: 200px;
+    }
+    .texto_h4 {
+        font-size: 0.9rem;
     }
     
 }
@@ -36,6 +39,9 @@
 	  width: 100%;	
 	  height: 230px;
    } 
+   .texto_h4 {
+    font-size: 1rem;
+   }
 }
 @media (min-width: 900px)
 {
@@ -49,6 +55,9 @@
 	  width: 100%;	
 	  height: 250px;
    } 
+   .texto_h4 {
+    font-size: 1.1rem;
+   }
 }
 @media (min-width: 1280px)
 {
@@ -62,13 +71,17 @@
 	   width: 100%;	
 	   height: 300px;
     }  
+    .texto_h4 {
+        font-size: 1.2rem;
+    }
 }
 
 .textoFoto_01 {   
     background-color: cadetblue;
     color: azure;     
-    padding-left: 20%;
-    font-size: clamp(0.7rem, 1.7vw, 1.4rem);    
+    padding-left: 21%;
+    padding-bottom: 2px;
+    font-size: clamp(0.8rem, 1.7vw, 1.4rem);    
 }
 
 .fondoBanner {
@@ -93,9 +106,10 @@
     font-size: clamp(1rem, 2.3vw, 1.6rem);     
 }
 
+/*
 .seccionAbout h5 {
     color: rgb(171, 231, 213);
-}
+}   */
 
 .seccionAbout p {    
     font-size: 16px;

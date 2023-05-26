@@ -1,22 +1,10 @@
 <div class="container-fluid seccionTrabajo mt-2 px-1">
 
-  <div class="row colorTrabajo_02 mx-1 mt-1 py-1 text-center rounded-3">
-    <div class="col-6">
-      <h4>Experiencia Laboral</h4>
-    </div>
-    <div class="col-6">
-      <div *ngIf="mostrarTrabajos01 === false">
-        <button (click)="eventoBtnMostrarTrabajos()" class="btn btn-outline-light btn-sm">
-          Mostrar Trabajos
-        </button>
-      </div>
-      <div *ngIf="mostrarTrabajos01">
-        <button (click)="eventoBtnOcultarTrabajos()" class="btn btn-outline-light btn-sm">
-          Ocultar Trabajos
-        </button>
-      </div>
-    </div>
-  </div>
+  <div title={{textoTooltip03}} class="colorTrabajo_02 rounded-3 text-center mx-1">
+    <a role="button" (click)="clk_Btn_MostrarTrabajos()" class="">
+     <h4 class="pb-1 texto_h4">Experiencia Laboral</h4>
+    </a>
+  </div>     
 
   <div *ngIf="mostrarTrabajos01">
     
@@ -26,7 +14,7 @@
 
         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-1" *ngFor="let trabajo of datosMyApi">
 
-          <div class="colorTrabajo_03 rounded-3 mt-2 pt-1">
+          <div class="colorTrabajo_03 rounded-3 mt-1 pt-1">
 
             <dl>
               <dt>Nombre Empresa:</dt>

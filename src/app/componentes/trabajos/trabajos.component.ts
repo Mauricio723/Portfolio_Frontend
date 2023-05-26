@@ -45,6 +45,7 @@ export class TrabajosComponent implements OnInit {
   tituloFormulario: String = "";
 
   mostrarTrabajos01 : Boolean = false;
+  textoTooltip03 : String = "";
 
   constructor(private servicioAdmin: AdminService) {
 
@@ -53,6 +54,8 @@ export class TrabajosComponent implements OnInit {
     this.anioInicio = 0;
     this.anioFin = 0;
     this.descripcion = "Descripcion del trabajo sin definir";
+
+    this.textoTooltip03 = "Presionar para mostrar datos de trabajos";
 
   } 
 
@@ -72,12 +75,14 @@ export class TrabajosComponent implements OnInit {
     );
   }
 
-  eventoBtnMostrarTrabajos() {
-    this.mostrarTrabajos01 = true;
-
-  }
-  eventoBtnOcultarTrabajos() {
-    this.mostrarTrabajos01 = false;
+  clk_Btn_MostrarTrabajos() {
+    if (this.mostrarTrabajos01) {
+      this.mostrarTrabajos01 = false;
+      this.textoTooltip03 = "Presionar para mostrar datos de trabajos";
+    } else {
+      this.mostrarTrabajos01 = true;
+      this.textoTooltip03 = "Presionar para ocultar datos de trabajos";
+    }
   }
 
   eventoBtnNuevaCiudad() {

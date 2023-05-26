@@ -35,7 +35,13 @@ export class AptitudesComponent implements OnInit {
 
   mostrarAptitudes01 : Boolean = false;
 
-  constructor(private servicioAdmin : AdminService) { }
+  textoTooltip04 : String = "";
+
+  constructor(private servicioAdmin : AdminService) { 
+
+    this.textoTooltip04 = "Presionar para mostrar datos de aptitudes";
+
+  }
   
   ngOnInit(): void {
     this.nombreAptitud = "Nombre aptitud sin definir";
@@ -46,6 +52,16 @@ export class AptitudesComponent implements OnInit {
 
   esUsuarioAdmin(): Boolean {
     return this.servicioAdmin.obtenerTipoUsuario() === "ROLE_ADMIN";
+  }
+
+  clk_Btn_MostrarAptitudes() {
+    if (this.mostrarAptitudes01) {
+      this.mostrarAptitudes01 = false;
+      this.textoTooltip04 = "Presionar para mostrar datos de aptitudes";
+    } else {
+      this.mostrarAptitudes01 = true;
+      this.textoTooltip04 = "Presionar para ocultar datos de aptitudes";
+    }
   }
 
   eventoBtnMostrarAptitudes() {

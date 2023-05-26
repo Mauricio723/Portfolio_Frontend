@@ -37,9 +37,13 @@ export class ProyectosComponent implements OnInit {
 
   mostrarProyectos01 : Boolean = false;
 
+  textoTooltip05 : String = "";
+
   constructor(private servicioAdministrador: AdminService,
     private router: Router) {
-    
+   
+      this.textoTooltip05 = "Presionar para mostrar datos de proyectos";
+
   }
 
   ngOnInit(): void {
@@ -54,13 +58,16 @@ export class ProyectosComponent implements OnInit {
     return this.servicioAdministrador.obtenerTipoUsuario() === "ROLE_ADMIN";
   }
 
-  eventoBtnMostrarProyectos() {
-    this.mostrarProyectos01 = true;
+  clk_Btn_MostrarProyectos() {
+    if (this.mostrarProyectos01) {
+      this.mostrarProyectos01 = false;
+      this.textoTooltip05 = "Presionar para mostrar datos de proyecos";
+    } else {
+      this.mostrarProyectos01 = true;
+      this.textoTooltip05 = "Presionar para ocultar datos de proyectos";
+    }
   }
-  eventoBtnOcultarProyectos() {
-    this.mostrarProyectos01 = false;
-  }
-
+ 
   eventoBtnEditar(idProyectoEditar : number, proyectoParaEditar : any) {
 
     this.tituloFormulario = "Formulario para editar";

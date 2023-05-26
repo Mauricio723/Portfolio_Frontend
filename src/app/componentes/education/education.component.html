@@ -1,24 +1,10 @@
 <div class="container-fluid seccionEducacion mt-1">
 
-  <div class="row gx-2 colorEducacion_02 text-center mt-2 py-1 rounded-3">
-    <div class="col-6">
-      <h4>Formación Académica </h4>
-    </div>
-    <div class="col-6">
-      <div *ngIf="mostrarEducacion01 === false">
-        <button (click)="eventoBtnMostrarEducacion()" 
-        class="btn btn-outline-light btn-sm">
-          Mostrar Educación
-        </button>
-      </div>
-      <div *ngIf="mostrarEducacion01">
-        <button (click)="eventoBtnOcultarEducacion()" 
-        class="btn btn-outline-light btn-sm">
-          Ocultar Educación
-        </button>
-      </div>
-    </div>
-  </div> 
+  <div title={{textoTooltip02}} class="colorEducacion_02 rounded-3 text-center">
+    <a role="button" (click)="clkBtnMostrarEducacion()" class="">
+     <h4 class="pb-1 texto_h4">Formación Académica</h4>
+    </a>
+  </div>   
 
   <div *ngIf="mostrarFormularioDatos === false && mostrarEducacion01">
 
@@ -27,7 +13,7 @@
       <div class="col-sm-12 col-md-6 col-lg-6" 
         *ngFor="let educacion of datosMyApi">
 
-        <div class="colorEducacion_03 rounded-3 mt-2 py-1">
+        <div class="colorEducacion_03 rounded-3 mt-1 py-1">
 
           <dl>
             <dt>Nombre Institución:</dt>
