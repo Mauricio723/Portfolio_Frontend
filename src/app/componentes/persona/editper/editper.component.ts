@@ -15,8 +15,7 @@ export class EditperComponent implements OnInit {
     apellido: "",
     ocupacion: "",
     tituloPrincipal: "",
-    fechaNacimiento: "",
-    documento: "",
+    fechaNacimiento: "",   
     email: "",
     acercaDe: "",
     urlFoto: "",
@@ -66,8 +65,7 @@ export class EditperComponent implements OnInit {
     this.personaEdit.apellido = this.personaActual.apellido;
     this.personaEdit.ocupacion = this.personaActual.ocupacion;
     this.personaEdit.tituloPrincipal = this.personaActual.tituloPrincipal;
-    this.personaEdit.fechaNacimiento = this.personaActual.fechaNacimiento;
-    this.personaEdit.documento = this.personaActual.documento;
+    this.personaEdit.fechaNacimiento = this.personaActual.fechaNacimiento;    
     this.personaEdit.email = this.personaActual.email;
     this.personaEdit.acercaDe = this.personaActual.acercaDe;
     this.personaEdit.urlFoto = this.personaActual.urlFoto;

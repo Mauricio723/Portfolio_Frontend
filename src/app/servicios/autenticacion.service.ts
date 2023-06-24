@@ -10,12 +10,12 @@ import { map } from 'rxjs/operators';
 export class AutenticacionService {  
   
   // urls en desarrollo
-  url_login = "http://localhost:8080/auth/login";
-  url_nuevo = "http://localhost:8080/auth/nuevo";
-
+  //url_login = "http://localhost:8080/auth/login";
+  //url_nuevo = "http://localhost:8080/auth/nuevo";
+  
   // urls en produccion Render
-  //url_login = "https://backporfolio.onrender.com/auth/login";
-  //url_nuevo = "https://backporfolio.onrender.com/auth/nuevo";
+  url_login = "https://backporfolio.onrender.com/auth/login";
+  url_nuevo = "https://backporfolio.onrender.com/auth/nuevo";
 
   private currentUserSubject : BehaviorSubject<any>;
     

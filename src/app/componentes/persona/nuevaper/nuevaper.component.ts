@@ -15,8 +15,7 @@ export class NuevaperComponent implements OnInit {
     apellido: "",
     ocupacion: "",
     tituloPrincipal: "",
-    fechaNacimiento: "",
-    documento: "",
+    fechaNacimiento: "",    
     email: "",
     acercaDe: "",
     urlFoto: "",
@@ -36,8 +35,7 @@ export class NuevaperComponent implements OnInit {
     this.personaNueva.apellido = "Apellido sin definir";
     this.personaNueva.ocupacion = "Ocupación sin definir";
     this.personaNueva.tituloPrincipal = "Título si definir";
-    this.personaNueva.fechaNacimiento = "00 de Mes de 0000";
-    this.personaNueva.documento = "0000000";
+    this.personaNueva.fechaNacimiento = "00 de Mes de 0000";    
     this.personaNueva.email = "email sin definir";
     this.personaNueva.acercaDe = "Texto acerca de sin definir";
     this.personaNueva.urlFoto = " URL foto sin definir";

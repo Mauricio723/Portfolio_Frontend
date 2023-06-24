@@ -37,19 +37,13 @@
 
         </div>
 
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-6 mb-3">
-                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-                <input type="text" class="form-control" name="fechaNacimiento"
-                    placeholder="{{personaActual.fechaNacimiento}}" [(ngModel)]="personaEdit.fechaNacimiento"
-                    id="fechaNacimiento">
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-6 mb-3">
-                <label for="documento" class="form-label">Documento</label>
-                <input type="text" class="form-control" name="documento" placeholder="{{personaActual.documento}}"
-                    [(ngModel)]="personaEdit.documento" id="documento">
-            </div>
+        <div class="mb-3">            
+            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+            <input type="text" class="form-control" name="fechaNacimiento"
+                placeholder="{{personaActual.fechaNacimiento}}" [(ngModel)]="personaEdit.fechaNacimiento"
+                id="fechaNacimiento">                     
         </div>
+
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="text" class="form-control" name="email" placeholder="{{personaActual.email}}"

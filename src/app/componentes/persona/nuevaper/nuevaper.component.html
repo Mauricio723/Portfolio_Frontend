@@ -35,17 +35,10 @@
 
         </div>
 
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-6 mb-3">
-                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-                <input type="text" class="form-control" name="fechaNacimiento" placeholder="(dia) de (mes) de (año)"
-                    [(ngModel)]="personaNueva.fechaNacimiento" id="fechaNacimiento">
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-6 mb-3">
-                <label for="documento" class="form-label">Documento</label>
-                <input type="text" class="form-control" name="documento" placeholder="número Doc"
-                    [(ngModel)]="personaNueva.documento" id="documento">
-            </div>
+        <div class="mb-3">
+            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+            <input type="text" class="form-control" name="fechaNacimiento" placeholder="(dia) de (mes) de (año)"
+                [(ngModel)]="personaNueva.fechaNacimiento" id="fechaNacimiento">
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -121,10 +114,10 @@
         <button type="submit" class="btn btn-outline-light btn-sm ms-3" (click)="eventoBtnEnviarDatos()"
             [disabled]="mostrarFormularioCiudad">
             Enviar Datos Persona</button>
-       
+
         <button class="btn btn-outline-light btn-sm ms-4" routerLink="/secciones">
-             Cancelar Envío de datos  </button> 
-             
+            Cancelar Envío de datos </button>
+
     </form>
 
 </div>

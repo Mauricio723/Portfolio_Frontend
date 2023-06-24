@@ -5,8 +5,7 @@ export class Persona {
     apellido : String;
     ocupacion : String;
     tituloPrincipal : String;
-    fechaNacimiento : String;
-    documento : String;
+    fechaNacimiento : String;    
     email : String;
     acercaDe : String;
     urlFoto : String;
@@ -14,15 +13,14 @@ export class Persona {
 
     constructor(nombre : String, apellido : String, ocupacion : String, 
                 tituloPrincipal : String, fechaNacimiento : String, 
-                documento : String, email : String, acercaDe : String, 
-                urlFoto : String, urlBanner : String) {
+                email : String, acercaDe : String, urlFoto : String, 
+                urlBanner : String) {
         
         this.nombre = nombre;
         this.apellido = apellido;
         this.ocupacion = ocupacion;
         this.tituloPrincipal = tituloPrincipal;
-        this.fechaNacimiento = fechaNacimiento;
-        this.documento = documento;
+        this.fechaNacimiento = fechaNacimiento;        
         this.email = email;
         this.acercaDe = acercaDe;
         this.urlFoto = urlFoto;
