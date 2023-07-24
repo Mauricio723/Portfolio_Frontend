@@ -23,6 +23,9 @@ export class PortfolioService {
 
   constructor(private myhttp: HttpClient) { }
 
+  obtenerDtoPersona() : Observable<any> {
+    return this.myhttp.get<any>(this.urlApi + "/myapi/persona_dto/traer/1");
+  }
 
   obtenerDatos_01(): Observable<any> {
 

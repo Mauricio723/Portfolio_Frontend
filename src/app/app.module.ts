@@ -22,6 +22,7 @@ import { CiudadesComponent } from './componentes/ciudades/ciudades.component';
 import { IniciopfComponent } from './componentes/iniciopf/iniciopf.component';
 import { NuevaperComponent } from './componentes/persona/nuevaper/nuevaper.component';
 import { EditperComponent } from './componentes/persona/editper/editper.component';
+import { SeccionuserComponent } from './componentes/seccionuser/seccionuser.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EditperComponent } from './componentes/persona/editper/editper.componen
     CiudadesComponent,
     IniciopfComponent,
     NuevaperComponent,
-    EditperComponent
+    EditperComponent,
+    SeccionuserComponent
   ],
   imports: [
     BrowserModule,

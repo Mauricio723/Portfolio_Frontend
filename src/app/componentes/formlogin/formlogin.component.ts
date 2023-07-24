@@ -47,9 +47,22 @@ export class FormloginComponent implements OnInit {
     evento.preventDefault;
     /* Nos suscribimos al método del servicio */    
     this.autenticService.iniciarSesion(this.form_group.value).subscribe(
-      data => {                
-      this.ruta.navigate(["/secciones"])
+      data => {   
+      //this.ruta.navigate(["/secciones"])
+      this.obtenerTipoUsuario();
     });
+  }
+
+  /* Según el tipo de usuario, mostramos una vista para los datos diferente */
+
+  obtenerTipoUsuario() {
+    
+    if (this.autenticService.UsuarioAutenticado.authorities.length >= 2) {
+      this.ruta.navigate(["/secciones"]);
+    } else {      
+      this.ruta.navigate(["/seccionuser"]);
+    }
+
   }
 
 }

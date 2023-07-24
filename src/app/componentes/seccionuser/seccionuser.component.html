@@ -1,0 +1,289 @@
+<div class="colorGradSeccUser">
+
+    <div *ngIf="datosPersonaDto; else datosPersonaDtoNull" class="">
+
+        <div class="div_foto_01 espacioTop">
+            <img src={{datosPersonaDto.urlFoto}} class="rounded-circle border anchoImagen01" alt="Foto Mauricio">
+        </div>
+
+        <div class="">
+            <img src={{datosPersonaDto.urlBanner}} class="estiloBanner01" alt="Imagen del Banner">
+        </div>
+
+        <div class="textoFoto_01">
+            <dl>
+                <dt>{{datosPersonaDto.nombre}} {{datosPersonaDto.apellido}}</dt>
+                <dd>{{datosPersonaDto.tituloPrincipal}}</dd>
+            </dl>
+        </div>
+
+    </div>
+    <ng-template #datosPersonaDtoNull>
+        <div class="div_foto_01 espacioTop">
+            <img src="\assets\Imagenes_01\IMG_EsperandoFoto.jpg" class="rounded-circle border anchoImagen01"
+                alt="Foto Mauricio">
+        </div>
+        <div class="">
+            <img src="\assets\Imagenes_01\IMG_EsperandoBanner.jpg" class="estiloBanner01" alt="Imagen del Banner">
+        </div>
+        <div class="textoFoto_01">
+            <dl>
+                <dt>Esperando datos: nombre persona</dt>
+                <dd>Esperando datos: Título principal</dd>
+            </dl>
+        </div>
+    </ng-template>
+
+    <div class="container-fluid seccionUser01 mt-2 ">
+
+        <div title={{textoTooltip01}} class="colorUser_02 rounded-3 text-center">
+            <a role="button" (click)="clkBtnMostrarDatos01()" class="">
+                <h4 class="pb-1 texto_h4">Datos Personales</h4>
+            </a>
+        </div>
+
+        <div *ngIf="mostrarDatosPersona" class="mt-1">
+
+            <div class="">
+
+                <dl class="colorUser_03 rounded-3 mb-1 pb-1 pt-2">
+
+                    <div class="row">
+                        <div class="col-6">
+                            <dt>Nombre Completo</dt>
+                            <dd>{{datosPersonaDto.nombre}} {{datosPersonaDto.apellido}}</dd>
+                        </div>
+                        <div class="col-6">
+                            <dt>Email</dt>
+                            <dd>{{datosPersonaDto.email}}</dd>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <dt>Título Principal</dt>
+                            <dd>{{datosPersonaDto.tituloPrincipal}}</dd>
+                        </div>
+                        <div class="col-6">
+                            <dt>Ocupación Actual</dt>
+                            <dd>{{datosPersonaDto.ocupacion}}</dd>
+                        </div>
+                    </div>
+
+                    <div title={{tooltipCiudadPersona}} class="mx-3 mb-1 py-1">
+                        <dt><a role="button" (click)="clkBtnMostrarCiudadPersona()">
+                                Ubicación
+                            </a></dt>
+
+                        <div *ngIf="mostrarCiudadPersona" class="row gx-0">
+                            <div class="col-4">
+                                <dt>Ciudad</dt>
+                                <dd>{{datosPersonaDto.ciudad}}</dd>
+                            </div>
+                            <div class="col-4">
+                                <dt>Provincia</dt>
+                                <dd>{{datosPersonaDto.provincia}}</dd>
+                            </div>
+                            <div class="col-4">
+                                <dt>País</dt>
+                                <dd>{{datosPersonaDto.pais}}</dd>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div title={{textoTooltipAcercaDe}} class="mx-3 mb-1 py-1">
+                        <dt><a role="button" (click)="clkBtnMostrarAcercaDe()" class="">
+                                Acerca De: {{datosPersonaDto.nombre}}
+                            </a></dt>
+                        <dd *ngIf="mostrarAcercaDe">{{datosPersonaDto.acercaDe}}</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección Educación -->
+
+    <div class="container-fluid seccionUser01 mt-1">
+
+        <div title={{textoTooltipEducacion}} class="colorUser_02 rounded-3 text-center">
+            <a role="button" (click)="clkBtnMostrarEducacion()" class="">
+                <h4 class="pb-1 texto_h4">Formación Académica</h4>
+            </a>
+        </div>
+
+        <div *ngIf="mostrarEducacion">
+
+            <div class="row gx-2">
+
+                <div class="col-sm-12 col-md-6 col-lg-6" *ngFor="let educacion of datosEducacion">
+
+                    <div class="colorUser_03 rounded-3 mt-1 py-1">
+
+                        <dl>
+                            <dt>Nombre Institución:</dt>
+                            <dd>{{educacion.nombreInstitucion}} </dd>
+
+                            <dt> Estudio Cursado:</dt>
+                            <dd>{{educacion.estudioCursado}}</dd>
+
+                            <dt>Descripción Curso:</dt>
+                            <dd>{{educacion.descripcionCurso}}</dd>
+
+                            <div class="row">
+                                <div class="col-6 ">
+                                    <dt>Periodo</dt>
+                                    <dd>{{educacion.anioInicio}} - {{educacion.anioFin}}</dd>
+                                </div>
+                                <div class="col-6">
+                                    <dt>Se terminó el curso ?</dt>
+                                    <dd *ngIf="educacion.seTerminoCurso === 0">Curso sin finalizar</dd>
+                                    <dd *ngIf="educacion.seTerminoCurso === 1">Curso Finalizado</dd>
+                                </div>
+                            </div>
+
+                            <div class="row gx-0">
+                                <div class="col-4">
+                                    <dt>Ciudad</dt>
+                                    <dd>{{educacion.ciudad.nombre}}</dd>
+                                </div>
+                                <div class="col-4">
+                                    <dt>Provincia</dt>
+                                    <dd>{{educacion.ciudad.provincia}}</dd>
+                                </div>
+                                <div class="col-4">
+                                    <dt>País</dt>
+                                    <dd>{{educacion.ciudad.pais}}</dd>
+                                </div>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Espacio para experiencia laboral -->
+
+    <div class="container-fluid seccionUser01 mt-1 px-1">
+
+        <div title={{textoTooltipTrabajo}} class="colorUser_02 rounded-3 text-center mx-1">
+            <a role="button" (click)="clk_Btn_MostrarTrabajos()" class="">
+                <h4 class="pb-1 texto_h4">Experiencia Laboral</h4>
+            </a>
+        </div>
+
+        <div *ngIf="mostrarTrabajos">
+
+            <div class="row gx-1 mx-1">
+
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-1" *ngFor="let trabajo of datosTrabajos">
+
+                    <div class="colorUser_03 rounded-3 mt-1 pt-1">
+
+                        <dl>
+                            <dt>Nombre Empresa:</dt>
+                            <dd>{{trabajo.nombreEmpresa}}</dd>
+
+                            <dt> Puesto Laboral:</dt>
+                            <dd>{{trabajo.puestoLaboral}}</dd>
+
+                            <div class="col-6 ">
+                                <dt>Periodo</dt>
+                                <dd>{{trabajo.anioInicio}} - {{trabajo.anioFin}}</dd>
+                            </div>
+
+                            <dt>Descripción trabajo:</dt>
+                            <dd>{{trabajo.descripcion}}
+                            </dd>
+
+                            <div class="row gx-0">
+                                <div class="col-4">
+                                    <dt>Ciudad</dt>
+                                    <dd>{{trabajo.ciudad.nombre}}</dd>
+                                </div>
+                                <div class="col-4">
+                                    <dt>Provincia</dt>
+                                    <dd>{{trabajo.ciudad.provincia}}</dd>
+                                </div>
+                                <div class="col-4">
+                                    <dt>País</dt>
+                                    <dd>{{trabajo.ciudad.pais}}</dd>
+                                </div>
+                            </div>
+
+                        </dl>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Espacio para Aptitudes -->
+
+    <div class="container-fluid seccionUser01 mt-1 px-1">
+
+        <div title={{textoTooltipAptitudes}} class="colorUser_02 rounded-3 text-center mx-1">
+            <a role="button" (click)="clk_Btn_MostrarAptitudes()" class="">
+                <h4 class="pb-1 texto_h4">Aptitudes</h4>
+            </a>
+        </div>
+
+        <div *ngIf="mostrarAptitudes">
+
+            <div class="row gx-2 mx-1">
+                <div *ngFor="let aptitud of datosAptitudes" class="col-sm-12 col-md-6 col-lg-6 rounded-3">
+
+                    <div class="colorUser_03 rounded-3 mt-1 py-1">
+                        <dl>
+                            <dt>{{aptitud.nombre}}</dt>
+                            <dd>
+                                <p class="bg-primary text-center rounded-3 mt-1" [style.width.%]="aptitud.porcentaje">
+                                    {{aptitud.porcentaje}}%
+                                </p>
+                                {{aptitud.descripcion}}
+                            </dd>
+                        </dl>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Espacio para proyectos -->
+
+    <div class="container-fluid seccionUser01 mt-2 px-1">
+
+        <div title={{textoTooltipProyectos}} class="colorUser_02 rounded-3 text-center mx-1">
+            <a role="button" (click)="clk_Btn_MostrarProyectos()" class="">
+                <h4 class="pb-1 texto_h4">Proyectos</h4>
+            </a>
+        </div>
+
+        <div *ngIf="mostrarProyectos">
+
+            <div class="row gx-2 mx-1">
+
+                <div *ngFor="let proyecto of datosProyectos" class="col-sm-12 col-md-6 col-lg-6 px-1">
+
+                    <div class="colorUser_03 rounded-3 mt-1 py-1">
+                        <dl>
+                            <dt>{{proyecto.nombre}}</dt>
+                            <dd>{{proyecto.descripcion}}</dd>
+                            <dd>Fecha publicación: {{proyecto.fechaPublicacion}}</dd>
+                        </dl>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
