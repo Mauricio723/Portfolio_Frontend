@@ -1,9 +1,4 @@
-.colorGradSeccUser {
-
-    background: -webkit-repeating-radial-gradient(10% 10%, circle farthest-side,
-            rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161),
-            rgb(151, 243, 151), rgb(141, 141, 202), rgb(117, 115, 248), rgb(88, 163, 197),
-            rgb(236, 141, 134));
+.colorGradSeccUser {  
 
     background: -o-repeating-radial-gradient(10% 10%, circle farthest-side,
             rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161),
@@ -14,6 +9,11 @@
             rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161),
             rgb(151, 243, 151), rgb(141, 141, 202), rgb(117, 115, 248), rgb(88, 163, 197),
             rgb(236, 141, 134));
+
+    background: -webkit-repeating-radial-gradient(10% 10%, circle farthest-side,
+            rgb(190, 226, 235), rgb(0, 174, 255), rgb(245, 245, 161),
+            rgb(151, 243, 151), rgb(141, 141, 202), rgb(117, 115, 248), rgb(88, 163, 197),
+            rgb(236, 141, 134));        
 
 }
 
@@ -31,9 +31,10 @@
     font-size: clamp(0.8rem, 1.7vw, 1.4rem);
 }
 
+/*
 .seccionUser01 h4 {
     color: rgb(223, 233, 196);
-}
+}  */
 
 .colorUser_01 {
     background-color: rgb(55, 122, 131);
@@ -55,19 +56,23 @@
 /* Estilos para lista de definición */
 
 .seccionUser01 dt {
-    color: rgb(212, 224, 202);
+    /*color: rgb(212, 224, 202);*/
     /*font-size: clamp(0.8rem, 1.5vw, 1.6rem); */
     margin-left: 20px;
 }
 
 .seccionUser01 dd {
-    color: rgb(213, 233, 143);
+    /*color: rgb(213, 233, 143);*/
     /*font-family: Arial, Helvetica, sans-serif; */
     /* font-size: clamp(0.8rem, 1.5vw, 1.6rem); */
     margin-left: 40px;
     margin-right: 10px;
 }
 
+.colorBarraPorcentaje {
+    background-color:rgb(9, 90, 122);
+    color: rgb(230, 238, 226);
+}
 
 @media (max-width: 599px)
 {

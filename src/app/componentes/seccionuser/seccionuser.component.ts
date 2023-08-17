@@ -34,6 +34,12 @@ export class SeccionuserComponent implements OnInit {
   mostrarAptitudes : Boolean = false;
   mostrarProyectos : Boolean = false;
 
+  colorFondo : String = "";
+  colorTexto : String = "";
+
+  fondoColor : Boolean = false;
+  textoBotonColor : String = "";
+
   constructor(private servicioPortfolio : PortfolioService) {
     
     this.textoTooltip01 = "Presionar para mostrar datos personales";
@@ -44,6 +50,10 @@ export class SeccionuserComponent implements OnInit {
     this.textoTooltipAptitudes = "Presionar para mostrar Aptitud";
     this.textoTooltipProyectos = "Presionar para mostrar Proyectos";
     
+    this.colorFondo = "rgb(255,255,255)";
+    this.colorTexto = "rgb(0,0,0)";
+    this.textoBotonColor = "Ver Fondo Oscuro";
+
    }
 
   ngOnInit(): void {
@@ -58,6 +68,22 @@ export class SeccionuserComponent implements OnInit {
     );    
 
   }
+ 
+  clkBtnCambiarColor() {
+
+    if (this.fondoColor) {     
+      this.fondoColor = false;
+      this.textoBotonColor = "Ver Fondo Oscuro";
+      this.colorFondo = "rgb(255,255,255)";
+      this.colorTexto = "rgb(0,0,0)";
+    } else {      
+      this.fondoColor = true;
+      this.textoBotonColor = "Ver Fondo Claro";
+      this.colorFondo = "rgb(55,70,60)";
+      this.colorTexto = "rgb(240,236,225)";
+    }
+
+  } 
 
   obtenerEducacion() {    
     this.servicioPortfolio.traerEducacionByPersonaId(this.idPersona).subscribe(

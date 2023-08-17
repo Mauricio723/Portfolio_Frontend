@@ -1,4 +1,4 @@
-<div class="colorGradSeccUser">
+<div class="colorGradSeccUser">   
 
     <div *ngIf="datosPersonaDto; else datosPersonaDtoNull" class="">
 
@@ -8,14 +8,14 @@
 
         <div class="">
             <img src={{datosPersonaDto.urlBanner}} class="estiloBanner01" alt="Imagen del Banner">
-        </div>
+        </div>      
 
         <div class="textoFoto_01">
             <dl>
                 <dt>{{datosPersonaDto.nombre}} {{datosPersonaDto.apellido}}</dt>
                 <dd>{{datosPersonaDto.tituloPrincipal}}</dd>
             </dl>
-        </div>
+        </div>      
 
     </div>
     <ng-template #datosPersonaDtoNull>
@@ -33,10 +33,18 @@
             </dl>
         </div>
     </ng-template>
+          
+    <div class="col rounded-3 text-end mx-3 mt-1 px-3"
+          [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">                 
+          <a role="button" (click)="clkBtnCambiarColor()" class="">
+            <h4 class="pb-1 texto_h4">{{textoBotonColor}}</h4>
+          </a>
+    </div>
+       
+    <div class="seccionUser01 container-fluid mt-2 ">     
 
-    <div class="container-fluid seccionUser01 mt-2 ">
-
-        <div title={{textoTooltip01}} class="colorUser_02 rounded-3 text-center">
+        <div title={{textoTooltip01}} class="rounded-3 text-center"
+        [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
             <a role="button" (click)="clkBtnMostrarDatos01()" class="">
                 <h4 class="pb-1 texto_h4">Datos Personales</h4>
             </a>
@@ -46,7 +54,8 @@
 
             <div class="">
 
-                <dl class="colorUser_03 rounded-3 mb-1 pb-1 pt-2">
+                <dl class=" rounded-3 mb-1 pb-1 pt-2" 
+                    [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
 
                     <div class="row">
                         <div class="col-6">
@@ -106,7 +115,8 @@
 
     <div class="container-fluid seccionUser01 mt-1">
 
-        <div title={{textoTooltipEducacion}} class="colorUser_02 rounded-3 text-center">
+        <div title={{textoTooltipEducacion}} class="rounded-3 text-center"
+        [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
             <a role="button" (click)="clkBtnMostrarEducacion()" class="">
                 <h4 class="pb-1 texto_h4">Formación Académica</h4>
             </a>
@@ -118,7 +128,8 @@
 
                 <div class="col-sm-12 col-md-6 col-lg-6" *ngFor="let educacion of datosEducacion">
 
-                    <div class="colorUser_03 rounded-3 mt-1 py-1">
+                    <div class="rounded-3 mt-1 py-1" 
+                        [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
 
                         <dl>
                             <dt>Nombre Institución:</dt>
@@ -167,7 +178,8 @@
 
     <div class="container-fluid seccionUser01 mt-1 px-1">
 
-        <div title={{textoTooltipTrabajo}} class="colorUser_02 rounded-3 text-center mx-1">
+        <div title={{textoTooltipTrabajo}} class="rounded-3 text-center mx-1"
+        [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
             <a role="button" (click)="clk_Btn_MostrarTrabajos()" class="">
                 <h4 class="pb-1 texto_h4">Experiencia Laboral</h4>
             </a>
@@ -179,7 +191,8 @@
 
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-1" *ngFor="let trabajo of datosTrabajos">
 
-                    <div class="colorUser_03 rounded-3 mt-1 pt-1">
+                    <div class="rounded-3 mt-1 pt-1"
+                    [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
 
                         <dl>
                             <dt>Nombre Empresa:</dt>
@@ -225,7 +238,8 @@
 
     <div class="container-fluid seccionUser01 mt-1 px-1">
 
-        <div title={{textoTooltipAptitudes}} class="colorUser_02 rounded-3 text-center mx-1">
+        <div title={{textoTooltipAptitudes}} class="rounded-3 text-center mx-1"
+        [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
             <a role="button" (click)="clk_Btn_MostrarAptitudes()" class="">
                 <h4 class="pb-1 texto_h4">Aptitudes</h4>
             </a>
@@ -236,11 +250,12 @@
             <div class="row gx-2 mx-1">
                 <div *ngFor="let aptitud of datosAptitudes" class="col-sm-12 col-md-6 col-lg-6 rounded-3">
 
-                    <div class="colorUser_03 rounded-3 mt-1 py-1">
+                    <div class="rounded-3 mt-1 py-1"
+                    [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
                         <dl>
                             <dt>{{aptitud.nombre}}</dt>
                             <dd>
-                                <p class="bg-primary text-center rounded-3 mt-1" [style.width.%]="aptitud.porcentaje">
+                                <p class="colorBarraPorcentaje text-center rounded-3 mt-1" [style.width.%]="aptitud.porcentaje">
                                     {{aptitud.porcentaje}}%
                                 </p>
                                 {{aptitud.descripcion}}
@@ -259,7 +274,8 @@
 
     <div class="container-fluid seccionUser01 mt-2 px-1">
 
-        <div title={{textoTooltipProyectos}} class="colorUser_02 rounded-3 text-center mx-1">
+        <div title={{textoTooltipProyectos}} class="rounded-3 text-center mx-1"
+        [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
             <a role="button" (click)="clk_Btn_MostrarProyectos()" class="">
                 <h4 class="pb-1 texto_h4">Proyectos</h4>
             </a>
@@ -271,7 +287,8 @@
 
                 <div *ngFor="let proyecto of datosProyectos" class="col-sm-12 col-md-6 col-lg-6 px-1">
 
-                    <div class="colorUser_03 rounded-3 mt-1 py-1">
+                    <div class="rounded-3 mt-1 py-1"
+                    [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
                         <dl>
                             <dt>{{proyecto.nombre}}</dt>
                             <dd>{{proyecto.descripcion}}</dd>
@@ -284,6 +301,6 @@
 
         </div>
 
-    </div>
+    </div>  
 
 </div>
