@@ -34,6 +34,12 @@ export class SeccionuserComponent implements OnInit {
   mostrarAptitudes : Boolean = false;
   mostrarProyectos : Boolean = false;
 
+  mostrarMasDatosEducacion : Boolean[] = [];
+  textoMostrarMasEducacion : String[] = [];
+
+  mostrarMasDatosTrabajo : Boolean[] = [];
+  textoMostrarMasTrabajo : String[] = [];
+
   colorFondo : String = "";
   colorTexto : String = "";
 
@@ -87,8 +93,14 @@ export class SeccionuserComponent implements OnInit {
 
   obtenerEducacion() {    
     this.servicioPortfolio.traerEducacionByPersonaId(this.idPersona).subscribe(
-      datosApiTrabajo => {
-        this.datosEducacion = datosApiTrabajo;
+      datosApiEducacion => {
+        this.datosEducacion = datosApiEducacion;
+
+        for (let indiceEdu=0; indiceEdu < this.datosEducacion.length; indiceEdu++) {
+          this.mostrarMasDatosEducacion[indiceEdu] = false; 
+          this.textoMostrarMasEducacion[indiceEdu] = "Mostrar más Datos";
+        }
+
         this.obtenerTrabajos();
       }
     );
@@ -98,6 +110,12 @@ export class SeccionuserComponent implements OnInit {
     this.servicioPortfolio.traerTrabajosByPersonaId(this.idPersona).subscribe(
       datosApiTrabajo => {
         this.datosTrabajos = datosApiTrabajo;
+
+        for (let indice_trabajo=0; indice_trabajo < this.datosTrabajos.length; indice_trabajo++) {
+          this.mostrarMasDatosTrabajo[indice_trabajo] = false; 
+          this.textoMostrarMasTrabajo[indice_trabajo] = "Mostrar más Datos";
+        }
+
         this.obtenerAptitudes();
       }
     );
@@ -161,6 +179,21 @@ export class SeccionuserComponent implements OnInit {
     }
   } 
 
+   /* Método para mostrar más educación */
+  
+   clkBtnMostrarMasEducacion(indiceEducacion : number) {   
+
+    if(this.mostrarMasDatosEducacion[indiceEducacion]) {
+      this.mostrarMasDatosEducacion[indiceEducacion] = false;
+      this.textoMostrarMasEducacion[indiceEducacion] = "Mostrar más Datos";
+    } else {
+      this.mostrarMasDatosEducacion[indiceEducacion] = true;
+      this.textoMostrarMasEducacion[indiceEducacion] = "Mostrar menos Datos";
+    }
+
+  }
+   /*  ----------- ----------------- */
+
   clk_Btn_MostrarTrabajos() {
     if (this.mostrarTrabajos) {
       this.mostrarTrabajos = false;
@@ -170,6 +203,21 @@ export class SeccionuserComponent implements OnInit {
       this.textoTooltipTrabajo = "Presionar para ocultar Experiencia Laboral";
     }
   }
+
+   /* Método para mostrar más datos de trabajo */
+  
+   clkBtnMostrarMasTrabajo(indiceTrabajo : number) {   
+
+    if(this.mostrarMasDatosTrabajo[indiceTrabajo]) {
+      this.mostrarMasDatosTrabajo[indiceTrabajo] = false;
+      this.textoMostrarMasTrabajo[indiceTrabajo] = "Mostrar más Datos";
+    } else {
+      this.mostrarMasDatosTrabajo[indiceTrabajo] = true;
+      this.textoMostrarMasTrabajo[indiceTrabajo] = "Mostrar menos Datos";
+    }
+
+  }
+   /*  ----------- ----------------- */
 
   clk_Btn_MostrarAptitudes() {
     if (this.mostrarAptitudes) {

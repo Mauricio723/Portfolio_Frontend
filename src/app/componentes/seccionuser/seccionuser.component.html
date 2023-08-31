@@ -1,4 +1,4 @@
-<div class="colorGradSeccUser">   
+<div class="colorGradSeccUser">
 
     <div *ngIf="datosPersonaDto; else datosPersonaDtoNull" class="">
 
@@ -8,14 +8,14 @@
 
         <div class="">
             <img src={{datosPersonaDto.urlBanner}} class="estiloBanner01" alt="Imagen del Banner">
-        </div>      
+        </div>
 
         <div class="textoFoto_01">
             <dl>
                 <dt>{{datosPersonaDto.nombre}} {{datosPersonaDto.apellido}}</dt>
                 <dd>{{datosPersonaDto.tituloPrincipal}}</dd>
             </dl>
-        </div>      
+        </div>
 
     </div>
     <ng-template #datosPersonaDtoNull>
@@ -33,18 +33,17 @@
             </dl>
         </div>
     </ng-template>
-          
-    <div class="col rounded-3 text-end mx-3 mt-1 px-3"
-          [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">                 
-          <a role="button" (click)="clkBtnCambiarColor()" class="">
+
+    <div class="col rounded-3 text-end mx-3 mt-1 px-3" [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
+        <a role="button" (click)="clkBtnCambiarColor()" class="">
             <h4 class="pb-1 texto_h4">{{textoBotonColor}}</h4>
-          </a>
+        </a>
     </div>
-       
-    <div class="seccionUser01 container-fluid mt-2 ">     
+
+    <div class="seccionUser01 container-fluid mt-2 ">
 
         <div title={{textoTooltip01}} class="rounded-3 text-center"
-        [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
+            [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
             <a role="button" (click)="clkBtnMostrarDatos01()" class="">
                 <h4 class="pb-1 texto_h4">Datos Personales</h4>
             </a>
@@ -54,8 +53,7 @@
 
             <div class="">
 
-                <dl class=" rounded-3 mb-1 pb-1 pt-2" 
-                    [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
+                <dl class=" rounded-3 mb-1 pb-1 pt-2" [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
 
                     <div class="row">
                         <div class="col-6">
@@ -113,10 +111,10 @@
 
     <!-- Sección Educación -->
 
-    <div class="container-fluid seccionUser01 mt-1">
+    <div class="container-fluid seccionUser01 mt-2">
 
         <div title={{textoTooltipEducacion}} class="rounded-3 text-center"
-        [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
+            [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
             <a role="button" (click)="clkBtnMostrarEducacion()" class="">
                 <h4 class="pb-1 texto_h4">Formación Académica</h4>
             </a>
@@ -124,51 +122,60 @@
 
         <div *ngIf="mostrarEducacion">
 
-            <div class="row gx-2">
+            <div class="" *ngFor="let educacion of datosEducacion; let indice = index">
 
-                <div class="col-sm-12 col-md-6 col-lg-6" *ngFor="let educacion of datosEducacion">
+                <div class="rounded-3 mt-1 py-1" [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
 
-                    <div class="rounded-3 mt-1 py-1" 
-                        [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
+                    <dl>
+                        <dt>Nombre Institución:</dt>
+                        <dd>{{educacion.nombreInstitucion}} </dd>
 
-                        <dl>
-                            <dt>Nombre Institución:</dt>
-                            <dd>{{educacion.nombreInstitucion}} </dd>
+                        <dt> Estudio Cursado:</dt>
+                        <dd>{{educacion.estudioCursado}}</dd>
 
-                            <dt> Estudio Cursado:</dt>
-                            <dd>{{educacion.estudioCursado}}</dd>
+                        <!-- Lo que está a continuación, se muestra haciendo click 
+                            en el botón mostrar más -->
 
-                            <dt>Descripción Curso:</dt>
-                            <dd>{{educacion.descripcionCurso}}</dd>
+                        <dt class="text-center"><a role="button" (click)="clkBtnMostrarMasEducacion(indice)">
+                                {{textoMostrarMasEducacion[indice]}}
+                            </a></dt>
 
-                            <div class="row">
-                                <div class="col-6 ">
-                                    <dt>Periodo</dt>
-                                    <dd>{{educacion.anioInicio}} - {{educacion.anioFin}}</dd>
+                        <div *ngIf="mostrarMasDatosEducacion[indice]" class="row gx-0">
+                            <div>
+
+                                <dt>Descripción Curso:</dt>
+                                <dd>{{educacion.descripcionCurso}}</dd>
+
+                                <div class="row">
+                                    <div class="col-6 ">
+                                        <dt>Periodo</dt>
+                                        <dd>{{educacion.anioInicio}} - {{educacion.anioFin}}</dd>
+                                    </div>
+                                    <div class="col-6">
+                                        <dt>Se terminó el curso ?</dt>
+                                        <dd *ngIf="educacion.seTerminoCurso === 0">Curso sin finalizar</dd>
+                                        <dd *ngIf="educacion.seTerminoCurso === 1">Curso Finalizado</dd>
+                                    </div>
                                 </div>
-                                <div class="col-6">
-                                    <dt>Se terminó el curso ?</dt>
-                                    <dd *ngIf="educacion.seTerminoCurso === 0">Curso sin finalizar</dd>
-                                    <dd *ngIf="educacion.seTerminoCurso === 1">Curso Finalizado</dd>
+
+                                <div class="row gx-0">
+                                    <div class="col-4">
+                                        <dt>Ciudad</dt>
+                                        <dd>{{educacion.ciudad.nombre}}</dd>
+                                    </div>
+                                    <div class="col-4">
+                                        <dt>Provincia</dt>
+                                        <dd>{{educacion.ciudad.provincia}}</dd>
+                                    </div>
+                                    <div class="col-4">
+                                        <dt>País</dt>
+                                        <dd>{{educacion.ciudad.pais}}</dd>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="row gx-0">
-                                <div class="col-4">
-                                    <dt>Ciudad</dt>
-                                    <dd>{{educacion.ciudad.nombre}}</dd>
-                                </div>
-                                <div class="col-4">
-                                    <dt>Provincia</dt>
-                                    <dd>{{educacion.ciudad.provincia}}</dd>
-                                </div>
-                                <div class="col-4">
-                                    <dt>País</dt>
-                                    <dd>{{educacion.ciudad.pais}}</dd>
-                                </div>
-                            </div>
-                        </dl>
-                    </div>
+                    </dl>
                 </div>
             </div>
         </div>
@@ -176,39 +183,47 @@
 
     <!-- Espacio para experiencia laboral -->
 
-    <div class="container-fluid seccionUser01 mt-1 px-1">
+    <div class="container-fluid seccionUser01 mt-2 px-1">
 
         <div title={{textoTooltipTrabajo}} class="rounded-3 text-center mx-1"
-        [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
+            [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
             <a role="button" (click)="clk_Btn_MostrarTrabajos()" class="">
                 <h4 class="pb-1 texto_h4">Experiencia Laboral</h4>
             </a>
         </div>
 
-        <div *ngIf="mostrarTrabajos">
+        <div *ngIf="mostrarTrabajos" class="">
 
-            <div class="row gx-1 mx-1">
+            <div class="mx-1" *ngFor="let trabajo of datosTrabajos; let indiceTrabajo = index">
 
-                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 px-1" *ngFor="let trabajo of datosTrabajos">
+                <div class="rounded-3 mt-1 py-1" [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
 
-                    <div class="rounded-3 mt-1 pt-1"
-                    [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
+                    <dl>
+                        <dt>Nombre Empresa:</dt>
+                        <dd>{{trabajo.nombreEmpresa}}</dd>
 
-                        <dl>
-                            <dt>Nombre Empresa:</dt>
-                            <dd>{{trabajo.nombreEmpresa}}</dd>
+                        <dt> Puesto Laboral:</dt>
+                        <dd>{{trabajo.puestoLaboral}}</dd>
 
-                            <dt> Puesto Laboral:</dt>
-                            <dd>{{trabajo.puestoLaboral}}</dd>
+                        <!-- Lo que está a continuación, se muestra haciendo click 
+                            en el botón mostrar más -->
 
-                            <div class="col-6 ">
-                                <dt>Periodo</dt>
-                                <dd>{{trabajo.anioInicio}} - {{trabajo.anioFin}}</dd>
+                        <dt class="text-center my-1"><a role="button" (click)="clkBtnMostrarMasTrabajo(indiceTrabajo)">
+                                {{textoMostrarMasTrabajo[indiceTrabajo]}}
+                            </a></dt>
+
+                        <div *ngIf="mostrarMasDatosTrabajo[indiceTrabajo]" class="row gx-0">
+
+                            <dt>Descripción Trabajo:</dt>
+                            <dd>{{trabajo.descripcion}}</dd>
+
+                            <div class="">
+
+                                <div class=" ">
+                                    <dt>Periodo</dt>
+                                    <dd>{{trabajo.anioInicio}} - {{trabajo.anioFin}}</dd>
+                                </div>
                             </div>
-
-                            <dt>Descripción trabajo:</dt>
-                            <dd>{{trabajo.descripcion}}
-                            </dd>
 
                             <div class="row gx-0">
                                 <div class="col-4">
@@ -224,22 +239,19 @@
                                     <dd>{{trabajo.ciudad.pais}}</dd>
                                 </div>
                             </div>
-
-                        </dl>
-
-                    </div>
+                        </div>
+                    </dl>
                 </div>
             </div>
-
         </div>
     </div>
 
     <!-- Espacio para Aptitudes -->
 
-    <div class="container-fluid seccionUser01 mt-1 px-1">
+    <div class="container-fluid seccionUser01 mt-2 px-1">
 
         <div title={{textoTooltipAptitudes}} class="rounded-3 text-center mx-1"
-        [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
+            [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
             <a role="button" (click)="clk_Btn_MostrarAptitudes()" class="">
                 <h4 class="pb-1 texto_h4">Aptitudes</h4>
             </a>
@@ -250,12 +262,12 @@
             <div class="row gx-2 mx-1">
                 <div *ngFor="let aptitud of datosAptitudes" class="col-sm-12 col-md-6 col-lg-6 rounded-3">
 
-                    <div class="rounded-3 mt-1 py-1"
-                    [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
+                    <div class="rounded-3 mt-1 py-1" [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
                         <dl>
                             <dt>{{aptitud.nombre}}</dt>
                             <dd>
-                                <p class="colorBarraPorcentaje text-center rounded-3 mt-1" [style.width.%]="aptitud.porcentaje">
+                                <p class="colorBarraPorcentaje text-center rounded-3 mt-1"
+                                    [style.width.%]="aptitud.porcentaje">
                                     {{aptitud.porcentaje}}%
                                 </p>
                                 {{aptitud.descripcion}}
@@ -275,7 +287,7 @@
     <div class="container-fluid seccionUser01 mt-2 px-1">
 
         <div title={{textoTooltipProyectos}} class="rounded-3 text-center mx-1"
-        [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
+            [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
             <a role="button" (click)="clk_Btn_MostrarProyectos()" class="">
                 <h4 class="pb-1 texto_h4">Proyectos</h4>
             </a>
@@ -287,8 +299,7 @@
 
                 <div *ngFor="let proyecto of datosProyectos" class="col-sm-12 col-md-6 col-lg-6 px-1">
 
-                    <div class="rounded-3 mt-1 py-1"
-                    [ngStyle]= "{'background-color':colorFondo,'color':colorTexto}">
+                    <div class="rounded-3 mt-1 py-1" [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
                         <dl>
                             <dt>{{proyecto.nombre}}</dt>
                             <dd>{{proyecto.descripcion}}</dd>
@@ -301,6 +312,6 @@
 
         </div>
 
-    </div>  
+    </div>
 
 </div>
