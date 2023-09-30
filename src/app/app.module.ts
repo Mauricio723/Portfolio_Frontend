@@ -23,6 +23,7 @@ import { IniciopfComponent } from './componentes/iniciopf/iniciopf.component';
 import { NuevaperComponent } from './componentes/persona/nuevaper/nuevaper.component';
 import { EditperComponent } from './componentes/persona/editper/editper.component';
 import { SeccionuserComponent } from './componentes/seccionuser/seccionuser.component';
+import { ConfigUserComponent } from './componentes/config-user/config-user.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SeccionuserComponent } from './componentes/seccionuser/seccionuser.comp
     IniciopfComponent,
     NuevaperComponent,
     EditperComponent,
-    SeccionuserComponent
+    SeccionuserComponent,
+    ConfigUserComponent
   ],
   imports: [
     BrowserModule,

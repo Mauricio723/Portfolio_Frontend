@@ -1,0 +1,191 @@
+<div class="colorConfigVar01 border border-primary mx-1 my-2 px-2 py-2">
+
+    <div class="mx-1 my-2 px-1 py-1">
+        <button type="button" class="btn btn-info btn-sm" 
+        (click)="clkBtnPersonalizarPagina()" [disabled]="botonConfigDeshabilitado">
+            Personalizar página
+        </button>
+    </div>
+
+    <div *ngIf="mostrarConfiguracion" class="border">
+
+        <div class="text-center my-1">
+            <h5>Configuración de Colores de la página</h5>
+        </div>
+
+        <div class="row gx-0 mx-2 my-2">
+
+            <div class="col">
+
+                <label class="mx-2" for="colorOscuroSelect">{{textoColorOscuro}}</label>
+                <select name="colorOscuroSelect" id="colorOscuroSelect" [(ngModel)]="colorOscuro"
+                    (change)="changeSelectColores()">
+
+                    <option value="rgb(0,0,0)" selected>negro</option>
+                    <option value="rgb(205,92,92)">indio rojo</option>
+                    <option value="rgb(220,20,60)">carmesí</option>
+                    <option value="rgb(178,34,34)">ladrillo refractario</option>
+                    <option value="rgb(255,0,0)">rojo</option>
+                    <option value="rgb(139,0,0)">rojo oscuro</option>
+                    <option value="rgb(255,127,80)"> coral</option>
+                    <option value="rgb(255,69,0)"> rojo naranja</option>
+                    <option value="rgb(255,140,0)"> naranja oscuro</option>
+                    <option value="rgb(34,139,34)"> bosque verde</option>
+                    <option value="rgb(0,128,0)">verde</option>
+                    <option value="rgb(0,100,0)"> verde oscuro</option>
+                    <option value="rgb(143,188,143)"> verde oscuro</option>
+                    <option value="rgb(60,179,113)"> medio verde</option>
+                    <option value="rgb(46,139,87)"> Mar verde</option>
+                    <option value="rgb(128,128,0)"> aceituna</option>
+                    <option value="rgb(85,107,47)">verde oliva oscuro</option>
+                    <option value="rgb(107,142,35)"> verde oliva</option>
+                    <option value="rgb(32,178,170)">verde claro</option>
+                    <option value="rgb(0,139,139)"> cian oscuro</option>
+                    <option value="rgb(0,128,128)"> verde azulado</option>
+                    <option value="rgb(30,144,255)">dodgerblue</option>
+                    <option value="rgb(70,130,180)">azul acero</option>
+                    <option value="rgb(65,105,225)">azul real</option>
+                    <option value="rgb(0,0,255)">azul</option>
+                    <option value="rgb(0,0,205)">azul medio</option>
+                    <option value="rgb(0,0,139)">azul oscuro</option>
+                    <option value="rgb(0,0,128)">Armada</option>
+                    <option value="rgb(25,25,112)">medianoche azul</option>
+                    <option value="rgb(123,104,238)">medio pizarra azul</option>
+                    <option value="rgb(106,90,205)">pizarra azul</option>
+                    <option value="rgb(72,61,139)">azul oscuro</option>
+                    <option value="rgb(255,0,255)">fucsia</option>
+                    <option value="rgb(255,0,255)">magenta</option>
+                    <option value="rgb(186,85,211)">orquídea mediana</option>
+                    <option value="rgb(147,112,219)">mediumpurple</option>
+                    <option value="rgb(138, 43, 226)">Violeta Azul</option>
+                    <option value="rgb(148,0,211)">Violeta oscuro</option>
+                    <option value="rgb(153,50,204)">orquídea oscura</option>
+                    <option value="rgb(139,0,139)">darkmagenta</option>
+                    <option value="rgb(128, 0,128)">púrpura</option>
+                    <option value="rgb(75,0,130)">índigo</option>
+                    <option value="rgb(255,105,180)">Rosa caliente</option>
+                    <option value="rgb(255,20,147)">Rosa profundo</option>
+                    <option value="rgb(219,112,147)">pálido violeta</option>
+                    <option value="rgb(199,21,133)">medio violeta</option>
+                    <option value="rgb(169,169,169)">gris oscuro</option>
+                    <option value="rgb(128,128,128)">gris</option>
+                    <option value="rgb(105,105,105)">dimgray</option>
+                    <option value="rgb(119,136,153)">luces grises</option>
+                    <option value="rgb(112,128,144)">gris pizarra</option>
+                    <option value="rgb(47,79,79)">gris oscuro</option>
+                    <option value="rgb(188,143,143)">rosa marrón</option>
+                    <option value="rgb(244,164,96)">marrón arenoso</option>
+                    <option value="rgb(218,165,32)">vara de oro</option>
+                    <option value="rgb(210,105,30)">chocolate</option>
+                    <option value="rgb(139,69,19)">silla de montar</option>
+                    <option value="rgb(160,82,45)">tierra de siena</option>
+                    <option value="rgb(165,42,42)">marrón</option>
+                    <option value="rgb(128,0,0)">granate</option>
+
+                </select>
+
+            </div>
+
+            <div class="col divSecciones02">
+
+                <label class="mx-2" for="colorClaroSelect">{{textoColorClaro}}</label>
+                <select name="colorClaroSelect" id="colorClaroSelect" [(ngModel)]="colorClaro"
+                    (change)="changeSelectColores()">
+
+                    <option value="rgb(255,255,255)" selected>blanco</option>
+                    <option value="rgb(255,215,0)">oro</option>
+                    <option value="rgb(255,255,224)"> amarillo claro</option>
+                    <option value="rgb(250,250,210)">dorado claro</option>
+                    <option value="rgb(255,228,181)"> mocasín</option>
+                    <option value="rgb(238,232,170)"> varilla de oro pálido</option>
+                    <option value="rgb(240,230,140)">caqui</option>
+                    <option value="rgb(255,255,0)"> amarillo</option>
+                    <option value="rgb(173,255,47)"> verde amarillo</option>
+                    <option value="rgb(144,238,144)">verde claro</option>
+                    <option value="rgb(152,251,152)"> Verde pálido</option>
+                    <option value="rgb(224,255,255)">cian claro</option>
+                    <option value="rgb(127,255,212)">aguamarina</option>
+                    <option value="rgb(64,224,208)"> turquesa</option>
+                    <option value="rgb(176,224,230)">azul pálido</option>
+                    <option value="rgb(173,216,230)">azul claro</option>
+                    <option value="rgb(135,206,250)">cielo azul claro</option>
+                    <option value="rgb(176,196,222)">azul claro</option>
+                    <option value="rgb(230,230,250)">lavanda</option>
+                    <option value="rgb(221,160,221)">ciruela</option>
+                    <option value="rgb(238,130,238)">Violeta</option>
+                    <option value="rgb(218,112,214)">orquídea</option>
+                    <option value="rgb(255,192,203)">rosado</option>
+                    <option value="rgb(255,182,193)">Rosa claro</option>
+                    <option value="rgb(255,250,250)">nieve</option>
+                    <option value="rgb(240,255,240)">gotas de miel</option>
+                    <option value="rgb(245,255,250)">crema de menta</option>
+                    <option value="rgb(240,255,255)">azur</option>
+                    <option value="rgb(240,248,255)">Alice azul</option>
+                    <option value="rgb(248,248,255)">fantasma blanco</option>
+                    <option value="rgb(245,245,245)">humo blanco</option>
+                    <option value="rgb(245,245,220)">beige</option>
+                    <option value="rgb(255,250,240)">blanco floral</option>
+                    <option value="rgb(255,255,240)">Marfil</option>
+                    <option value="rgb(250,235,215)">blanco antiguo</option>
+                    <option value="rgb(250,240,230)">lino</option>
+                    <option value="rgb(255,240,245)">lavanda rubor</option>
+                    <option value="rgb(255,228,225)">mistyrose</option>
+                    <option value="rgb(220,220,220)">Gainsboro</option>
+                    <option value="rgb(211,211,211)">gris claro</option>
+                    <option value="rgb(255,248,220)">seda de maiz</option>
+                    <option value="rgb(245,222,179)">trigo</option>
+
+                </select>
+
+            </div>
+
+            <div class="col divSecciones02">
+
+                <input type="radio" id="fondo_oscuro" name="colores_pagina_02" value="fondo_oscuro"
+                    (change)="obtenerValorInputRadio('fondo_oscuro')" [checked]="checkedInputOscuro">
+                <label for="fondo_oscuro">Fondo Oscuro</label><br>
+                <input type="radio" id="fondo_claro" name="colores_pagina_02" value="fondo_claro"
+                    (change)="obtenerValorInputRadio('fondo_claro')" [checked]="checkedInputClaro">
+                <label for="fondo_claro">Fondo Claro</label><br>
+
+            </div>
+
+        </div>
+
+        <!--
+        <div class="divSecciones02">
+
+            <label for="sizeTexto">Tamaño del texto </label>
+            <select name="sizeTexto" id="sizeTexto" (change)="cambiarSizeTexto()" [(ngModel)]="sizeTextoNuevo">
+                <option value="0.8em">Tamaño texto : 80%</option>
+                <option value="0.9em">Tamaño texto : 90%</option>
+                <option value="1em" selected>Tamaño texto : 100%</option>
+                <option value="1.1em">Tamaño texto : 110%</option>
+                <option value="1.2em">Tamaño texto : 120%</option>
+            </select>
+
+        </div>          
+    </div> -->
+
+        <div class="mx-2 my-2 px-2 py-2 border">
+
+            <button type="button" class="btn btn-info btn-sm mx-2" title="Guardar cambios de la configuración" 
+            (click)="guardarConfigPagina()">
+                Guardar cambios
+            </button>
+
+            <button type="button" class="btn btn-info btn-sm mx-2" title="Volver a configuración predeterminada"
+                (click)="volverAConfiguracionPredeterminada()">
+                Volver a valores predeterminados
+            </button>
+
+            <button type="button" class="btn btn-info btn-sm mx-2" title="Salir de configuración sin guardar cambios"
+                (click)="clkBtnSalirDeConfiguracion()">
+                Salir sin guardar cambios
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

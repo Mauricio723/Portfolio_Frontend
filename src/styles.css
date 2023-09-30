@@ -25,3 +25,12 @@
     font-size: clamp(0.8rem, 1.7vw, 1.4rem);
 }
 
+/* Variables para estilos */
+
+
+:root {
+    --color_component_01: rgb(180, 214, 228);
+    --color_fondo_01: #FFFFFF;
+    --color_texto_01: #000000;
+    --size_texto_01 : 1em;
+}     

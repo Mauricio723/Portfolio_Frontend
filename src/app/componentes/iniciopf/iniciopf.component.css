@@ -6,3 +6,17 @@
 .estiloImagen02 {
     width: 80%;
 }
+
+/* estilos de modificación de estilos con variables */
+
+.colorVariable01 {
+    
+    background-color: var(--color_fondo_01, "pink");
+    color: var(--color_texto_01, "black");
+
+    /*
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    */
+}
