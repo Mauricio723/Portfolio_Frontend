@@ -40,12 +40,6 @@ export class SeccionuserComponent implements OnInit {
   mostrarMasDatosTrabajo : Boolean[] = [];
   textoMostrarMasTrabajo : String[] = [];
 
-  colorFondo : String = "";
-  colorTexto : String = "";
-
-  fondoColor : Boolean = false;
-  textoBotonColor : String = "";
-
   constructor(private servicioPortfolio : PortfolioService) {
     
     this.textoTooltip01 = "Presionar para mostrar datos personales";
@@ -56,18 +50,13 @@ export class SeccionuserComponent implements OnInit {
     this.textoTooltipAptitudes = "Presionar para mostrar Aptitud";
     this.textoTooltipProyectos = "Presionar para mostrar Proyectos";
     
-    this.colorFondo = "rgb(255,255,255)";
-    this.colorTexto = "rgb(0,0,0)";
-    this.textoBotonColor = "Ver Fondo Oscuro";
-
    }
 
   ngOnInit(): void {
 
     this.servicioPortfolio.obtenerDtoPersona().subscribe(
       datosApi => {
-        this.datosPersonaDto = datosApi;
-        //console.log("datos persona_dto: " + JSON.stringify(this.datosPersonaDto));
+        this.datosPersonaDto = datosApi;        
         this.idPersona = this.datosPersonaDto.id;
         this.obtenerEducacion();
       }
@@ -75,22 +64,6 @@ export class SeccionuserComponent implements OnInit {
 
   }
  
-  clkBtnCambiarColor() {
-
-    if (this.fondoColor) {     
-      this.fondoColor = false;
-      this.textoBotonColor = "Ver Fondo Oscuro";
-      this.colorFondo = "rgb(255,255,255)";
-      this.colorTexto = "rgb(0,0,0)";
-    } else {      
-      this.fondoColor = true;
-      this.textoBotonColor = "Ver Fondo Claro";
-      this.colorFondo = "rgb(55,70,60)";
-      this.colorTexto = "rgb(240,236,225)";
-    }
-
-  } 
-
   obtenerEducacion() {    
     this.servicioPortfolio.traerEducacionByPersonaId(this.idPersona).subscribe(
       datosApiEducacion => {
@@ -138,7 +111,7 @@ export class SeccionuserComponent implements OnInit {
     );
   }
 
-  clkBtnMostrarDatos01() {
+  btnMostrarDatos01() {
     if (this.mostrarDatosPersona) {
       this.mostrarDatosPersona = false;
       this.textoTooltip01 = "Presionar para mostrar datos personales";
@@ -148,7 +121,7 @@ export class SeccionuserComponent implements OnInit {
     }
   }
  
-  clkBtnMostrarCiudadPersona() {
+  btnMostrarCiudadPersona() {
 
     if (this.mostrarCiudadPersona) {
       this.mostrarCiudadPersona = false;
@@ -159,7 +132,7 @@ export class SeccionuserComponent implements OnInit {
     }
   }  
 
-  clkBtnMostrarAcercaDe() {
+  btnMostrarAcercaDe() {
     if (this.mostrarAcercaDe) {
       this.mostrarAcercaDe = false;
       this.textoTooltipAcercaDe = "Presionar para mostrar AcercaDe";
@@ -169,7 +142,7 @@ export class SeccionuserComponent implements OnInit {
     }
   }
 
-  clkBtnMostrarEducacion() {
+  btnMostrarEducacion() {
     if (this.mostrarEducacion) {
       this.mostrarEducacion = false;
       this.textoTooltipEducacion = "Presionar para mostrar formación académica";
@@ -178,10 +151,8 @@ export class SeccionuserComponent implements OnInit {
       this.textoTooltipEducacion = "Presionar para ocultar formación académica";
     }
   } 
-
-   /* Método para mostrar más educación */
   
-   clkBtnMostrarMasEducacion(indiceEducacion : number) {   
+   btnMostrarMasEducacion(indiceEducacion : number) {   
 
     if(this.mostrarMasDatosEducacion[indiceEducacion]) {
       this.mostrarMasDatosEducacion[indiceEducacion] = false;
@@ -192,9 +163,8 @@ export class SeccionuserComponent implements OnInit {
     }
 
   }
-   /*  ----------- ----------------- */
-
-  clk_Btn_MostrarTrabajos() {
+   
+  btnMostrarTrabajos() {
     if (this.mostrarTrabajos) {
       this.mostrarTrabajos = false;
       this.textoTooltipTrabajo = "Presionar para mostrar Experiencia Laboral";
@@ -203,10 +173,8 @@ export class SeccionuserComponent implements OnInit {
       this.textoTooltipTrabajo = "Presionar para ocultar Experiencia Laboral";
     }
   }
-
-   /* Método para mostrar más datos de trabajo */
-  
-   clkBtnMostrarMasTrabajo(indiceTrabajo : number) {   
+    
+   btnMostrarMasTrabajo(indiceTrabajo : number) {   
 
     if(this.mostrarMasDatosTrabajo[indiceTrabajo]) {
       this.mostrarMasDatosTrabajo[indiceTrabajo] = false;
@@ -217,9 +185,8 @@ export class SeccionuserComponent implements OnInit {
     }
 
   }
-   /*  ----------- ----------------- */
-
-  clk_Btn_MostrarAptitudes() {
+  
+  btnMostrarAptitudes() {
     if (this.mostrarAptitudes) {
       this.mostrarAptitudes = false;
       this.textoTooltipAptitudes = "Presionar para mostrar Aptitudes";
@@ -229,7 +196,7 @@ export class SeccionuserComponent implements OnInit {
     }
   }
 
-  clk_Btn_MostrarProyectos() {
+  btnMostrarProyectos() {
     if (this.mostrarProyectos) {
       this.mostrarProyectos = false;
       this.textoTooltipProyectos = "Presionar para mostrar Proyecos";
@@ -237,7 +204,6 @@ export class SeccionuserComponent implements OnInit {
       this.mostrarProyectos = true;
       this.textoTooltipProyectos = "Presionar para ocultar Proyectos";
     }    
-  }
-  
+  }  
 
 }

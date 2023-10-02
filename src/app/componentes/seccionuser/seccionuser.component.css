@@ -122,3 +122,8 @@
     dt { font-size: 1.2rem; }
     dd { font-size: 1.2rem; }
 }
+
+.colorVarUser {
+    background-color: var(--color_fondo_01, "rgb(255,255,255");
+    color: var(--color_texto_01, "rgb(0,0,0)");
+}

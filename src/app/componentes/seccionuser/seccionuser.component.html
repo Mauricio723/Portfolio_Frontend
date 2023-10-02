@@ -34,17 +34,10 @@
         </div>
     </ng-template>
 
-    <div class="col rounded-3 text-end mx-3 mt-1 px-3" [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
-        <a role="button" (click)="clkBtnCambiarColor()" class="">
-            <h4 class="pb-1 texto_h4">{{textoBotonColor}}</h4>
-        </a>
-    </div>
-
     <div class="seccionUser01 container-fluid mt-2 ">
 
-        <div title={{textoTooltip01}} class="rounded-3 text-center"
-            [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
-            <a role="button" (click)="clkBtnMostrarDatos01()" class="">
+        <div title={{textoTooltip01}} class="colorVarUser rounded-3 text-center">
+            <a role="button" (click)="btnMostrarDatos01()" class="">
                 <h4 class="pb-1 texto_h4">Datos Personales</h4>
             </a>
         </div>
@@ -53,7 +46,7 @@
 
             <div class="">
 
-                <dl class=" rounded-3 mb-1 pb-1 pt-2" [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
+                <dl class="colorVarUser rounded-3 mb-1 pb-1 pt-2">
 
                     <div class="row">
                         <div class="col-6">
@@ -78,7 +71,7 @@
                     </div>
 
                     <div title={{tooltipCiudadPersona}} class="mx-3 mb-1 py-1">
-                        <dt><a role="button" (click)="clkBtnMostrarCiudadPersona()">
+                        <dt><a role="button" (click)="btnMostrarCiudadPersona()">
                                 Ubicación
                             </a></dt>
 
@@ -99,7 +92,7 @@
                     </div>
 
                     <div title={{textoTooltipAcercaDe}} class="mx-3 mb-1 py-1">
-                        <dt><a role="button" (click)="clkBtnMostrarAcercaDe()" class="">
+                        <dt><a role="button" (click)="btnMostrarAcercaDe()" class="">
                                 Acerca De: {{datosPersonaDto.nombre}}
                             </a></dt>
                         <dd *ngIf="mostrarAcercaDe">{{datosPersonaDto.acercaDe}}</dd>
@@ -113,9 +106,8 @@
 
     <div class="container-fluid seccionUser01 mt-2">
 
-        <div title={{textoTooltipEducacion}} class="rounded-3 text-center"
-            [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
-            <a role="button" (click)="clkBtnMostrarEducacion()" class="">
+        <div title={{textoTooltipEducacion}} class="colorVarUser rounded-3 text-center">
+            <a role="button" (click)="btnMostrarEducacion()" class="">
                 <h4 class="pb-1 texto_h4">Formación Académica</h4>
             </a>
         </div>
@@ -124,7 +116,7 @@
 
             <div class="" *ngFor="let educacion of datosEducacion; let indice = index">
 
-                <div class="rounded-3 mt-1 py-1" [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
+                <div class="colorVarUser rounded-3 mt-1 py-1">
 
                     <dl>
                         <dt>Nombre Institución:</dt>
@@ -136,7 +128,8 @@
                         <!-- Lo que está a continuación, se muestra haciendo click 
                             en el botón mostrar más -->
 
-                        <dt class="text-center"><a role="button" (click)="clkBtnMostrarMasEducacion(indice)">
+                        <dt class="text-center">
+                            <a role="button" (click)="btnMostrarMasEducacion(indice)">
                                 {{textoMostrarMasEducacion[indice]}}
                             </a></dt>
 
@@ -185,9 +178,8 @@
 
     <div class="container-fluid seccionUser01 mt-2 px-1">
 
-        <div title={{textoTooltipTrabajo}} class="rounded-3 text-center mx-1"
-            [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
-            <a role="button" (click)="clk_Btn_MostrarTrabajos()" class="">
+        <div title={{textoTooltipTrabajo}} class="colorVarUser rounded-3 text-center mx-1">
+            <a role="button" (click)="btnMostrarTrabajos()" class="">
                 <h4 class="pb-1 texto_h4">Experiencia Laboral</h4>
             </a>
         </div>
@@ -196,7 +188,7 @@
 
             <div class="mx-1" *ngFor="let trabajo of datosTrabajos; let indiceTrabajo = index">
 
-                <div class="rounded-3 mt-1 py-1" [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
+                <div class="colorVarUser rounded-3 mt-1 py-1">
 
                     <dl>
                         <dt>Nombre Empresa:</dt>
@@ -208,7 +200,8 @@
                         <!-- Lo que está a continuación, se muestra haciendo click 
                             en el botón mostrar más -->
 
-                        <dt class="text-center my-1"><a role="button" (click)="clkBtnMostrarMasTrabajo(indiceTrabajo)">
+                        <dt class="text-center my-1">
+                            <a role="button" (click)="btnMostrarMasTrabajo(indiceTrabajo)">
                                 {{textoMostrarMasTrabajo[indiceTrabajo]}}
                             </a></dt>
 
@@ -250,9 +243,8 @@
 
     <div class="container-fluid seccionUser01 mt-2 px-1">
 
-        <div title={{textoTooltipAptitudes}} class="rounded-3 text-center mx-1"
-            [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
-            <a role="button" (click)="clk_Btn_MostrarAptitudes()" class="">
+        <div title={{textoTooltipAptitudes}} class="colorVarUser rounded-3 text-center mx-1">
+            <a role="button" (click)="btnMostrarAptitudes()" class="">
                 <h4 class="pb-1 texto_h4">Aptitudes</h4>
             </a>
         </div>
@@ -262,7 +254,7 @@
             <div class="row gx-2 mx-1">
                 <div *ngFor="let aptitud of datosAptitudes" class="col-sm-12 col-md-6 col-lg-6 rounded-3">
 
-                    <div class="rounded-3 mt-1 py-1" [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
+                    <div class="colorVarUser rounded-3 mt-1 py-1">
                         <dl>
                             <dt>{{aptitud.nombre}}</dt>
                             <dd>
@@ -286,9 +278,8 @@
 
     <div class="container-fluid seccionUser01 mt-2 px-1">
 
-        <div title={{textoTooltipProyectos}} class="rounded-3 text-center mx-1"
-            [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
-            <a role="button" (click)="clk_Btn_MostrarProyectos()" class="">
+        <div title={{textoTooltipProyectos}} class="colorVarUser rounded-3 text-center mx-1">
+            <a role="button" (click)="btnMostrarProyectos()" class="">
                 <h4 class="pb-1 texto_h4">Proyectos</h4>
             </a>
         </div>
@@ -299,7 +290,7 @@
 
                 <div *ngFor="let proyecto of datosProyectos" class="col-sm-12 col-md-6 col-lg-6 px-1">
 
-                    <div class="rounded-3 mt-1 py-1" [ngStyle]="{'background-color':colorFondo,'color':colorTexto}">
+                    <div class="colorVarUser rounded-3 mt-1 py-1">
                         <dl>
                             <dt>{{proyecto.nombre}}</dt>
                             <dd>{{proyecto.descripcion}}</dd>
