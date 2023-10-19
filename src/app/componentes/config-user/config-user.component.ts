@@ -5,10 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './config-user.component.html',
   styleUrls: ['./config-user.component.css']
 })
+
 export class ConfigUserComponent implements OnInit {
 
-  mostrarConfiguracion : boolean = false;
-  botonConfigDeshabilitado : boolean = false;
+  mostrarConfiguracion: boolean = false;
+  botonConfigDeshabilitado: boolean = false;
 
   colorFondoNuevo: string = "";
   colorTextoNuevo: string = "";
@@ -23,13 +24,17 @@ export class ConfigUserComponent implements OnInit {
   textoColorOscuro: string = "";
   textoColorClaro: string = "";
 
-  sizeTextoNuevo: string;
+  checkedInputOscuro: boolean = false;
+  checkedInputClaro: boolean = true;
 
-  checkedInputOscuro : boolean = false;
+  // variables utilizadas en el control del tamaño del texto
 
-  checkedInputClaro : boolean = true;
-
-
+  anchoNavegador: number;
+  fontSizeSelect: string;
+  fontSizeNuevo: string; 
+  fontSizeRelativo: number;
+  fontSizePorAnchoNavegador : number;
+ 
   constructor() {
 
     this.colorOscuro = "rgb(0,0,0)";
@@ -43,19 +48,30 @@ export class ConfigUserComponent implements OnInit {
     this.textoColorOscuro = "Color Texto";
     this.textoColorClaro = "Color Fondo";
 
-    this.sizeTextoNuevo = "1em";
-
-   }
+    this.fontSizeSelect = "100";
+    this.fontSizeNuevo = "";
+    
+    this.anchoNavegador = 0;   
+    this.fontSizeRelativo = 1;
+    this.fontSizePorAnchoNavegador = 0;
+   
+  }
 
   ngOnInit(): void {
 
     this.rootVariableStyle = document.documentElement;
 
-    this.obtenerDatosSessionStorage();    
+    this.obtenerDatosSessionStorage();
 
     this.establecerColoresPagina();
 
+    this.establecerFontSize();
+
   }
+
+  // evento que detecta cambio en el ancho de la ventana, para establecer los valores
+  // para el tamaño de las fuentes.
+
 
   clkBtnPersonalizarPagina() {
 
@@ -63,6 +79,9 @@ export class ConfigUserComponent implements OnInit {
     this.botonConfigDeshabilitado = true;
 
   }
+
+  // comprobamos si los valores para colores y tamaño de fuente, ya se encuentran
+  // guardados en sessionStorage.
 
   obtenerDatosSessionStorage() {
 
@@ -75,15 +94,19 @@ export class ConfigUserComponent implements OnInit {
     if (sessionStorage.getItem("tipoFondoGuardado") != undefined) {
       this.tipoColorFondo = "" + sessionStorage.getItem("tipoFondoGuardado");
     }
-    
+    if (sessionStorage.getItem("fontSizeGuardada") != undefined) {
+      this.fontSizeSelect = "" + sessionStorage.getItem("fontSizeGuardada");
+    } else {
+      this.fontSizeSelect = "100";
+    }
+
   }
-  
-  // métodos de cambiar estilos con variables
+
+  // Recordar que el input radio determina si el fondo es oscuro o claro
 
   obtenerValorInputRadio(tipoFondo: string) {
 
     this.tipoColorFondo = tipoFondo;
-
     this.establecerColoresPagina();
 
   }
@@ -118,9 +141,53 @@ export class ConfigUserComponent implements OnInit {
     this.establecerColoresPagina();
   }
 
-  cambiarSizeTexto() {
+  // tamaño de fuentes para las 6 variables establecidas en archivo style.css
 
-    this.rootVariableStyle.style.setProperty("--size_texto_01", this.sizeTextoNuevo);
+  establecerFontSize() {
+
+    this.anchoNavegador = window.innerWidth;
+    
+    if (this.anchoNavegador <= 200) {
+      this.fontSizePorAnchoNavegador = -20;
+    }
+    if (this.anchoNavegador > 200 && this.anchoNavegador <= 500) {
+      this.fontSizePorAnchoNavegador = -10;
+    }
+    if (this.anchoNavegador > 500 && this.anchoNavegador <= 700) {
+      this.fontSizePorAnchoNavegador = 0;
+    }
+    if (this.anchoNavegador > 700 && this.anchoNavegador <= 900) {
+      this.fontSizePorAnchoNavegador = 10;
+    }
+    if (this.anchoNavegador > 900 && this.anchoNavegador <= 1100) {
+      this.fontSizePorAnchoNavegador = 20;
+    }
+    if (this.anchoNavegador > 1100 && this.anchoNavegador <= 1200) {
+      this.fontSizePorAnchoNavegador = 30;
+    }
+    if (this.anchoNavegador > 1200) {
+      this.fontSizePorAnchoNavegador = 40;
+    }   
+    
+    this.fontSizeRelativo = this.fontSizePorAnchoNavegador + parseFloat(this.fontSizeSelect);
+
+    this.fontSizeNuevo = "" + (this.fontSizeRelativo)/ 100 + "em";    
+   this.rootVariableStyle.style.setProperty("--font_size_01", this.fontSizeNuevo);
+
+    this.fontSizeNuevo = "" + (this.fontSizeRelativo + 20) / 100 + "em";
+   this.rootVariableStyle.style.setProperty("--font_size_02", this.fontSizeNuevo);
+
+    this.fontSizeNuevo = "" + (this.fontSizeRelativo + 40) / 100 + "em";
+    this.rootVariableStyle.style.setProperty("--font_size_03", this.fontSizeNuevo);
+
+    this.fontSizeNuevo = "" + (this.fontSizeRelativo + 50) / 100 + "em";
+    this.rootVariableStyle.style.setProperty("--font_size_04", this.fontSizeNuevo);
+
+    this.fontSizeNuevo = "" + (this.fontSizeRelativo + 60) / 100 + "em";
+    this.rootVariableStyle.style.setProperty("--font_size_05", this.fontSizeNuevo);
+
+    this.fontSizeNuevo = "" + (this.fontSizeRelativo + 80) / 100 + "em";
+    this.rootVariableStyle.style.setProperty("--font_size_06", this.fontSizeNuevo);
 
   }
 
@@ -129,38 +196,34 @@ export class ConfigUserComponent implements OnInit {
     sessionStorage.setItem("colorOscuroGuardado", this.colorOscuro);
     sessionStorage.setItem("colorClaroGuardado", this.colorClaro);
     sessionStorage.setItem("tipoFondoGuardado", this.tipoColorFondo);
-   
+    sessionStorage.setItem("fontSizeGuardada", this.fontSizeSelect);
+
     this.mostrarConfiguracion = false;
     this.botonConfigDeshabilitado = false;
   }
-    /*
-  mostrarDatosSessionStorage() {
-
-    console.log("Cantidad de elementos de sessionStorage: " + sessionStorage.length);
-    console.log("Datos color Oscuro: " + sessionStorage.getItem("colorOscuroGuardado"));
-    console.log("Datos color Claro: " + sessionStorage.getItem("colorClaroGuardado"));
-    console.log("Datos tipo de fondo: " + sessionStorage.getItem("tipoFondoGuardado"));
-
-  }   */
-
+ 
   volverAConfiguracionPredeterminada() {
-     
+
     sessionStorage.removeItem("colorOscuroGuardado");
     sessionStorage.removeItem("colorClaroGuardado");
     sessionStorage.removeItem("tipoFondoGuardado");
+    sessionStorage.removeItem("fontSizeGuardada");
 
     this.colorOscuro = "rgb(0,0,0)";
     this.colorClaro = "rgb(255,255,255)";
     this.tipoColorFondo = "fondo_claro";
+    this.fontSizeSelect = "100";
 
     this.obtenerDatosSessionStorage();
 
     this.establecerColoresPagina();
 
+    this.establecerFontSize();
+
     this.mostrarConfiguracion = false;
     this.botonConfigDeshabilitado = false;
 
-  } 
+  }
 
   clkBtnSalirDeConfiguracion() {
 
