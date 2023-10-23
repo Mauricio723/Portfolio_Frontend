@@ -1,4 +1,3 @@
-
 .estiloImagen01 {
     width: clamp(10rem, 30vw, 25rem);
 }
@@ -10,7 +9,7 @@
 /* estilos de modificación de estilos con variables */
 
 .colorVariable01 {
-    
+
     background-color: var(--color_fondo_01, "pink");
     color: var(--color_texto_01, "black");
 
@@ -20,3 +19,29 @@
     padding: 5px;
     */
 }
+
+p,
+h6 {
+    font-size: var(--font_size_01, 1em);
+}
+
+h5 {
+    font-size: var(--font_size_02, 1.1em);
+}
+
+h4 {
+    font-size: var(--font_size_03, 1.2em);
+}
+
+h3 {
+    font-size: var(--font_size_04, 1.3em);
+}
+
+h2 {
+    font-size: var(--font_size_05, 1.4em);
+}
+
+h1 {
+    font-size: var(--font_size_06, 1.5em);
+}
+

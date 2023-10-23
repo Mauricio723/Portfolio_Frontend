@@ -1,9 +1,9 @@
-<div class="colorConfigVar01 border border-primary mx-1 my-2 px-2 py-2">
-
+<div class="colorConfigVar01 border border-primary mx-1 my-2 px-2 py-2" (window:resize)="establecerFontSize()">
+    <!-- evento al cambiar tamaño de la ventana (window:resize)="eventoCambioAncho()"  -->
     <div class="mx-1 my-2 px-1 py-1">
-        <button type="button" class="btn btn-info btn-sm" 
-        (click)="clkBtnPersonalizarPagina()" [disabled]="botonConfigDeshabilitado">
-            Personalizar página
+        <button type="button" class="btn btn-info btn-sm" (click)="clkBtnPersonalizarPagina()"
+            [disabled]="botonConfigDeshabilitado">
+            Configurar página
         </button>
     </div>
 
@@ -152,25 +152,29 @@
 
         </div>
 
-        <!--
-        <div class="divSecciones02">
+        <div class="border mx-2 px-2 py-2">
 
-            <label for="sizeTexto">Tamaño del texto </label>
-            <select name="sizeTexto" id="sizeTexto" (change)="cambiarSizeTexto()" [(ngModel)]="sizeTextoNuevo">
-                <option value="0.8em">Tamaño texto : 80%</option>
-                <option value="0.9em">Tamaño texto : 90%</option>
-                <option value="1em" selected>Tamaño texto : 100%</option>
-                <option value="1.1em">Tamaño texto : 110%</option>
-                <option value="1.2em">Tamaño texto : 120%</option>
+            <h5 class="text-center">Configuración Tamaño del texto</h5>
+                       
+            <label class="mx-2" for="sizeTexto">Tamaño del texto </label>
+
+            <select name="sizeTexto" id="sizeTexto" (change)="establecerFontSize()" [(ngModel)]="fontSizeSelect">
+                <option value="70">Tamaño texto : 70%</option>
+                <option value="80">Tamaño texto : 80%</option>
+                <option value="90">Tamaño texto : 90%</option>
+                <option value="100">Tamaño texto : 100%</option>
+                <option value="110">Tamaño texto : 110%</option>
+                <option value="120">Tamaño texto : 120%</option>
+                <option value="130">Tamaño texto : 130%</option>
+                <option value="140">Tamaño texto : 140%</option>
             </select>
 
-        </div>          
-    </div> -->
+        </div>
 
         <div class="mx-2 my-2 px-2 py-2 border">
 
-            <button type="button" class="btn btn-info btn-sm mx-2" title="Guardar cambios de la configuración" 
-            (click)="guardarConfigPagina()">
+            <button type="button" class="btn btn-info btn-sm mx-2" title="Guardar cambios de la configuración"
+                (click)="guardarConfigPagina()">
                 Guardar cambios
             </button>
 
