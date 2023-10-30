@@ -45,7 +45,7 @@ export class ConfigUserComponent implements OnInit {
 
     this.tipoColorFondo = "fondo_claro";
 
-    this.textoColorOscuro = "Color Texto";
+    this.textoColorOscuro = "Color _Texto";
     this.textoColorClaro = "Color Fondo";
 
     this.fontSizeSelect = "100";
@@ -119,7 +119,7 @@ export class ConfigUserComponent implements OnInit {
       this.colorFondoNuevo = this.colorOscuro;
       this.colorTextoNuevo = this.colorClaro;
       this.textoColorOscuro = "Color Fondo";
-      this.textoColorClaro = "Color Texto";
+      this.textoColorClaro = "Color _Texto";
     }
 
     if (this.tipoColorFondo === "fondo_claro") {
@@ -128,7 +128,7 @@ export class ConfigUserComponent implements OnInit {
       this.colorFondoNuevo = this.colorClaro;
       this.colorTextoNuevo = this.colorOscuro;
       this.textoColorClaro = "Color Fondo";
-      this.textoColorOscuro = "Color Texto";
+      this.textoColorOscuro = "Color _Texto";
     }
 
     this.rootVariableStyle.style.setProperty("--color_fondo_01", this.colorFondoNuevo);
