@@ -27,28 +27,27 @@
     <div class="row m-2">
         <div class="col  text-center">
             <a href="#" class="" routerLink="/nuevo">
-                <h3 class="colorVariable01 rounded-3 py-1">
+                <h4 class="colorVariable01 rounded-3 py-1">
                     Crear Cuenta
-                </h3>
+                </h4>
             </a>
         </div>
 
         <div class="col text-center">
             <a href="#" class="" routerLink="/login">
-                <h3 class="colorVariable01 rounded-3 py-1">
+                <h4 class="colorVariable01 rounded-3 py-1">
                     Iniciar Sesión
-                </h3>
+                </h4>
             </a>
         </div>
-    </div>
 
-    <div class="text-center border mx-2 my-2 px-2 py-2">
-        <h4 class="my-2 text-light">Con sesión iniciada:</h4>
-        <a href="#" class="" routerLink="/seccionuser">
-            <h4 class="colorVariable01 rounded-3 py-1">
-                Sección: Datos Portfolio</h4>
-        </a>
-    </div>
-    
+        <div class="col text-center">            
+            <a role="button"  (click)="btnMostrarSeccionUser()" class="" >
+                <h4 class="colorVariable01 rounded-3 py-1">
+                    Datos Portfolio</h4>
+            </a>
+        </div>
+
+    </div>       
 
 </div>
