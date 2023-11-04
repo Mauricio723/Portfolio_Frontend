@@ -7,26 +7,34 @@
                 <img src="assets/Imagenes_01\ArgProg_yoProg_03.png" class="img-fluid" alt="yoProgramo">
             </a>
         </div>
-
+      
         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+
             <nav class="estiloNav01 text-info mt-2 mb-1">
-                <span *ngIf="rutaActual != '/inicio'; else enlaceInicioNull" class="mx-2 p-1">
-                    <a class="link-light" routerLink="/inicio" (click)="clkEnlaceInicio()">Inicio</a>
+
+                <span class="mx-2">
+                    <a *ngIf="rutaNavegadorActual != '/inicio'; else inicioActivo" class="link-light"
+                        routerLink="/inicio">Inicio</a>
+                    <ng-template #inicioActivo>Inicio</ng-template>
                 </span>
-                <ng-template #enlaceInicioNull>Inicio</ng-template>
-                <span *ngIf="rutaActual != '/nuevo'; else enlaceNuevoNull" class="mx-2 p-1">
-                    <a class="link-light" routerLink="/nuevo" (click)="clkEnlaceNuevo()">Crear Cuenta</a>
+                <span class="mx-2">
+                    <a class="link-light" routerLink="/nuevo">Crear Cuenta</a>
                 </span>
-                <ng-template #enlaceNuevoNull>Nuevo Usuario</ng-template>
-                <span *ngIf="rutaActual != '/login'; else enlaceLoginNull" class="mx-2 p-1"> 
-                    <a class="link-light" routerLink="/login" (click)="clkEnlaceLogin()">iniciar sesión</a>
+                <span class="mx-2">
+                    <a class="link-light" routerLink="/login"
+                        *ngIf="sessionIniciadaOk == false; else sessionActiva">Iniciar Sesión</a>
+                    <ng-template #sessionActiva>Sesión Activa</ng-template>
                 </span>
-                <ng-template #enlaceLoginNull>Iniciar Sesión</ng-template>
-                <span *ngIf="rutaActual != '/inicio'; else enlaceCerrarNull" class="mx-2 p-1">
-                    <a class="link-light " routerLink="/inicio" (click)="clkEnlaceCerrar()">
-                    Cerrar Sesión</a> </span>
-                <ng-template #enlaceCerrarNull>Cerrar Sesión</ng-template>                                     
-            </nav>            
-        </div>     
-    </div>        
+                <span class="mx-2">
+                    <a class="link-light" role="button" (click)="cerrarSession()"
+                        *ngIf="sessionIniciadaOk; else sessionCerrada">Cerrar Sesión</a>
+                    <ng-template #sessionCerrada>Sesión Cerrada</ng-template>
+                </span>
+              
+            </nav>
+
+        </div>
+       
+    </div>
+
 </header>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router, Event } from '@angular/router';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 @Component({
   selector: 'app-header',
@@ -9,32 +10,62 @@ import { Router } from '@angular/router';
 
 export class HeaderComponent implements OnInit {
    
-  rutaActual : String = "";
+  //rutaActual : String = "";
 
-  constructor (private myRouter: Router) 
-  {      } 
+  rutaNavegadorActual : string;
+  sessionIniciadaOk : boolean;
+
+  constructor (private myRouter: Router, private servicioAutenticacion : AutenticacionService) {      
+
+    this.rutaNavegadorActual = "";
+    this.sessionIniciadaOk = false;
+
+  } 
 
   ngOnInit(): void {     
 
-    this.rutaActual = window.location.pathname;
+    //this.rutaActual = window.location.pathname;
+
+    this.obtenerRutaNavegador();
+
+    this.comprobarSessionIniciada();
 
   } 
  
-  clkEnlaceInicio() {
-    this.rutaActual = "/inicio";     
+  comprobarSessionIniciada() {
+
+    let currentUser = this.servicioAutenticacion.UsuarioAutenticado;
+
+     if (currentUser && currentUser.token && sessionStorage.getItem("currentUser") != null) {
+      this.sessionIniciadaOk = true;          
+    } else {
+      this.sessionIniciadaOk = false;           
+    }
+  }
+  
+  obtenerRutaNavegador() { 
+    this.myRouter.events.subscribe((myEvento : Event) => {
+        if (myEvento instanceof NavigationEnd) {
+          this.rutaNavegadorActual = myEvento.url;          
+
+          this.comprobarSessionIniciada();        
+
+        }
+      }
+    );     
   }
 
-  clkEnlaceNuevo() {
-    this.rutaActual = "/nuevo";   
-  }
-
-  clkEnlaceLogin() {
-    this.rutaActual = "/login"; 
-  }
-  clkEnlaceCerrar() {
-    this.rutaActual = "/inicio"
+  cerrarSession() {
+    
     sessionStorage.removeItem("currentUser");
+
     sessionStorage.setItem("mensajeSession", "Sesión Cerrada - Gracias por su visita");
+
+    if (this.rutaNavegadorActual != "/inicio") {
+      this.myRouter.navigate(["/inicio"]);
+    }
+
+    //window.location.reload();
   }
- 
+  
 }

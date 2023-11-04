@@ -1,5 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 @Component({
   selector: 'app-iniciopf',
@@ -8,10 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IniciopfComponent implements OnInit {
 
-
   tituloInicio: any;
    
-  constructor() {
+  constructor(private servicioAutenticacion : AutenticacionService, private myRouter : Router) {
    
   }
 
@@ -23,9 +24,23 @@ export class IniciopfComponent implements OnInit {
 
     } else {
       this.tituloInicio = "Inicio Portfolio";
-    }
- 
+    } 
    
   }
+
+  btnMostrarSeccionUser() {
+
+    let currentUser = this.servicioAutenticacion.UsuarioAutenticado;
+
+    if (currentUser && currentUser.token) {
+      // si la sesión está inicada redirigo a seccionUser por el router
+      this.myRouter.navigate(["/seccionuser"]);      
+    } else {
+      // si la sesión no está iniciada, redirigo a formulario de login
+      this.myRouter.navigate(["/login"]);
+    }
+    
+  }
+ 
 
 }

@@ -125,7 +125,7 @@ export class SeccionuserComponent implements OnInit {
 
     if (this.mostrarCiudadPersona) {
       this.mostrarCiudadPersona = false;
-      this.tooltipCiudadPersona = "Presionar par mostrar ubicación";
+      this.tooltipCiudadPersona = "Presionar para mostrar ubicación";
     } else {
       this.mostrarCiudadPersona = true;
       this.tooltipCiudadPersona = "Presionar para ocultar ubicación";
