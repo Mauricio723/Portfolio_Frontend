@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ConfigUserComponent implements OnInit {
 
   mostrarConfiguracion: boolean = false;
-  botonConfigDeshabilitado: boolean = false;
+  botonConfigActivo: boolean;
 
   colorFondoNuevo: string = "";
   colorTextoNuevo: string = "";
@@ -36,6 +36,8 @@ export class ConfigUserComponent implements OnInit {
   fontSizePorAnchoNavegador : number;
  
   constructor() {
+
+    this.botonConfigActivo = true;
 
     this.colorOscuro = "rgb(0,0,0)";
     this.colorClaro = "rgb(255,255,255)";
@@ -76,7 +78,7 @@ export class ConfigUserComponent implements OnInit {
   clkBtnPersonalizarPagina() {
 
     this.mostrarConfiguracion = true;
-    this.botonConfigDeshabilitado = true;
+    this.botonConfigActivo = false;
 
   }
 
@@ -137,9 +139,23 @@ export class ConfigUserComponent implements OnInit {
 
   }
 
-  changeSelectColores() {
+  seleccionColorSpanOscuro(colorSpanOscuro : string) {
+
+    this.colorOscuro = colorSpanOscuro;
+
+    this.establecerColoresPagina();
+
+  }
+
+  seleccionColorSpanClaro(colorSpanClaro : string) {
+    this.colorClaro = colorSpanClaro;
     this.establecerColoresPagina();
   }
+
+  /*
+  changeSelectColores() {
+    this.establecerColoresPagina();
+  } */
 
   // tamaño de fuentes para las 6 variables establecidas en archivo style.css
 
@@ -199,7 +215,7 @@ export class ConfigUserComponent implements OnInit {
     sessionStorage.setItem("fontSizeGuardada", this.fontSizeSelect);
 
     this.mostrarConfiguracion = false;
-    this.botonConfigDeshabilitado = false;
+    this.botonConfigActivo = true;
   }
  
   volverAConfiguracionPredeterminada() {
@@ -221,14 +237,14 @@ export class ConfigUserComponent implements OnInit {
     this.establecerFontSize();
 
     this.mostrarConfiguracion = false;
-    this.botonConfigDeshabilitado = false;
+    this.botonConfigActivo = true;
 
   }
 
   clkBtnSalirDeConfiguracion() {
 
     this.mostrarConfiguracion = false;
-    this.botonConfigDeshabilitado = false;
+    this.botonConfigActivo = true;
 
   }
 

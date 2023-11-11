@@ -1,12 +1,32 @@
-<div class="px-1">
+<div class="mx-1 px-1">
 
-    <div class="container-fluid colorConfigVar01 my-2 px-2 py-2" (window:resize)="establecerFontSize()">
+    <div class="container-fluid colorConfigVar01 rounded-3 my-2 px-2 py-1" (window:resize)="establecerFontSize()">
         <!-- evento al cambiar tamaño de la ventana (window:resize)="eventoCambioAncho()"  -->
-        <div class="mx-1 my-2 px-1 py-1">
-            <button type="button" class="btn btn-info btn-sm" (click)="clkBtnPersonalizarPagina()"
+
+        <!--
+        <div class="mx-1 my-1 px-1 py-1">
+            <button type="button" class="btn btn-primary btn-sm" (click)="clkBtnPersonalizarPagina()"
                 [disabled]="botonConfigDeshabilitado">
                 Configurar página
             </button>
+        </div>
+         -->
+
+        <div class="row gx-0">
+            <div class="col-4 col-sm-6 col-md-8 bg-secondary">
+
+            </div>
+            <div class="col-8 col-sm-6 col-md-4 ps-2">
+                <a *ngIf="botonConfigActivo; else btnConfigDesactivado" role="button"
+                    (click)="clkBtnPersonalizarPagina()" class="">
+                    <h5 class="text-center" title="Presionar para personalizar colores y tamaños de texto">
+                        Configurar página</h5>
+                </a>
+                <ng-template #btnConfigDesactivado>
+                    <h5 class="bg-info text-primary text-center"
+                        title="guardar cambios o salir para habilitar el botón">Configurar página</h5>
+                </ng-template>
+            </div>
         </div>
 
         <div *ngIf="mostrarConfiguracion" class="">
@@ -19,126 +39,117 @@
 
                 <div class="col-sm-12 col-md-6 col-lg-4 mt-2 px-1 py-1">
 
-                    <label class="mx-2" for="colorOscuroSelect">{{textoColorOscuro}}</label>
-                    <select name="colorOscuroSelect" id="colorOscuroSelect" [(ngModel)]="colorOscuro"
-                        (change)="changeSelectColores()">
+                    <h6 class="mx-2">{{textoColorOscuro}}</h6>
+                    
+                    <div class="border border-danger bg-secondary mx-2 px-2 py-1">
 
-                        <option value="rgb(0,0,0)" selected>negro</option>
-                        <option value="rgb(205,92,92)">indio rojo</option>
-                        <option value="rgb(220,20,60)">carmesí</option>
-                        <option value="rgb(178,34,34)">ladrillo refractario</option>
-                        <option value="rgb(255,0,0)">rojo</option>
-                        <option value="rgb(139,0,0)">rojo oscuro</option>
-                        <option value="rgb(255,127,80)"> coral</option>
-                        <option value="rgb(255,69,0)"> rojo naranja</option>
-                        <option value="rgb(255,140,0)"> naranja oscuro</option>
-                        <option value="rgb(34,139,34)"> bosque verde</option>
-                        <option value="rgb(0,128,0)">verde</option>
-                        <option value="rgb(0,100,0)"> verde oscuro</option>
-                        <option value="rgb(143,188,143)"> verde oscuro</option>
-                        <option value="rgb(60,179,113)"> medio verde</option>
-                        <option value="rgb(46,139,87)"> Mar verde</option>
-                        <option value="rgb(128,128,0)"> aceituna</option>
-                        <option value="rgb(85,107,47)">verde oliva oscuro</option>
-                        <option value="rgb(107,142,35)"> verde oliva</option>
-                        <option value="rgb(32,178,170)">verde claro</option>
-                        <option value="rgb(0,139,139)"> cian oscuro</option>
-                        <option value="rgb(0,128,128)"> verde azulado</option>
-                        <option value="rgb(30,144,255)">dodgerblue</option>
-                        <option value="rgb(70,130,180)">azul acero</option>
-                        <option value="rgb(65,105,225)">azul real</option>
-                        <option value="rgb(0,0,255)">azul</option>
-                        <option value="rgb(0,0,205)">azul medio</option>
-                        <option value="rgb(0,0,139)">azul oscuro</option>
-                        <option value="rgb(0,0,128)">Armada</option>
-                        <option value="rgb(25,25,112)">medianoche azul</option>
-                        <option value="rgb(123,104,238)">medio pizarra azul</option>
-                        <option value="rgb(106,90,205)">pizarra azul</option>
-                        <option value="rgb(72,61,139)">azul oscuro</option>
-                        <option value="rgb(255,0,255)">fucsia</option>
-                        <option value="rgb(255,0,255)">magenta</option>
-                        <option value="rgb(186,85,211)">orquídea mediana</option>
-                        <option value="rgb(147,112,219)">mediumpurple</option>
-                        <option value="rgb(138, 43, 226)">Violeta Azul</option>
-                        <option value="rgb(148,0,211)">Violeta oscuro</option>
-                        <option value="rgb(153,50,204)">orquídea oscura</option>
-                        <option value="rgb(139,0,139)">darkmagenta</option>
-                        <option value="rgb(128, 0,128)">púrpura</option>
-                        <option value="rgb(75,0,130)">índigo</option>
-                        <option value="rgb(255,105,180)">Rosa caliente</option>
-                        <option value="rgb(255,20,147)">Rosa profundo</option>
-                        <option value="rgb(219,112,147)">pálido violeta</option>
-                        <option value="rgb(199,21,133)">medio violeta</option>
-                        <option value="rgb(169,169,169)">gris oscuro</option>
-                        <option value="rgb(128,128,128)">gris</option>
-                        <option value="rgb(105,105,105)">dimgray</option>
-                        <option value="rgb(119,136,153)">luces grises</option>
-                        <option value="rgb(112,128,144)">gris pizarra</option>
-                        <option value="rgb(47,79,79)">gris oscuro</option>
-                        <option value="rgb(188,143,143)">rosa marrón</option>
-                        <option value="rgb(244,164,96)">marrón arenoso</option>
-                        <option value="rgb(218,165,32)">vara de oro</option>
-                        <option value="rgb(210,105,30)">chocolate</option>
-                        <option value="rgb(139,69,19)">silla de montar</option>
-                        <option value="rgb(160,82,45)">tierra de siena</option>
-                        <option value="rgb(165,42,42)">marrón</option>
-                        <option value="rgb(128,0,0)">granate</option>
+                        <span (click)="seleccionColorSpanOscuro('rgb(0,0,0)')" style="color:rgb(0,0,0);cursor:pointer;"
+                            class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(53, 46, 46)')"
+                            style="color:rgb(53, 46, 46);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(39, 70, 13)')"
+                            style="color:rgb(39, 78, 13);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(96, 153, 63)')"
+                            style="color:rgb(96, 153, 63);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(34, 64, 197)')"
+                            style="color:rgb(34, 64, 197);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(34, 44, 87)')"
+                            style="color:rgb(34, 44, 87);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(78, 36, 90)')"
+                            style="color:rgb(78, 36, 90);cursor:pointer;" class="ms-2">██</span>
+                        <br>
+                        <span (click)="seleccionColorSpanOscuro('rgb(200, 80, 255)')"
+                            style="color:rgb(200, 80, 255);cursor:pointer;" class="ms-2">██</span>
 
-                    </select>
+                        <span (click)="seleccionColorSpanOscuro('rgb(21, 181, 202)')"
+                            style="color:rgb(21, 181, 202);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(92, 28, 73)')"
+                            style="color:rgb(92, 28, 73);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(58, 17, 17)')"
+                            style="color:rgb(58, 17, 17);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(180, 70, 70)')"
+                            style="color:rgb(180, 70, 70);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(134, 136, 15)')"
+                            style="color:rgb(134, 136, 15);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(233, 211, 17)')"
+                            style="color:rgb(233, 211, 17);cursor:pointer;" class="ms-2">██</span>
+                        <br>
+                        <span (click)="seleccionColorSpanOscuro('rgb(255,0,0)')" style="color:rgb(255,0,0);cursor:pointer;"
+                            class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(192, 207, 57)')"
+                            style="color:rgb(192, 207, 57);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(139,0,0)')" style="color:rgb(139,0,0);cursor:pointer;"
+                            class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(143, 126, 82)')"
+                            style="color:rgb(143, 126, 82);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(255,69,0)')" style="color:rgb(255,69,0);cursor:pointer;"
+                            class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(173, 133, 60)')"
+                            style="color:rgb(173, 133, 60);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(29, 90, 94)')"
+                            style="color:rgb(29, 90, 94);cursor:pointer;" class="ms-2">██</span>
 
+                    </div>
+                   
                 </div>
 
                 <div class="col-sm-12 col-md-6 col-lg-4 mt-2 px-1 py-1">
 
-                    <label class="mx-2" for="colorClaroSelect">{{textoColorClaro}}</label>
-                    <select name="colorClaroSelect" id="colorClaroSelect" [(ngModel)]="colorClaro"
-                        (change)="changeSelectColores()">
+                    <h6 class="mx-2" >{{textoColorClaro}}</h6>
 
-                        <option value="rgb(255,255,255)" selected>blanco</option>
-                        <option value="rgb(255,215,0)">oro</option>
-                        <option value="rgb(255,255,224)"> amarillo claro</option>
-                        <option value="rgb(250,250,210)">dorado claro</option>
-                        <option value="rgb(255,228,181)"> mocasín</option>
-                        <option value="rgb(238,232,170)"> varilla d_oro pálido</option>
-                        <option value="rgb(240,230,140)">caqui</option>
-                        <option value="rgb(255,255,0)"> amarillo</option>
-                        <option value="rgb(173,255,47)"> verde amarillo</option>
-                        <option value="rgb(144,238,144)">verde claro</option>
-                        <option value="rgb(152,251,152)"> Verde pálido</option>
-                        <option value="rgb(224,255,255)">cian claro</option>
-                        <option value="rgb(127,255,212)">aguamarina</option>
-                        <option value="rgb(64,224,208)"> turquesa</option>
-                        <option value="rgb(176,224,230)">azul pálido</option>
-                        <option value="rgb(173,216,230)">azul claro</option>
-                        <option value="rgb(135,206,250)">cielo azul claro</option>
-                        <option value="rgb(176,196,222)">azul claro</option>
-                        <option value="rgb(230,230,250)">lavanda</option>
-                        <option value="rgb(221,160,221)">ciruela</option>
-                        <option value="rgb(238,130,238)">Violeta</option>
-                        <option value="rgb(218,112,214)">orquídea</option>
-                        <option value="rgb(255,192,203)">rosado</option>
-                        <option value="rgb(255,182,193)">Rosa claro</option>
-                        <option value="rgb(255,250,250)">nieve</option>
-                        <option value="rgb(240,255,240)">gotas de miel</option>
-                        <option value="rgb(245,255,250)">crema de menta</option>
-                        <option value="rgb(240,255,255)">azur</option>
-                        <option value="rgb(240,248,255)">Alice azul</option>
-                        <option value="rgb(248,248,255)">fantasma blanco</option>
-                        <option value="rgb(245,245,245)">humo blanco</option>
-                        <option value="rgb(245,245,220)">beige</option>
-                        <option value="rgb(255,250,240)">blanco floral</option>
-                        <option value="rgb(255,255,240)">Marfil</option>
-                        <option value="rgb(250,235,215)">blanco antiguo</option>
-                        <option value="rgb(250,240,230)">lino</option>
-                        <option value="rgb(255,240,245)">lavanda rubor</option>
-                        <option value="rgb(255,228,225)">mistyrose</option>
-                        <option value="rgb(220,220,220)">Gainsboro</option>
-                        <option value="rgb(211,211,211)">gris claro</option>
-                        <option value="rgb(255,248,220)">seda de maiz</option>
-                        <option value="rgb(245,222,179)">trigo</option>
+                    <div class="border border-danger bg-secondary mx-2 px-2 py-1">
 
-                    </select>
+                        <span (click)="seleccionColorSpanClaro('rgb(255, 255, 255)')" 
+                            style="color:rgb(255, 255, 255);cursor:pointer;"
+                            class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(211, 210, 200)')"
+                            style="color:rgb(221, 210, 200);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(177, 221, 140)')"
+                            style="color:rgb(177, 221, 148);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(172, 104, 165)')"
+                            style="color:rgb(172, 184, 165);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(139, 153, 214)')"
+                            style="color:rgb(139, 153, 214);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(129, 135, 160)')"
+                            style="color:rgb(129, 135, 160);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(194, 164, 202)')"
+                            style="color:rgb(194, 164, 202);cursor:pointer;" class="ms-2">██</span>
+                        <br>
+                        <span (click)="seleccionColorSpanClaro('rgb(205, 157, 220)')"
+                            style="color:rgb(205, 157, 228);cursor:pointer;" class="ms-2">██</span>
 
+                        <span (click)="seleccionColorSpanClaro('rgb(139, 210, 219)')"
+                            style="color:rgb(139, 210, 219);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(192, 131, 174)')"
+                            style="color:rgb(192, 131, 174);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(155, 126, 126)')"
+                            style="color:rgb(155, 126, 126);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(219, 175, 175)')"
+                            style="color:rgb(219, 175, 175);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(208, 209, 144)')"
+                            style="color:rgb(208, 209, 144);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(233, 224, 149)')"
+                            style="color:rgb(233, 224, 149);cursor:pointer;" class="ms-2">██</span>
+                        <br>
+                        <span (click)="seleccionColorSpanClaro('rgb(245, 160, 160)')" 
+                            style="color:rgb(245, 160, 160);cursor:pointer;"
+                            class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(181, 182,176)')"
+                            style="color:rgb(181, 182, 176);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(189, 119, 119)')" style="color:rgb(189, 119, 119);cursor:pointer;"
+                            class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(210, 192, 120)')"
+                            style="color:rgb(218, 192, 128);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(216, 146, 120)')" 
+                            style="color:rgb(216, 146, 120);cursor:pointer;"
+                            class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(226, 187, 115)')"
+                            style="color:rgb(226, 187, 115);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(126, 202, 207)')"
+                            style="color:rgb(126, 202, 207);cursor:pointer;" class="ms-2">██</span>
+
+                    </div>
+                  
                 </div>
 
                 <div class="col-sm-12 col-md-12 col-lg-4 mt-2 ps-3 py-1">
