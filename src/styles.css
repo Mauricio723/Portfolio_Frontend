@@ -8,11 +8,11 @@
     --color_texto_01: #000000;
     
     --font_size_01: 1.1em;    
-    --font_size_02: 1.4em;
-    --font_size_03: 1.6em;
-    --font_size_04: 1.8em;
-    --font_size_05: 2em;
-    --font_size_06: 2.2em;
+    --font_size_02: 1.3em;
+    --font_size_03: 1.5em;
+    --font_size_04: 1.7em;
+    --font_size_05: 1.9em;
+    --font_size_06: 2.1em;
 
 }     
 
@@ -44,3 +44,28 @@
 }
 */
 
+/* Tamaño del texot según la configuración de la página, 
+   por parte del usuario */
+
+p, dt, dd, h6 {
+    font-size: var(--font_size_01, 1em) !important;
+}  
+
+h5 {
+    font-size: var(--font_size_02, 1.1em) !important;
+}
+
+h4 {   
+    font-size: var(--font_size_03, 1.2em) !important;     
+}
+
+h3 {
+    font-size: var(--font_size_04, 1.3em) !important;
+}
+h2 {
+    font-size: var(--font_size_05, 1.4em) !important;
+}
+
+h1 {
+    font-size: var(--font_size_06, 1.5em) !important;
+}
