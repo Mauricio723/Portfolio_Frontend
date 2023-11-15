@@ -74,7 +74,6 @@ export class ConfigUserComponent implements OnInit {
   // evento que detecta cambio en el ancho de la ventana, para establecer los valores
   // para el tamaño de las fuentes.
 
-
   clkBtnPersonalizarPagina() {
 
     this.mostrarConfiguracion = true;
@@ -160,29 +159,29 @@ export class ConfigUserComponent implements OnInit {
   // tamaño de fuentes para las 6 variables establecidas en archivo style.css
 
   establecerFontSize() {
-
+    
     this.anchoNavegador = window.innerWidth;
     
     if (this.anchoNavegador <= 200) {
-      this.fontSizePorAnchoNavegador = -20;
+      this.fontSizePorAnchoNavegador = -30;
     }
     if (this.anchoNavegador > 200 && this.anchoNavegador <= 500) {
-      this.fontSizePorAnchoNavegador = -10;
+      this.fontSizePorAnchoNavegador = -20;
     }
     if (this.anchoNavegador > 500 && this.anchoNavegador <= 700) {
-      this.fontSizePorAnchoNavegador = 0;
+      this.fontSizePorAnchoNavegador = -10;
     }
     if (this.anchoNavegador > 700 && this.anchoNavegador <= 900) {
-      this.fontSizePorAnchoNavegador = 10;
+      this.fontSizePorAnchoNavegador = 0;
     }
     if (this.anchoNavegador > 900 && this.anchoNavegador <= 1100) {
-      this.fontSizePorAnchoNavegador = 20;
+      this.fontSizePorAnchoNavegador = 10;
     }
     if (this.anchoNavegador > 1100 && this.anchoNavegador <= 1200) {
-      this.fontSizePorAnchoNavegador = 30;
+      this.fontSizePorAnchoNavegador = 20;
     }
     if (this.anchoNavegador > 1200) {
-      this.fontSizePorAnchoNavegador = 40;
+      this.fontSizePorAnchoNavegador = 30;
     }   
     
     this.fontSizeRelativo = this.fontSizePorAnchoNavegador + parseFloat(this.fontSizeSelect);
@@ -204,7 +203,7 @@ export class ConfigUserComponent implements OnInit {
 
     this.fontSizeNuevo = "" + (this.fontSizeRelativo + 80) / 100 + "em";
     this.rootVariableStyle.style.setProperty("--font_size_06", this.fontSizeNuevo);
-
+    
   }
 
   guardarConfigPagina() {
