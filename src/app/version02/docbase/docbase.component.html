@@ -1,0 +1,176 @@
+<div>
+    <header class="">
+
+        <div class="div_header_01">
+            <h3 class="text-light">Code72_2025</h3>
+        </div>
+
+        <div class="div_header_02">            
+            <h1 class="text-light">Bienvenidos al Sitio Web de Mauricio</h1>      
+        </div>                   
+        <div class="">
+            <img src="/assets/imagenes_v02/IMG_Banner_01.jpg" 
+            class="imgBanner01" alt="Imagen del Banner">
+        </div>
+                          
+    </header>
+
+    <nav class="color_nav_01 px-1 pt-1">
+
+        <div class="row gx-0">
+
+            <div class="col-6 col-sm-4 col-md-2 text-center">
+                <p class="">
+                    <a *ngIf="rutaNavegadorActual != '/home'; else inicioActivo02" 
+                        class="link-light" routerLink="/home">                
+                        Inicio               
+                    </a>                
+                    <ng-template #inicioActivo02>                
+                        <span class="text-light">Inicio</span>            
+                    </ng-template>             
+                </p>           
+            </div>
+    
+            <div class="col-6 col-sm-4 col-md-2 text-center">
+                <p>
+                    <a *ngIf="rutaNavegadorActual != '/nuevo'; else nuevoActivo02" 
+                        class="link-light" routerLink="/nuevo">
+                        Crear Cuenta</a>
+                    <ng-template #nuevoActivo02>
+                        <span class="text-light">Crear Cuenta</span> 
+                    </ng-template>    
+                </p>
+            </div>
+    
+            <div class="col-6 col-sm-4 col-md-2 text-center">
+                <p>
+                    <a *ngIf="rutaNavegadorActual != '/login'; else loginActivo02" 
+                        class="link-light" routerLink="/login">
+                        Iniciar Sesión</a>
+                    <ng-template #loginActivo02>
+                        <span class="text-light">Iniciar Sesión</span>                        
+                    </ng-template>
+                </p>
+            </div>
+    
+            <div class="col-6 col-sm-4 col-md-2 text-center">   
+                <p><a role="button"  (click)="btnMostrarSeccionUser()" 
+                    class="link-light">Datos Portfolio</a>
+                </p>
+            </div>   
+            
+            <div class="col-6 col-sm-4 col-md-2 text-center">
+                <p>
+                    <a *ngIf="sessionIniciadaOk; else sessionCerrada02" 
+                        class="link-light" role="button" (click)="cerrarSession()">
+                        Cerrar Sesión</a>
+                    <ng-template #sessionCerrada02>
+                        <span class="text-light">Sesión Cerrada</span>                        
+                    </ng-template>
+                </p>               
+            </div>
+            <!--
+            <div class="col-6 col-sm-4 col-md-2 text-center">
+                <p class="">
+                    <a *ngIf="rutaNavegadorActual != '/home'; else inicioActivo03" 
+                        class="link-light" routerLink="/home">                
+                        Disponible              
+                    </a>                
+                    <ng-template #inicioActivo03>                
+                        <span class="text-light">Disponible </span>            
+                    </ng-template>             
+                </p>           
+            </div>
+            -->    
+        </div>           
+
+    </nav>
+
+    <!-- En el siguiente div se incluye el componente para configuración de 
+    colores y tamaño de texto -->   
+    <div class="">
+        <app-config-user></app-config-user>
+    </div>       
+    
+    <!-- Dentro de main se muestra el contenido cambiante del sitio -->
+
+    <main class="mx-1 my-1 px-2 py-2 border border-success">        
+        <router-outlet></router-outlet>
+    </main>
+
+    <footer class="footer_main px-2 py-2">
+
+        <div class="container-fluid my-2 py-2">
+
+            <div class="row mt-2">
+    
+                <div class="col-sm-6 col-md-6 col-lg-6">
+
+                    <span class="texto_footer">Proyecto : &nbsp; Portfolio Web
+                        <br>Versión : &nbsp; 2.0.0
+                        <br>Fecha publicación : &nbsp; Abril 2024 
+                    </span>
+
+                </div>
+    
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <span class="texto_footer">
+                        Autor : 
+                        <br>&nbsp;&nbsp;Salvador Mauricio Vilches Jerez 
+                        <br>Contacto - Email :  
+                        <br>&nbsp;&nbsp;salvadorvilches1972@gmail.com
+                    </span>
+                </div>           
+
+            </div>
+    
+            <div class="row gx-1 mt-1">
+    
+                <div class="col-sm-6 col-md-6 px-2">
+                        
+                    <div class="mt-3">
+                        <button class="btn btn-outline-light btn-sm ms-4" 
+                        (click)="eventoBtnAbout()">
+                        Acerca de este trabajo</button>
+                    </div>
+    
+                    <div class="mt-3">
+    
+                        <span *ngIf="mostrarAbout" 
+                        class="texto_footer">                            
+                            Este proyecto es una actualización de un portfolio web 
+                            creado para un trabajo final de un curso de programación. 
+                            La versión original de este proyecto la pueden obtener 
+                            en el repositorio GitHub, en la etiqueta correspondiente 
+                            a la versión 1.X.X.                            
+                        </span>
+                    </div>
+                        
+                </div>
+    
+                <div class="col-sm-6 col-md-6 px-2">
+    
+                    <div class="mt-3">
+    
+                        <button class="btn btn-outline-light btn-sm ms-4" 
+                        (click)="eventoBtnDerechos()">
+                        Derechos de autor</button>
+                    </div>
+    
+                    <div class="mt-3">
+                        <span *ngIf="mostrarDerechosAutor" class="texto_footer">
+                            Condiciones de uso:
+                            <br>El presente trabajo, puede ser copiado y modificado,
+                                para fines académicos. 
+                        </span>
+                    </div>
+                   
+                </div>
+    
+            </div>
+    
+        </div>
+       
+    </footer>
+
+</div>
