@@ -1,16 +1,15 @@
-<div class="colorGradSeccUser">
-
-    <div *ngIf="datosPersonaDto; else datosPersonaDtoNull" class="">
-
-        <div class="div_foto_01 espacioTop">
-            <img src={{datosPersonaDto.urlFoto}} class="rounded-circle border anchoImagen01" alt="Foto Mauricio">
+<div class="colorGradSeccUser py-2">
+       
+    <div>
+        <div *ngIf="datosPersonaDto" class="div_foto_01">
+            <img src="{{datosPersonaDto.urlFoto}}" class="rounded-circle border anchoImagen01" alt="Foto Mauricio">
         </div>
 
-        <div class="">
-            <img src={{datosPersonaDto.urlBanner}} class="estiloBanner01" alt="Imagen del Banner">
+        <div class="mt-1">
+            <h3 class="titulo_portfolio text-center rounded-3">Sección Portfolio Web</h3>
         </div>
 
-        <div class="textoFoto_01">
+        <div *ngIf="datosPersonaDto" class="textoFoto_01">
             <dl>
                 <dt>{{datosPersonaDto.nombre}} {{datosPersonaDto.apellido}}</dt>
                 <dd>{{datosPersonaDto.tituloPrincipal}}</dd>
@@ -18,26 +17,7 @@
         </div>
 
     </div>
-    <ng-template #datosPersonaDtoNull>
-        <div class="div_foto_01 espacioTop">
-            <img src="\assets\Imagenes_01\IMG_EsperandoFoto.jpg" class="rounded-circle border anchoImagen01"
-                alt="Foto Mauricio">
-        </div>
-        <div class="">
-            <img src="\assets\Imagenes_01\IMG_EsperandoBanner.jpg" class="estiloBanner01" alt="Imagen del Banner">
-        </div>
-        <div class="textoFoto_01">
-            <dl>
-                <dt>Esperando datos: nombre persona</dt>
-                <dd>Esperando datos: Título principal</dd>
-            </dl>
-        </div>
-    </ng-template>
-
-    <div class="mx-1">
-        <app-config-user></app-config-user>
-    </div>    
-
+      
     <div class="seccionUser01 container-fluid mt-2 ">
 
         <div title={{textoTooltip01}} class="colorVarUser rounded-3 text-center">

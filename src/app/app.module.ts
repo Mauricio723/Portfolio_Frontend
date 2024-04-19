@@ -24,6 +24,8 @@ import { NuevaperComponent } from './componentes/persona/nuevaper/nuevaper.compo
 import { EditperComponent } from './componentes/persona/editper/editper.component';
 import { SeccionuserComponent } from './componentes/seccionuser/seccionuser.component';
 import { ConfigUserComponent } from './componentes/config-user/config-user.component';
+import { DocbaseComponent } from './version02/docbase/docbase.component';
+import { Home02Component } from './version02/home02/home02.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { ConfigUserComponent } from './componentes/config-user/config-user.compo
     NuevaperComponent,
     EditperComponent,
     SeccionuserComponent,
-    ConfigUserComponent
+    ConfigUserComponent,
+    DocbaseComponent,
+    Home02Component
   ],
   imports: [
     BrowserModule,

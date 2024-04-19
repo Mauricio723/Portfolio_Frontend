@@ -17,24 +17,29 @@
 
 }
 
+.titulo_portfolio {        
+    background-color: rgba(219, 231, 235, 0.603);
+    color: rgb(49, 42, 4);
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .div_foto_01 {
     position: absolute;
     z-index: 20;
     margin-left: 10px;
 }
 
-.textoFoto_01 {
+.textoFoto_01 {    
     background-color: cadetblue;
     color: azure;
-    padding-left: 21%;
+    margin-top: 50px;
+    padding-left: 18%;
     padding-bottom: 2px;
     font-size: clamp(0.8rem, 1.7vw, 1.4rem);
 }
-
-/*
-.seccionUser01 h4 {
-    color: rgb(223, 233, 196);
-}  */
 
 .colorUser_01 {
     background-color: rgb(55, 122, 131);
@@ -76,62 +81,31 @@
 
 @media (max-width: 599px)
 {
-	.anchoImagen01 { width: 118px; }
-    .espacioTop {  margin-top: 45px; }
-	.estiloBanner01 {
-	   width: 100%;	
-	   height: 200px;
-    }
-    /*
-    .texto_h4 { font-size: 0.9rem; }    
-    dt { font-size: 0.7rem; }
-    dd { font-size: 0.7rem; }
-    */    
+	.anchoImagen01 { width: 80px; }
+    .espacioTop {  margin-top: 2px; }
+	  
 }
 
 @media (min-width: 600px) {
-    .anchoImagen01 { width: 130px; }
-    .espacioTop { margin-top: 95px; }
-    .estiloBanner01 {
-        width: 100%;
-        height: 230px;
-    }
-    /*
-    .texto_h4 { font-size: 1rem; } 
-    dt { font-size: 0.9rem; }
-    dd { font-size: 0.9rem; }
-    */
+    .anchoImagen01 { width: 100px; }
+    .espacioTop { margin-top: 5px; }
+    
 }
 
 @media (min-width: 900px) {
-    .anchoImagen01 { width: 140px; } 
-    .espacioTop { margin-top: 125px; }
-    .estiloBanner01 {
-        width: 100%;
-        height: 250px;
-    }
-    /*
-    .texto_h4 { font-size: 1.1rem; } 
-    dt { font-size: 1rem; }
-    dd { font-size: 1rem; }
-    */
+    .anchoImagen01 { width: 120px; } 
+    .espacioTop { margin-top: 8px; }
+    
 }
 
 @media (min-width: 1280px) {
-    .anchoImagen01 { width: 150px; }
-    .espacioTop { margin-top: 135px; }
-    .estiloBanner01 {
-        width: 100%;
-        height: 300px;
-    }
-    /*
-    .texto_h4 { font-size: 1.2rem; } 
-    dt { font-size: 1.2rem; }
-    dd { font-size: 1.2rem; }
-    */
+    .anchoImagen01 { width: 140px; }
+    .espacioTop { margin-top: 12px; }
+   
 }
 
 .colorVarUser {
     background-color: var(--color_fondo_01, "rgb(255,255,255");
     color: var(--color_texto_01, "rgb(0,0,0)");
 }
+

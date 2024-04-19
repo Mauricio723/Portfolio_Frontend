@@ -1,12 +1,14 @@
 <div class="">
-
+<!--
   <div class="div_foto_01 espacioTop">
     <img src={{datosPersona.urlFoto}} class="rounded-circle border anchoImagen01" alt="Foto Mauricio">
   </div>
 
+  
   <div class="">
     <img src={{datosPersona.urlBanner}} class="estiloBanner01" alt="Imagen del Banner">
   </div>
+ 
 
   <div class="textoFoto_01">
     <dl>
@@ -14,14 +16,21 @@
       <dd>{{datosPersona.tituloPrincipal}}</dd>
     </dl>
   </div>
+ -->
 
 </div>
 
+<!--
+<div>
+  <app-config-user></app-config-user>
+</div>
+-->
+
 <div class="container-fluid seccionAbout mt-2 "> 
  
-  <div title={{textoTooltip01}} class="colorAbout_02 rounded-3 text-center">
+  <div title={{textoTooltip01}} class="color_variable_persona_01 rounded-3 text-center">
     <a role="button" (click)="clkBtnMostrarDatos01()" class="">
-     <h4 class="pb-1 texto_h4">Datos Personales</h4>
+     <h4 class="pb-1 ">Datos Personales</h4>
     </a>
   </div>  
 
@@ -31,7 +40,7 @@
 
       <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-1 px-1">
 
-        <dl class="colorAbout_03 rounded-3 mb-1 pb-1 pt-2">
+        <dl class="color_variable_persona_01 rounded-3 mb-1 pb-1 pt-2">
           <div class="row">
             <div class="col-6">
               <dt>Nombre</dt>
@@ -63,7 +72,7 @@
 
       <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-1 px-1">
 
-        <dl class="colorAbout_03 rounded-3 mb-1 pb-1 pt-2">
+        <dl class="color_variable_persona_01 rounded-3 mb-1 pb-1 pt-2">
           <dt>Email</dt>
           <dd>{{datosPersona.email}}</dd>
           <dt>Fecha de Nacimiento</dt>
@@ -74,7 +83,7 @@
       </div>
     </div>
 
-    <div *ngIf="esUsuarioAdmin()" class="colorAbout_03 rounded-3 mt-1 py-1">
+    <div *ngIf="esUsuarioAdmin()" class="color_variable_persona_01 rounded-3 mt-1 py-1">
 
       <button class="btn btn-outline-light btn-sm mx-2" routerLink="/personaedit/{{datosPersona.id}}">
         Modificar Persona
@@ -100,7 +109,7 @@
   </div>
 
   <div>
-    <div *ngIf="esUsuarioAdmin() && mostrarMasDatos" class="colorAbout_01 rounded-3 mx-1 my-2 py-2">
+    <div *ngIf="esUsuarioAdmin() && mostrarMasDatos" class="color_variable_persona_01 rounded-3 mx-1 my-2 py-2">
 
       <h6 class="text-center mx-3">Datos Personales Secundarios - (Administrador)</h6>
 
