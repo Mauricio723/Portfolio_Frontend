@@ -34,3 +34,7 @@
             rgb(236, 141, 134));
 
 }
+
+.colorGradiente_03 {
+        background: radial-gradient(red, blue);
+}

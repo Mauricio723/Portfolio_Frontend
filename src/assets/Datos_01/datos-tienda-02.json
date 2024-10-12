@@ -1,0 +1,116 @@
+{
+    "usuario01": [
+        {
+            "id": 1,
+            "nombre": "Horno Microondas", 
+            "img_url": "./assets/imagenes-tienda/img-microondas.jpg",
+            "precio": 23000.30
+        },
+        {
+            "id": 2,
+            "nombre": "Olla mediana", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 4700.70
+        }, 
+        {
+            "id": 3,
+            "nombre": "Rallador rectangular", 
+            "img_url": "./assets/imagenes-tienda/img-rallador.jpg",
+            "precio": 2730.47
+        },
+        {
+            "id": 4,
+            "nombre": "Sartén mediano", 
+            "img_url": "./assets/imagenes-tienda/img-sarten.jpg",
+            "precio": 3720.48
+        },
+        {
+            "id": 5,
+            "nombre": "Tazón grande", 
+            "img_url": "./assets/imagenes-tienda/img-tazon.jpg",
+            "precio": 1730.62
+        },
+        {
+            "id": 6,
+            "nombre": "Tetera de aluminio", 
+            "img_url": "./assets/imagenes-tienda/img-tetera.jpg",
+            "precio": 5630.72
+        }
+    ],
+    "usuario02": [
+        {
+            "id": 1,
+            "nombre": "nombre artículo 01", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 730.47
+        },
+        {
+            "id": 2,
+            "nombre": "nombre artículo 02", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 730.47
+        }, 
+        {
+            "id": 3,
+            "nombre": "nombre artículo 03", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 730.47
+        },
+        {
+            "id": 4,
+            "nombre": "nombre artículo 04", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 730.47
+        },
+        {
+            "id": 5,
+            "nombre": "nombre artículo 05", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 730.47
+        },
+        {
+            "id": 6,
+            "nombre": "nombre artículo 06", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 730.47
+        }
+    ], 
+    "usuario03": [
+        {
+            "id": 1,
+            "nombre": "nombre artículo 01", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 730.47
+        },
+        {
+            "id": 2,
+            "nombre": "nombre artículo 02", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 730.47
+        }, 
+        {
+            "id": 3,
+            "nombre": "nombre artículo 03", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 730.47
+        },
+        {
+            "id": 4,
+            "nombre": "nombre artículo 04", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 730.47
+        },
+        {
+            "id": 5,
+            "nombre": "nombre artículo 05", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 730.47
+        },
+        {
+            "id": 6,
+            "nombre": "nombre artículo 06", 
+            "img_url": "./assets/imagenes-tienda/img-olla.jpg",
+            "precio": 730.47
+        }
+    ]
+}

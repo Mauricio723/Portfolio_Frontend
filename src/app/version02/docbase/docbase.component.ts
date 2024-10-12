@@ -48,9 +48,8 @@ export class DocbaseComponent implements OnInit {
     this.myRouter.events.subscribe((myEvento : Event) => {
         if (myEvento instanceof NavigationEnd) {
           this.rutaNavegadorActual = myEvento.url;          
-
-          this.comprobarSessionIniciada();      
-          
+          this.comprobarSessionIniciada();                
+          //console.log("Ruta Actual : " + this.rutaNavegadorActual);
         }
       }
     );     

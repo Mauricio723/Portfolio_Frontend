@@ -1,0 +1,38 @@
+
+<section class="color-section mx-2 my-2 px-2 py-2 border">
+    
+    <h2 class="text-center">Tienda Virtual SurCode25</h2>
+
+    <article class="estilo_article_01">
+
+        <h3 class="mx-1 my-1 px-1 py-1">Article Tienda Virtual</h3>
+
+        <div *ngIf="datosTienda01; else esperandoDatos" class="container">
+
+            <div class="row gx-0">
+
+                <div *ngFor="let dato_tienda of datosTienda01" 
+                class="col-sm-12 col-md-6 col-lg-4">
+
+                    <div class="div_item_02">
+                        <div class="div_img_item">
+                            <img class="img_item" src={{dato_tienda.img_url}} alt={{dato_tienda.nombre}}>
+                        </div>
+                        <div class="div_datos_item">
+                            <h5 class="text-center">{{dato_tienda.nombre}}</h5>
+                            <p class="text-end">Precio: {{dato_tienda.precio}}</p>
+                        </div>
+                    </div>
+                   
+                </div>
+                
+            </div>
+        </div>
+
+        <ng-template #esperandoDatos>
+            <h3>Esperando Datos</h3>
+        </ng-template>
+
+    </article>
+    
+</section>

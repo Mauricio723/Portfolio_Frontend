@@ -26,6 +26,7 @@ import { SeccionuserComponent } from './componentes/seccionuser/seccionuser.comp
 import { ConfigUserComponent } from './componentes/config-user/config-user.component';
 import { DocbaseComponent } from './version02/docbase/docbase.component';
 import { Home02Component } from './version02/home02/home02.component';
+import { TiendaComponent } from './version02/tienda/tienda.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { Home02Component } from './version02/home02/home02.component';
     SeccionuserComponent,
     ConfigUserComponent,
     DocbaseComponent,
-    Home02Component
+    Home02Component,
+    TiendaComponent
   ],
   imports: [
     BrowserModule,

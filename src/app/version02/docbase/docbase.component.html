@@ -1,27 +1,70 @@
 <div>
-    <header class="">
 
-        <div class="div_header_01">
-            <h3 class="text-light">MV_Code_2025</h3>
-        </div>
+    <header class="header_main">
 
-        <div class="div_header_02">            
-            <h1 class="text-light">Bienvenidos al Sitio Web de Mauricio</h1>      
-        </div>                   
-        <div class="">
-            <img src="/assets/imagenes_v02/IMG_Banner_01.jpg" 
-            class="imgBanner01" alt="Imagen del Banner">
-        </div>
-                          
+        <div class="div_in_header_01">
+
+            <div *ngIf="rutaNavegadorActual == '/home' || rutaNavegadorActual == '/'; else no_inicio">
+
+                <div class="div_header_01">
+                <h3 class="">SurCode25</h3>
+                </div>
+    
+                <div class="div_header_02">            
+                <h1 class="">Sitio Web de Mauricio</h1>      
+                </div> 
+
+                <!--             
+                <div class="div_imagen_header">
+                <img src="/assets/imagenes_v02/IMG_Banner_01.jpg" 
+                class="imgBanner01" alt="Imagen del Banner">
+                </div>
+                -->
+            </div>
+
+            <ng-template #no_inicio>
+
+                <div class="container-fluid">
+
+                    <div class="row color_no_inicio">
+                        <div class="col-12 col-sm-6">
+                            <h3 class="">MV_Code_2025</h3>
+                        </div>    
+                        <div class="col-12 col-sm-6">  
+                            
+                            <div [ngSwitch]="rutaNavegadorActual">
+                                <div *ngSwitchCase="'/portfolio'">
+                                    <h4 class="">Sección Portfolio</h4> 
+                                </div>
+                                <div *ngSwitchCase="'/tienda'">
+                                    <h4 class="">Tienda Virtual</h4> 
+                                </div>
+                                <div *ngSwitchDefault>
+                                    <h4 class="">La ruta especificada no existe</h4> 
+                                </div>
+                            </div>
+                                 
+                        </div>       
+                    </div>              
+            <!--
+            <div class="">
+                <img src="/assets/imagenes_v02/IMG_Banner_01.jpg" 
+                class="banner_no_inicio" alt="Imagen del Banner">
+            </div>
+            -->
+                </div>
+                  
+            </ng-template>
+        </div>                         
     </header>
 
-    <nav class="color_nav_01 px-1 pt-1">
+    <nav *ngIf="rutaNavegadorActual != '/tienda'" class="color_nav_01 px-1 pt-1">
 
         <div class="row gx-0">
 
             <div class="col-6 col-sm-4 col-md-2 text-center">
                 <p class="">
-                    <a *ngIf="rutaNavegadorActual != '/home'; else inicioActivo02" 
+                    <a *ngIf="rutaNavegadorActual != '/home' && rutaNavegadorActual != '/'; else inicioActivo02" 
                         class="link-light" routerLink="/home">                
                         Inicio               
                     </a>                
@@ -88,7 +131,7 @@
 
     <!-- En el siguiente div se incluye el componente para configuración de 
     colores y tamaño de texto -->   
-    <div class="">
+    <div *ngIf="rutaNavegadorActual != '/tienda'" class="">
         <app-config-user></app-config-user>
     </div>       
     
@@ -106,11 +149,27 @@
     
                 <div class="col-sm-6 col-md-6 col-lg-6">
 
-                    <span class="texto_footer">Proyecto : &nbsp; Portfolio Web
-                        <br>Versión : &nbsp; 2.0.0
-                        <br>Fecha publicación : &nbsp; Abril 2024 
-                    </span>
-
+                    <div [ngSwitch]="rutaNavegadorActual">
+                        <div *ngSwitchCase="'/portfolio'">
+                            <span class="texto_footer">Proyecto : &nbsp; Portfolio Web
+                                <br>Versión : &nbsp; 2.0.0
+                                <br>Fecha publicación : &nbsp; Abril 2024 
+                            </span>
+                        </div>
+                        <div *ngSwitchCase="'/tienda'">
+                            <span class="texto_footer">Proyecto : &nbsp; Tienda Virtual
+                                <br>Versión : &nbsp; 1.0.0
+                                <br>Fecha publicación : &nbsp; Octubre 2024 
+                            </span>
+                        </div>
+                        <div *ngSwitchDefault>
+                            <span class="texto_footer">Proyecto : &nbsp; Sitio Web de Mauricio
+                                <br>Versión : &nbsp; 1.0.0
+                                <br>Fecha publicación : &nbsp; Abril 2024 
+                            </span>
+                        </div>
+                    </div>
+                   
                 </div>
     
                 <div class="col-sm-6 col-md-6 col-lg-6">
@@ -124,7 +183,7 @@
 
             </div>
     
-            <div class="row gx-1 mt-1">
+            <div *ngIf="rutaNavegadorActual != '/tienda'" class="row gx-1 mt-1">
     
                 <div class="col-sm-6 col-md-6 px-2">
                         

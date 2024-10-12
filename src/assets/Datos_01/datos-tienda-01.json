@@ -1,0 +1,116 @@
+{
+    "usuario01": {
+        "articulo-01": {
+            "id": 1,
+            "nombre": "nombre artículo 01", 
+            "img-articulo-01": "url-articulo-01",
+            "precio": "precio 01"
+        },
+        "articulo-02": {
+            "id": 2,
+            "nombre": "nombre artículo 02", 
+            "img-articulo-01": "url-articulo-02",
+            "precio": "precio 02"
+        }, 
+        "articulo-03": {
+            "id": 3,
+            "nombre": "nombre artículo 03", 
+            "img-articulo-01": "url-articulo-03",
+            "precio": "precio 04"
+        },
+        "articulo-04": {
+            "id": 4,
+            "nombre": "nombre artículo 04", 
+            "img-articulo-01": "url-articulo-04",
+            "precio": "precio 04"
+        },
+        "articulo-05": {
+            "id": 5,
+            "nombre": "nombre artículo 05", 
+            "img-articulo-01": "url-articulo-05",
+            "precio": "precio 05"
+        },
+        "articulo-06": {
+            "id": 6,
+            "nombre": "nombre artículo 06", 
+            "img-articulo-01": "url-articulo-06",
+            "precio": "precio 06"
+        }
+    },
+    "usuario02": {
+        "articulo-01": {
+            "id": 1,
+            "nombre": "nombre artículo 01", 
+            "img-articulo-01": "url-articulo-01",
+            "precio": "precio 01"
+        },
+        "articulo-02": {
+            "id": 2,
+            "nombre": "nombre artículo 02", 
+            "img-articulo-01": "url-articulo-02",
+            "precio": "precio 02"
+        }, 
+        "articulo-03": {
+            "id": 3,
+            "nombre": "nombre artículo 03", 
+            "img-articulo-01": "url-articulo-03",
+            "precio": "precio 04"
+        },
+        "articulo-04": {
+            "id": 4,
+            "nombre": "nombre artículo 04", 
+            "img-articulo-01": "url-articulo-04",
+            "precio": "precio 04"
+        },
+        "articulo-05": {
+            "id": 5,
+            "nombre": "nombre artículo 05", 
+            "img-articulo-01": "url-articulo-05",
+            "precio": "precio 05"
+        },
+        "articulo-06": {
+            "id": 6,
+            "nombre": "nombre artículo 06", 
+            "img-articulo-01": "url-articulo-06",
+            "precio": "precio 06"
+        }
+    }, 
+    "usuario03": {
+        "articulo-01": {
+            "id": 1,
+            "nombre": "nombre artículo 01", 
+            "img-articulo-01": "url-articulo-01",
+            "precio": "precio 01"
+        },
+        "articulo-02": {
+            "id": 2,
+            "nombre": "nombre artículo 02", 
+            "img-articulo-01": "url-articulo-02",
+            "precio": "precio 02"
+        }, 
+        "articulo-03": {
+            "id": 3,
+            "nombre": "nombre artículo 03", 
+            "img-articulo-01": "url-articulo-03",
+            "precio": "precio 04"
+        },
+        "articulo-04": {
+            "id": 4,
+            "nombre": "nombre artículo 04", 
+            "img-articulo-01": "url-articulo-04",
+            "precio": "precio 04"
+        },
+        "articulo-05": {
+            "id": 5,
+            "nombre": "nombre artículo 05", 
+            "img-articulo-01": "url-articulo-05",
+            "precio": "precio 05"
+        },
+        "articulo-06": {
+            "id": 6,
+            "nombre": "nombre artículo 06", 
+            "img-articulo-01": "url-articulo-06",
+            "precio": "precio 06"
+        }
+    }
+}

@@ -1,7 +1,9 @@
 <div class="mx-1 px-1">
 
-    <div class="container-fluid colorConfigVar01 rounded-3 my-2 px-2 py-1" (window:resize)="establecerFontSize()">
-        <!-- evento al cambiar tamaño de la ventana (window:resize)="eventoCambioAncho()"  -->
+    <div class="container-fluid colorConfigVar01 rounded-3 my-1 px-2 py-1" 
+    (window:resize)="establecerFontSize()">
+        <!-- evento al cambiar tamaño de la ventana 
+            (window:resize)="eventoCambioAncho()"  -->
 
         <!--
         <div class="mx-1 my-1 px-1 py-1">
@@ -19,12 +21,14 @@
             <div class="col-8 col-sm-6 col-md-4 ps-2">
                 <a *ngIf="botonConfigActivo; else btnConfigDesactivado" role="button"
                     (click)="clkBtnPersonalizarPagina()" class="">
-                    <h4 class="text-center" title="Presionar para personalizar colores y tamaños de texto">
-                        Configurar página</h4>
+                    <h5 class="text-center" title="Presionar para personalizar colores y tamaños de texto">
+                        Configurar página</h5>
                 </a>
                 <ng-template #btnConfigDesactivado>
                     <h5 class="text-secondary text-center"
-                        title="guardar cambios o salir para habilitar el botón">Configurar página</h5>
+                        title="guardar cambios o salir para habilitar el botón">
+                        Configurar página
+                    </h5>
                 </ng-template>
             </div>
         </div>
@@ -47,53 +51,85 @@
                             style="color:rgb(0,0,0);cursor:pointer;"
                             class="ms-2">██</span>
 
-                        <span (click)="seleccionColorSpanOscuro('rgb(53, 46, 46)')"
-                            style="color:rgb(53, 46, 46);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(12, 31, 8)')"
+                            style="color:rgb(12, 31, 8);cursor:pointer;" 
+                            class="ms-2">██</span>
 
-                        <span (click)="seleccionColorSpanOscuro('rgb(39, 70, 13)')"
-                            style="color:rgb(39, 78, 13);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(96, 153, 63)')"
-                            style="color:rgb(96, 153, 63);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(34, 64, 197)')"
-                            style="color:rgb(34, 64, 197);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(34, 44, 87)')"
-                            style="color:rgb(34, 44, 87);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(78, 36, 90)')"
-                            style="color:rgb(78, 36, 90);cursor:pointer;" class="ms-2">██</span>
-                        <br>
-                        <span (click)="seleccionColorSpanOscuro('rgb(200, 80, 255)')"
-                            style="color:rgb(200, 80, 255);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(30, 56, 25)')"
+                            style="color:rgb(30, 56, 25);cursor:pointer;" 
+                            class="ms-2">██</span>
 
-                        <span (click)="seleccionColorSpanOscuro('rgb(24, 141, 156)')"
-                            style="color:rgb(24, 141, 156);cursor:pointer;" class="ms-2">██</span>
-                            
-                        <span (click)="seleccionColorSpanOscuro('rgb(92, 28, 73)')"
-                            style="color:rgb(92, 28, 73);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(58, 17, 17)')"
-                            style="color:rgb(58, 17, 17);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(180, 70, 70)')"
-                            style="color:rgb(180, 70, 70);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(134, 136, 15)')"
-                            style="color:rgb(134, 136, 15);cursor:pointer;" class="ms-2">██</span>
-                            
-                        <span (click)="seleccionColorSpanOscuro('rgb(190, 174, 30)')"
-                            style="color:rgb(190, 174, 30);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanOscuro('rgb(52, 73, 48)')"
+                            style="color:rgb(52, 73, 48);cursor:pointer;" 
+                            class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(29, 121, 11)')"
+                            style="color:rgb(29, 121, 11);cursor:pointer;" 
+                            class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(11, 121, 112)')"
+                            style="color:rgb(11, 121, 112);cursor:pointer;" 
+                            class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(13, 61, 80)')"
+                            style="color:rgb(13, 61, 80);cursor:pointer;" 
+                            class="ms-2">██</span>
                         <br>
-                        <span (click)="seleccionColorSpanOscuro('rgb(255,0,0)')" 
-                            style="color:rgb(255,0,0);cursor:pointer;"
+                        <span (click)="seleccionColorSpanOscuro('rgb(5, 10, 43)')"
+                            style="color:rgb(5, 10, 43);cursor:pointer;" 
                             class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(131, 141, 37)')"
-                            style="color:rgb(131, 141, 37);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(139,0,0)')" style="color:rgb(139,0,0);cursor:pointer;"
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(18, 21, 43)')"
+                            style="color:rgb(18, 21, 43);cursor:pointer;" 
                             class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(143, 126, 82)')"
-                            style="color:rgb(143, 126, 82);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(255,69,0)')" style="color:rgb(255,69,0);cursor:pointer;"
+                            
+                        <span (click)="seleccionColorSpanOscuro('rgb(26, 32, 75)')"
+                            style="color:rgb(26, 32, 75);cursor:pointer;" 
                             class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(173, 133, 60)')"
-                            style="color:rgb(173, 133, 60);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanOscuro('rgb(29, 90, 94)')"
-                            style="color:rgb(29, 90, 94);cursor:pointer;" class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(31, 42, 122)')"
+                            style="color:rgb(31, 42, 122);cursor:pointer;" 
+                            class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(42, 12, 92)')"
+                            style="color:rgb(42, 12, 92);cursor:pointer;" 
+                            class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(15, 39, 146)')"
+                            style="color:rgb(15, 39, 146);cursor:pointer;" 
+                            class="ms-2">██</span>
+                            
+                        <span (click)="seleccionColorSpanOscuro('rgb(29, 16, 216)')"
+                            style="color:rgb(29, 16, 216);cursor:pointer;" 
+                            class="ms-2">██</span>
+                        <br>
+                        <span (click)="seleccionColorSpanOscuro('rgb(59, 27, 9)')" 
+                            style="color:rgb(59, 27, 9);cursor:pointer;"
+                            class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(49, 34, 26)')"
+                            style="color:rgb(49, 34, 26);cursor:pointer;" 
+                            class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(110, 45, 9)')" 
+                            style="color:rgb(110, 45, 9);cursor:pointer;"
+                            class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(143, 41, 10)')"
+                            style="color:rgb(143, 41, 10);cursor:pointer;" 
+                            class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(75, 8, 22)')" 
+                            style="color:rgb(75, 8, 22);cursor:pointer;"
+                            class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(100, 60, 7)')"
+                            style="color:rgb(100, 60, 7);cursor:pointer;" 
+                            class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanOscuro('rgb(122, 53, 21)')"
+                            style="color:rgb(122, 53, 21);cursor:pointer;" 
+                            class="ms-2">██</span>
 
                     </div>
                    
@@ -109,15 +145,19 @@
                             style="color:rgb(255, 255, 255);cursor:pointer;"
                             class="ms-2">██</span>
                         <span (click)="seleccionColorSpanClaro('rgb(211, 210, 200)')"
-                            style="color:rgb(221, 210, 200);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanClaro('rgb(177, 221, 140)')"
-                            style="color:rgb(177, 221, 148);cursor:pointer;" class="ms-2">██</span>
+                            style="color:rgb(221, 210, 200);cursor:pointer;" 
+                            class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(199, 219, 215)')"
+                            style="color:rgb(199, 219, 215);cursor:pointer;" 
+                            class="ms-2">██</span>
                         
                         <span (click)="seleccionColorSpanClaro('rgb(188, 202, 180)')"
-                            style="color:rgb(188, 202, 180);cursor:pointer;" class="ms-2">██</span>
+                            style="color:rgb(188, 202, 180);cursor:pointer;" 
+                            class="ms-2">██</span>
                             
-                        <span (click)="seleccionColorSpanClaro('rgb(168, 177, 214)')"
-                            style="color:rgb(168, 177, 214);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(180, 190, 214)')"
+                            style="color:rgb(180, 190, 214);cursor:pointer;" 
+                            class="ms-2">██</span>
                             
                         <span (click)="seleccionColorSpanClaro('rgb(158, 164, 187)')"
                             style="color:rgb(158, 164, 187);cursor:pointer;" class="ms-2">██</span>
@@ -126,8 +166,9 @@
                             style="color:rgb(206, 182, 212);cursor:pointer;" class="ms-2">██</span>
                         <br>
                         
-                        <span (click)="seleccionColorSpanClaro('rgb(205, 157, 220)')"
-                            style="color:rgb(205, 157, 228);cursor:pointer;" class="ms-2">██</span>
+                        <span (click)="seleccionColorSpanClaro('rgb(205, 180, 220)')"
+                            style="color:rgb(205, 180, 228);cursor:pointer;" 
+                            class="ms-2">██</span>
 
                         <span (click)="seleccionColorSpanClaro('rgb(139, 210, 219)')"
                             style="color:rgb(139, 210, 219);cursor:pointer;" class="ms-2">██</span>
@@ -135,9 +176,11 @@
                             style="color:rgb(189, 218, 230);cursor:pointer;" class="ms-2">██</span>
                         <span (click)="seleccionColorSpanClaro('rgb(201, 172, 172)')"
                             style="color:rgb(201, 172, 172);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanClaro('rgb(231, 196, 167)')"
-                            style="color:rgb(231, 196, 167);cursor:pointer;" class="ms-2">██</span>
-                        <span (click)="seleccionColorSpanClaro('rgb(208, 209, 144)')"
+                        
+                        <span (click)="seleccionColorSpanClaro('rgb(231, 196, 200)')"
+                            style="color:rgb(231, 196, 200);cursor:pointer;" class="ms-2">██</span>
+                        
+                            <span (click)="seleccionColorSpanClaro('rgb(208, 209, 144)')"
                             style="color:rgb(208, 209, 144);cursor:pointer;" class="ms-2">██</span>
                         <span (click)="seleccionColorSpanClaro('rgb(233, 224, 149)')"
                             style="color:rgb(233, 224, 149);cursor:pointer;" class="ms-2">██</span>
@@ -152,16 +195,20 @@
                             style="color:rgb(223, 197, 180);cursor:pointer;"
                             class="ms-2">██</span>
 
-                        <span (click)="seleccionColorSpanClaro('rgb(210, 192, 120)')"
-                            style="color:rgb(218, 192, 128);cursor:pointer;" class="ms-2">██</span>
-
-                        <span (click)="seleccionColorSpanClaro('rgb(216, 146, 120)')" 
-                            style="color:rgb(216, 146, 120);cursor:pointer;"
+                        <span (click)="seleccionColorSpanClaro('rgb(235, 206, 188)')"
+                            style="color:rgb(235, 206, 188);cursor:pointer;" 
                             class="ms-2">██</span>
+
+                        <span (click)="seleccionColorSpanClaro('rgb(205, 160, 175)')" 
+                            style="color:rgb(205, 160, 175);cursor:pointer;"
+                            class="ms-2">██</span>
+
                         <span (click)="seleccionColorSpanClaro('rgb(226, 187, 115)')"
-                            style="color:rgb(226, 187, 115);cursor:pointer;" class="ms-2">██</span>
+                            style="color:rgb(226, 187, 115);cursor:pointer;" 
+                            class="ms-2">██</span>
                         <span (click)="seleccionColorSpanClaro('rgb(126, 202, 207)')"
-                            style="color:rgb(126, 202, 207);cursor:pointer;" class="ms-2">██</span>
+                            style="color:rgb(126, 202, 207);cursor:pointer;" 
+                            class="ms-2">██</span>
 
                     </div>
                   
